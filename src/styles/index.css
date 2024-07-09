@@ -1,6 +1,17 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 /**
   * 전역적으로 적용할 CSS 를 담는 파일입니다.
   ex) 폰트나 기본값 설정 (input의 글씨체, body의 폰트 등)
+
+  * 폰트 적용은 여기서 가져가시면 됩니다.
+  한글 폰트 프리텐다드
+  font-family: "Pretendard Variable", sans-serif; //해당 부분에 추가
+
+  영어 폰트 Noto Sans
+  font-family: "Noto Sans", sans-serif;
+
+
   */
 html body {
   margin: 0;
