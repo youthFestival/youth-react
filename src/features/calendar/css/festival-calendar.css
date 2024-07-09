@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center; 
     align-items: center;
+    font-family: "Pretendard Variable";
     width: 1920px;
 }
 
@@ -42,21 +43,6 @@
     text-align: left;
 }
 
-.calendar-item {
-    height: 450px;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-.calendar-date, .festival {
-    border: 1px solid black;
-}
-
-.calendar-date {
-    display: flex;
-    flex-direction: column;
-}
-
 #calendar-previous-btn, #calendar-next-btn {
     width: 70px;
     height: 40px;
@@ -84,4 +70,20 @@
 #calendar-next-btn {
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+/* CalendarItem */
+.calendar-item {
+    height: 450px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.calendar-date, .festival {
+    border: 1px solid black;
+}
+
+.calendar-date {
+    display: flex;
+    flex-direction: column;
 }
