@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import useFestivals from "../hooks/useFestivals";
 import CalendarDay from '../components/CalendarDay';
+import leftArrow from '../../../assets/left-arrow.svg';
+import rightArrow from '../../../assets/right-arrow.svg';
 import "../css/festival-calendar.css";
 
 /**
@@ -11,8 +13,7 @@ const FestivalCalendar = () => {
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
     const [month, setMonth] = useState(today.getMonth() + 1);
-    const festivals = useFestivals(year, month);
-
+    const { festivals, prevMonthFestivals, nextMonthFestivals } = useFestivals(year, month);
 
     /**
      * 이전 달 이동 핸들러
@@ -41,22 +42,39 @@ const FestivalCalendar = () => {
     const renderCalendar = () => {
         const daysInMonth = new Date(year, month, 0).getDate();
         const firstDay = new Date(year, month - 1, 1).getDay();
+        const lastMonthDays = new Date(year, month - 1, 0).getDate();
         const rows = [];
         let cells = [];
 
+        // 오늘 날짜 확인
+        const isToday = (day) => {
+            return day === today.getDate() && month === today.getMonth() + 1 && year === today.getFullYear();
+        };
+
+        // 이전 달의 날짜를 추가
         for (let i = 0; i < firstDay; i++) {
-            cells.push(<td className="day empty" key={`empty-${i}`}></td>);
+            const prevDate = lastMonthDays - firstDay + i + 1;
+            const events = prevMonthFestivals.filter(festival => new Date(festival.date).getDate() === prevDate);
+            cells.push(<CalendarDay key={`prev-${i}`} date={prevDate} events={events} isPrevMonth isFirstColumn={i === 0} />);
         }
 
+        // 현재 달의 날짜를 추가
         for (let day = 1; day <= daysInMonth; day++) {
             const events = festivals.filter(festival => new Date(festival.date).getDate() === day);
-            cells.push(<CalendarDay key={day} date={day} events={events} />);
+            cells.push(<CalendarDay key={day} date={day} events={events} isToday={isToday(day)} isFirstColumn={cells.length === 0} isLastColumn={(day + firstDay - 1) % 7 === 6} />);
             if ((day + firstDay) % 7 === 0) {
                 rows.push(<tr key={`row-${day}`}>{cells}</tr>);
                 cells = [];
             }
         }
 
+        // 다음 달의 날짜를 추가
+        let nextMonthDay = 1;
+        while (cells.length < 7) {
+            const events = nextMonthFestivals.filter(festival => new Date(festival.date).getDate() === nextMonthDay);
+            cells.push(<CalendarDay key={`next-${nextMonthDay}`} date={nextMonthDay} events={events} isNextMonth isLastColumn={cells.length === 6} />);
+            nextMonthDay++;
+        }
         if (cells.length) {
             rows.push(<tr key="last-row">{cells}</tr>);
         }
@@ -70,8 +88,12 @@ const FestivalCalendar = () => {
                 <div id="calendar-header">
                     <div>
                         <span id='calendar-current-date'>{year}년 {month}월</span>
-                        <button id="calendar-previous-btn" onClick={handlePreviousMonth}>&lt;</button>
-                        <button id="calendar-next-btn" onClick={handleNextMonth}>&gt;</button>
+                        <button id="calendar-previous-btn" onClick={handlePreviousMonth}>
+                            <img src={leftArrow} alt="Previous Month" />
+                        </button>
+                        <button id="calendar-next-btn" onClick={handleNextMonth}>
+                            <img src={rightArrow} alt="Next Month" />
+                        </button>
                     </div>
                 </div>
                 <div id="calendar-content">
