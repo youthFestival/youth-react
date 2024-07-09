@@ -1,0 +1,108 @@
+* {
+    font-family: "Pretendard Variable", sans-serif;
+}
+
+.login-form {
+    background-color: white;
+    display : flex;
+    height: 100vh;
+    justify-content: center;
+    margin-top: 68px;
+}
+
+.login-container {
+    height: 584px;
+}
+
+.login-contents {
+    background-color: white;
+    display: flex;
+    width: 400px;
+    height: 584px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+/* 로그인 Youth 로고 CSS */
+.login-logo-box {
+    display: flex;
+    width: 173px;
+    height: 60px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 36px 114px 0 114px;
+}
+
+.login-youth {
+    color: #89CFF0;
+    text-align: center;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+/* 로그인 아이디/비밀번호 CSS */
+.login-write-form{
+    background-color: white;
+    width: 400px;
+    height: 110px;
+    display: flex;
+}
+
+
+/* 로그인 체크박스 CSS */
+.login-maintain-container {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19.5px;
+}
+
+/* 정보찾기, 회원가입 영역 CSS */
+.login-userfind-register{
+    width: 400px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.userfind-register-form{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0px 76.47px 0px 76.46px;
+}
+
+/* 정보찾기, 회원가입 버튼 필드 CSS */
+.login-go-findid-field,
+.login-go-register-field {
+    width: 90px;
+    height: 20px;
+    border: none;
+}
+
+.login-go-findpw-field{
+    width: 100px;
+}
+
+.login-go-findpw-field,
+.login-go-register-field {
+    border-left: 1px solid #DDD;
+}
+
+/* 정보찾기, 회원가입 버튼 CSS */
+.login-go-findid-btn,
+.login-go-findpw-btn,
+.login-go-register-btn {
+    background-color: transparent;
+    border: none;
+    color:#666;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}

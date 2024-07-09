@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NaverAuthenticLogo = () => {
+const NaverLogo = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const NaverAuthenticLogo = () => {
     );
 };
 
-export default NaverAuthenticLogo;
+export default NaverLogo;
