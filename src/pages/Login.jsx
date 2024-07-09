@@ -29,7 +29,7 @@ const Login = () => {
                 </div>
 
                 <div className='login-maintain-container'>
-                      <label for='login-maintain-checkbox' className='login-checkbox-label'> 
+                      <label for='login-maintain-checkbox'> 
                             <input type='checkbox' className='login-maintain-checkbox' />로그인 상태 유지
                       </label>
                 </div>

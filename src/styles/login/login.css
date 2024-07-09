@@ -58,15 +58,18 @@
 
 /* 로그인 체크박스 CSS */
 .login-maintain-container {
+    color: gray;
     font-size: 13px;
+    font-weight: 100px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100px;
     line-height: 19.5px;
+    
 }
 
 .login-maintain-checkbox {
-    width: 11px;
-    height: 11px;
+    width: 10px;
+    height: 10px;
 }
 
 /* 정보찾기, 회원가입 영역 CSS */
