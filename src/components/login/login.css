@@ -1,0 +1,8 @@
+.loginAll{
+    background-color: black;
+    display : flex;
+    height: 1000px;
+    padding : 120.5px 0px 118.5px 0px;
+    justify-content: center;
+    align-items: center; 
+}
