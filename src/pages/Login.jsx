@@ -15,9 +15,16 @@ const Login = () => {
             <div className='login-contents'>
                 <div className='login-logo-box'>
                     <span className='login-youth'>Youth!</span>
-                </div>
-            </div>
 
+                    
+                </div>
+                
+                <div className='login-write-form'>
+                      
+                </div>
+
+                
+            </div>
         </div>
     </div>
   );
