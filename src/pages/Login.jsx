@@ -2,7 +2,9 @@ import React from "react";
 import '../styles/login/login.css';
 import {
     LoginBtn,
-    KakaoAuthLogo
+    KakaoAuthLogo,
+    NaverAuthLogo,
+    GoogleAuthLogo
 } from '../features/authentication/index.js'
 /**
  * 로그인 화면
@@ -51,7 +53,12 @@ const Login = () => {
                         </div>
                 </div>
 
-                <KakaoAuthLogo />
+                <div className='login-companyicons-area'>
+                    <KakaoAuthLogo />
+                    <NaverAuthLogo />
+                    <GoogleAuthLogo />
+                </div>
+                
 
             </div>
 
