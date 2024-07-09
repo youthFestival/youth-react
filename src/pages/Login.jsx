@@ -1,7 +1,8 @@
 import React from "react";
 import '../styles/login/login.css';
 import {
-    LoginBtn
+    LoginBtn,
+    KakaoAuthLogo
 } from '../features/authentication/index.js'
 /**
  * 로그인 화면
@@ -49,6 +50,9 @@ const Login = () => {
                               </div>
                         </div>
                 </div>
+
+                <KakaoAuthLogo />
+
             </div>
 
         </div>

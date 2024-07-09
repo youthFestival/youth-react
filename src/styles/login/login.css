@@ -1,7 +1,9 @@
+/* 전체 폰트 프리텐다드 */
 * {
     font-family: "Pretendard Variable", sans-serif;
 }
 
+/* 로그인 폼 CSS */
 .login-form {
     background-color: white;
     display : flex;
@@ -83,10 +85,11 @@
     width: 90px;
     height: 20px;
     border: none;
+    gap: 12px;
 }
 
-.login-go-findpw-field{
-    width: 100px;
+.login-go-findpw-field {
+    width:100px;
 }
 
 .login-go-findpw-field,
@@ -98,11 +101,14 @@
 .login-go-findid-btn,
 .login-go-findpw-btn,
 .login-go-register-btn {
+    width:90px;
     background-color: transparent;
     border: none;
     color:#666;
-    font-size: 13px;
+    font-size: 11px;
     font-style: normal;
     font-weight: 400;
     text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
 }

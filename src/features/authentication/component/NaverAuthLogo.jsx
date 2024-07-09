@@ -1,6 +1,6 @@
 import React from 'react';
 
-const KakaoLogo = () => {
+const NaverAuthLogo = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const KakaoLogo = () => {
     );
 };
 
-export default KakaoLogo;
+export default NaverAuthLogo;
