@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import AdminPageNav from "../components/nav/adminNav/AdminNav";
+import Menu from "../features/dashboard/components/menu/Menu";
 
 function AdminDashBoard() {
   return (
     <>
-      <AdminPageNav />
+      <Menu />
       <Outlet />
     </>
   );

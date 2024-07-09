@@ -1,0 +1,13 @@
+/**
+  * 전역적으로 적용할 CSS 를 담는 파일입니다.
+  ex) 폰트나 기본값 설정 (input의 글씨체, body의 폰트 등)
+  */
+html body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}

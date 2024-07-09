@@ -1,0 +1,6 @@
+menu-container {
+  background-color: #1E232E;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
