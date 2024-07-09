@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashBoard from "./pages/AdminDashBoard";
-import Login from './components/login/Login';
+import Login from './pages/Login';
 import Calendar from './pages/Calendar';
 
 function App() {
