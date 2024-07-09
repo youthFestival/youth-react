@@ -8,18 +8,17 @@ const Login = () => {
 
     
   return (
-      <div className="loginAll">
+      <div className='loginForm'>
 
-         <div>
-
+         <div className='loginContainer'>
             {/* 로그인 메인 폼 */}
-            <div className='loginContentsForm'>
-                <div className='loginLogoDiv'>
-                    <span className='loginYouthLogo'>Youth!</span>
+            <div className='loginContents'>
+                <div className='loginLogoBox'>
+                    <span className='loginYouth'>Youth!</span>
                 </div>
             </div>
 
-            
+
         </div>
     </div>
   );
