@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {fetchFestivalCalendar} from "../services/festivalCalendarService";
+import {fetchFestivalCalendar} from "../services/festival-calendar-service";
 
 const useFestivals = (year, month) => {
     const [festivals, setFestivals] = useState([]);

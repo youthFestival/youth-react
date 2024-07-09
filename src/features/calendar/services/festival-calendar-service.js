@@ -1,5 +1,5 @@
 import axios from "axios";
-import fakeFestivals from "./fakeFestivals";
+import fakeFestivals from "./fake-festivals"
 
 /**
  * 축제 정보를 가져오는 api 호출 부분(진짜로 바꿔야 됨)

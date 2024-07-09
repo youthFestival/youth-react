@@ -20,7 +20,7 @@
     height: 60px;
 }
 
-#calendar-body {
+#calendar-content {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,7 @@
     width: 100%;
 }
 
-#calendar-year-month {
+#calendar-current-date {
     margin-right: 20px;
     font-size: 25px;
 }

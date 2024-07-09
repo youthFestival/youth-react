@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useFestivals from "../hooks/useFestivalsCalendar"
+import useFestivals from "../hooks/useFestivals";
 import CalendarDay from '../components/CalendarDay';
 import "../css/festival-calendar.css";
 
@@ -69,12 +69,12 @@ const FestivalCalendar = () => {
             <div id='calendar-container'>
                 <div id="calendar-header">
                     <div>
-                        <span id='calendar-year-month'>{year}년 {month}월</span>
+                        <span id='calendar-current-date'>{year}년 {month}월</span>
                         <button id="calendar-previous-btn" onClick={handlePreviousMonth}>&lt;</button>
                         <button id="calendar-next-btn" onClick={handleNextMonth}>&gt;</button>
                     </div>
                 </div>
-                <div id="calendar-body">
+                <div id="calendar-content">
                     <table id="calendar-table">
                         <thead>
                             <tr>
