@@ -11,7 +11,7 @@ const CalendarDay = ({ date, events }) => {
         <td className="day">
             <div className="date">{date}</div>
             {displayEvents.map((event, index) => (
-                <span key={index} className="festival">{event.name}</span>
+                <div key={index} className="festival">{event.name}</div>
             ))}
         </td>
     );

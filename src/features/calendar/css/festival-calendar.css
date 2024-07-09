@@ -33,19 +33,55 @@
 
 #calendar-year-month {
     margin-right: 20px;
+    font-size: 25px;
 }
 
 .weekday {
     width: 200px;
     height: 100px;
-    border: 1px solid black;
+    text-align: left;
 }
 
 .day {
     height: 450px;
-    border: 1px solid black;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .date, .festival {
     border: 1px solid black;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+}
+
+#calendar-previous-btn, #calendar-next-btn {
+    width: 70px;
+    height: 40px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#calendar-previous-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-next-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-previous-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#calendar-next-btn {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

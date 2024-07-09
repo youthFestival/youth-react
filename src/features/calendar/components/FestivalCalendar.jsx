@@ -70,8 +70,8 @@ const FestivalCalendar = () => {
                 <div id="calendar-header">
                     <div>
                         <span id='calendar-year-month'>{year}년 {month}월</span>
-                        <button onClick={handlePreviousMonth}>&lt;</button>
-                        <button onClick={handleNextMonth}>&gt;</button>
+                        <button id="calendar-previous-btn" onClick={handlePreviousMonth}>&lt;</button>
+                        <button id="calendar-next-btn" onClick={handleNextMonth}>&gt;</button>
                     </div>
                 </div>
                 <div id="calendar-body">
