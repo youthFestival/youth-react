@@ -9,14 +9,19 @@ const Login = () => {
     
   return (
       <div className="loginAll">
-  
+
+         <div>
+
             {/* 로그인 메인 폼 */}
             <div className='loginContentsForm'>
                 <div className='loginLogoDiv'>
                     <span className='loginYouthLogo'>Youth!</span>
                 </div>
             </div>
+
+            
         </div>
+    </div>
   );
 };
 
