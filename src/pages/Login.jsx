@@ -1,11 +1,15 @@
 import React from "react";
-import '../styles/login/login.css';
+import LoginIDInput from '../components/login/LoginIDInput.jsx';
+import LoginPWInput from '../components/login/LoginPWInput.jsx';
 import {
     LoginBtn,
     KakaoAuthLogo,
     NaverAuthLogo,
     GoogleAuthLogo
 } from '../features/authentication/index.js'
+
+import '../styles/login/login.css';
+
 /**
  * 로그인 화면
  * @returns
@@ -24,8 +28,9 @@ const Login = () => {
                     <span className='login-youth'>Youth!</span>  
                 </div>
                 
-                <div className='login-write-form'>
-                      
+                <div className='login-input-form'>
+                      <LoginIDInput />
+                      <LoginPWInput />
                 </div>
 
                 <div className='login-maintain-container'>

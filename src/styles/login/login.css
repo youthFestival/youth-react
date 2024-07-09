@@ -1,8 +1,3 @@
-/* 전체 폰트 프리텐다드 */
-* {
-    font-family: "Pretendard Variable", sans-serif;
-}
-
 /* 로그인 폼 CSS */
 .login-form {
     background-color: white;
@@ -48,7 +43,7 @@
 }
 
 /* 로그인 아이디/비밀번호 CSS */
-.login-write-form{
+.login-input-form{
     background-color: white;
     width: 400px;
     height: 110px;
