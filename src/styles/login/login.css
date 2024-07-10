@@ -1,4 +1,5 @@
 /* 로그인 폼 CSS */
+
 .login-form {
     background-color: white;
     display : flex;
@@ -42,15 +43,6 @@
     line-height: normal;
 }
 
-/* 로그인 아이디/비밀번호 CSS */
-.login-input-form{
-    background-color: white;
-    width: 400px;
-    height: 110px;
-    display: grid;
-}
-
-
 /* 로그인 체크박스 CSS */
 .login-maintain-container {
     color: gray;
@@ -62,66 +54,50 @@
 }
 
 .login-maintain-checkbox {
-    width: 10px;
-    height: 10px;
+    width: 11px;
+    height: 11px;
 }
+
+
 
 /* 정보찾기, 회원가입 영역 CSS */
+.login-userfind-register a {
+    text-decoration: none;
+    color: #666;
+    font-size: 13px;
+    line-height: 19px;
+}
+
+
+.login-userfind-register a:nth-child(2)::before, .login-userfind-register a:nth-child(2)::after{
+    content: "|";
+    padding-inline: 12px;
+    color: #DDDDDD;
+}
+
 .login-userfind-register{
-    width: 400px;
-    height: 20px;
     display: flex;
-    justify-content: center;
-    background-color: white;
-    margin-top: 20px;
-}
-
-.userfind-register-form{
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 0px 76.47px 0px 76.46px;
-}
-
-/* 정보찾기, 회원가입 버튼 필드 CSS */
-.login-go-findid-field,
-.login-go-register-field {
-    width: 90px;
-    height: 20px;
-    border: none;
-    gap: 12px;
-}
-
-.login-go-findpw-field {
-    width:100px;
-}
-
-.login-go-findpw-field,
-.login-go-register-field {
-    border-left: 1px solid #DDD;
+    margin-left: 76.46px;
+    margin-right: 76.46px;
 }
 
 /* 정보찾기, 회원가입 버튼 CSS */
-.login-go-findid-btn,
-.login-go-findpw-btn,
-.login-go-register-btn {
+.login-go-findid,
+.login-go-findpw,
+.login-go-register {
     width:90px;
-    background-color: transparent;
-    border: none;
     color:#666;
-    font-size: 11px;
     font-style: normal;
     font-weight: 400;
-    text-align: center;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    text-decoration: none;
 }
+
 
 .login-companyicons-area{
     display: flex;
-    width: 400px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 45px;
-    gap:15px;
+    padding: 0px 10px;
+    align-items: flex-start;
+    gap: 20px;
 }

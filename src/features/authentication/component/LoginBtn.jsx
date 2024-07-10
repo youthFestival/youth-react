@@ -8,7 +8,7 @@ import '../styles/loginbtn.css'
 const LoginBtn = () => {
     return (
         <div>
-            <button type='submit' className='login-btn'>로그인</button>
+            <button className='login-btn'>로그인</button>
         </div>
     );
 };
