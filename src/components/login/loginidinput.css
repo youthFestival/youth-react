@@ -1,0 +1,14 @@
+.login-id-input-area{
+    width: 400px;
+    border-radius: 12px 12px 0px 0px;
+    border: 1px solid #DDD;
+    background: white;
+}
+
+.login-id-input{
+    width: 318.4px;
+    margin-top: 16px;
+    float: right;
+    margin-right: 5%;
+    border: none;
+}

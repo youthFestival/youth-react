@@ -1,0 +1,133 @@
+/* FestivalCalendar */
+#calendar-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Pretendard Variable";
+    width: 1920px;
+}
+
+#calendar-container {
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+}
+
+#calendar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#calendar-header, #calendar-body, #calendar-table {
+    width: 100%;
+}
+
+#calendar-current-date {
+    margin-right: 20px;
+    font-size: 40px;
+}
+
+.weekday {
+    width: 200px;
+    height: 100px;
+    font-size: 25px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#calendar-previous-btn, #calendar-next-btn {
+    width: 70px;
+    height: 40px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#calendar-previous-btn img, #calendar-next-btn img {
+    width: 60%;
+    height: auto;
+}
+
+#calendar-previous-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-next-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-previous-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#calendar-next-btn {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/* CalendarItem */
+.calendar-item {
+    height: 450px;
+    vertical-align: top;
+    padding: 5px;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.calendar-item.first-column {
+    border-left: none;
+}
+
+.calendar-item.last-column {
+    border-right: none;
+}
+
+.calendar-date {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    margin-bottom: 5px;
+    font-size: 25px;
+    padding: 10px;
+}
+
+.prev-month .calendar-date, .next-month .calendar-date {
+    color: #b0b0b0;
+}
+
+.today {
+    color: #89CFF0;
+}
+
+.festival {
+    display: flex;
+    height: 40px;
+    margin: 2px 0;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 25px;
+    align-items: center;
+}
+
+.festival.대학축제 {
+    background-color: #FBAFBD;
+}
+
+.festival.페스티벌 {
+    background-color: #B2EAFF;
+}

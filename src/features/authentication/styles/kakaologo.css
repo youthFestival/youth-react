@@ -1,0 +1,12 @@
+.kakao-login-area{
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    border: none;
+}
+
+.kakao-login-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
