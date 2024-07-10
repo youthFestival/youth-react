@@ -4,13 +4,13 @@
 const fakeFestivals = [
     {
         id: 1,
-        name: 'Festival 1',
+        name: 'Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1',
         date: '2024-07-01',
         categories : "대학축제"
     },
     {
         id: 2,
-        name: 'Festival 2',
+        name: '2024년도 고려대학교 대동제 페스티벌',
         date: '2024-07-02',
         categories : "페스티벌"
     },
