@@ -3,7 +3,7 @@ import useFestivals from "../hooks/useFestivals";
 import CalendarDay from '../components/CalendarDay';
 import leftArrow from '../../../assets/left-arrow.svg';
 import rightArrow from '../../../assets/right-arrow.svg';
-import "../css/festival-calendar.css";
+import "../styles/festival-calendar.css";
 
 /**
  * 달력 페이지 UI
@@ -89,10 +89,10 @@ const FestivalCalendar = () => {
                     <div>
                         <span id='calendar-current-date'>{year}년 {month}월</span>
                         <button id="calendar-previous-btn" onClick={handlePreviousMonth}>
-                            <img src={leftArrow} alt="Previous Month" />
+                            <img src={leftArrow} alt="Previous Month"/>
                         </button>
                         <button id="calendar-next-btn" onClick={handleNextMonth}>
-                            <img src={rightArrow} alt="Next Month" />
+                            <img src={rightArrow} alt="Next Month"/>
                         </button>
                     </div>
                 </div>
