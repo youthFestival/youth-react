@@ -54,13 +54,21 @@ const FestivalCalendar = () => {
         // 이전 달의 날짜를 추가
         for (let i = 0; i < firstDay; i++) {
             const prevDate = lastMonthDays - firstDay + i + 1;
-            const events = prevMonthFestivals.filter(festival => new Date(festival.date).getDate() === prevDate);
+            const events = prevMonthFestivals.filter(festival => {
+                const startDate = new Date(festival.startDate);
+                const endDate = new Date(festival.endDate);
+                return prevDate >= startDate.getDate() && prevDate <= endDate.getDate();
+            });
             cells.push(<CalendarDay key={`prev-${i}`} date={prevDate} events={events} isPrevMonth isFirstColumn={i === 0} />);
         }
 
         // 현재 달의 날짜를 추가
         for (let day = 1; day <= daysInMonth; day++) {
-            const events = festivals.filter(festival => new Date(festival.date).getDate() === day);
+            const events = festivals.filter(festival => {
+                const startDate = new Date(festival.startDate);
+                const endDate = new Date(festival.endDate);
+                return day >= startDate.getDate() && day <= endDate.getDate();
+            });
             cells.push(<CalendarDay key={day} date={day} events={events} isToday={isToday(day)} isFirstColumn={cells.length === 0} isLastColumn={(day + firstDay - 1) % 7 === 6} />);
             if ((day + firstDay) % 7 === 0) {
                 rows.push(<tr key={`row-${day}`}>{cells}</tr>);
@@ -71,8 +79,15 @@ const FestivalCalendar = () => {
         // 다음 달의 날짜를 추가
         let nextMonthDay = 1;
         while (cells.length < 7) {
-            const events = nextMonthFestivals.filter(festival => new Date(festival.date).getDate() === nextMonthDay);
-            cells.push(<CalendarDay key={`next-${nextMonthDay}`} date={nextMonthDay} events={events} isNextMonth isLastColumn={cells.length === 6} />);
+            const addNextMonthDay = (day) => {
+                const events = nextMonthFestivals.filter(festival => {
+                    const startDate = new Date(festival.startDate);
+                    const endDate = new Date(festival.endDate);
+                    return day >= startDate.getDate() && day <= endDate.getDate();
+                });
+                cells.push(<CalendarDay key={`next-${day}`} date={day} events={events} isNextMonth isLastColumn={cells.length === 6} />);
+            };
+            addNextMonthDay(nextMonthDay);
             nextMonthDay++;
         }
         if (cells.length) {

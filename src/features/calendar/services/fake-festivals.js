@@ -1,60 +1,66 @@
-/**
- * 가짜 데이터 파일(api 완성되면 없애야 됨)
- */
 const fakeFestivals = [
     {
         id: 1,
-        name: 'Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1Festival 1',
-        date: '2024-07-01',
-        categories : "대학축제"
+        name: 'Festival 1',
+        startDate: '2024-07-01',
+        endDate: '2024-07-07',
+        categories: "대학축제"
     },
     {
         id: 2,
         name: '2024년도 고려대학교 대동제 페스티벌',
-        date: '2024-07-02',
-        categories : "페스티벌"
+        startDate: '2024-07-02',
+        endDate: '2024-07-05',
+        categories: "페스티벌"
     },
     {
         id: 3,
         name: 'Festival 3',
-        date: '2024-07-02',
-        categories : "페스티벌"
+        startDate: '2024-07-02',
+        endDate: '2024-07-04',
+        categories: "페스티벌"
     },
     {
         id: 4,
         name: 'Festival 4',
-        date: '2024-07-09',
-        categories : "페스티벌"
+        startDate: '2024-07-09',
+        endDate: '2024-07-09',
+        categories: "페스티벌"
     },
     {
         id: 5,
         name: 'Festival 5',
-        date: '2024-07-11',
-        categories : "대학축제"
+        startDate: '2024-07-11',
+        endDate: '2024-07-11',
+        categories: "대학축제"
     },
     {
         id: 6,
         name: 'Festival 6',
-        date: '2024-07-11',
-        categories : "페스티벌"
+        startDate: '2024-07-11',
+        endDate: '2024-07-11',
+        categories: "페스티벌"
     },
     {
         id: 7,
         name: 'Festival 7',
-        date: '2024-07-15',
-        categories : "페스티벌"
+        startDate: '2024-07-15',
+        endDate: '2024-07-15',
+        categories: "페스티벌"
     },
     {
         id: 8,
         name: 'Festival 8',
-        date: '2024-07-24',
-        categories : "대학축제"
+        startDate: '2024-07-24',
+        endDate: '2024-07-24',
+        categories: "대학축제"
     },
     {
         id: 9,
         name: 'Festival 9',
-        date: '2024-07-30',
-        categories : "페스티벌"
+        startDate: '2024-07-30',
+        endDate: '2024-07-30',
+        categories: "페스티벌"
     },
 ];
 
