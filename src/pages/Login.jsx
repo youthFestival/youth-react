@@ -1,9 +1,10 @@
 import React from "react";
 import {
-    LoginBtn,
+    AuthBtn,
     AuthLogo, 
-    LoginInput
+    AuthInput
 } from '../features/authentication/index.js'
+
 import '../styles/login/login.css';
 
 
@@ -24,8 +25,19 @@ const Login = () => {
                     <span className='login-youth'>Youth!</span>  
                 </div>
                 
-
-                <LoginInput />
+                <div className='login-input-form'>
+                    <AuthInput 
+                        inputType='text'
+                        inputClassName='login-id-input'
+                        inputPlaceHolder="아이디"
+                    />
+                    <AuthInput 
+                        inputType='password'
+                        inputClassName='login-pw-input'
+                        inputPlaceHolder='패스워드'
+                    />
+                </div>
+                
 
 
                 <div className='login-maintain-container'>
@@ -34,7 +46,9 @@ const Login = () => {
                 </div>
 
 
-                <LoginBtn />
+                <AuthBtn 
+                    btnClassName = 'login-btn'
+                />
                 
 
                 <div className="login-userfind-register">
@@ -45,7 +59,31 @@ const Login = () => {
 
 
                 <div className='login-companyicons-area'>
-                    <AuthLogo />
+
+                    <AuthLogo 
+                        logoDivName='login-kakaologo'
+                        logoHref='##1'
+                        logoSrc="./icons/company/kakaologo.png" 
+                        logoAlt="카카오 로그인 아이콘" 
+                        logoClassName='kakaologo'
+                    />
+                    
+                    <AuthLogo 
+                        logoDivName='login-naverlogo'
+                        logoHref='##2'
+                        logoSrc = "./icons/company/naverlogo.png" 
+                        logoAlt = "네이버 로그인 아이콘" 
+                        logoClassName='naverlogo'
+                    />
+
+                    <AuthLogo 
+                        logoDivName='login-googlelogo'
+                        logoHref='##3'
+                        logoSrc="./icons/company/googlelogo.png" 
+                        logoAlt="구글 로그인 아이콘" 
+                        logoClassName='googlelogo'
+                    />
+
                 </div>
                 
 

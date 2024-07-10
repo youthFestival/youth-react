@@ -5,12 +5,14 @@ import '../styles/loginbtn.css'
  * 로그인 버튼 컴포넌트
  * @returns 
  */
-const LoginBtn = () => {
+function AuthBtn (btnClassName) {
     return (
         <div>
-            <button className='login-btn'>로그인</button>
+            <button
+                className = {btnClassName}
+            />
         </div>
     );
 };
 
-export default LoginBtn;
+export default AuthBtn;

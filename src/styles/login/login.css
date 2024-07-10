@@ -58,7 +58,23 @@
     height: 11px;
 }
 
+.login-id-input,
+.login-pw-input {
+    display: flex;
+    width: 318.4px;
+    height: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    border:none;
+}
+.login-id-input{
+    border-radius: 12px 12px 0px 0px;
+}
 
+.login-id-input:focus{
+    outline: none;
+}
 
 /* 정보찾기, 회원가입 영역 CSS */
 .login-userfind-register a {
@@ -81,6 +97,23 @@
     margin-right: 76.46px;
 }
 
+/* 로그인버튼 */
+.login-btn{
+    font-family: "Pretendard Variable", sans-serif;
+    background-color: #89CFF0;
+    color:white;
+    border-radius: 12px;
+    border: 1px solid #89CFF0;
+    display: flex;
+    width: 400px;
+    height: 52px;
+    padding: 17px 177.96px 17px 177.95px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
 /* 정보찾기, 회원가입 버튼 CSS */
 .login-go-findid,
 .login-go-findpw,
@@ -97,7 +130,41 @@
 
 .login-companyicons-area{
     display: flex;
-    padding: 0px 10px;
+    padding: 0px 98px;
     align-items: flex-start;
     gap: 20px;
+}
+
+/* 연동 아이콘 컴포넌트 CSS */
+.login-kakaologo,
+.login-naverlogo,
+.login-googlelogo {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    padding: 14px 14px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 100%;
+}
+.login-kakaologo{
+    background-color: yellow;
+}
+.login-naverlogo{
+    background-color: #1EC800;
+}
+.login-googlelogo{
+    background-color: white;
+    border:1px solid gainsboro;
+}
+
+.kakaologo{
+    width: 21px;
+    height: 20px;
+}
+.naverlogo,
+.googlelogo{
+    width: 25px;
+    height: 25px;
 }

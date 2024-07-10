@@ -1,0 +1,13 @@
+.input-form{
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid gainsboro;
+}
+
+.input-content{
+    margin-top: 15.8px;
+    margin-bottom: 15px;
+}
