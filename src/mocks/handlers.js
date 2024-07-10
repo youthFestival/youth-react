@@ -23,13 +23,20 @@ export const handlers = [
         }, {
             status: 201
         })
+    }),
+
+    http.post('/login', async ({ request, cookies }) => {
+        // const currentToken = cookies.authToken;
+
+
+        return HttpResponse.json({
+            incomingData: await request.json(),
+            cookie: cookies
+        }, {
+            headers: {
+                'Set-Cookie': 'authToken=abc; Path=/; SameSite=Strict'
+            },
+            status: 202,
+        })
     })
-
-
-    // ...and respond to them using this JSON response.
-    // return HttpResponse.json({
-    //     id: 'c7b3d8e0-5e0b-4b0f-8b3a-3b9f4b3d3b3d',
-    //     firstName: 'John',
-    //     lastName: 'Maverick',
-    // })
 ];
