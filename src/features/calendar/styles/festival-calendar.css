@@ -10,7 +10,7 @@
 #calendar-container {
     display: flex;
     flex-direction: column;
-    width: 80%;;
+    width: 80%;
 }
 
 #calendar-header {
@@ -39,7 +39,7 @@
 }
 
 .weekday {
-    width: 200px;
+    width: calc(100% / 7);
     height: 60px;
     font-size: 15px;
     text-align: left;
@@ -82,7 +82,7 @@
 /* CalendarItem */
 .calendar-item {
     height: 250px;
-    max-width: 185px;
+    width: calc(100% / 7);
     vertical-align: top;
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -118,7 +118,7 @@
     display: flex;
     height: 20px;
     margin: 2px 0;
-    max-width: 185px;
+    max-width: 210px;
     padding: 2px 5px;
     font-size: 15px;
     align-items: center;
