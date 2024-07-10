@@ -82,6 +82,7 @@
 /* CalendarItem */
 .calendar-item {
     height: 250px;
+    max-width: 185px;
     vertical-align: top;
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.3);
