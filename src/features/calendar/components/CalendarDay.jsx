@@ -22,7 +22,9 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
         <td className={`calendar-item ${dateClass} ${columnClass}`}>
             <div className={`calendar-date ${dateClass} ${todayClass}`}>{date}</div>
             {displayEvents.map((event, index) => (
-                <div key={index} className={`festival ${categoryToClassName(event.categories)}`}>{event.name}</div>
+                <div key={index} className={`festival ${categoryToClassName(event.categories)}`}>
+                    {new Date(event.startDate).getDate() === date && event.name}
+                </div>
             ))}
         </td>
     );
