@@ -1,7 +1,7 @@
 import React from 'react';
 import chatBotOpenButton from './icons/chat-icon.svg'
 
-import './chatbot.css';
+import './styles/chatbot-icon.css'
 
 const ChatbotButton = ({ onClick }) => (
     <button id='chatbot-icon' onClick={onClick}>

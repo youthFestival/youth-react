@@ -1,9 +1,12 @@
 import React from 'react';
-import './chatbot.css';
+import './styles/chatbot-layout.css'
+import chatBotBackButton from './icons/chatbot-backbutton.svg'
 function Header({ currentPage }) {
     return (
         <div id='chatbot-header'>
-            <h1>header</h1>
+            <button>
+                <img src={chatBotBackButton} alt="Back chatbot"/>
+            </button>
         </div>
     );
 }

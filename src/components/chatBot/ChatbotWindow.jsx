@@ -1,10 +1,10 @@
 import React from 'react';
 import chatBotCloseButton from './icons/close-icon.svg'
 import Header from './Header';
-import Body from './Body';
+import Content from './Content';
 import Navigation from './Navigation';
 
-import './chatbot.css';
+import './styles/chatbot-icon.css'
 
 
 function ChatbotWindow({ onClose }) {
@@ -12,7 +12,7 @@ function ChatbotWindow({ onClose }) {
         <div>
             <div id='chatbot-container'>
                 <Header />
-                <Body />
+                <Content />
                 <Navigation />
             </div>
         <button id='chatbot-icon' onClick={onClose}>
