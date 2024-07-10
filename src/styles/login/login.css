@@ -47,7 +47,7 @@
     background-color: white;
     width: 400px;
     height: 110px;
-    display: flex;
+    display: grid;
 }
 
 
@@ -59,7 +59,6 @@
     font-style: normal;
     font-weight: 100px;
     line-height: 19.5px;
-    
 }
 
 .login-maintain-checkbox {

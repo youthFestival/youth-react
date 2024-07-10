@@ -4,7 +4,7 @@ import '../login/loginidinput.css'
 const LoginIDInput = () => {
     return (
             <div className='login-id-input-area'>
-                <label for='login-id-input'></label>
+                <label htmlFor='login-id-input'></label>
                 <input type='text' className='login-id-input' placeholder='아이디'/>
             </div>
     );

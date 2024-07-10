@@ -24,17 +24,18 @@ const Login = () => {
 
             {/* 로그인 메인 폼 */}
             <div className='login-contents'>
+
                 <div className='login-logo-box'>
                     <span className='login-youth'>Youth!</span>  
                 </div>
                 
                 <div className='login-input-form'>
-                      <LoginIDInput />
-                      <LoginPWInput />
+                        <LoginIDInput />
+                        <LoginPWInput />
                 </div>
 
                 <div className='login-maintain-container'>
-                      <label for='login-maintain-checkbox'> 
+                      <label htmlFor='login-maintain-checkbox'> 
                             <input type='checkbox' className='login-maintain-checkbox' />로그인 상태 유지
                       </label>
                 </div>
