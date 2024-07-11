@@ -6,19 +6,25 @@ import '../styles/authinput.css';
  * @returns 
  */
 
-function AuthInput({ inputType, inputClassName, inputPlaceHolder }) {
-  return (
-    <div className='input-form'>
-      <div className='input-content'>
-        <label htmlFor={inputClassName}></label>
-        <input 
-          type={inputType}    
-          className={inputClassName}
-          placeholder={inputPlaceHolder}
-        />
+function AuthInput({
+              formClassName, 
+              containerClassName, 
+              inputType, 
+              inputClassName, 
+              inputPlaceHolder }) 
+  {
+    return (
+      <div className={formClassName}>
+        <div className={containerClassName}>
+          <label htmlFor={inputClassName}></label>
+          <input 
+            type={inputType}    
+            className={inputClassName}
+            placeholder={inputPlaceHolder}
+          />
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
 export default AuthInput;
