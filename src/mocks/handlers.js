@@ -1,10 +1,9 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import fakeFestivals from './fake-festivals';
+import { mockFestivals } from './dummyDatas';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
-
 
 export const handlers = [
 
@@ -18,6 +17,9 @@ export const handlers = [
             status: 201
         })
     }),
+    /**
+     * Get 요청 테스트
+     */
     http.get('http://localhost:5000/api/auth', () => {
 
         return HttpResponse.json({
@@ -28,6 +30,10 @@ export const handlers = [
         })
     }),
 
+    /**
+     * 로그인 처리 Mock 함수
+     *
+     */
     http.post(apiURL + '/login', async ({ request, cookies }) => {
 
         const data = await request.json();
@@ -58,15 +64,37 @@ export const handlers = [
             })
     }),
 
+    /**
+     * 사용자가 선택한 일자에 맞는 축제 조회  
+     */
     http.get(apiURL + '/calendar-festivals', async ({ request }) => {
-        // const currentToken = cookies.authToken;
-        console.log("네트워크 요청 감지됨");
+        const data = await request.json();
+        console.log("아 자고싶다.");
+        // data.year // 년도
+        // data.month // 월
+
+        console.log(`[MSW] fetchFestivalCalendar data.year = ${data.year}, data.month = ${data.month}`);
+
+        // 년도와 월이 일치하는 축제만 필터링
+        const filteredFestivals = mockFestivals.festivals.filter(festival => {
+            const startDate = new Date(festival.startDate);
+            return startDate.getFullYear() === data.year && startDate.getMonth() + 1 === data.month // getMonth()는 0부터 시작하므로 +1 필요
+
+        })
+
+        const successData = {
+            festivals: filteredFestivals,
+            message: filteredFestivals.length + "건의 조회가 성공하였습니다."
+        }
+
+        const failedData = {
+            error: "Not Found",
+            message: `${data.year}년 ${data.month}월에 해당하는 축제가 없습니다. 다른 날짜를 선택해주세요 `
+        }
 
         return HttpResponse.json(
-            fakeFestivals,
-            {
-                status: 201
-            }
+            !filteredFestivals ? successData : failedData,
+            !filteredFestivals ? { status: 200 } : { status: 404 }
         )
     })
 ];
