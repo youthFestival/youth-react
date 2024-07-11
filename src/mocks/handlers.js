@@ -16,7 +16,7 @@ export const handlers = [
             status: 201
         })
     }),
-    http.get('http:localhost:5000/api/auth', () => {
+    http.get('http://localhost:5000/api/auth', () => {
 
         return HttpResponse.json({
             id: 1,
@@ -40,12 +40,16 @@ export const handlers = [
             status: 202,
         })
     }),
-    http.get('http://localhost:5000/calendar-festivals', async ({ request }) => {
-        // const currentToken = cookies.authToken;
 
+    http.get('http://localhost:5000/api/calendar-festivals', async ({ request }) => {
+        // const currentToken = cookies.authToken;
+        console.log("네트워크 요청 감지됨");
 
         return HttpResponse.json(
-            fakeFestivals
+            fakeFestivals,
+            {
+                status:201
+            }
         )
     })
 ];

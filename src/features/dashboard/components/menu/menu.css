@@ -1,6 +1,43 @@
-menu-container {
-  background-color: #1E232E;
+:root {
+  --admin-nav-backgroud-color : #1E232E;
+}
+
+*{
+  border: 0.2px dotted #DDD;
+}
+
+.menu-container {
+  color: white;
+  font-weight: 600;
+
+  width: 250px;
+  position: fixed;
+  height: 100%;
+  background-color: var(--admin-nav-backgroud-color);
   display: flex;
   flex-direction: column;
   width: 250px;
+}
+
+.menu-container .nav-header {
+  padding-inline: 20px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.nav-header span:nth-child(2) {
+  font-weight: 700;
+}
+
+.menu-container a {
+  font-size: 12px;
+  color: #FFF;
+  margin-block: 12px;
+  line-height: 38px;
+  text-decoration: none;
+
+  border: 1px solid white;
 }

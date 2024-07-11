@@ -6,9 +6,10 @@ import axios from 'axios';
 export const fetchFestivalCalendar = async (year, month) => {
     try {
         const apiUrl = process.env.REACT_APP_API_URL;
+        console.log(`${apiUrl}/calendar-festivals`);
         const response = await axios.get(`${apiUrl}/calendar-festivals`);
-        console.log(response);
-        const data = await response.json();
+        console.log({response : response});
+        const data = response.data;
         console.log(data);
 
         // 실제 API 호출 대신 가짜 데이터 반환
