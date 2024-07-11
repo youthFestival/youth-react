@@ -155,17 +155,9 @@
     flex-shrink: 0;
 }
 
-.login-btn:before {
-    height: 0%;
-    width: 2px;
-  }
 .login-btn:hover {
     background-color: #0C87C1;
     border: #89CFF0;
-    box-shadow:  2px 2px 4px 0 rgba(255,255,255,.5),
-                -2px -2px 4px 0 rgba(116, 125, 136, .5), 
-      inset -2px -2px 4px 0 rgba(255,255,255,.2),
-      inset 2px 2px 4px 0 rgba(0, 0, 0, .4);
   }
 
 /* 정보찾기, 회원가입 버튼 CSS */
@@ -218,6 +210,7 @@
     width: 21px;
     height: 20px;
 }
+
 .naverlogo,
 .googlelogo {
     width: 25px;
