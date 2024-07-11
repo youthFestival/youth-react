@@ -5,6 +5,7 @@ import {
     AuthInput,
     AuthCheckbox
 } from '../features/authentication/index.js'
+import { LoginMSW } from '../features/authentication/component/LoginMSW.ts';
 
 import '../styles/login.css';
 
@@ -61,6 +62,7 @@ const Login = () => {
                 <AuthBtn
                     btnClassName = 'login-btn'
                     btnText = '로그인'
+                    onClick = {LoginMSW}
                 />
                 
 

@@ -4,6 +4,7 @@ import Login from './pages/Login';
 import Calendar from './pages/Calendar';
 import Home from './pages/Home';
 import MyHome from './pages/mypage/MyHome';
+import Register from './pages/Register';
 
 function App() {
   // useEffect(() => {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/mypage" element={<MyHome />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

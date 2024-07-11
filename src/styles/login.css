@@ -16,15 +16,14 @@
     }
     .login-id-input,
     .login-pw-input {
-        width: 80%;
+        width: 100%;
     }
-} 모바일 반응형*/
+} */
 
 /* 로그인 페이지 CSS */
 .login-form {
     background-color: white;
     display: flex;
-    height: 100vh;
     justify-content: center;
     margin-top: 68px;
 }
