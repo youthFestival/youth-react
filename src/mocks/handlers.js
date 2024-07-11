@@ -20,7 +20,7 @@ export const handlers = [
     /**
      * Get 요청 테스트
      */
-    http.get('http://localhost:5000/api/auth', () => {
+    http.get('http://localhost:5000/api/auth/', () => {
 
         return HttpResponse.json({
             id: 1,
@@ -68,19 +68,21 @@ export const handlers = [
      * 사용자가 선택한 일자에 맞는 축제 조회  
      */
     http.get(apiURL + '/calendar-festivals', async ({ request }) => {
-        const data = await request.json();
-        console.log("아 자고싶다.");
-        // data.year // 년도
-        // data.month // 월
+        const url = new URL(request.url)
 
-        console.log(`[MSW] fetchFestivalCalendar data.year = ${data.year}, data.month = ${data.month}`);
+        const year = +url.searchParams.getAll('year')
+        const month = +url.searchParams.getAll('month')
+
+
+
+        console.log(`[MSW] fetchFestivalCalendar data.year = ${year}, data.month = ${month}`);
 
         // 년도와 월이 일치하는 축제만 필터링
         const filteredFestivals = mockFestivals.festivals.filter(festival => {
             const startDate = new Date(festival.startDate);
-            return startDate.getFullYear() === data.year && startDate.getMonth() + 1 === data.month // getMonth()는 0부터 시작하므로 +1 필요
-
+            return startDate.getFullYear() === year && startDate.getMonth() + 1 === month // getMonth()는 0부터 시작하므로 +1 필요
         })
+
 
         const successData = {
             festivals: filteredFestivals,
@@ -89,12 +91,12 @@ export const handlers = [
 
         const failedData = {
             error: "Not Found",
-            message: `${data.year}년 ${data.month}월에 해당하는 축제가 없습니다. 다른 날짜를 선택해주세요 `
+            message: `${year}년 ${month}월에 해당하는 축제가 없습니다. 다른 날짜를 선택해주세요 `
         }
 
         return HttpResponse.json(
-            !filteredFestivals ? successData : failedData,
-            !filteredFestivals ? { status: 200 } : { status: 404 }
+            !!filteredFestivals ? successData : failedData,
+            !!filteredFestivals ? { status: 200 } : { status: 404 }
         )
     })
 ];
