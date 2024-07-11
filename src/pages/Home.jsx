@@ -40,9 +40,13 @@ function Home() {
       <NavLink to="/login" style={navLinkStyle}>
         Login
       </NavLink>
+      <NavLink to="/mypage" style={navLinkStyle}>
+        My
+      </NavLink>
       <NavLink to="/admin" style={navLinkStyle}>
         Admin
       </NavLink>
+     
 
       <button onClick={testLoginLogic}>로그인 쿠키 전달 테스트</button>
 

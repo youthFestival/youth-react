@@ -3,6 +3,7 @@ import AdminDashBoard from "./pages/AdminDashBoard";
 import Login from './pages/Login';
 import Calendar from './pages/Calendar';
 import Home from './pages/Home';
+import MyHome from './pages/mypage/MyHome';
 
 function App() {
   // useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/admin" element={<AdminDashBoard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
+        <Route path="/mypage" element={<MyHome />} />
       </Routes>
     </BrowserRouter>
   );
