@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../styles/authinput.css'
 /**
  * Auth Input
@@ -24,7 +24,7 @@ function AuthInput({
       return (
         <div className={formClassName}>
           <div className='input-write'>
-          <img 
+            <img 
                     src={imgSrc}
                     alt={imgAlt}
                     width={"24px"} 
@@ -32,12 +32,12 @@ function AuthInput({
             />
 
             <label htmlFor={inputClassName}></label>
-              <input 
+            <input 
                 type={ inputType === 'password' && showPassword ? inputType : "text"  }    
                 className={inputClassName}
                 placeholder={inputPlaceHolder}
-                onChange={ (e) => setShowPassword(e.target.value)}
-              />
+                onChange={ () => showPassword }
+            />
             
             {inputType === 'password' && (
                 <button onClick={showPasswordHandler} className='eyebtn'>

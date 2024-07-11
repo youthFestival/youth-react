@@ -6,7 +6,7 @@ import {
     AuthCheckbox
 } from '../features/authentication/index.js'
 
-import '../styles/login/login.css';
+import '../styles/login.css';
 
 /**
  * 로그인 화면
@@ -26,16 +26,16 @@ const Login = () => {
                 </div>
                 
                 <div className='login-input-form'>
-                    <div>
-                        <AuthInput
-                            formClassName='input-id-bar' 
-                            imgSrc={'./icons/idlogo.png'}
-                            imgAlt='로그인 아이콘'
-                            inputType='text'
-                            inputClassName='login-id-input'
-                            inputPlaceHolder="아이디"
-                        />
-                    </div>
+                    
+                    <AuthInput
+                        formClassName='input-id-bar' 
+                        imgSrc={'./icons/idlogo.png'}
+                        imgAlt='로그인 아이콘'
+                        inputType='text'
+                        inputClassName='login-id-input'
+                        inputPlaceHolder="아이디"
+                    />
+                 
                     
                     <AuthInput 
                         formClassName='input-pw-bar' 
