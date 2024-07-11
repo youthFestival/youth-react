@@ -101,7 +101,7 @@ const FestivalCalendar = () => {
         <div id="calendar-page">
             <div id='calendar-container'>
                 <div id="calendar-header">
-                    <div>
+                    <div id='calendar-header-content'>
                         <span id='calendar-current-date'>{year}년 {month}월</span>
                         <button id="calendar-previous-btn" onClick={handlePreviousMonth}>
                             <img src={leftArrow} alt="Previous Month"/>
