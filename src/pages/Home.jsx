@@ -10,6 +10,21 @@ const navLinkStyle = {
 };
 
 function Home() {
+  const testLoginLogic = async (e) => {
+    const response = await fetch("/login", {
+      credentials: 'include',
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ username: "admin" })
+    });
+
+    const data = await response.json();
+    alert(JSON.stringify(data, null, 2));
+  };
+
+
   return (
     <center style={{ marginTop: "200px" }}>
       <img
@@ -28,6 +43,9 @@ function Home() {
       <NavLink to="/admin" style={navLinkStyle}>
         Admin
       </NavLink>
+
+      <button onClick={testLoginLogic}>로그인 쿠키 전달 테스트</button>
+
     </center>
   );
 }

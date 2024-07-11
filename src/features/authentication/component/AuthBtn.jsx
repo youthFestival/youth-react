@@ -1,16 +1,17 @@
 import React from 'react';
-import '../styles/loginbtn.css'
 
 /**
  * 로그인 버튼 컴포넌트
  * @returns 
  */
-function AuthBtn (btnClassName) {
+function AuthBtn ({btnClassName, btnText}) {
     return (
         <div>
             <button
                 className = {btnClassName}
-            />
+            >  
+                {btnText} 
+            </button>
         </div>
     );
 };
