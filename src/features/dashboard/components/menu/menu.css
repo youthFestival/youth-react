@@ -2,10 +2,6 @@
   --admin-nav-backgroud-color : #1E232E;
 }
 
-*{
-  border: 0.2px dotted #DDD;
-}
-
 .menu-container {
   color: white;
   font-weight: 600;
