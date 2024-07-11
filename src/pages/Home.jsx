@@ -1,3 +1,5 @@
+import axios from "axios";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 const navLinkStyle = {
   textDecoration: "none",
@@ -10,18 +12,25 @@ const navLinkStyle = {
 };
 
 function Home() {
+  const userIdInputRef = useRef();
+  const [token, setToken] = useState(null);
   const testLoginLogic = async (e) => {
-    const response = await fetch("/login", {
-      credentials: 'include',
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ username: "admin" })
-    });
 
-    const data = await response.json();
-    alert(JSON.stringify(data, null, 2));
+    try {
+      const response = await axios.post(process.env.REACT_APP_API_URL + "/login", {
+        userId: userIdInputRef.current.value,
+        password: "1234"
+      }, { withCredentials: true });
+      setToken(response.data.token);
+      alert(response.data.message);
+
+    } catch (e) {
+      alert("로그인 실패 콘솔을 참조해주세요.\n 아래는 응답 데이터입니다.\n" + JSON.stringify(e?.response.data, null, 2));
+      console.log(e);
+    }
+
+
+
   };
 
 
@@ -46,10 +55,19 @@ function Home() {
       <NavLink to="/admin" style={navLinkStyle}>
         Admin
       </NavLink>
-     
 
-      <button onClick={testLoginLogic}>로그인 쿠키 전달 테스트</button>
 
+      <p style={{
+        width: "300px",
+        display: "flex",
+        flexDirection: "column",
+      }}>
+        <h2>로그인 테스트입니다.</h2>
+        <p>아이디가 admin일 경우 성공합니다.</p>
+        <input type="text" ref={userIdInputRef} placeholder="아이디를 입력해주세요" />
+        <button onClick={testLoginLogic} >로그인 테스트</button>
+        <h3>token : {!token ? "토큰이 존재하지 않습니다." : token}</h3>
+      </p>
     </center>
   );
 }
