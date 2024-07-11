@@ -73,11 +73,6 @@
     line-height: 19.5px;
 }
 
-.login-maintain-checkbox {
-    width: 11px;
-    height: 11px;
-}
-
 /* 로그인 아이디/비밀번호 입력창 CSS */
 .input-id-bar,
 .input-pw-bar {
@@ -129,6 +124,7 @@
     color: #666;
     font-size: 13px;
     line-height: 19px;
+    margin-top: 31px;
 }
 
 .login-userfind-register a:nth-child(2)::before,
@@ -159,6 +155,11 @@
     flex-shrink: 0;
 }
 
+.login-btn:hover {
+    background-color: #0C87C1;
+    border: #89CFF0;
+  }
+
 /* 정보찾기, 회원가입 버튼 CSS */
 .login-go-findid,
 .login-go-findpw,
@@ -172,14 +173,16 @@
     text-decoration: none;
 }
 
+
+/* 연동 아이콘 컴포넌트 CSS */
 .login-companyicons-area {
     display: flex;
     padding: 0px 98px;
     align-items: flex-start;
     gap: 20px;
+    margin-top: 45.5px;
 }
 
-/* 연동 아이콘 컴포넌트 CSS */
 .login-kakaologo,
 .login-naverlogo,
 .login-googlelogo {
@@ -193,7 +196,7 @@
     border-radius: 100%;
 }
 .login-kakaologo {
-    background-color: yellow;
+    background-color: #FEDD35;
 }
 .login-naverlogo {
     background-color: #1ec800;
@@ -207,6 +210,7 @@
     width: 21px;
     height: 20px;
 }
+
 .naverlogo,
 .googlelogo {
     width: 25px;

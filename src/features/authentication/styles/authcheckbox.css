@@ -1,0 +1,21 @@
+.input-checkbox {
+    display: none;
+}
+
+.custom-checkbox{
+    width: 21px;
+    height: 20px;
+    background: none;
+    border: none;
+    font-size: 15px;
+}
+
+.checkbox-image {
+    width: 12px;
+    height: 12px;
+}
+
+.checkbox-container {
+    gap: 2px;
+    display: flex;
+}

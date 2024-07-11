@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
-import Menu from "../features/dashboard/components/menu/Menu";
+import "../styles/adminDashBoard.css"
+import Menu from "../features/dashboard/components/Menu";
 
 function AdminDashBoard() {
   return (
-    <>
+    <div className="adminDashBoard">
       <Menu />
       <Outlet />
-    </>
+    </div>
   );
 }
 

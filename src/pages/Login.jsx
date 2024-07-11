@@ -2,10 +2,11 @@ import React from "react";
 import {
     AuthBtn,
     AuthLogo, 
-    AuthInput
+    AuthInput,
+    AuthCheckbox
 } from '../features/authentication/index.js'
 
-import '../styles/login/login.css';
+import '../styles/login.css';
 
 /**
  * 로그인 화면
@@ -25,38 +26,35 @@ const Login = () => {
                 </div>
                 
                 <div className='login-input-form'>
-                    <div>
-                        <AuthInput
-                            formClassName='input-id-bar' 
-                            containerClassName='input-write'
-
-                            imgSrc={'./icons/idlogo.png'}
-                            imgAlt='로그인 아이콘'
-
-                            inputType='text'
-                            inputClassName='login-id-input'
-                            inputPlaceHolder="아이디"
-                        />
-                    </div>
+                    
+                    <AuthInput
+                        formClassName='input-id-bar' 
+                        imgSrc={'./icons/idlogo.png'}
+                        imgAlt='로그인 아이콘'
+                        inputType='text'
+                        inputClassName='login-id-input'
+                        inputPlaceHolder="아이디"
+                    />
+                 
                     
                     <AuthInput 
                         formClassName='input-pw-bar' 
-                        containerClassName='input-write'
-
                         imgSrc={'./icons/pwlogo.png'}
                         imgAlt='로그인 아이콘'
-
                         inputType='password'
                         inputClassName='login-pw-input'
-                        inputPlaceHolder='패스워드'
+                        inputPlaceHolder='비밀번호'
                     />
                 </div>
                 
 
 
                 <div className='login-maintain-container'>
-                    <label htmlFor='login-maintain-checkbox'> </label>
-                    <input type='checkbox' className='login-maintain-checkbox' />로그인 상태 유지
+                    <AuthCheckbox 
+                        inputType='checkbox'
+                        checkBoxText='로그인 상태 유지'
+                    />
+                    
                 </div>
 
 

@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
+import '../styles/authinput.css'
 /**
  * Auth Input
  * @returns 
@@ -7,33 +7,52 @@ import React from 'react';
 
 function AuthInput({
               formClassName, 
-              containerClassName, 
               inputType, 
               inputClassName, 
               inputPlaceHolder,
               imgSrc,
-              imgAlt }) 
-  {
-    return (
-      <div className={formClassName}>
-        <div className={containerClassName}>
-         <img 
-                  src={imgSrc}
-                  alt={imgAlt}
-                  width={"24px"} 
-                  height={"24px"}
-          />
+              imgAlt 
+    }) 
+    {
+    
+      const [showPassword, setShowPassword] = useState(true);
 
-          <label htmlFor={inputClassName}>
-              <input 
-                type={inputType}    
+      const showPasswordHandler = () => {
+          setShowPassword(!showPassword);
+      };
+
+      return (
+        <div className={formClassName}>
+          <div className='input-write'>
+            <img 
+                    src={imgSrc}
+                    alt={imgAlt}
+                    width={"24px"} 
+                    height={"24px"}
+            />
+
+            <label htmlFor={inputClassName}></label>
+            <input 
+                type={ inputType === 'password' && showPassword ? inputType : "text"  }    
                 className={inputClassName}
                 placeholder={inputPlaceHolder}
-              />
-          </label>
-        </div>
+                onChange={ () => showPassword }
+            />
+            
+            {inputType === 'password' && (
+                <button onClick={showPasswordHandler} className='eyebtn'>
+                  {showPassword ? (
+                    <img src="./icons/eyeoff.png" alt="패스워드 보기 off" />
+
+                  ) : (
+                    <img src="./icons/eyeon.png" alt="패스워드 보기 on" />   
+                  )}
+                </button>
+            )}
+                
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default AuthInput;
