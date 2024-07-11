@@ -8,14 +8,14 @@ const fakeFestivals = [
     },
     {
         id: 2,
-        name: '2024년도 고려대학교 대동제 페스티벌 2024년도 고려대학교 대동제 페스티벌',
+        name: '2024년도 고려대학교 대동제 페스티벌 2024년도 고려대학교 대동제 페스티벌 2024년도 고려대학교 대동제 페스티벌',
         startDate: '2024-07-02',
         endDate: '2024-07-05',
         categories: "페스티벌"
     },
     {
         id: 3,
-        name: 'Festival 3',
+        name: 'Festival 3 Festival 3 Festival 3 Festival 3 Festival 3',
         startDate: '2024-07-02',
         endDate: '2024-07-04',
         categories: "페스티벌"
