@@ -6,14 +6,13 @@ import axios from 'axios';
 export const fetchFestivalCalendar = async (year, month) => {
     try {
         const apiUrl = process.env.REACT_APP_API_URL;
-        console.log(`${apiUrl}/calendar-festivals`);
-        const response = await axios.get(`${apiUrl}/calendar-festivals`);
-        console.log({response : response});
+        const response = await axios.get(apiUrl + "/calendar-festivals", {
+            params: { year, month }
+        });
         const data = response.data;
-        console.log(data);
 
         // 실제 API 호출 대신 가짜 데이터 반환
-        const festivalsForMonth = data.filter(festival => {
+        const festivalsForMonth = data?.festivals.filter(festival => {
             const startDate = new Date(festival.startDate);
             const endDate = new Date(festival.endDate);
             return (
@@ -23,8 +22,13 @@ export const fetchFestivalCalendar = async (year, month) => {
         });
         return festivalsForMonth;
     }
-    catch(error) {
-        console.error(error);
-        alert("오류가 발생했습니다.")
+    catch (error) {
+        if (error?.response?.status === 404) {
+            return [];
+        }
+        else {
+            console.error(error);
+            alert("축제 정보를 가져오는데 실패했습니다.");
+        }
     }
 };
