@@ -7,7 +7,6 @@ import { AuthContextProvider } from './contexts/AuthContext';
 
 async function deferRender() {
   const { worker } = await import('./mocks/browser');
-  console.log("mockruns");
   return worker.start({
     onUnhandledRequest: 'bypass', // 일치하지 않는 요청을 무시하고 통과시킵니
   });
