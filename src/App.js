@@ -14,7 +14,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<AdminDashBoard />} />
+        <Route path="/admin" element={<AdminDashBoard />}>
+          <Route path="dashboard" element={<div>대시보드</div>} />  
+          <Route path="members" element={<div>회원관리 및 조회</div>} />  
+          <Route path="logs" element={<div>활동 로그</div>} />  
+          <Route path="register-festival" element={<div>축제 추가</div>} />  
+          <Route path="inquiries" element={<div>고객 문의</div>} />  
+        
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/mypage" element={<MyHome />} />

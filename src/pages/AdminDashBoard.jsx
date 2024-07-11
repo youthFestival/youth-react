@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Menu from "../features/dashboard/components/menu/Menu";
+import Menu from "../features/dashboard/components/Menu";
 
 function AdminDashBoard() {
   return (
