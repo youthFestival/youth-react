@@ -1,48 +1,36 @@
-/* FestivalCalendar */
+/* 달력 페이지 컨테이너 */
 #calendar-page {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Pretendard Variable";
-    max-width: 100%;
-}
-
-#calendar-container {
-    display: flex;
     flex-direction: column;
-    width: 80%;
+    padding: 20px;
 }
 
+/* 달력 컨테이너 */
+#calendar-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* 달력 헤더 */
 #calendar-header {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    height: 60px;
+    padding: 20px;
 }
 
-#calendar-content {
+#calendar-header div {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-#calendar-header,
-#calendar-body,
-#calendar-table {
-    border-collapse: collapse;
-    width: 100%;
 }
 
 #calendar-current-date {
-    margin-right: 20px;
     font-size: 25px;
-}
-
-.weekday {
-    width: calc(100% / 7);
-    height: 60px;
-    font-size: 15px;
-    text-align: left;
+    margin-right: 20px;
 }
 
 #calendar-previous-btn,
@@ -81,35 +69,35 @@
     border-bottom-right-radius: 5px;
 }
 
-/* CalendarItem */
-.calendar-item.first-column {
-    border-left: none;
-}
-
-.calendar-item.last-column {
-    border-right: none;
-}
-
-.calendar-item {
-    height: 250px;
-    width: calc(100% / 7);
-    vertical-align: top;
-    position: relative;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    border-left: 1px solid rgba(0, 0, 0, 0.3);
-    border-right: 1px solid rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-.calendar-date {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-size: 15px;
-    padding-block: 5px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+/* 달력 테이블 */
+#calendar-table {
     width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#calendar-table th {
+    padding: 10px;
+    text-align: left;
+}
+
+#calendar-table td {
+    position: relative;
+    vertical-align: top;
+    height: 300px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+/* 날짜 스타일 */
+.calendar-date {
+    font-size: 15px;
+    height: 30px;
+    margin-left: 5px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
 }
 
 .prev-month .calendar-date,
@@ -118,37 +106,35 @@
 }
 
 .today {
-    color: #89CFF0;
+    color: #B2EAFF;
 }
 
+.weekday {
+    height: 40px;
+}
+
+/* 이벤트 스타일 */
 .festival {
     display: flex;
-    height: 20px;
-    margin: 1px 0;
-    min-width: 100%;
-    padding-block: 3px;
-    font-size: 15px;
     align-items: center;
-    justify-content: flex-start;
-    overflow: auto;
+    margin-top: 2px;
+    width: 100%;
+    height: 30px;
+    overflow: hidden; 
+    white-space: nowrap; 
     text-overflow: ellipsis;
-    word-break: keep-all;
 }
-
-.festival.university-festival {
+.university-festival {
     background-color: #FBAFBD;
 }
 
-.festival.general-festival {
+.general-festival {
     background-color: #B2EAFF;
 }
 
-@media(max-width: 767px) {
+/* 모바일(430px ~ 1023px) */
+@media (min-width: 300px) and (max-width: 1023px) {
     #calendar-header {
         justify-content: center;
-    }
-
-    .festival {
-        font-size: px;
     }
 }

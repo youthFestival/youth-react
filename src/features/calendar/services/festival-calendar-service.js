@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 /**
- * 축제 정보를 가져오는 api 호출 부분(진짜로 바꿔야 됨)
+ * 축제 정보를 가져오는 api 호출
  */
 export const fetchFestivalCalendar = async (year, month) => {
     try {

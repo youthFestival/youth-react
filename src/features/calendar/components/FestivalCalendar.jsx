@@ -114,7 +114,7 @@ const FestivalCalendar = () => {
                 <div id="calendar-content">
                     <table id="calendar-table">
                         <thead>
-                            <tr>
+                            <tr id='weekdays'>
                                 <th className="weekday">일</th>
                                 <th className="weekday">월</th>
                                 <th className="weekday">화</th>
