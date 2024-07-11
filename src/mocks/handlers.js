@@ -1,5 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
+import fakeFestivals from './fake-festivals';
 
 // 공통 CORS 헤더를 설정하는 함수
 
@@ -38,5 +39,13 @@ export const handlers = [
             },
             status: 202,
         })
+    }),
+    http.get('http://localhost:5000/calendar-festivals', async ({ request }) => {
+        // const currentToken = cookies.authToken;
+
+
+        return HttpResponse.json(
+            fakeFestivals
+        )
     })
 ];

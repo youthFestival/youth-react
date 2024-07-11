@@ -1,4 +1,4 @@
-const fakeFestivals = [
+export const fakeFestivals = [
     {
         id: 1,
         name: 'Festival 1',
