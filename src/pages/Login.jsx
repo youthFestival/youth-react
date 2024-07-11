@@ -2,7 +2,8 @@ import React from "react";
 import {
     AuthBtn,
     AuthLogo, 
-    AuthInput
+    AuthInput,
+    AuthCheckbox
 } from '../features/authentication/index.js'
 
 import '../styles/login/login.css';
@@ -49,8 +50,11 @@ const Login = () => {
 
 
                 <div className='login-maintain-container'>
-                    <label htmlFor='login-maintain-checkbox'> </label>
-                    <input type='checkbox' className='login-maintain-checkbox' />로그인 상태 유지
+                    <AuthCheckbox 
+                        inputType='checkbox'
+                        checkBoxText='로그인 상태 유지'
+                    />
+                    
                 </div>
 
 

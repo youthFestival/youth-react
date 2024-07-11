@@ -73,11 +73,6 @@
     line-height: 19.5px;
 }
 
-.login-maintain-checkbox {
-    width: 11px;
-    height: 11px;
-}
-
 /* 로그인 아이디/비밀번호 입력창 CSS */
 .input-id-bar,
 .input-pw-bar {
@@ -160,6 +155,19 @@
     flex-shrink: 0;
 }
 
+.login-btn:before {
+    height: 0%;
+    width: 2px;
+  }
+.login-btn:hover {
+    background-color: #0C87C1;
+    border: #89CFF0;
+    box-shadow:  2px 2px 4px 0 rgba(255,255,255,.5),
+                -2px -2px 4px 0 rgba(116, 125, 136, .5), 
+      inset -2px -2px 4px 0 rgba(255,255,255,.2),
+      inset 2px 2px 4px 0 rgba(0, 0, 0, .4);
+  }
+
 /* 정보찾기, 회원가입 버튼 CSS */
 .login-go-findid,
 .login-go-findpw,
@@ -196,7 +204,7 @@
     border-radius: 100%;
 }
 .login-kakaologo {
-    background-color: yellow;
+    background-color: #FEDD35;
 }
 .login-naverlogo {
     background-color: #1ec800;
