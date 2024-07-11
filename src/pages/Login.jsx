@@ -28,11 +28,8 @@ const Login = () => {
                     <div>
                         <AuthInput
                             formClassName='input-id-bar' 
-                            containerClassName='input-write'
-
                             imgSrc={'./icons/idlogo.png'}
                             imgAlt='로그인 아이콘'
-
                             inputType='text'
                             inputClassName='login-id-input'
                             inputPlaceHolder="아이디"
@@ -41,14 +38,11 @@ const Login = () => {
                     
                     <AuthInput 
                         formClassName='input-pw-bar' 
-                        containerClassName='input-write'
-
                         imgSrc={'./icons/pwlogo.png'}
                         imgAlt='로그인 아이콘'
-
                         inputType='password'
                         inputClassName='login-pw-input'
-                        inputPlaceHolder='패스워드'
+                        inputPlaceHolder='비밀번호'
                     />
                 </div>
                 
