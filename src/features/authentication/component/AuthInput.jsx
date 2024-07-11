@@ -1,8 +1,7 @@
 import React from 'react';
-import '../styles/authinput.css';
 
 /**
- * Auth Input 영역
+ * Auth Input
  * @returns 
  */
 
@@ -11,17 +10,27 @@ function AuthInput({
               containerClassName, 
               inputType, 
               inputClassName, 
-              inputPlaceHolder }) 
+              inputPlaceHolder,
+              imgSrc,
+              imgAlt }) 
   {
     return (
       <div className={formClassName}>
         <div className={containerClassName}>
-          <label htmlFor={inputClassName}></label>
-          <input 
-            type={inputType}    
-            className={inputClassName}
-            placeholder={inputPlaceHolder}
+         <img 
+                  src={imgSrc}
+                  alt={imgAlt}
+                  width={"24px"} 
+                  height={"24px"}
           />
+
+          <label htmlFor={inputClassName}>
+              <input 
+                type={inputType}    
+                className={inputClassName}
+                placeholder={inputPlaceHolder}
+              />
+          </label>
         </div>
       </div>
     );

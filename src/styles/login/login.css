@@ -1,7 +1,29 @@
+/* @media (max-width: 430px) {
+    .login-container {
+        height: 304px;
+    }
+
+    .login-contents {
+        width: 100%;
+    }
+    .input-id-bar,
+    .input-pw-bar,
+    .login-btn {
+        width: 100%;
+    }
+    .login-container {
+        width: 100%;
+    }
+    .login-id-input,
+    .login-pw-input {
+        width: 80%;
+    }
+} 모바일 반응형*/
+
 /* 로그인 페이지 CSS */
 .login-form {
     background-color: white;
-    display : flex;
+    display: flex;
     height: 100vh;
     justify-content: center;
     margin-top: 68px;
@@ -21,7 +43,6 @@
     gap: 15px;
 }
 
-
 /* 로그인 Youth 로고 CSS */
 .login-logo-box {
     display: flex;
@@ -33,9 +54,9 @@
 }
 
 .login-youth {
-    color: #89CFF0;
+    color: #89cff0;
     text-align: center;
-    font-family: "Noto Sans", sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -57,10 +78,9 @@
     height: 11px;
 }
 
-
 /* 로그인 아이디/비밀번호 입력창 CSS */
 .input-id-bar,
-.input-pw-bar{
+.input-pw-bar {
     display: flex;
     width: 400px;
     flex-direction: column;
@@ -81,6 +101,8 @@
 .input-write {
     margin-top: 15.8px;
     margin-bottom: 15px;
+    display: flex;
+    gap:12px;
 }
 
 .login-id-input,
@@ -91,16 +113,15 @@
     flex-direction: column;
     align-items: flex-start;
     flex-shrink: 0;
-    border:none;
+    border: none;
 }
 
-.login-id-input:focus{
+.login-id-input:focus {
     outline: none;
 }
-.login-pw-input:focus{
+.login-pw-input:focus {
     outline: none;
 }
-
 
 /* 정보찾기, 회원가입 영역 CSS */
 .login-userfind-register a {
@@ -110,25 +131,25 @@
     line-height: 19px;
 }
 
-
-.login-userfind-register a:nth-child(2)::before, .login-userfind-register a:nth-child(2)::after{
-    content: "|";
+.login-userfind-register a:nth-child(2)::before,
+.login-userfind-register a:nth-child(2)::after {
+    content: '|';
     padding-inline: 12px;
-    color: #DDDDDD;
+    color: #dddddd;
 }
 
-.login-userfind-register{
+.login-userfind-register {
     display: flex;
     margin-left: 76.46px;
     margin-right: 76.46px;
 }
 
 /* 로그인버튼 */
-.login-btn{
-    background-color: #89CFF0;
-    color:white;
+.login-btn {
+    background-color: #89cff0;
+    color: white;
     border-radius: 12px;
-    border: 1px solid #89CFF0;
+    border: 1px solid #89cff0;
     display: flex;
     width: 400px;
     height: 52px;
@@ -138,13 +159,12 @@
     flex-shrink: 0;
 }
 
-
 /* 정보찾기, 회원가입 버튼 CSS */
 .login-go-findid,
 .login-go-findpw,
 .login-go-register {
-    width:90px;
-    color:#666;
+    width: 90px;
+    color: #666;
     font-style: normal;
     font-weight: 400;
     margin-left: 20%;
@@ -152,8 +172,7 @@
     text-decoration: none;
 }
 
-
-.login-companyicons-area{
+.login-companyicons-area {
     display: flex;
     padding: 0px 98px;
     align-items: flex-start;
@@ -173,23 +192,23 @@
     flex-shrink: 0;
     border-radius: 100%;
 }
-.login-kakaologo{
+.login-kakaologo {
     background-color: yellow;
 }
-.login-naverlogo{
-    background-color: #1EC800;
+.login-naverlogo {
+    background-color: #1ec800;
 }
-.login-googlelogo{
+.login-googlelogo {
     background-color: white;
-    border:1px solid gainsboro;
+    border: 1px solid gainsboro;
 }
 
-.kakaologo{
+.kakaologo {
     width: 21px;
     height: 20px;
 }
 .naverlogo,
-.googlelogo{
+.googlelogo {
     width: 25px;
     height: 25px;
 }
