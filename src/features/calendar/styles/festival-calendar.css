@@ -1,0 +1,170 @@
+#calendar-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#calendar-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#calendar-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#calendar-header-content {
+    display: flex;
+    align-items: center;
+}
+
+#calendar-current-date {
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+#calendar-previous-btn,
+#calendar-next-btn {
+    width: 65px;
+    height: 35px;
+    font-size: 20px;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#calendar-previous-btn img,
+#calendar-next-btn img {
+    width: 30%;
+    height: auto;
+}
+
+#calendar-previous-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-next-btn:active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+#calendar-previous-btn {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+#calendar-next-btn {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.calendar-date {
+    font-size: 15px;
+    height: 30px;
+    margin-left: 5px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+}
+
+.prev-month .calendar-date,
+.next-month .calendar-date {
+    color: #b0b0b0;
+}
+
+.today {
+    color: #B2EAFF;
+}
+
+.weekday {
+    height: 40px;
+    padding: 10px;
+    text-align: left;
+}
+
+.festival {
+    display: flex;
+    align-items: center;
+    margin-top: 2px;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.university-festival {
+    background-color: #FBAFBD;
+}
+
+.general-festival {
+    background-color: #B2EAFF;
+}
+
+.calendar-item {
+    position: relative;
+    vertical-align: top;
+    height: 300px;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.calendar-item.first-column {
+    border-left: none;
+}
+
+.calendar-item.last-column {
+    border-right: none;
+}
+
+/* 모바일(430px ~ 1023px) */
+@media (min-width: 300px) and (max-width: 1023px) {
+    #calendar-page {
+        font-size: 30px;
+    }
+
+    #calendar-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #calendar-current-date {
+        font-size: 40px;
+    }
+
+    #calendar-previous-btn,
+    #calendar-next-btn {
+        width: 100px;
+        height: 70px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    #calendar-previous-btn img,
+    #calendar-next-btn img {
+        width: 50%;
+        height: auto;
+    }
+
+    .calendar-date {
+        font-size: 30px;
+    }
+
+    #calendar-header {
+        justify-content: center;
+    }
+}
