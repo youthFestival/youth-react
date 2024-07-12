@@ -1,0 +1,66 @@
+.setting-content-container {
+    max-height: 460px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    padding: 10px 20px;
+}
+
+.setting-content-container .title {
+    height: 30px;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    color: #808080;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.setting-item-container {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    color: #000000;
+    padding: 0 33px;
+    margin-bottom: 10px;
+}
+
+.setting-item-content {
+    display: flex;
+    align-items: center;
+}
+
+.setting-item-content .icon {
+    margin-right: 10px;
+}
+
+.setting-content-container hr {
+    margin-bottom: 20px;
+}
+
+.setting-content-container:hover::-webkit-scrollbar {
+    width: 6px;
+}
+
+.setting-content-container::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.setting-content-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.setting-content-container::-webkit-scrollbar-button {
+    display: none;
+}
+
+.setting-content-container {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.setting-content-container::-webkit-scrollbar-track {
+    background: transparent;
+}

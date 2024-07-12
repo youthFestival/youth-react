@@ -10,6 +10,8 @@ function Header({ currentPage, onClose }) {
                 return '자주 묻는 질문';
             case 'inquiry':
                 return 'Youth Supporter';
+            case 'setting':
+                return '설정';
             default:
                 return '';
         }
@@ -32,7 +34,7 @@ function Header({ currentPage, onClose }) {
             </button>
             {currentPage === 'inquiry' ? <img className='profile' src={profileImage} alt="프로필이미지" /> : ''}
             <div className='header-text'>
-                <span className='header-title'>{getHeaderTitle()}</span>
+                <span className='header-title' style={currentPage === 'setting' ? { fontSize: '24px' } : {}}>{getHeaderTitle()}</span>
                 <span className='header-content'>{getHeaderContent()}</span>
             </div>
         </div>
