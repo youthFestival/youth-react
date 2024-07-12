@@ -9,7 +9,7 @@ const HomeContentListItem = ({ question, answer }) => {
     const [isToggle, setIsToggle] = useState(false);
 
     return (
-        <div className='content-list-item-container'>
+        <div className={`content-list-item-container ${isToggle ? 'open' : ''}`}>
             <div className='item-list-title' onClick={() => setIsToggle(!isToggle)}>
                 <img src={HelpIcon} alt="?아이콘" />
                 <div className='title-text'>{question}</div>
