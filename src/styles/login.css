@@ -1,24 +1,6 @@
-/* @media (max-width: 430px) {
-    .login-container {
-        height: 304px;
-    }
-
-    .login-contents {
-        width: 100%;
-    }
-    .input-id-bar,
-    .input-pw-bar,
-    .login-btn {
-        width: 100%;
-    }
-    .login-container {
-        width: 100%;
-    }
-    .login-id-input,
-    .login-pw-input {
-        width: 100%;
-    }
-} */
+ @media (min-width: 300px) and (max-width: 1024px) {
+    
+}
 
 /* 로그인 페이지 CSS */
 .login-form {
@@ -152,6 +134,7 @@
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .login-btn:hover {

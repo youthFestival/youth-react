@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 /**
  * 연동 로그인 아이콘
