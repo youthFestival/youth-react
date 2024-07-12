@@ -5,8 +5,11 @@ import {
     AuthInput,
     AuthCheckbox
 } from '../features/authentication/index.js';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/login.css';
+
+
 
 /**
  * 로그인 화면
@@ -96,7 +99,7 @@ const Login = () => {
           <div className="login-userfind-register">
             <a href="!#">아이디 찾기</a>
             <a href="!#">비밀번호 찾기</a>
-            <a href="!#">회원가입</a>
+            <Link to="/register">회원가입</Link>
           </div>
 
           <div className="login-companyicons-area">

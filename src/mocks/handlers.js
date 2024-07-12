@@ -42,7 +42,10 @@ export const handlers = [
 
         console.log(data.userId, data.password, data);
 
-        if (data.userId === "admin" && data.password === "1234") {
+        if (
+            (data.userId === "admin" && data.password === "1234") ||
+            (data.userId === "kangminjun" && data.password === "kangminjun1234") 
+            ) {
             isVaild = true;
         }
 
