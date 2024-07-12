@@ -13,7 +13,16 @@
 
 .adminDashBoard main {
     display: flex;
+    gap:10px;
     flex-direction: column;
     background-color: var(--dashboard-background-color);
     width: 100%;
+    align-content: center;
+}
+
+@media (min-width:300) and (max-width: 430px){
+    .adminDashBoard  {
+        flex-direction: column;
+        background-color: red;
+    }
 }
