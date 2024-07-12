@@ -46,7 +46,9 @@ const FestivalCalendar = () => {
         const rows = [];
         let cells = [];
 
-        // 오늘 날짜 확인
+        /** 
+         * 오늘 날짜 확인 
+         * */
         const isToday = (day) => {
             return day === today.getDate() && month === today.getMonth() + 1 && year === today.getFullYear();
         };
