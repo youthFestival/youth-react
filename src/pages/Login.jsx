@@ -47,7 +47,7 @@ const Login = () => {
       alert(response.data.message);
     } catch (e) {
       console.error(e);
-      alert("로그인 실패!");
+      alert("로그인 실패! ID: kangminjun, PW:kangminjun1234를 작성하시오.");
     }
   };
 
