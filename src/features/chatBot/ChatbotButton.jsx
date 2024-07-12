@@ -4,7 +4,7 @@ import chatBotOpenButton from './icons/chat-icon.svg'
 import './styles/chatbot-icon.css'
 
 const ChatbotButton = ({ onClick }) => (
-    <button id='chatbot-icon' onClick={onClick}>
+    <button className='chatbot-icon' onClick={onClick}>
         <img src={chatBotOpenButton} alt='open-button'/>
     </button>
 );

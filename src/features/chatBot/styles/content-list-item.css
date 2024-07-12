@@ -1,0 +1,46 @@
+/* content-list.css */
+.content-list-container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.item-container {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.item-list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 11.5px 55.5px;
+}
+
+.title-text {
+    width: 250px;
+    padding: 0 10px;
+}
+
+.help-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.item-list-content {
+    margin-top: 10px;
+    font-size: 12px;
+    width: 250px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
