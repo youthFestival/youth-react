@@ -1,32 +1,34 @@
 import { NavLink } from "react-router-dom";
 import "../styles/menu.css";
 import { useState } from "react";
-function Menu() {
+
+const icoPath = "/icons/adminDashboard";
+const menuItems = [
+  {
+    path: "./dashboard",
+    label: "대시보드",
+    icon: icoPath + "/ic_dashboard.svg",
+  },
+  {
+    path: "./members",
+    label: "회원관리 및 조회",
+    icon: icoPath + "/ic_members.svg",
+  },
+  { path: "./logs", label: "활동 로그", icon: icoPath + "/ic_logs.svg" },
+  {
+    path: "./register-festival",
+    label: "축제 추가",
+    icon: icoPath + "/ic_register_festival.svg",
+  },
+  {
+    path: "./inquiries",
+    label: "고객 문의",
+    icon: icoPath + "/ic_inquiries.svg",
+  },
+];
+
+function SideMenu() {
   const [isClose, setIsClose] = useState(false);
-  const icoPath = "/icons/adminDashboard";
-  const menuItems = [
-    {
-      path: "./dashboard",
-      label: "대시보드",
-      icon: icoPath + "/ic_dashboard.svg",
-    },
-    {
-      path: "./members",
-      label: "회원관리 및 조회",
-      icon: icoPath + "/ic_members.svg",
-    },
-    { path: "./logs", label: "활동 로그", icon: icoPath + "/ic_logs.svg" },
-    {
-      path: "./register-festival",
-      label: "축제 추가",
-      icon: icoPath + "/ic_register_festival.svg",
-    },
-    {
-      path: "./inquiries",
-      label: "고객 문의",
-      icon: icoPath + "/ic_inquiries.svg",
-    },
-  ];
 
   const handleCloseBtnCliked = (e) => {
     setIsClose(!isClose);
@@ -44,8 +46,10 @@ function Menu() {
           <span>Youth</span>
           <span>Admin DashBoard</span>
         </div>
+
         <button onClick={handleCloseBtnCliked}></button>
       </div>
+
       {menuItems.map((item) => (
         <NavLink
           key={item.path}
@@ -61,4 +65,4 @@ function Menu() {
   );
 }
 
-export default Menu;
+export default SideMenu;

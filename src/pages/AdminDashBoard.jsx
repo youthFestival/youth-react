@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import "../styles/adminDashBoard.css"
-import Menu from "../features/dashboard/components/Menu";
+import "../styles/adminDashBoard.css";
+import { SideMenu } from "../features/dashboard";
 
 function AdminDashBoard() {
   return (
     <div className="adminDashBoard">
-      <Menu />
-      <Outlet />
+      <SideMenu />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
