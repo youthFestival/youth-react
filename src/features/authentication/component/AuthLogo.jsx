@@ -20,7 +20,6 @@ function AuthLogo (props){
                          alt = {logoAlt}
                          className={logoClassName}
                     />
-               
           </div>
      </a>
      );
