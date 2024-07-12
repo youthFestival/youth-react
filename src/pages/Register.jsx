@@ -18,7 +18,9 @@ const Register = () => {
       <div className='register-form'>
           <div className='register-contents'>
 
-                   
+                   <div className='register-youth'>
+                        
+                   </div>
                
                     <AuthLogo 
                         logoDivName='naver-signup'

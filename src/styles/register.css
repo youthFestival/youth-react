@@ -6,6 +6,15 @@
     align-self: stretch;
 }
 
+.register-youth {
+    display: flex;
+    padding: 0px 128.28px;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    margin-top: 75px;
+    border: 1px solid black;
+}
 .register-form {
     display: flex;
     width: 500px;
