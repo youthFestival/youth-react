@@ -15,6 +15,7 @@
   flex-direction: column;
   overflow: hidden;
   width: 250px;
+  min-width: 40px;
   transition: 0.5s ease;
 }
 
@@ -100,3 +101,5 @@
   position: relative;
   opacity: 1;
 }
+
+

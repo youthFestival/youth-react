@@ -1,0 +1,41 @@
+.adminDashBoard table{
+  margin-inline: auto;
+  background-color: var(--dashboard-background-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 40px;
+  max-width: 1500px;
+  border-collapse: collapse;
+
+}
+
+.adminDashBoard tr {
+  background-color: var(--dashboard-header-background-color);
+  border-bottom: 1px solid var(--dashboard-background-color);  
+  display: flex;
+
+}
+
+.adminDashBoard td {
+    padding-inline: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/**
+  * Media Queries
+  */
+@media (min-width: 430px) and (max-width: 1024px){
+  .adminDashBoard td{
+    background-color: red;
+    width: 820px;
+    font-size: 14px;
+  }
+
+  .adminDashBoard .hidden {
+    display: none;
+  }
+
+}

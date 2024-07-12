@@ -10,9 +10,14 @@ function UserInquiries() {
       </Header>
 
       <Table
-        headerRow={
-          ("번호", "문의 유형", "문의 제목", "작성자", "문의 날짜", "상태")
-        }
+        headerRow={[
+          { name: "번호", ratio: 1 },
+          { name: "문의 유형", ratio: 1 },
+          { name: "문의 제목", ratio: 4 },
+          { name: "작성자", ratio: 1 },
+          { name: "문의 날짜", ratio: 1 },
+          { name: "상태", ratio: 1 },
+        ]}
       />
     </>
   );
