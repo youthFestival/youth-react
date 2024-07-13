@@ -22,7 +22,9 @@ function Home() {
     try {
       const method = selectRef.current.value;
       const url = process.env.REACT_APP_API_URL + urlRef.current.value;
-      const payload = JSON.parse(payloadRef.current.value);
+      const payload = !payloadRef?.current.value
+        ? null
+        : JSON.parse(payloadRef.current.value);
 
       alert(
         "요청을 보냅니다.\n" + JSON.stringify({ method, url, payload }, null, 2)
@@ -104,7 +106,7 @@ function Home() {
           </select>
           <input
             style={{
-              width: "100px",
+              width: "200px",
             }}
             type="text"
             placeholder={`/auth/login`}

@@ -1,4 +1,8 @@
-[
+{
+  "message" : "조회되었습니다.",
+  "limit" : -1,
+  "offset" : -1,
+  "inquiries" : [
   {
     "id": 1,
     "category": "페스티벌",
@@ -270,3 +274,4 @@
     "updatedAt": "2023-07-30"
   }
 ]
+}

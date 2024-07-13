@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals } from './dummyDatas';
+import { mockFestivals, mockInquiries } from './dummyDatas';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
@@ -115,22 +115,40 @@ export const handlers = [
      * status	String	“접수중”,”답변완료”,”접수완료”등 현재 글의 상태에 관한 유형 명시하지 않았을 때는 필터 적용 X
      */
 
+        const notNullData = new Map();
 
-        const limit = url.searchParams.getAll('limit')
-        const offset = url.searchParams.getAll('offset')
-        const category =  url.searchParams.getAll('category')
-        const ststus = url.searchParams.getAll('ststus')
+        const limit = +url.searchParams.getAll('limit') || 15
+        const offset = +url.searchParams.getAll('offset') || 0
+        const category =  ""+url.searchParams.getAll('category')
+        const ststus = ""+url.searchParams.getAll('ststus')
 
-        const filterList = {};
-        filterList.push({limit,offset,category,ststus});
+        const inquiries = mockInquiries.inquiries.filter((inquiry) => {
+            //limit과 offset을 이용하여 조회할 데이터를 필터링
+            if (inquiry.id < offset || inquiry.id >= offset + limit) {
+                return false;
+            }
+            //카테고리와 상태에 따라 필터링
+            if(category !== "" && inquiry.category !== category){
+                return false;
+            }
+            //카테고리와 상태에 따라 필터링
+            if(ststus !== "" && inquiry.ststus !== ststus){
+                return false;
+            }
+            return true;
+        })
 
-        console.log(filterList);
-
-        // const inquiries = mockInquiries.inquiries.filter(inquiry => {
-
-        // });
+        console.log(inquiries);
 
         
-        return HttpResponse.json({},{status:200})
+        
+        return HttpResponse.json(
+            {
+                ...mockInquiries,
+                limit,
+                offset,
+                inquiries,
+
+        },{status:200})
     }),
 ];
