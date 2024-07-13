@@ -19,7 +19,7 @@ function Content({ currentPage }) {
 
     return (
         <div className='chatbot-content'>
-            <h1>{getContent()}</h1>
+            {getContent()}
         </div>
     );
 }
