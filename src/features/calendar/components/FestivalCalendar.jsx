@@ -1,4 +1,3 @@
-// FestivalCalendar.jsx
 import React, { useState } from 'react';
 import useFestivals from "../hooks/useFestivals";
 import CalendarDay from '../components/CalendarDay';
@@ -10,7 +9,7 @@ const FestivalCalendar = () => {
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
     const [month, setMonth] = useState(today.getMonth() + 1);
-    const { festivals, prevMonthFestivals, nextMonthFestivals } = useFestivals(year, month);
+    const { festivals = [], prevMonthFestivals = [], nextMonthFestivals = [] } = useFestivals(year, month);
 
     const handlePreviousMonth = () => {
         if (month === 1) {
@@ -41,6 +40,7 @@ const FestivalCalendar = () => {
             return day === today.getDate() && month === today.getMonth() + 1 && year === today.getFullYear();
         };
 
+        // 이전 달의 날짜를 추가
         for (let i = 0; i < firstDay; i++) {
             const prevDate = lastMonthDays - firstDay + i + 1;
             const events = prevMonthFestivals.filter(festival => {
@@ -51,6 +51,7 @@ const FestivalCalendar = () => {
             cells.push(<CalendarDay key={`prev-${i}`} date={prevDate} events={events} isPrevMonth isFirstColumn={i === 0} />);
         }
 
+        // 현재 달의 날짜를 추가
         for (let day = 1; day <= daysInMonth; day++) {
             const events = festivals.filter(festival => {
                 const startDate = new Date(festival.startDate);
@@ -65,6 +66,7 @@ const FestivalCalendar = () => {
             }
         }
 
+        // 다음 달의 날짜를 추가
         let nextMonthDay = 1;
         while (cells.length < 7) {
             const addNextMonthDay = (day) => {
