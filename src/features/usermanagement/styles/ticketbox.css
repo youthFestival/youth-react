@@ -1,0 +1,45 @@
+.ticket-text{
+    display: flex;
+    width: 240px;
+    height: 100px;
+    padding: 0px 13px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 16px;
+    border-radius: 16px;
+    background: #F7FAFD;
+    box-shadow: 0px 1px 0px 0px #FFF inset;
+}
+
+.ticket-1,
+.ticket-2 {
+    display: flex;
+    width: 103px;
+    padding: 20px 25px;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.ticket-icon1,
+.ticket-icon2{
+    width: 40px;
+    height: 40px;
+}
+
+.ticket-text1,
+.ticket-text2 {
+    display: flex;
+    width: 59px;
+    height: 15px;
+    flex-direction: column;
+    justify-content: center;
+    color: #222;
+    text-align: center;
+    font-size: 11.25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: -0.5px;
+}
