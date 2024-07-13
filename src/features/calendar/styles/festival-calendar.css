@@ -86,6 +86,7 @@
 
 .today {
     color: #B2EAFF;
+    font-weight: bolder;
 }
 
 .weekday {
@@ -106,6 +107,11 @@
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
+.festival-continued {
+    width: 102.2%;
+}
+
 
 .university-festival {
     background-color: #FBAFBD;
@@ -167,20 +173,20 @@
         height: auto;
     }
 
-    #calendar-previous-btn {
+    #calendar-previous-btn, #calendar-next-btn {
         position: absolute;
         top: 50%;
-        left: calc(50% - 240px);
         transform: translateY(-0%);
+    }
+
+    #calendar-previous-btn {
+        left: calc(50% - 240px);
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
     }
 
     #calendar-next-btn {
-        position: absolute;
-        top: 50%;
         right: calc(50% - 240px);
-        transform: translateY(-0%);
         border-top-right-radius: 15px;
         border-bottom-right-radius: 15px;
     }
