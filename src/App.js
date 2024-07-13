@@ -5,6 +5,7 @@ import Calendar from './pages/Calendar';
 import Home from './pages/Home';
 import MyHome from './pages/mypage/MyHome';
 import Register from './pages/Register';
+import Header from './components/header/Header';
 
 function App() {
   // useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/mypage" element={<MyHome />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/header" element={<Header/>}/>
       </Routes>
     </BrowserRouter>
   );
