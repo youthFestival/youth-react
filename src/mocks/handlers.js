@@ -101,5 +101,33 @@ export const handlers = [
             !!filteredFestivals ? successData : failedData,
             !!filteredFestivals ? { status: 200 } : { status: 404 }
         )
-    })
+    }),
+
+    //!! 관리자 페이지
+    //문의글 여러 개 조회
+    http.get(apiURL + '/inquiries', async ({ request }) => {
+        const data = await request.json();
+
+        data.limit 
+        data.offset
+        data.category
+        data.ststus
+
+
+
+        
+        return HttpResponse.json({
+            inquiries: [
+                {
+                    id: 1,
+                    category: '문의 유형1',
+                    title: '문의글 제목1',
+                    content: '문의글 내용1',
+                    ststus: '답변대기',
+                    userAlias: '작성자1',
+                    updatedAt: '2021-09-01',
+                },
+            ],
+        })
+    }),
 ];
