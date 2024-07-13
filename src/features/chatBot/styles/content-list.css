@@ -10,3 +10,32 @@
 .content-list-container::-webkit-scrollbar {
     display: none;
 }
+
+.content-list-container > .empty-search-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Pretendard Variable";
+    line-height: 16px;
+}
+
+.empty-search-container > .item {
+    width: 335px;
+    height: 127px;
+}
+
+.empty-search-container > .item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 15px;
+}
+
+.empty-search-container .normal-text {
+    font-size: 12px;
+    font-weight: normal;
+}

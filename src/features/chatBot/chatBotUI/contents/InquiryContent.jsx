@@ -14,10 +14,16 @@ const InquiryContent = () => {
     const handleChat = () => {
         if(!message) return;
         setChatHistory([...chatHistory, 
-                        { type: 'question', text: message }, 
-                        { type: 'answer', text: `${index}번째 답변입니다. dkanxmsddddddddddddddddddddddddddddddddddddddddddd` }]);
+            { type: 'question', text: message }, 
+            { type: 'answer', text: `${index}번째 답변입니다. dkanxmsddddddddddddddddddddddddddddddddddddddddddd` }]);
         setIndex(index + 1);
         setMessage('');
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleChat();
+        }
     }
 
     useEffect(() => {
@@ -39,7 +45,12 @@ const InquiryContent = () => {
                 )}
             </div>
             <div className='send-message'>
-                <input type="text" placeholder="메세지 내용을 입력하세요" value={message} onChange={(e) => setMessage(e.target.value)}/>
+                <input 
+                    type="text" 
+                    placeholder="메세지 내용을 입력하세요" 
+                    value={message} 
+                    onChange={(e) => setMessage(e.target.value)}
+                    onKeyDown={handleKeyPress}/>
                 <img src={MessageIcon} alt="메세지 전송 아이콘" onClick={handleChat}/>
             </div>
         </div>

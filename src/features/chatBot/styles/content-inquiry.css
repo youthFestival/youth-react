@@ -46,6 +46,7 @@
     border: none;
     background-color: #F2F2F3;
     border-radius: 14px;
+    outline: none;
 }
 
 .inquiry-container .send-message img {
