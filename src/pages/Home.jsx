@@ -88,10 +88,10 @@ function Home() {
           </select>
           <input
             style={{
-              width: "200px",
+              width: "100px",
             }}
             type="text"
-            placeholder={`url 전체를 적어주세요.`}
+            placeholder={`/login`}
             ref={urlRef}
           />
         </p>
@@ -99,7 +99,15 @@ function Home() {
           <textarea
             ref={payloadRef}
             type="text"
-            placeholder="전달할 데이터 json 형식"
+            placeholder={`URL의 경우, http://localhost:5000/api 이후 요소를 입력해주세요.
+ex) /login 
+
+전달할 데이터 json 형식
+{
+  "uesrId" : "admin",
+  "password" : "1234"
+}
+            `}
             style={{
               width: "200px",
               height: "150px",
