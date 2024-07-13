@@ -9,12 +9,12 @@
    * @param handlers  성공, 실패 핸들러 {onSuccess: (res) => {}, onFailure: (e) => {}} 구조 이며, 성공 시, 매개변수는 응답 객체, 실패 시 매개변수는 에러 객체
    * @param withCredentials  쿠키 전송 여부
    */
-const sendRequest = async (method, url, data, handlers, withCredentials = false) => {
+export const sendRequest = async (method, url, data, handlers, withCredentials = false) => {
   const { onSuccess, onFailure } = handlers || {};
   try {
     const res = await axios({
       method,
-      url: `${process.env.REACT_APP_SERVER_URL}${url}`,
+      url,
       data,
       withCredentials
     });
