@@ -17,10 +17,11 @@ function Home() {
   const testLoginLogic = async (e) => {
 
     try {
-      const response = await axios.post(process.env.REACT_APP_API_URL + "/login", {
+      const response = await axios.post(process.env.REACT_APP_API_URL + "/auth/login", {
         userId: userIdInputRef.current.value,
         password: "1234"
       }, { withCredentials: true });
+      console.log(response)
       setToken(response.data.token);
       alert(response.data.message);
 

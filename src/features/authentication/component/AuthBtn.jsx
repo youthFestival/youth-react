@@ -4,15 +4,22 @@ import React from 'react';
  * 로그인 버튼 컴포넌트
  * @returns 
  */
-function AuthBtn ({ btnClassName, btnText}) {
+
+function AuthBtn ({ btnNavi, btnClassName, btnText, btnOnClick}) {
     return (
         <div>
-            <button
-                className = {btnClassName}
-            >  
-                {btnText} 
-            </button>
+            <a
+                href={btnNavi}
+            >
+                <button
+                    className = {btnClassName}
+                    onClick={btnOnClick}
+                >  
+                    {btnText} 
+                </button> 
+            </a>
         </div>
+   
     );
 };
 

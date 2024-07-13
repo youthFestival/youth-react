@@ -34,7 +34,7 @@ export const handlers = [
      * 로그인 처리 Mock 함수
      *
      */
-    http.post(apiURL + '/login', async ({ request, cookies }) => {
+    http.post(apiURL + '/auth/login', async ({ request, cookies }) => {
 
         const data = await request.json();
         const DUMMY_HASH = 'd3b07384d113edec49eaa6238ad5ff00';
@@ -42,7 +42,10 @@ export const handlers = [
 
         console.log(data.userId, data.password, data);
 
-        if (data.userId === "admin" && data.password === "1234") {
+        if (
+            (data.userId === "admin" && data.password === "1234") ||
+            (data.userId === "kangminjun" && data.password === "kangminjun1234") 
+            ) {
             isVaild = true;
         }
 
