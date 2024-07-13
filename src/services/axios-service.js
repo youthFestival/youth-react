@@ -20,6 +20,7 @@ export const sendRequest = async (method, url, data, handlers, withCredentials =
     });
     onSuccess?.(res);
   } catch (e) {
+    console.log("에러발생");
     console.log(e);
     onFailure?.(e);
   }
