@@ -101,5 +101,36 @@ export const handlers = [
             !!filteredFestivals ? successData : failedData,
             !!filteredFestivals ? { status: 200 } : { status: 404 }
         )
-    })
+    }),
+
+    //!! 관리자 페이지
+    //문의글 여러 개 조회
+    http.get(apiURL + '/inquiries', async ({ request }) => {
+        const url = new URL(request.url)
+    /**
+     * 
+     * limit	Int	조회할 문의 글 갯수 기본 값 15
+     * offset	Int	건너뛸 문의 글 갯수 기본 값 0
+     * category	String 	“페스티벌”,”계정” 중 해당 문의의 카태고리 유형,  명시하지 않을 시, 카테고리에 상관없이 모든 데이터를 가져옴
+     * status	String	“접수중”,”답변완료”,”접수완료”등 현재 글의 상태에 관한 유형 명시하지 않았을 때는 필터 적용 X
+     */
+
+
+        const limit = url.searchParams.getAll('limit')
+        const offset = url.searchParams.getAll('offset')
+        const category =  url.searchParams.getAll('category')
+        const ststus = url.searchParams.getAll('ststus')
+
+        const filterList = {};
+        filterList.push({limit,offset,category,ststus});
+
+        console.log(filterList);
+
+        // const inquiries = mockInquiries.inquiries.filter(inquiry => {
+
+        // });
+
+        
+        return HttpResponse.json()
+    }),
 ];

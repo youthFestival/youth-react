@@ -1,4 +1,5 @@
-import { Header, Table } from "../components";
+import { Header } from "../components";
+import "../styles/user-inquiries.css";
 
 function UserInquiries() {
   return (
@@ -8,16 +9,19 @@ function UserInquiries() {
         {/* <Filter> */}
       </Header>
 
-      <Table
-        headerRow={[
-          { name: "번호", ratio: 1 },
-          { name: "문의 유형", ratio: 1 },
-          { name: "문의 제목", ratio: 4 },
-          { name: "작성자", ratio: 1 },
-          { name: "문의 날짜", ratio: 1 },
-          { name: "상태", ratio: 1 },
-        ]}
-      />
+      <table>
+        {/* 제목 부분 */}
+        <tr>
+          <th>
+            <td>번호</td>
+            <td>문의 유형</td>
+            <td>문의 제목</td>
+            <td>작성자</td>
+            <td>문의 날짜</td>
+            <td>상태</td>
+          </th>
+        </tr>
+      </table>
     </>
   );
 }
