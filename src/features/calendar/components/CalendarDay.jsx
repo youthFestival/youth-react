@@ -1,9 +1,7 @@
+// CalendarDay.jsx
 import React from 'react';
 import "../styles/festival-calendar.css";
 
-/**
- * 각 일자별 축제
- */
 const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, isLastColumn, isToday }) => {
     const displayEvents = events.slice(0, 10);
     const dateClass = isPrevMonth ? 'prev-month' : isNextMonth ? 'next-month' : '';
@@ -23,7 +21,7 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
             <div className={`calendar-date ${dateClass} ${todayClass}`}>{date}</div>
             {displayEvents.map((event, index) => (
                 <div key={index} className={`festival ${categoryToClassName(event.categories)}`}>
-                    {new Date(event.startDate).getDate() === date && event.name}
+                    {new Date(event.startDate).getDate() === date || (new Date(event.endDate).getDate() === date && isFirstColumn) ? event.name : ""}
                 </div>
             ))}
         </td>
