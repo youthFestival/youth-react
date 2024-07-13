@@ -5,12 +5,10 @@ import Calendar from './pages/Calendar';
 import Home from './pages/Home';
 import MyHome from './pages/mypage/MyHome';
 import Register from './pages/Register';
-import UserInquiries from "./features/dashboard/components/UserInquiries";
+import { UserInquiries } from "./features/dashboard";
+
 
 function App() {
-  // useEffect(() => {
-  //   fetch('http:localhost:5000/api/auth').then(res => res.json()).then(data => console.log(data))
-  // }, [])
 
   return (
     <BrowserRouter>

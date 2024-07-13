@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "../styles/menu.css";
+import "../styles/side-menu.css";
 import { useState } from "react";
 
 const icoPath = "/icons/adminDashboard";
@@ -28,28 +28,23 @@ const menuItems = [
 ];
 
 function SideMenu() {
-  const [isClose, setIsClose] = useState(false);
-
-  const handleCloseBtnCliked = (e) => {
-    setIsClose(!isClose);
-  };
-
   return (
-    <div className={`menu-container ${isClose ? "close" : ""}`}>
+    // 사이드바 활성화 및 비활성화 처리
+    <div className={"sidebar"}>
+      {/* 로고 영역 */}
       <div className="nav-header">
         <div className="title">
-          <img
-            className="console-logo"
-            src="youthfavicon.svg"
-            alt="consoleLogo"
-          />
           <span>Youth</span>
           <span>Admin DashBoard</span>
         </div>
-
-        <button onClick={handleCloseBtnCliked}></button>
+        <img
+          className="console-logo"
+          src="/youthfavicon.png"
+          alt="consoleLogo"
+        />
       </div>
 
+      {/* 메뉴 영역 */}
       {menuItems.map((item) => (
         <NavLink
           key={item.path}
@@ -57,6 +52,7 @@ function SideMenu() {
           activeClassName="active"
           className={"menu-item"}
         >
+          {/* 메뉴 최소화 시, 아이콘 */}
           <img src={item.icon} alt={item.label} />
           <span>{item.label}</span>
         </NavLink>
