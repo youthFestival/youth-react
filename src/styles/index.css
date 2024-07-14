@@ -7,7 +7,7 @@
 
 }
 
-
+/* 전체적인 폰트를 프리텐다드로 설정. 영어는 따로 설정해야함 */
 * {
   font-family: "Pretendard Variable", sans-serif;
 }
@@ -17,8 +17,6 @@
   ex) 폰트나 기본값 설정 (input의 글씨체, body의 폰트 등)
 
   * 폰트 적용은 여기서 가져가시면 됩니다.
-  한글 폰트 프리텐다드
-  font-family: "Pretendard Variable", sans-serif; //해당 부분에 추가
 
   영어 폰트 Noto Sans
   font-family: "Noto Sans", sans-serif;

@@ -21,12 +21,13 @@ function Home() {
   const handleRequest = async () => {
     try {
       const method = selectRef.current.value;
-      const url = urlRef.current.value;
-      const payload = JSON.parse(payloadRef.current.value);
+      const url = process.env.REACT_APP_API_URL + urlRef.current.value;
+      const payload = !payloadRef?.current.value
+        ? null
+        : JSON.parse(payloadRef.current.value);
 
       alert(
-        "요청을 보냅니다.",
-        JSON.stringify({ method, url, payload }, null, 2)
+        "요청을 보냅니다.\n" + JSON.stringify({ method, url, payload }, null, 2)
       );
       await sendRequest(
         method,
@@ -38,8 +39,18 @@ function Home() {
             alert("응답\n" + JSON.stringify(res.data, null, 2));
           },
           onFailure: (e) => {
-            console.log(e.response);
-            alert("실패\n" + JSON.stringify(e.response.data, null, 2));
+            console.log(e);
+            alert(
+              "응답 실패\n" +
+                JSON.stringify(
+                  e.response?.data || {
+                    error: e.message,
+                    message: "응답 데이터가 존재하지 않음.",
+                  },
+                  null,
+                  2
+                )
+            );
           },
         },
         true
@@ -47,8 +58,15 @@ function Home() {
     } catch (e) {
       // handle SyntaxError
       if (e instanceof SyntaxError) {
-        alert(`json 형식이 아닙니다.
+        alert(`
+            JSON 형식이 잘못되었습니다.
+
             {"key" : "value" , "key2" : "value2"} 형식이여야합니다.
+            0. 쉽표(,)가 있는 지 확인해주세요.
+            1. 키가 문자열로 묶여잇는지 확인해주세요. 
+              key : "value" X, "key" : "value" O
+            
+            이거 아니면 나도모름.
             키도 ""로 묶어야됨.
           `);
       }
@@ -91,15 +109,24 @@ function Home() {
               width: "200px",
             }}
             type="text"
-            placeholder={`url 전체를 적어주세요.`}
+            placeholder={`/auth/login`}
             ref={urlRef}
           />
         </p>
         <p>
+          <h3>전달할 데이터</h3>
           <textarea
             ref={payloadRef}
             type="text"
-            placeholder="전달할 데이터 json 형식"
+            placeholder={`URL의 경우, http://localhost:5000/api 이후 요소를 입력해주세요.
+ex) /login 
+
+전달할 데이터 json 형식
+{
+  "uesrId" : "admin",
+  "password" : "1234"
+}
+            `}
             style={{
               width: "200px",
               height: "150px",

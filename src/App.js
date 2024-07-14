@@ -3,11 +3,10 @@ import AdminDashBoard from "./pages/AdminDashBoard";
 import Login from './pages/Login';
 import Calendar from './pages/Calendar';
 import Home from './pages/Home';
-import MyHome from './pages/mypage/MyHome';
+import Mypage from './pages/Mypage';
 import Register from './pages/Register';
 import { UserInquiries } from "./features/dashboard";
-import FestivalDetail from "./pages/FestivalDetail";
-
+import RegisterForm from './features/register/component/RegisterForm';
 
 function App() {
 
@@ -25,9 +24,9 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/mypage" element={<MyHome />} />
+        <Route path="/mypage" element={<Mypage />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/festivalDetail" element={<FestivalDetail/>} />
+        <Route path="/register/registerform" element={<RegisterForm />} />
       </Routes>
     </BrowserRouter>
   );

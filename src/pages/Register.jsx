@@ -7,7 +7,7 @@ import {
 import '../styles/register.css'
 
 /**
- * 로그인 화면
+ * 회원가입 화면
  * @returns
  */
 const Register = () => {
@@ -18,7 +18,7 @@ const Register = () => {
 
           <div className='register-contents'>
 
-
+           <div className='register-logo-container'>
             <div className='register-youth-form'>
                     <p className='youth-p'>
                         <span className='youth-span'>Youth!</span> 회원가입
@@ -31,46 +31,44 @@ const Register = () => {
 
 
             <AuthBtn 
-                //   btnNavi={}
                 btnClassName='normal-register-btn'
                 btnText='개인 회원가입'
             />
 
 
+            <div className='register-logo-form'>
 
-
-            <div className='register-logo-container'>
-                <div className='register-logo-form'>
-
-                        <div className='register-kakao'>
-                            <AuthLogo 
-                                logoSrc='./icons/company/kakaologo.png'
-                                logoClassName='kakao-logo'
-                            />
-                           
-                        </div>
-
-                        <div className='register-naver'>
-                                <AuthLogo 
-                                    logoSrc='./icons/company/naverlogo.png'
-                                    logoClassName='naver-logo'
-                                />
-
-                        </div>
-
-                        <div className='register-google'>
-                            <AuthLogo 
-                                logoSrc='./icons/company/googlelogo.png'
-                                logoClassName='google-logo'
-                            />
-                         
-                        </div>
-                    </div>
+                <div className='register-kakao'>
+                    <AuthLogo 
+                        logoSrc='./icons/company/kakaologo.png'
+                        logoClassName='kakao-logo'
+                    />
+                    <span className='kakao-span'>카카오로 가입</span>
                 </div>
 
-                <p className='limit-age-guide'>
-                    SNS 회원가입(만 14세 이상 가능) 
-                </p>
+                <div className='register-naver'>
+                        <AuthLogo 
+                            logoSrc='./icons/company/naverlogo.png'
+                            logoClassName='naver-logo'
+                        />
+                        <span className='naver-span'>네이버로 가입</span>
+                </div>
+
+                <div className='register-google'>
+                    <AuthLogo 
+                        logoSrc='./icons/company/googlelogo.png'
+                        logoClassName='google-logo'
+                    />
+                        <span className='google-span'>구글로 가입</span>
+                </div>
+            </div>
+        
+
+            <p className='limit-age-guide'>
+                SNS계정 회원가입(만 14세 이상 가능) 
+            </p>
+
+            </div>
             </div>       
         </div>          
     </div>
