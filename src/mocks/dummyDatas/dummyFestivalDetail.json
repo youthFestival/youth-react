@@ -1,15 +1,15 @@
 {
     "festivalDetails": {
         "festivalId": 1,
-        "festivalThumbnail": "https://example.com/festival-thumbnail.jpg",
+        "festivalThumbnail": "https://cdnticket.melon.co.kr/resource/image/upload/product/2024/05/20240509095234b62e958b-74e2-47db-801e-9ecc1080f123.png/melon/resize/180x254/strip/true/quality/90/optimize",
         "festivalName": "2024 신라힙합페스티벌 (경주힙페) - EXCON",
-        "description": "2024 대박힙 ! 강력히 공연 갑니다 ! 두번째 신라힙합 (경주힙페)",
+        "description": "2024 대힙페 ! ? 에프터 공연 갑니다 ! 두번째 신라힙페 (경주힙페)",
         "startDate": "2024-08-01",
         "endDate": "2024-08-03",
         "showTime": 300,
-        "category": "콘서트",
-        "organizer": "경주유스호스텔",
-        "minAge": 15,
+        "category": "페스티벌",
+        "organizer": "경주엑스포대공원 백결공연장",
+        "minAge": null,
         "tel": "010-0000-0000",
         "organizerUrl": "https://example.com"
     }
