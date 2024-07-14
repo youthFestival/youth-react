@@ -13,13 +13,18 @@ function UserInquiries() {
         {/* 제목 부분 */}
         <tr>
           <th>
-            <td>번호</td>
+            <td >번호 </td>
             <td>문의 유형</td>
             <td>문의 제목</td>
             <td>작성자</td>
             <td>문의 날짜</td>
             <td>상태</td>
           </th>
+        </tr>
+
+        {/* 내용 부분 */}
+        <tr>
+          <td></td>
         </tr>
       </table>
     </>
