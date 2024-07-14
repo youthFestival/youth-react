@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import MyHome from './pages/mypage/MyHome';
 import Register from './pages/Register';
 import { UserInquiries } from "./features/dashboard";
+import FestivalDetail from "./pages/FestivalDetail";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/mypage" element={<MyHome />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/festivalDetail" element={<FestivalDetail/>} />
       </Routes>
     </BrowserRouter>
   );
