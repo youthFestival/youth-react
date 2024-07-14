@@ -9,6 +9,7 @@ import { UserInquiries } from "./features/dashboard";
 import RegisterForm from './features/register/component/RegisterForm';
 import FestivalDetail from "./pages/FestivalDetail";
 import TempMain from "./pages/TempMain";
+import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
 
 function App() {
 
@@ -21,10 +22,8 @@ function App() {
           <Route path="members" element={<div>회원관리 및 조회</div>} />
           <Route path="logs" element={<div>활동 로그</div>} />
           <Route path="register-festival" element={<div>축제 추가</div>} />
-          <Route path="inquiries" element={<UserInquiries />}>
-            <Route path=":id" element={<div>상세페이지</div>} />
-          </Route>
-
+          <Route path="inquiries/*" element={<UserInquiries />} />
+          <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
