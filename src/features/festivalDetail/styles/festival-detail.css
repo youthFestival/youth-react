@@ -136,7 +136,7 @@
     margin: 0 auto;
 }
 
-.tabs button {
+.tab-button {
     flex: 1;
     padding: 10px 0;
     border: none;
@@ -148,11 +148,11 @@
     position: relative;
 }
 
-.tabs button.active {
+.tab-button.active {
     color: #000;
 }
 
-.tabs button.active::after {
+.tab-button.active::after {
     content: '';
     display: block;
     height: 2px;
@@ -164,7 +164,7 @@
     width: 60%;
 }
 
-.tabs button:not(.active)::after {
+.tab-button:not(.active)::after {
     content: '';
     display: block;
     height: 2px;
