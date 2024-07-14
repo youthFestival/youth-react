@@ -6,10 +6,10 @@
     gap: 107px;
     flex-shrink: 0;
 }
+
 .my-contents{
     display: flex;
     width: 430px;
-
     padding: 6px 20px 0px 20px;
     flex-direction: column;
     justify-content: flex-end;
@@ -37,3 +37,43 @@
     align-items: center;
     border-bottom: 1px solid #FFF;
 }
+
+.ticket-guide-icon {
+    display: flex;
+    position: relative;
+    align-items: center; /* 추가 */
+}
+
+.ticket-guide{
+    width: 110px;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 16px;
+    background: #89CDF0;
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.30) inset;
+    display: flex;
+    height: 104px;
+    justify-content: center;
+    position: relative;
+}
+
+.guide-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.chain-image {
+    width: 29.272px;
+    height: 109.98px;
+    position: absolute;
+    top: 50%; /* 필요에 따라 위치 조정 */
+    left: 30%; /* 필요에 따라 위치 조정 */
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.ticket-box {
+    margin-left: 10%; /* 추가: TicketBox와의 마진 값을 10%로 설정 */
+    display: flex; /* 추가: Flexbox 사용 */
+    align-items: center; }

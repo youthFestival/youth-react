@@ -37,14 +37,29 @@ const Mypage = () => {
                       iconText2='내 QnA'
                       iconText3='내 기대평'
                 />
+               
+                
+                <div className='ticket-guide-icon'>
+                    <div className='ticket-guide'>
+                        <img 
+                              src="./icons/mypage/ticketpage.png" 
+                              alt="티켓 가이드 아이콘" 
+                              className='guide-icon'
+                        />
+                    </div>
+                    <img
+                            src='./icons/mypage/imagechain.png' 
+                            className='chain-image'
+                    />
+                    
+                    <TicketBox
+                        ticketImg1='./icons/mypage/interpark.png'
+                        ticketImg2='./icons/mypage/melonticket.png'
 
-                <TicketBox
-                      ticketImg1='./icons/mypage/interpark.png'
-                      ticketImg2='./icons/mypage/melonticket.png'
-
-                      ticketText1='인터파크'
-                      ticketText2='멜론티켓'
-                />
+                        ticketText1='인터파크'
+                        ticketText2='멜론티켓'
+                    />
+                </div>
             </div>
         </div>
     );

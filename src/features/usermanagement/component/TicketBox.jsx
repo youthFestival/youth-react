@@ -5,7 +5,7 @@ import '../styles/ticketbox.css'
  * @returns 
  */
 
-function IconBox ({
+function TicketBox ({
                   ticketImg1, 
                   ticketImg2,  
                   ticketText1, 
@@ -32,4 +32,4 @@ function IconBox ({
     );
 };
 
-export default IconBox;
+export default TicketBox;
