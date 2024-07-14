@@ -1,7 +1,8 @@
 import React from 'react';
 import { 
     IconBox,
-    TicketBox
+    TicketBox,
+    MyInfoIcon
 } from '../features/usermanagement';
 import '../styles/mypage.css'
 
@@ -14,6 +15,19 @@ const Mypage = () => {
                     <div className='my-profile'>
 
                     </div>
+                    <MyInfoIcon
+                         editImg='./icons/mypage/infoedit.png'
+                         editText='정보 수정'
+
+                         festivalImg='./icons/mypage/pick.png'
+                         pickFestivalText='찜 목록'
+
+                         artistImg='./icons/mypage/artistedit.png'
+                         pickArtistText='아티스트 수정'
+
+                         deleteImg='./icons/mypage/deleteuser.png'
+                         deleteInfoText='회원 탈퇴'
+                    />
                  </div>
 
 
