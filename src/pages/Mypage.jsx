@@ -12,8 +12,16 @@ const Mypage = () => {
             <div className='my-contents'>
                  
                  <div className='my-management-box'>
-                    <div className='my-profile'>
+                    <div className='my-profile-info'>
+                        <div className='profile'>
 
+                            <img src="./icons/mypage/myprofileimg.png" alt="내 프로필 사진" className='my-profile-image'/>
+
+                            <div className='info-text'>
+                                 <span className='info-span'>민준</span>
+                                 <span className='info-span'>Kangminjun1234</span>
+                            </div>
+                        </div>
                     </div>
                     <MyInfoIcon
                          editImg='./icons/mypage/infoedit.png'
