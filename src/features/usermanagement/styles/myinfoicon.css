@@ -1,0 +1,39 @@
+.myinfo-icon-form{
+    display: flex;
+}
+
+.info-edit,
+.pick-festival,
+.pick-artist,
+.delete-info {
+    display: flex;
+    width: 60px;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
+    margin: 20px;
+    font-size: 10px;
+}
+
+.info-edit-icon,
+.pick-fesitval-icon,
+.pick-artist-icon,
+.delete-info-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.edit-text-p,
+.pick-festival-text-p,
+.pick-artist-text-p,
+.delete-info-text-p {
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 5px;
+    letter-spacing: -0.5px;
+}

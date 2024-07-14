@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/ticketbox.css'
 /**
- * Mypage 아이콘 박스 컴포넌트
+ * Mypage 다른 페이지 이동 아이콘 컴포넌트
  * @returns 
  */
 
-function IconBox ({
+function TicketBox ({
                   ticketImg1, 
                   ticketImg2,  
                   ticketText1, 
@@ -32,4 +32,4 @@ function IconBox ({
     );
 };
 
-export default IconBox;
+export default TicketBox;
