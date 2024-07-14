@@ -25,7 +25,12 @@ const menuItems = [
     icon: icoPath + "/ic_inquiries.svg",
   },
 ];
-
+/**
+ * 사이드 메뉴 페이지
+ * 모바일에서는 absolute @todo 
+ * 데스크탑에서는 relative
+ * @returns 
+ */
 function SideMenu() {
   return (
     // 사이드바 활성화 및 비활성화 처리
@@ -46,6 +51,7 @@ function SideMenu() {
       {/* 메뉴 영역 */}
       {menuItems.map((item) => (
         <NavLink
+          replace={true}
           key={item.path}
           to={item.path}
           activeClassName="active"
