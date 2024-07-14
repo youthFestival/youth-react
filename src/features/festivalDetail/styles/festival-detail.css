@@ -1,0 +1,34 @@
+.festival-info {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.festival-thumbnail {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.festival-info h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.festival-info p {
+    margin: 10px 0;
+}
+
+.festival-info a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}

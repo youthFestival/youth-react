@@ -2,5 +2,6 @@
 
 import mockFestivals from './dummyFestival.json'
 import mockInquiries from './dummyInquiries.json'
+import mockFestivalDetail from './dummyFestivalDetail.json'
 
-export { mockFestivals, mockInquiries }
+export { mockFestivals, mockInquiries, mockFestivalDetail}

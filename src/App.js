@@ -7,6 +7,7 @@ import Mypage from './pages/Mypage';
 import Register from './pages/Register';
 import { UserInquiries } from "./features/dashboard";
 import RegisterForm from './features/register/component/RegisterForm';
+import FestivalDetail from "./pages/FestivalDetail";
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
+        <Route path="/festivaldetail/:festivalId" element={<FestivalDetail/>} />
       </Routes>
     </BrowserRouter>
   );

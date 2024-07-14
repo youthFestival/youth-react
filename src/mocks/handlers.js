@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockInquiries } from './dummyDatas';
+import { mockFestivals, mockInquiries, mockFestivalDetail } from './dummyDatas';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
@@ -101,6 +101,30 @@ export const handlers = [
             !!filteredFestivals ? successData : failedData,
             !!filteredFestivals ? { status: 200 } : { status: 404 }
         )
+    }),
+
+    /**
+     * 사용자가 선택한 축제의 상세 정보 조회
+     */
+    http.get(apiURL + '/festivals/:festivalId', async ({ params }) => {
+        const festivalId = parseInt(params.festivalId, 10);
+
+        // 가짜 데이터에서 해당 축제 정보를 찾아 반환
+        if (mockFestivalDetail.festivalDetails.festivalId === festivalId) {
+            return HttpResponse.json({
+                message: "축제 상세 정보를 가져오는데 성공했습니다.",
+                info: mockFestivalDetail.festivalDetails
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                error: "Not Found",
+                message: "해당 축제를 찾을 수 없습니다."
+            }, {
+                status: 404
+            });
+        }
     }),
 
     //!! 관리자 페이지
