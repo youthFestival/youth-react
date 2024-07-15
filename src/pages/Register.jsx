@@ -5,7 +5,6 @@ import {
 } from '../features/authentication/index.js'
 
 import '../styles/register.css'
-import { NavLink } from 'react-router-dom';
 
 /**
  * 회원가입 화면
@@ -33,7 +32,7 @@ const Register = () => {
             <AuthBtn 
                 btnClassName='normal-register-btn'
                 btnText='개인 회원가입'
-                btnNavi='/registerform'
+                btnNavi={'/register/registerform'}
             />
 
 
