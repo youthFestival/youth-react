@@ -1,0 +1,15 @@
+.register-write-container{
+    display: flex;
+    height: 1041px;
+    padding: 0px 710px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.register-write-form{
+    width: 500px;
+    height: 1000px;
+    flex-shrink: 0;
+    border: 1px solid black;
+}

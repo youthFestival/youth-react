@@ -21,14 +21,13 @@ const Register = () => {
            <div className='register-logo-container'>
             <div className='register-youth-form'>
                     <p className='youth-p'>
-                        <span className='youth-span'>Youth!</span> 회원가입
+                        <span className='youth-span'>Youth!</span>회원가입
                     </p>
             </div>
 
             <p className='register-guide'>
                 지금 회원가입 하신 후 Youth!에서 다양한 서비스를 경험해보세요 
             </p>
-
 
             <AuthBtn 
                 btnClassName='normal-register-btn'

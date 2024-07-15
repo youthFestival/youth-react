@@ -1,5 +1,6 @@
 .ticket-box{
     background: #F7FAFD;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.28);
     border-radius: 16px;
     height: 104px;
     width: 240px;
