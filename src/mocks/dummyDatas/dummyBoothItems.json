@@ -1,0 +1,12 @@
+{
+    "boothId": 1,
+    "limit": 6,
+    "items": [
+        { "name": "소고기부채살스테이크", "price": 10000, "keyword": "소고기부채살", "boothId": 1 },
+        { "name": "오븐에구운닭꼬치", "price": 4000, "keyword": "소떡소떡", "boothId": 2 },
+        { "name": "아기소반", "price": 8000, "keyword": "아기소반", "boothId": 3 },
+        { "name": "소고기불초밥", "price": 10000, "keyword": "불초밥", "boothId": 4 },
+        { "name": "통삼겹마스터", "price": 10000, "keyword": "통삼겹스테이크", "boothId": 5 },
+        { "name": "치즈/페퍼로니피자", "price": 10000, "keyword": "페퍼로니피자", "boothId": 6 }
+    ]
+}

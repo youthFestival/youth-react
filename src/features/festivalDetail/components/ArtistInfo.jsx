@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import "../styles/festival-detail.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
 import rightArrow from '../icons/artist-right-arrow.svg'
 
-const ArtistInfo = ({ lineUp = [] }) => {
+const ArtistInfo = ({ festivalId }) => {
+    const [lineUp, setLineUp] = useState([]);
     const [startIndex, setStartIndex] = useState(0);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const itemsPerPage = 6;
+
+    useEffect(() => {
+        const fetchLineUp = async () => {
+            try {
+                const apiUrl = process.env.REACT_APP_API_URL;
+                const response = await axios.get(`${apiUrl}/festivals/${festivalId}/line-ups`);
+                setLineUp(response.data.lineUp);
+            } catch (error) {
+                console.error('Failed to fetch lineup', error);
+                setError('아티스트 정보를 가져오는데 실패했습니다.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchLineUp();
+    }, [festivalId]);
 
     const scroll = (direction) => {
         if (direction === 'left') {
@@ -16,6 +37,9 @@ const ArtistInfo = ({ lineUp = [] }) => {
     };
 
     const currentLineUp = lineUp.slice(startIndex, startIndex + itemsPerPage);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div className="artist-info-container">

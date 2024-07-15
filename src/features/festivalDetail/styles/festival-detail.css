@@ -26,7 +26,8 @@
     height: 350px;
 }
 
-.festival-main-info, .festival-additional-info {
+.festival-main-info,
+.festival-additional-info {
     font-size: 13px;
 }
 
@@ -246,7 +247,8 @@
     margin-right: 55.8px;
 }
 
-.carousel-control-prev, .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next {
     background: none;
     border: none;
     cursor: pointer;
@@ -268,3 +270,151 @@
 .festival-poster-image {
     width: 52%;
 }
+
+/* FestivalPictures */
+.festival-pictures-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.pictures-header {
+    width: 53%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.pictures-header-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.pictures-slider {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.pictures-carousel-control-prev,
+.pictures-carousel-control-next {
+    background: none;
+    border: 1px solid #666666;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+}
+
+.pictures-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-width: 60%;
+}
+
+.festival-picture {
+    width: 310px;
+    height: 310px;
+    object-fit: cover;
+    margin: 0 20px;
+    border-radius: 8px;
+}
+
+.pictures-control-btn {
+    width: 100%;
+    height: auto;
+}
+
+.pictures-btn {
+    background: none;
+    border: none;
+}
+
+.pictures-actions {
+    margin-top: 10px;
+    width: 53%;
+    display: flex;
+    align-items: center;
+}
+
+/* FestivalBooth */
+.festival-booth-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.booth-header {
+    width: 53%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.booth-header-text {
+    font-size: 24px;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+}
+
+.booth-select {
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 100%;
+    height: 56px;
+    padding-left: 29px;
+}
+
+.booth-items {
+    width: 53%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.booth-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.booth-item-image {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.booth-item-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.booth-item-price {
+    font-size: 14px;
+    color: #888;
+}
+
+.booth-description {
+    width: 53%;
+    font-size: 12px;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* FestivalRecommendations */

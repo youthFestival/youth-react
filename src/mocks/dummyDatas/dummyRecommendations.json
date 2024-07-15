@@ -1,0 +1,18 @@
+{
+    "festivalId": 1,
+    "recommendations": [
+      {
+        "imgUrl": "https://example.com/image1.jpg",
+        "name": "축제 1"
+      },
+      {
+        "imgUrl": "https://example.com/image2.jpg",
+        "name": "축제 2"
+      },
+      {
+        "imgUrl": "https://example.com/image3.jpg",
+        "name": "축제 3"
+      }
+    ]
+  }
+  

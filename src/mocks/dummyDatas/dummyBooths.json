@@ -1,0 +1,11 @@
+{
+    "festivalId": 1,
+    "booths": [
+        { "boothId": 1, "boothName": "소고기부채살스테이크" },
+        { "boothId": 2, "boothName": "오븐에구운닭꼬치" },
+        { "boothId": 3, "boothName": "아기소반" },
+        { "boothId": 4, "boothName": "소고기불초밥" },
+        { "boothId": 5, "boothName": "통삼겹마스터" },
+        { "boothId": 6, "boothName": "치즈/페퍼로니피자" }
+    ]
+}
