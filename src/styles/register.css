@@ -145,12 +145,18 @@
     text-align: center;
 }
 
+.google-span{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+
 .naver-span{
     color: #FFFFFF;
 }
 
 .company-navlink{
     text-decoration: none;
+    color: inherit;
 }
 
 .limit-age-guide {

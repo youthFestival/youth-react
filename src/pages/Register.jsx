@@ -46,11 +46,11 @@ const Register = () => {
                         logoClassName='kakao-logo'
                     />
                     
-                    <NavLink to={''} className={'company-navlink'}>
+                    <a href='!#1' className={'company-navlink'}>
                         <span className='kakao-span'>
                                     카카오로 가입 
                         </span>
-                    </NavLink>
+                    </a>
                        
                 </div>
 
@@ -60,10 +60,10 @@ const Register = () => {
                             logoClassName='naver-logo'
                         />
                         
-                        <NavLink to={''} className={'company-navlink'}>
+                        <a href='!#2' className={'company-navlink'}>
                             <span className='naver-span'>
                                         네이버로 가입</span>
-                        </NavLink>
+                        </a>
                         
                 </div>
 
@@ -73,11 +73,11 @@ const Register = () => {
                         logoClassName='google-logo'
                     />
                         
-                    <NavLink to={''} className={'company-navlink'}>
+                    <a href='!#3' className={'company-navlink'}>
                         <span className='google-span'>
                                     구글로 가입
                         </span>
-                    </NavLink>
+                    </a>
                         
                 </div>
             </div>
