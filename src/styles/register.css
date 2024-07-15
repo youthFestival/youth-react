@@ -1,6 +1,5 @@
 .register-container {
     display: flex;
-    padding: 0px 710px;
     flex-direction: column;
     align-items: center;
     align-self: stretch;
@@ -9,8 +8,7 @@
 .register-form {
     display: flex;
     width: 500px;
-    min-height: 800px;
-    padding: 75px 0px 391px 0px;
+    padding: 75px 0px 0px 0px;
     flex-direction: column;
     align-items: flex-start;
 }
@@ -147,12 +145,18 @@
     text-align: center;
 }
 
+.google-span{
+    margin-left: 95px;
+    margin-right: 95px;
+}
+
 .naver-span{
     color: #FFFFFF;
 }
 
 .company-navlink{
     text-decoration: none;
+    color: inherit;
 }
 
 .limit-age-guide {
