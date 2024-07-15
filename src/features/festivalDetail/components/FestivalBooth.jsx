@@ -1,4 +1,3 @@
-// FestivalBooth.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/festival-detail.css";
@@ -30,7 +29,7 @@ const FestivalBooth = ({ festivalId }) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log("Fetching items for boothId: ", boothId);
-            const response = await axios.get(`${apiUrl}/booths/1/items`);
+            const response = await axios.get(`${apiUrl}/booths/${boothId}/items`);
             setItems(response.data.items);
         } catch (error) {
             setError('아이템 정보를 가져오는데 실패했습니다.');

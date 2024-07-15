@@ -1,4 +1,3 @@
-// src/features/festivalDetail/components/FestivalRecommendations.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/festival-detail.css";
