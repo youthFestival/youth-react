@@ -27,9 +27,9 @@ const menuItems = [
 ];
 /**
  * 사이드 메뉴 페이지
- * 모바일에서는 absolute @todo 
+ * 모바일에서는 absolute @todo
  * 데스크탑에서는 relative
- * @returns 
+ * @returns
  */
 function SideMenu() {
   return (

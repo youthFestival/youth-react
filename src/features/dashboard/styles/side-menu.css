@@ -14,7 +14,6 @@
   color: var(--admin-nav-text-enable-color);
   font-weight: 600;
   /* position: absolute; */
-  height: 100%;
   background-color: var(--admin-nav-background-color);
   display: flex;
   flex-direction: column;
@@ -69,8 +68,12 @@
   position: absolute;
 }
 
-.adminDashBoard .active span {
+.menu-item .active span {
   color: var(--admin-nav-text-enable-color);
+}
+
+.adminDashBoard span:nth-child(-1) {
+  background-color: red;
 }
 
 /* 1024 사이즈제어 */

@@ -131,7 +131,7 @@ function UserInquiries() {
         <li className="current-page">{page}</li>
         {hasNextPage && (
           <>
-            <li onClick={(e) => setPage(page + 1)}>{+page + 1}</li>
+            <li onClick={(e) => setPage(+page + 1)}>{+page + 1}</li>
           </>
         )}
         <span
