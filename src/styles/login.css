@@ -100,7 +100,9 @@
 }
 
 /* 정보찾기, 회원가입 영역 CSS */
-.login-userfind-register a {
+.find-id,
+.find-pw,
+.go-register {
     text-decoration: none;
     color: #666;
     font-size: 13px;
@@ -108,8 +110,10 @@
     margin-top: 31px;
 }
 
-.login-userfind-register a:nth-child(2)::before,
-.login-userfind-register a:nth-child(2)::after {
+.find-id:nth-child(2)::before,
+.find-id:nth-child(2)::after,
+.find-pw:nth-child(2)::before,
+.find-pw:nth-child(2)::after {
     content: '|';
     padding-inline: 12px;
     color: #dddddd;

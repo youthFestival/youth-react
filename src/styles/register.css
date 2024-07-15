@@ -151,6 +151,10 @@
     color: #FFFFFF;
 }
 
+.company-navlink{
+    text-decoration: none;
+}
+
 .limit-age-guide {
     align-self: stretch;
     color: #999999;

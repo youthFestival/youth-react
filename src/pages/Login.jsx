@@ -97,9 +97,11 @@ const Login = () => {
           />
 
           <div className="login-userfind-register">
-            <a href="!#">아이디 찾기</a>
-            <a href="!#">비밀번호 찾기</a>
-            <a href="!#">회원가입</a>
+
+            <NavLink className={'find-id'}>아이디 찾기</NavLink>
+            <NavLink className={'find-pw'}>비밀번호 찾기</NavLink>
+            <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
+
           </div>
 
           <div className="login-companyicons-area">

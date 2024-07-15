@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import '../styles/authbtn.css'
 
 /**
  * 로그인 버튼 컴포넌트
@@ -7,17 +9,20 @@ import React from 'react';
 
 function AuthBtn ({ btnNavi, btnClassName, btnText, btnOnClick}) {
     return (
-        <div>
-            <a
-                href={btnNavi}
-            >
-                <button
-                    className = {btnClassName}
-                    onClick={btnOnClick}
-                >  
-                    {btnText} 
-                </button> 
-            </a>
+        <div> 
+            <NavLink
+                    to={btnNavi}
+                    className='auth-navlink'
+                >
+                    <button
+                        className = {btnClassName}
+                        onClick={btnOnClick}
+                    >  
+                
+
+                        {btnText} 
+                    </button> 
+            </NavLink>     
         </div>
    
     );

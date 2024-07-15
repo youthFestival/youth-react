@@ -5,6 +5,7 @@ import {
 } from '../features/authentication/index.js'
 
 import '../styles/register.css'
+import { NavLink } from 'react-router-dom';
 
 /**
  * 회원가입 화면
@@ -32,7 +33,9 @@ const Register = () => {
             <AuthBtn 
                 btnClassName='normal-register-btn'
                 btnText='개인 회원가입'
+                btnNavi='/registerform'
             />
+
 
 
             <div className='register-logo-form'>
@@ -42,7 +45,13 @@ const Register = () => {
                         logoSrc='./icons/company/kakaologo.png'
                         logoClassName='kakao-logo'
                     />
-                    <span className='kakao-span'>카카오로 가입</span>
+                    
+                    <NavLink to={''} className={'company-navlink'}>
+                        <span className='kakao-span'>
+                                    카카오로 가입 
+                        </span>
+                    </NavLink>
+                       
                 </div>
 
                 <div className='register-naver'>
@@ -50,7 +59,12 @@ const Register = () => {
                             logoSrc='./icons/company/naverlogo.png'
                             logoClassName='naver-logo'
                         />
-                        <span className='naver-span'>네이버로 가입</span>
+                        
+                        <NavLink to={''} className={'company-navlink'}>
+                            <span className='naver-span'>
+                                        네이버로 가입</span>
+                        </NavLink>
+                        
                 </div>
 
                 <div className='register-google'>
@@ -58,7 +72,13 @@ const Register = () => {
                         logoSrc='./icons/company/googlelogo.png'
                         logoClassName='google-logo'
                     />
-                        <span className='google-span'>구글로 가입</span>
+                        
+                    <NavLink to={''} className={'company-navlink'}>
+                        <span className='google-span'>
+                                    구글로 가입
+                        </span>
+                    </NavLink>
+                        
                 </div>
             </div>
         

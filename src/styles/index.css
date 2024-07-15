@@ -5,6 +5,7 @@
   /* 색 */
   --app-primary-color: #89CFF0;
   --inquiries-category-account-color: #342727;
+  height: 100vh;
 }
 
 /* 전체적인 폰트를 프리텐다드로 설정. 영어는 따로 설정해야함 */
@@ -28,5 +29,4 @@ html body {
 
 body {
   width: 100vw;
-  height: 100vh;
 }
