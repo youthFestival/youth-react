@@ -22,15 +22,8 @@ function App() {
           <Route path="members" element={<div>회원관리 및 조회</div>} />
           <Route path="logs" element={<div>활동 로그</div>} />
           <Route path="register-festival" element={<div>축제 추가</div>} />
-<<<<<<< Updated upstream
           <Route path="inquiries/*" element={<UserInquiries />} />
           <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
-=======
-          <Route path="inquiries" element={<UserInquiries />}>
-          <Route path=":id" element={<div>상세페이지</div>} />
-        </Route>
-
->>>>>>> Stashed changes
         </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/calendar" element={<Calendar />} />
