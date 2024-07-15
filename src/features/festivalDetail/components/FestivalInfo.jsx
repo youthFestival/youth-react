@@ -60,7 +60,7 @@ const FestivalInfo = ({ festivalId }) => {
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
                     <div className='festival-additional-info'>
-                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span>{festival.organizer}<NextIcon /></p>
+                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival.organizer}</span><NextIcon /></p>
                         <p className='festival-min-age'><span className='festival-info-text'>관람등급</span>{formatMinAge(festival.minAge)}</p>
                         <p className='festival-tel'><span className='festival-info-text'>전화번호</span>{festival.tel}</p>
                     </div>

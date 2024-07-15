@@ -118,6 +118,13 @@
     width: 20%;
 }
 
+#festival-info-value {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
 /*FestivalDetailContent*/
 .tabs-container {
     display: flex;
