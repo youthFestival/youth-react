@@ -7,7 +7,7 @@
     background-color: white;
     display: flex;
     justify-content: center;
-    margin-top: 68px;
+    padding-top: 68px;
 }
 
 .login-container {
