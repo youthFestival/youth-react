@@ -4,7 +4,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 62.5%;
+    width: 51.77%;
     border-bottom: 1px solid #E6E6EB;
     padding-bottom: 48px;
     margin: 0 auto;
@@ -117,11 +117,12 @@
     width: 20%;
 }
 
-/*others*/
+/*FestivalDetailContent*/
 .tabs-container {
     display: flex;
     justify-content: center;
-    width: 62.5%;
+    width: 51.77%;
+    height: 80px;
     padding-top: 20px;
     margin: 0 auto;
 }
@@ -187,4 +188,83 @@
     margin-left: 5px;
     font-size: 10px;
     color: #666666;
+}
+
+/*ArtistInfo*/
+.artist-info-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.artist-description-container {
+    display: flex;
+    width: 52%;
+    height: 73px;
+    margin-top: 10px;
+}
+
+.artist-description {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.artist-list-wrapper {
+    margin-top: 10px;
+    display: flex;
+}
+
+.artist-list {
+    display: flex;
+}
+
+.artist-item {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 55.8px;
+}
+
+.artist-img {
+    border-radius: 100%;
+    width: 76px;
+    height: 76px;
+}
+
+.artist-name {
+    font-size: 12px;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70px;
+}
+
+.carousel-control-prev {
+    margin-right: 55.8px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.artistInfo-btn-image {
+    width: 100%;
+    height: auto;
+}
+
+/*FestivalPoster*/
+.festival-poster-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.festival-poster-image {
+    width: 52%;
 }

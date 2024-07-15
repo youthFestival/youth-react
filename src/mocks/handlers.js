@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockInquiries, mockFestivalDetail } from './dummyDatas';
+import { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster } from './dummyDatas';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
@@ -121,6 +121,50 @@ export const handlers = [
             return HttpResponse.json({
                 error: "Not Found",
                 message: "해당 축제를 찾을 수 없습니다."
+            }, {
+                status: 404
+            });
+        }
+    }),
+
+    /**
+     * 사용자가 선택한 축제의 라인업 정보 조회
+     */
+    http.get(apiURL + `/festivals/:festivalId/line-ups`, async ({ params }) => {
+        const festivalId = parseInt(params.festivalId, 10);
+
+        if (mockLineUp.festivalId === festivalId) {
+            return HttpResponse.json({
+                message: "축제 라인업 정보를 가져오는데 성공했습니다.",
+                lineUp: mockLineUp.lineUp
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                error: "Not Found",
+                message: "해당 축제의 라인업 정보를 찾을 수 없습니다."
+            }, {
+                status: 404
+            });
+        }
+    }),
+
+    // 사용자가 선택한 축제의 포스터 정보 조회
+    http.get(apiURL + `/festivals/:festivalId/poster`, async ({ params }) => {
+        const festivalId = parseInt(params.festivalId, 10);
+
+        if (mockPoster.festivalId === festivalId) {
+            return HttpResponse.json({
+                message: "포스터 정보를 가져오는데 성공했습니다.",
+                posterImage: mockPoster.posterImage
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                error: "Not Found",
+                message: "해당 축제의 포스터 정보를 찾을 수 없습니다."
             }, {
                 status: 404
             });

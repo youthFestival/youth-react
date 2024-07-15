@@ -3,5 +3,7 @@
 import mockFestivals from './dummyFestival.json'
 import mockInquiries from './dummyInquiries.json'
 import mockFestivalDetail from './dummyFestivalDetail.json'
+import mockLineUp from './dummyLineUp.json'
+import mockPoster from './dummyPoster.json'
 
-export { mockFestivals, mockInquiries, mockFestivalDetail}
+export { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster }
