@@ -216,11 +216,12 @@ export const handlers = [
     // 사용자가 선택한 부스의 아이템 정보 조회
     http.get(apiURL + `/booths/:boothId/items`, async ({ params }) => {
         const boothId = parseInt(params.boothId, 10);
-
-        if (mockBoothItems.boothId === boothId) {
+    
+        const boothItems = mockBoothItems.find(item => item.boothId === boothId);
+        if (boothItems) {
             return HttpResponse.json({
-                limit: mockBoothItems.limit,
-                items: mockBoothItems.items
+                limit: boothItems.limit,
+                items: boothItems.items
             }, {
                 status: 200
             });
@@ -235,9 +236,9 @@ export const handlers = [
     }),
 
     // 추천 축제 핸들러
-    http.get(apiURL + `/festivals/:festivalId/recommendations`, async ({ params, url }) => {
+    http.get(apiURL + `/festivals/:festivalId/recommendations`, async ({ params, request }) => {
         const festivalId = parseInt(params.festivalId, 10);
-        const limit = parseInt(new URL(url).searchParams.get("limit") || "3", 10);
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "3", 10);
 
         if (mockRecommendations.festivalId === festivalId) {
             const recommendations = mockRecommendations.recommendations.slice(0, limit);
