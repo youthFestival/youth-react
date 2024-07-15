@@ -1,57 +1,53 @@
 import React, { useState, useRef } from 'react';
-
+import '../styles/registerinput.css';
 /**
  * 회원가입 입력 폼 컴포넌트
  * @returns 
  */
 
 function RegisterInput ({
-        formClassName, 
-        inputType, 
-        inputClassName, 
-        inputPlaceHolder,
-        inputValue,
-        imgSrc,
-        imgAlt, 
-        inputOnChange
+        registerText,
+        registerInputType, 
+        registerInputPlaceHolder,
+        registerInputValue,
+        registerInputOnChange
 }) {
-    const [showPassword, setShowPassword] = useState(false);
+    const [showRegisterPassword, setShowRegisterPassword] = useState(true);
     const inputLoginRef = useRef(null);
 
     const showPasswordHandler = () => {
-        setShowPassword(!showPassword);
+        setShowRegisterPassword(!showRegisterPassword);
     };
 
     return (
-        <div className={formClassName}>
-            <div className='input-write'>
-                <img 
-                    src={imgSrc}
-                    alt={imgAlt}
-                    width={"24px"} 
-                    height={"24px"}
-                />
+        <div className='register-input-form'>
+            <div className='register-input-write'>
 
-                <label htmlFor={inputClassName}></label>
-                <input 
-                    type={ inputType === 'password' && !showPassword ? "password" : "text" }    
-                    className={inputClassName}
-                    placeholder={inputPlaceHolder}
-                    value={inputValue}
-                    onChange={inputOnChange}
-                    ref={inputLoginRef}
-                />
-                
-                {inputType === 'password' && (
-                    <button onClick={showPasswordHandler} className='eyebtn'>
-                        {showPassword ? (
-                        <img src="./icons/eyeoff.png" alt="패스워드 보기 off" />
-                        ) : (
-                        <img src="./icons/eyeon.png" alt="패스워드 보기 on" />   
+                <div className='register-input-row'>
+
+                    <span className='register-type-text'>{registerText}</span>
+
+                    <label htmlFor='register-input-classname' className='register-input-label'>
+                        <input 
+                            type={registerInputType === 'password' && showRegisterPassword ? registerInputType : "text"}    
+                            className='register-input-classname'
+                            placeholder={registerInputPlaceHolder}
+                            value={registerInputValue}
+                            onChange={registerInputOnChange}
+                        />
+                        {registerInputType === 'password' && (
+                            <button onClick={showPasswordHandler} className='register-eyebtn'>
+                                {showRegisterPassword ? (
+                                    <span className='register-pw-off-span'>보기</span>
+                                ) : (
+                                    <span className='register-pw-on-span'>보기</span>
+                                )}
+                            </button>
                         )}
-                    </button>
-                )}
-                    
+                    </label>
+
+                </div>
+
             </div>
         </div>
     );
