@@ -6,7 +6,7 @@ import {
     AuthCheckbox
 } from '../features/authentication/index.js';
 import axios from 'axios';
-import '../styles/login.scss';
+import '../styles/login.css';
 import { NavLink } from 'react-router-dom';
 
 
