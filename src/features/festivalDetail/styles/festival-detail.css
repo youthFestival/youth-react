@@ -425,3 +425,42 @@
 }
 
 /* FestivalRecommendations */
+.festival-recommendations-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.recommendations-header {
+    width: 53%;
+    text-align: left;
+}
+
+.recommendations-list {
+    width: 53%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.recommendation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.recommendation-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+}
+
+.recommendation-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
