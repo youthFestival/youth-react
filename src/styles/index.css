@@ -22,19 +22,12 @@
   font-family: "Noto Sans", sans-serif;
   */
 html body {
-  height: 100%;
   margin: 0;
   padding: 0;
-  width: 100vw;
+}
+
+html body #root{
+  height: 100%;
+  width: 100%;
   min-height: 100vh;
-}
-
-body{
-  height: 100%;
-  width: 100%;
-}
-
-#root {
-  height: 100%;
-  width: 100%;
 }
