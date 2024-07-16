@@ -39,8 +39,8 @@
 }
 
 .register-check-btn:hover{
-    background: #FFFFFF;
-    color: #000000;
+    background: #000000;
+    color: #FFFFFF;
 }
 
 .register-id-input,
@@ -54,6 +54,7 @@
     border: none;
     width: 350px;
 }
+
 
 .register-id-input:focus,
 .register-pw-input:focus,
@@ -85,6 +86,17 @@
     border-radius: 6px;
 }
 
-#email-dropdown:focus{
+#email-dropdown:focus {
     outline: none;
+}
+
+/* This is generally supported */
+.email-option:hover {
+    background: #FAFAFA;
+    color: #666;
+}
+
+/* Custom styling for individual options is very limited */
+.email-option:hover {
+    background: #89CFF0; /* This will not work in most browsers */
 }

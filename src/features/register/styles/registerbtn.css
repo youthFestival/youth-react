@@ -1,0 +1,24 @@
+.register-complete-btn{
+    display: flex;
+    width: 500px;
+    height: 50px;
+    padding: 14.5px 220px 15.5px 220px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #CCCCCC;
+    border: none;
+    margin-top: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.register-complete-btn:hover{
+    border-radius: 10px;
+    background: #0C87C1;
+}

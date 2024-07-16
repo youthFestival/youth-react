@@ -1,10 +1,11 @@
 import React from 'react';
-import '../styles/registerform.css'
 import {
     RegisterInput,
-    RegisterGenderBtn
+    RegisterGenderBtn,
+    RegisterBtn,
+    RegisterAgreement
 } from '../index.js';
-
+import '../styles/registerform.css'
 
 
 const RegisterForm = () => {
@@ -71,11 +72,11 @@ const RegisterForm = () => {
                               registerInputClassName='register-email-input'
                         />
                         <select name="" id="email-dropdown">
-                              <option value='직접입력'>직접입력</option>
-                              <option value='@naver.com'>@naver.com</option>
-                              <option value='@hanmail.net'>@hanmail.net</option>
-                              <option value='@gmail.com'>@gmail.com</option>
-                              <option value='@nate.com'>@nate.com</option>
+                              <option value='직접입력' className='email-option'>직접입력</option>
+                              <option value='@naver.com' className='email-option'>@naver.com</option>
+                              <option value='@hanmail.net' className='email-option'>@hanmail.net</option>
+                              <option value='@gmail.com' className='email-option'>@gmail.com</option>
+                              <option value='@nate.com' className='email-option'>@nate.com</option>
                         </select>
                   </div>
 
@@ -88,6 +89,14 @@ const RegisterForm = () => {
                         />
                         <button className='register-check-btn'>인증번호받기</button>
                   </div>
+
+                  <RegisterAgreement
+                         agreementType='checkbox'
+                         agreementText='SMS, 이메일로 상품 및 이벤트 정보를 받겠습니다.(선택)'
+                  />
+
+                  <RegisterBtn/>
+
 
 
              </div>
