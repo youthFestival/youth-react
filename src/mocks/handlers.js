@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations } from './dummyDatas';
+import { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations, mockComments } from './dummyDatas';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
@@ -257,6 +257,25 @@ export const handlers = [
             });
         }
     }),
+
+    // 사용자가 선택한 축제의 댓글 정보 조회
+    http.get(apiURL + `/comments/:festivalId`, async ({ params, request }) => {
+        const festivalId = parseInt(params.festivalId, 10);
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const comments = mockComments.comments.slice(offset, offset + limit);
+        return HttpResponse.json({
+            message: "조회되었습니다",
+            limit,
+            offset,
+            total: mockComments.comments.length, // 총 댓글 수 추가
+            comments
+        }, {
+            status: 200
+        });
+    }),
+
 
     //!! 관리자 페이지
     //문의글 여러 개 조회

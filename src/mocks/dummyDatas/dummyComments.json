@@ -1,0 +1,112 @@
+{
+    "message": "조회되었습니다",
+    "limit": 10,
+    "offset": 10,
+    "comments": [
+        {
+            "updatedAt": "2024-07-10",
+            "id": 101,
+            "content": "축제 너무 기대돼요! 친구들이랑 다 같이 가기로 했어요.",
+            "username": "minjun1999",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-09",
+            "id": 102,
+            "content": "매년 참석하는 축제입니다. 올해도 엄청 기대하고 있어요!",
+            "username": "hyunseo2000",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-08",
+            "id": 103,
+            "content": "재밌는 공연이 많아서 벌써부터 설레요.",
+            "username": "jihye1998",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-07",
+            "id": 104,
+            "content": "이번 축제에 처음 가보는데 기대됩니다!",
+            "username": "junho2001",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-06",
+            "id": 105,
+            "content": "축제에서 먹을 음식도 기대돼요. 다양한 음식이 많아서 좋네요.",
+            "username": "somin2002",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-05",
+            "id": 106,
+            "content": "지난해에 너무 즐거웠어요. 올해도 꼭 갈거에요.",
+            "username": "hanna2000",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-04",
+            "id": 107,
+            "content": "이번 축제에 다양한 체험 프로그램도 있다니 너무 기대돼요.",
+            "username": "yuna2001",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-03",
+            "id": 108,
+            "content": "축제에서 좋은 추억 많이 만들고 싶어요!",
+            "username": "changmin1999",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-02",
+            "id": 109,
+            "content": "공연 라인업이 너무 좋아서 이번에도 갈겁니다.",
+            "username": "hyunjun2000",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-07-01",
+            "id": 110,
+            "content": "축제 때 친구들이랑 다 같이 모일 생각에 설레네요.",
+            "username": "seojun2003",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-06-30",
+            "id": 111,
+            "content": "날씨만 좋다면 정말 완벽할 축제일 것 같아요. 기대됩니다.",
+            "username": "sohee1998",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-06-29",
+            "id": 112,
+            "content": "새로운 축제라 기대가 큽니다. 잘 준비되었으면 좋겠어요.",
+            "username": "minji2002",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-06-28",
+            "id": 113,
+            "content": "축제에 참여할 수 있어서 너무 행복해요!",
+            "username": "jinhyeok2001",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-06-27",
+            "id": 114,
+            "content": "친구들이랑 함께 가는 첫 축제라서 기대됩니다.",
+            "username": "eunji1999",
+            "isChild": false
+        },
+        {
+            "updatedAt": "2024-06-26",
+            "id": 115,
+            "content": "작년에 이어 올해도 참여합니다. 너무 기대돼요!",
+            "username": "hyejin2000",
+            "isChild": false
+        }
+    ]
+}

@@ -15,7 +15,7 @@ const FestivalDetail = () => {
     return (
         <div>
             <FestivalInfo festivalId={festivalId} />
-            <FestivalDetailMenu activeTab={activeTab} onTabChange={handleTabChange} />
+            <FestivalDetailMenu activeTab={activeTab} onTabChange={handleTabChange} festivalId={festivalId} />
             <FestivalDetailContent activeTab={activeTab} festivalId={festivalId} />
         </div>
     );

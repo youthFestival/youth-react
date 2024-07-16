@@ -9,7 +9,7 @@ import FestivalRecommendations from "./FestivalRecommendations";
 
 const FestivalDetailContent = ({ activeTab, festivalId }) => {
     if (activeTab === "comments") {
-        return <FestivalDetailComments />;
+        return <FestivalDetailComments festivalId={festivalId} />;
     } else if (activeTab === "qna") {
         return <FestivalDetailQnA />;
     } else {

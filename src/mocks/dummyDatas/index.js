@@ -9,5 +9,6 @@ import mockPictures from './dummyPicture.json'
 import mockBooths from './dummyBooths.json'
 import mockBoothItems from './dummyBoothItems.json'
 import mockRecommendations from './dummyRecommendations.json'
+import mockComments from './dummyComments.json'
 
-export { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations }
+export { mockFestivals, mockInquiries, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations, mockComments }

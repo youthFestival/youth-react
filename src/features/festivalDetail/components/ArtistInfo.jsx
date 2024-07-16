@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/festival-detail.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
-import rightArrow from '../icons/artist-right-arrow.svg'
+import rightArrow from '../icons/artist-right-arrow.svg';
 
 const ArtistInfo = ({ festivalId }) => {
     const [lineUp, setLineUp] = useState([]);
