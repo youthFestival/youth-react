@@ -1,0 +1,9 @@
+.agreement-checkbox{
+    width: 28px;
+    height: 28px;
+    background:inherit;
+}
+
+.register-agreement-checkbox{
+    display: none;
+}
