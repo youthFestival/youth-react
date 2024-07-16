@@ -79,9 +79,14 @@
 /* 1024 사이즈제어 */
 @media (min-width: 430px) and (max-width: 1024px) {
 
+
+  .sidebar {
+    height: 100%;
+
+  }
+
   .nav-header {
     width: auto;
-    height: auto;
     display: flex;
     justify-content: center;
 
