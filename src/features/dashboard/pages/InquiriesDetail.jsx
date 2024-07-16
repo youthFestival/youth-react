@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Header } from "../components";
-import "../styles/inquiries-detail.css";
+import "../styles/inquiries-detail.scss";
 function InquiriesDetail() {
   const { id } = useParams();
 
-  useEffect(() => {});
+  useEffect(() => { });
   return (
     <div className="inquiries-detail">
       <Header title="고객 문의 내역" subTitle="고객 문의 및 답변" />
