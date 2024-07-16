@@ -12,7 +12,7 @@
     flex-shrink: 0;
 }
 
-.register-with-btn {
+.input-with-btn {
     position:relative;
     display: flex;
     align-items: center;
@@ -38,43 +38,53 @@
     margin-top: 3%;
 }
 
+.register-check-btn:hover{
+    background: #FFFFFF;
+    color: #000000;
+}
+
 .register-id-input,
 .register-pw-input,
 .register-pwcheck-input,
 .register-name-input,
-.register-address-input {
+.register-address-input,
+.register-detail-address,
+.register-email-input {
     padding: 10px 0px 10.8px 5px;
     border: none;
-    right: 0;
+    width: 350px;
 }
 
 .register-id-input:focus,
 .register-pw-input:focus,
 .register-pwcheck-input:focus,
 .register-name-input:focus,
-.register-address-input:focus {
+.register-address-input:focus,
+.register-detail-address:focus,
+.register-email-input:focus {
     outline: none;
 }
 
-.register-id-input {
-    width: 350px;
-    flex-grow: 1;
-    float: right;
+.email-with-dropdown{
+    position:relative;
+    display: flex;
+    align-items: center;
 }
 
-.register-pw-input {
-    width: 380px;
+#email-dropdown{
+
+    position: absolute;
+    right: 0;
+    margin-top: 3%;
+    background: #FAFAFA;
+    color: #666;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    border-radius: 6px;
 }
 
-.register-pwcheck-input {
-    width: 355px;
+#email-dropdown:focus{
+    outline: none;
 }
-
-.register-name-input {
-    width: 360px;
-}
-
-.register-address-input{
-    width: 380px;
-}
-

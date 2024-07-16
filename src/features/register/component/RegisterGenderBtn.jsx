@@ -9,10 +9,11 @@ function RegisterGenderBtn ({}) {
     return (
         <div className='gender-choice'>
             <div className='gender-choice-form'>
+                
                 <span className='gender-span'>성별</span>
 
                 <button className='gender-man'>
-                    남자 
+                    남자
                 </button>
                 <button className='gender-woman'>
                     여자
