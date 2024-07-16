@@ -31,3 +31,14 @@ html body #root{
   width: 100%;
   min-height: 100vh;
 }
+
+ul, li, ol {
+  padding: 0; /* 기본 패딩 제거 */
+  margin: 0;  /* 기본 마진 제거 */
+  list-style: none; /* 리스트 스타일 제거 */
+}
+
+input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset !important;
+            box-shadow: 0 0 0 1000px white inset !important;
+        }
