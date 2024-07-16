@@ -1,7 +1,16 @@
+.agreement-container{
+    margin-top: 5%;
+}
+
+.agreement-contents{
+    display: flex;
+}
+
 .agreement-checkbox{
-    width: 28px;
-    height: 28px;
-    background:inherit;
+    width: 5px;
+    height: 5px;
+    background: none;
+    border:none;
 }
 
 .register-agreement-checkbox{
