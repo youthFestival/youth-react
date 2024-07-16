@@ -18,10 +18,10 @@ function RegisterAgreement ({ agreementText, agreementType }) {
             {agreementType === 'checkbox' && (
                 <button onClick={agreementCheckedHandler} className='agreement-checkbox'>
                   {agreementCheckedBox ? (
-                    <img src="/icons/checkbox/register_checkbox_off.png" alt="회원가입 동의 off" className='register-checkbox-image' />
+                    <img src="/icons/checkbox/register_checkbox_off.png" alt="회원가입 동의 off" className='agreement-checkbox-image' />
 
                   ) : (
-                    <img src="/icons/checkbox/register_checkbox_on.png" alt="회원가입 동의 on" className='register-checkbox-image' />   
+                    <img src="/icons/checkbox/register_checkbox_on.png" alt="회원가입 동의 on" className='agreement-checkbox-image' />   
                   )}
                 </button>
             )} 
@@ -29,7 +29,7 @@ function RegisterAgreement ({ agreementText, agreementType }) {
             <input 
                  type={agreementType}
                  className='register-agreement-checkbox'
-            /> {agreementText}
+            /> <span className='agreement-text-span'>{agreementText}</span>
         </div>
     )
 };
