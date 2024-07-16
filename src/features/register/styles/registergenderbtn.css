@@ -1,0 +1,52 @@
+.gender-choice{
+    display: flex;
+    width: 500px;
+    padding: 10px 469.06px 9.8px 5px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.gender-choice-form{
+    width: 500px;
+    display: flex;
+    gap: 12px;
+}
+
+.gender-span{
+    align-self: stretch;
+    color: #000000;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px; 
+    margin-top: 3%;
+    margin-right: 2%;
+}
+
+.gender-man,
+.gender-woman{
+    display: flex;
+    width: 210px;
+    height: 50px;
+    padding: 14.5px 10px 15.5px 10px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    background: #FFFFFF;
+}
+
+.gender-man:hover,
+.gender-woman:hover{
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}
+
+.gender-man:checked,
+.gender-woman:checked{
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+}

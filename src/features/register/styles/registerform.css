@@ -11,3 +11,70 @@
     height: 1000px;
     flex-shrink: 0;
 }
+
+.register-with-btn {
+    position:relative;
+    display: flex;
+    align-items: center;
+}
+
+.register-check-btn {
+    position: absolute;
+    display: flex;
+    height: 30px;
+    min-width: 70px;
+    padding: 5.7px 10.8px 6.7px 10.8px;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #CCCCCC;
+    background: #FFFFFF;
+    color: #000000;
+    text-align: center;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    right: 0;
+    margin-top: 3%;
+}
+
+.register-id-input,
+.register-pw-input,
+.register-pwcheck-input,
+.register-name-input,
+.register-address-input {
+    padding: 10px 0px 10.8px 5px;
+    border: none;
+    right: 0;
+}
+
+.register-id-input:focus,
+.register-pw-input:focus,
+.register-pwcheck-input:focus,
+.register-name-input:focus,
+.register-address-input:focus {
+    outline: none;
+}
+
+.register-id-input {
+    width: 350px;
+    flex-grow: 1;
+    float: right;
+}
+
+.register-pw-input {
+    width: 380px;
+}
+
+.register-pwcheck-input {
+    width: 355px;
+}
+
+.register-name-input {
+    width: 360px;
+}
+
+.register-address-input{
+    width: 380px;
+}
+

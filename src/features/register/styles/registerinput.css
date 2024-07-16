@@ -19,12 +19,12 @@
     position: relative;
     display: flex;
     width: 100%;
-    align-items: center; /* 세로 정렬을 중앙으로 설정 */
+    align-items: center; 
     border-bottom: 0.8px solid #000000;
 }
 
 .register-type-text{
-    font-size: 15px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 700;
     line-height: 30px;
@@ -39,9 +39,8 @@
 }
 
 .register-input-classname {
-    width: 300px;
+    width: 350px;
     padding: 10px 0px 10.8px 5px;
-    text-align: center;
     border: none;
     right: 0;
 }

@@ -9,6 +9,7 @@ function RegisterInput ({
         registerText,
         registerInputType, 
         registerInputPlaceHolder,
+        registerInputClassName,
         registerInputValue,
         registerInputOnChange
 }) {
@@ -30,7 +31,7 @@ function RegisterInput ({
                     <label htmlFor='register-input-classname' className='register-input-label'>
                         <input 
                             type={registerInputType === 'password' && showRegisterPassword ? registerInputType : "text"}    
-                            className='register-input-classname'
+                            className={registerInputClassName}
                             placeholder={registerInputPlaceHolder}
                             value={registerInputValue}
                             onChange={registerInputOnChange}
