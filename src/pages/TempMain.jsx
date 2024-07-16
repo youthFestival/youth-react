@@ -23,7 +23,7 @@ function TempMain() {
       const method = selectRef.current.value;
       const url = process.env.REACT_APP_API_URL + urlRef.current.value;
       const payload = !payloadRef?.current.value
-        ? null
+        ? {}
         : JSON.parse(payloadRef.current.value);
 
       alert(
@@ -35,7 +35,7 @@ function TempMain() {
         payload,
         {
           onSuccess: (res) => {
-            console.log(res.data);
+            console.log(res.data || res);
             alert("응답\n" + JSON.stringify(res.data, null, 2));
           },
           onFailure: (e) => {

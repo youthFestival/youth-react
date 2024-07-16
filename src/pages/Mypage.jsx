@@ -13,7 +13,7 @@ const Mypage = () => {
                  
                  <div className='my-management-box'>
                     <div className='my-profile-info'>
-                        <div className='profile'>
+                        <div className='my-real-profile'>
 
                             <img src="./icons/mypage/myprofileimg.png" alt="내 프로필 사진" className='my-profile-image'/>
 
