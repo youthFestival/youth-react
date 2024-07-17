@@ -12,7 +12,7 @@ import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
 import ChatBot from './features/chatBot/ChatBot';
 import { MydetailFrame } from './features/usermanagement';
 import { InfoAgreement } from './features/register';
-import UserFind from './features/userfind/component/UserFind';
+import UserFind from './features/userfind/pages/UserFind';
 import Header from "./components/header/Header";
 
 function App() {
