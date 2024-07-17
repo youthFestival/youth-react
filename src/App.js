@@ -1,26 +1,19 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AdminDashBoard from "./pages/AdminDashBoard";
-import Login from './pages/Login';
-import Calendar from './pages/Calendar';
-import Mypage from './pages/Mypage'; 
-import Register from './pages/Register';
-import { UserInquiries } from "./features/dashboard";
-import RegisterForm from './features/register/pages/RegisterForm';
-import FestivalDetail from "./pages/FestivalDetail";
-import TempMain from "./pages/TempMain";
-import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
-import ChatBot from './features/chatBot/ChatBot';
-import { MydetailFrame } from './features/usermanagement';
-import { InfoAgreement } from './features/register';
+import { AdminDashBoard, Calendar, FestivalDetail, InfoAgreement, InquiriesDetail, Login, MydetailFrame, Mypage, Register, TempMain, UserFind, UserInquiries, Chatbot, RegisterForm } from "./pages";
+
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import Home from './pages/Home';
+import PostEditor from "./features/dashboard/components/PostEditor";
+
+
 
 function App() {
 
   return (
     <BrowserRouter>
-      <ChatBot />
+      <Chatbot />
       <Routes>
-        <Route path="/test" element={<TempMain />} />
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<div>대시보드</div>} />
           <Route path="members" element={<div>회원관리 및 조회</div>} />
@@ -29,18 +22,28 @@ function App() {
           <Route path="inquiries/*" element={<UserInquiries />} />
           <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/calendar" element={<Calendar />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/mypage/mydetail" element={<MydetailFrame />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/register/agreement" element={<InfoAgreement />} />
-          <Route path="/register/registerform" element={<RegisterForm />} />
-          <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mypage/mydetail" element={<MydetailFrame />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/register/agreement" element={<InfoAgreement />} />
+        <Route path="/register/registerform" element={<RegisterForm />} />
+        <Route path="/userfind" element={<UserFind />} />
+        <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
         <Route path="/header" element={<Header />} />
-        {/* <Route path="/results" element={<Result />}/> */}
-        
+        <Route path="/footer" element={<Footer />} />
+
+
+        <Route path="/test">
+          <Route path="" element={<TempMain />} />
+          <Route path="editor" element={<PostEditor />} />
+        </Route>
+
       </Routes>
+
+
     </BrowserRouter>
   );
 }

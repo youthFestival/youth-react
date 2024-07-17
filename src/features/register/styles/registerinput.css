@@ -4,12 +4,13 @@
     align-items: center;
     flex-shrink: 0;
     align-self: stretch;
+    margin-top: 10px;
 }
 
 .register-input-write {
     display: flex;
     width: 500px;
-    height: auto; /* 높이를 자동으로 설정하여 내용을 기준으로 맞춤 */
+    height: auto;
     flex-shrink: 0;
     margin-top: 15px;
     flex-direction: column;

@@ -4,12 +4,14 @@ import { Header, InquiryPost } from "../components";
 import "../styles/inquiries-detail.scss";
 import useFetch from "../../../hooks/useFetch";
 import { formatDate } from "../../../utils/util";
+import PostEditor from "../components/PostEditor";
 
 function InquiriesDetail() {
   const { id } = useParams();
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL + `/inquiries/${id}`
   );
+
 
   const [isFestivalInquiry, setIsFestivalInquiry] = useState(false);
 
@@ -75,13 +77,14 @@ function InquiriesDetail() {
             />
 
             <hr></hr>
-
+            {/* 
             <InquiryPost
               nickname={data.replyInquiries.userAlias}
               date={formatDate(data.replyInquiries.updatedAt)}
               title={data.replyInquiries.title}
               content={data.replyInquiries.content}
-            />
+            /> */}
+            <PostEditor />
           </section>
         </main>
       )}

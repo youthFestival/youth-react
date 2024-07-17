@@ -6,6 +6,7 @@ import '../styles/registercheckbox.css'
  */
 
 function RegisterAgreement ({ agreementText, agreementType }) {
+  
     const [agreementCheckedBox, setAgreementCheckedBox] = useState(true)
     
     const agreementCheckedHandler = () => {

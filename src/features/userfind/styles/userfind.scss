@@ -1,0 +1,21 @@
+.user-find{
+    display: flex;
+
+    .form{
+        display: grid;
+        margin: 0 auto;
+        width: 669px;
+        flex-shrink: 0;
+    }
+
+    .title{
+        display: flex;
+        height: 81px;
+        color: #000;
+        font-size: 32px;
+        font-weight: 700;
+        margin: 0 auto;
+        margin-top: 85px;
+    }
+}
+
