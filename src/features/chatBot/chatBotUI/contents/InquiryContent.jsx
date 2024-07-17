@@ -4,24 +4,39 @@ import Answer from './InquiryContentAnswer'
 import MessageIcon from '../../icons/send-message-icon.svg'
 
 import '../../styles/content-inquiry.css'
+import axios from 'axios'
+
+const apiURL = process.env.REACT_APP_API_URL;
 
 const InquiryContent = () => {
     const [message, setMessage] = useState('');
+    const [botAnswer, setBotAnswer] = useState('');
     const [chatHistory, setChatHistory] = useState([]);
-    const [index, setIndex] = useState(1);
     const chatAreaRef = useRef(null);
 
-    const handleChat = () => {
-        if(!message) return;
-        setChatHistory([...chatHistory, 
-            { type: 'question', text: message }, 
-            { type: 'answer', text: `${index}번째 답변입니다. dkanxmsddddddddddddddddddddddddddddddddddddddddddd` }]);
-        setIndex(index + 1);
+    const handleChat = async () => {
+        if (!message) return;
+        
+        try {
+            const response = await axios.post(apiURL + '/chatbot-question', {
+                question: message,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const answer = response.data.answer;
+            setBotAnswer(answer);
+            setChatHistory([...chatHistory, { type: 'question', text: message }, { type: 'answer', text: answer }]);
+        } catch (error) {
+            console.error('Error Chat:', error);
+        }
         setMessage('');
     }
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') {
+            //console.log(message);
             handleChat();
         }
     }
