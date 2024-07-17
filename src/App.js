@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AdminDashBoard, Calendar, FestivalDetail, InfoAgreement, InquiriesDetail, Login, MydetailFrame, Mypage, Register, TempMain, UserFind, UserInquiries, Chatbot, RegisterForm } from "./pages";
 
 import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import Home from './pages/Home';
 
 
@@ -31,9 +32,8 @@ function App() {
           <Route path="/register/registerform" element={<RegisterForm />} />
           <Route path="/userfind" element={<UserFind />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        <Route path="/header" element={<Header />} />
-        {/* <Route path="/results" element={<Result />}/> */}
-        
+          <Route path="/header" element={<Header />} />
+          <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
   );

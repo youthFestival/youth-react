@@ -7,8 +7,8 @@ const Footer = () => {
         <div className="footer-footer">
             <div className="ftop-container">
                 <div className="fleft-container">
-                    <strong>(주)Youth!</strong>
-                    <p>
+                    <strong className="fyouth">(주)Youth!</strong>
+                    <p className="ftop">
                         주소 천안 동남구 대흥로 255 화일빌딩 3층<br></br>
                         사업자등록번호 000-00-00000 사업자정보확인<br></br>
                         통신판매업신고 0000-천안동남-00000<br></br>
@@ -17,8 +17,8 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="fright-container">
-                    <strong>전자금융거래 분쟁처리 담당</strong>
-                    <p>
+                    <strong className="fyouth">전자금융거래 분쟁처리 담당</strong>
+                    <p className="ftop">
                         팩스 00-000-0000｜이메일 intersolution@youth.com<br></br>
                         개인정보보호책임자 cpo@youth.com
                     </p>
