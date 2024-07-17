@@ -1,0 +1,56 @@
+.content-list-container {
+    width: 100%;
+    padding: 10px 31px;
+    box-sizing: border-box;
+}
+
+.content-list-item-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+    border-radius: 14px;
+    cursor: default;
+    transition: background-color;
+}
+
+.item-list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11.5px 30px;
+}
+
+.title-text {
+    width: 250px;
+    font-family: "Pretendard Variable";
+    font-weight: normal;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+.help-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.toggle-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.item-list-content {
+    margin-top: 10px;
+    line-height: 21px;
+    font-family: "Pretendard Variable";
+    font-weight: normal;
+    font-size: 12px;
+    width: 250px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+.content-list-item-container.open {
+    background-color: #EDEDED;
+    padding: 10px 0;
+}
