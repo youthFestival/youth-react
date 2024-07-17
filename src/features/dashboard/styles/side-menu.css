@@ -87,10 +87,10 @@
   }
 
   .nav-header {
-    width: auto;
     display: flex;
-    justify-content: center;
-
+    justify-content: start;
+    padding-inline: 0px;
+    height: auto;
   }
 
   .sidebar .title {
@@ -133,7 +133,7 @@
     display: flex;
     align-items: center;
     border-bottom: 0.5px solid var(--admin-nav-text-enable-color);
-    transition: 1s ease-out;
+    transition: min-width 0.3s ease-out;
   }
 
   .nav-header .console-logo {

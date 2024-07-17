@@ -21,11 +21,11 @@ function UserInquiries() {
   const DEFAULT_LIMIT = 15;
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL +
-      "/inquiries" +
-      withParams({
-        limit: DEFAULT_LIMIT,
-        offset: (page - 1) * DEFAULT_LIMIT + 1,
-      })
+    "/inquiries" +
+    withParams({
+      limit: DEFAULT_LIMIT,
+      offset: (page - 1) * DEFAULT_LIMIT + 1,
+    })
   );
   const navigiate = useNavigate();
 
@@ -91,11 +91,10 @@ function UserInquiries() {
                 <td className="col"> {inquiry.id}</td>
                 {/* 페스티벌의 경우, 값에 따라 스타일을 다르게 줘야함. */}
                 <td
-                  className={`col category ${
-                    inquiry.category === "페스티벌"
+                  className={`col category ${inquiry.category === "페스티벌"
                       ? "col-festival"
                       : "col-account"
-                  }`}
+                    }`}
                 >
                   <span>{inquiry.category}</span>
                 </td>
@@ -111,9 +110,8 @@ function UserInquiries() {
       {/* 페이지 이동 */}
       <ol className="pagination">
         <span
-          class={`ico material-symbols-outlined ${
-            hasPreviousPage ? "" : "disable"
-          }`}
+          class={`ico material-symbols-outlined ${hasPreviousPage ? "" : "disable"
+            }`}
           onClick={(e) => {
             setPage(page - 1);
           }}
@@ -135,9 +133,8 @@ function UserInquiries() {
           </>
         )}
         <span
-          class={`ico material-symbols-outlined ${
-            hasNextPage ? "" : "disable"
-          }`}
+          class={`ico material-symbols-outlined ${hasNextPage ? "" : "disable"
+            }`}
           onClick={(e) => setPage(+page + 1)}
         >
           keyboard_arrow_right
