@@ -61,8 +61,9 @@
 }
 
 .register-check-btn:hover{
-    background: #000000;
+    background:#89CFF0;
     color: #FFFFFF;
+    border: none;
 }
 
 .register-id-input,
