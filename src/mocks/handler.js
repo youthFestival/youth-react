@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations, mockComments, mockQnAs } from './dummyDatas';
+import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA } from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
@@ -110,7 +110,7 @@ export const handlers = [
     http.get(apiURL + '/festivals/:festivalId', async ({ params }) => {
             return HttpResponse.json({
                 message: "축제 상세 정보를 가져오는데 성공했습니다.",
-                info: mockFestivalDetail.festivalDetails
+                info: mockFestivalINfo.info
             }, {
                 status: 200
             });
@@ -122,7 +122,7 @@ export const handlers = [
     http.get(apiURL + `/festivals/:festivalId/line-ups`, async ({ params }) => {
             return HttpResponse.json({
                 message: "축제 라인업 정보를 가져오는데 성공했습니다.",
-                lineUp: mockLineUp.lineUp
+                lineUp: mockFestivalINfo.lineUp
             }, {
                 status: 200
             });
@@ -132,7 +132,7 @@ export const handlers = [
     http.get(apiURL + `/festivals/:festivalId/poster`, async ({ params }) => {
             return HttpResponse.json({
                 message: "포스터 정보를 가져오는데 성공했습니다.",
-                posterImage: mockPoster.posterImage
+                posterImage: mockFestivalINfo.posterImage
             }, {
                 status: 200
             });
@@ -142,7 +142,7 @@ export const handlers = [
     http.get(apiURL + `/festivals/:festivalId/pictures`, async ({ params }) => {
             return HttpResponse.json({
                 message: "사진 정보를 가져오는데 성공했습니다.",
-                pictures: mockPictures.pictures
+                pictures: mockFestivalINfo.pictures
             }, {
                 status: 200
             });
@@ -184,7 +184,7 @@ export const handlers = [
     http.get(apiURL + `/festivals/:festivalId/recommendations`, async ({ params, request }) => {
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "3", 10);
 
-            const recommendations = mockRecommendations.recommendations.slice(0, limit);
+            const recommendations = mockFestivalINfo.recommendations.slice(0, limit);
             return HttpResponse.json({
                 message: "추천 축제 정보를 가져오는데 성공했습니다.",
                 recommendations
@@ -198,12 +198,12 @@ export const handlers = [
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
         const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
 
-        const comments = mockComments.comments.slice(offset, offset + limit);
+        const comments = mockCommentsAndQnA.comments.slice(offset, offset + limit);
         return HttpResponse.json({
             message: "조회되었습니다",
             limit,
             offset,
-            total: mockComments.comments.length,
+            total: mockCommentsAndQnA.comments.length,
             comments
         }, {
             status: 200
@@ -215,12 +215,12 @@ export const handlers = [
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
         const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
 
-        const qnaList = mockQnAs.qnaList;
+        const qnaList = mockCommentsAndQnA.qnaList;
         return HttpResponse.json({
             message: "조회되었습니다",
             limit,
             offset,
-            total: mockQnAs.qnaList.length,
+            total: mockCommentsAndQnA.qnaList.length,
             qnaList
         }, {
             status: 200
