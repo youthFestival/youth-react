@@ -1,0 +1,28 @@
+.find-btn{
+    display: flex;
+    height: 75px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    
+    .navlink {
+        text-decoration: none;
+    }
+
+    .realbtn{
+        padding: 20px 220px 20px 220px;
+        border-radius: 10px;
+        background: #89CFF0;   
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        border:none;
+    }
+
+    .realbtn:hover {
+        border-radius: 10px;
+        background: #0C87C1;
+    }
+}
