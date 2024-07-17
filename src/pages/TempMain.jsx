@@ -94,6 +94,9 @@ function TempMain() {
       <NavLink to="/admin" style={navLinkStyle}>
         Admin
       </NavLink>
+      <NavLink to="/userfind" style={navLinkStyle}>
+        User Find
+      </NavLink>
 
       <p>
         <h2>웹 모킹 테스트용 필드</h2>
