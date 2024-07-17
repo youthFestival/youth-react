@@ -12,7 +12,7 @@ import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
 import ChatBot from './features/chatBot/ChatBot';
 import { MydetailFrame } from './features/usermanagement';
 import { InfoAgreement } from './features/register';
-import { Header } from "./features/dashboard/components";
+import Header from "./components/header/Header";
 
 function App() {
 
@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <ChatBot />
       <Routes>
-        <Route path="/" element={<TempMain />} />
+        <Route path="/test" element={<TempMain />} />
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<div>대시보드</div>} />
           <Route path="members" element={<div>회원관리 및 조회</div>} />
@@ -37,7 +37,6 @@ function App() {
           <Route path="/register/agreement" element={<InfoAgreement />} />
           <Route path="/register/registerform" element={<RegisterForm />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        {/* <Route path="/" element={<Home />} /> */}
         <Route path="/header" element={<Header />} />
         {/* <Route path="/results" element={<Result />}/> */}
         
