@@ -10,6 +10,7 @@
   height: 50px;
 }
 
+
 .adminDashBoard .sidebar {
   color: var(--admin-nav-text-enable-color);
   font-weight: 600;
@@ -68,8 +69,8 @@
   position: absolute;
 }
 
-.menu-item .active span {
-  color: var(--admin-nav-text-enable-color);
+.menu-item.active span {
+  color: white;
 }
 
 .adminDashBoard span:nth-child(-1) {
