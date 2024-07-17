@@ -1,1 +1,1 @@
-// export { default as UserFind } from './component/UserFind';
+export { default as FindTabMenu } from './component/FindTabMenu';
