@@ -42,3 +42,9 @@
     line-height: 20px;
     border: 1px solid #DDDDDD;
 }
+
+.register-notice-span{
+    margin-left: 30px;
+    text-indent: 30px;
+    font-size: 10px;
+}

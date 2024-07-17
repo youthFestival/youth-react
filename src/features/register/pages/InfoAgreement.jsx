@@ -22,7 +22,7 @@ const InfoAgreement = () => {
                             agreementText='[필수]개인 정보 수집 동의'
                     />
                     <p className='register-agreement-notice'>
-                        Youth!는 서비스 제공을 위하여 아래와 같이 회원의 개인정보를 수집, 활용합니다.<br/>
+                        Youth!는 서비스 제공을 위하여 아래와 같이 회원의 개인정보를 수집, 활용합니다.<br/><br/>
 
                         * 개인정보 수집∙이용에 대한 동의를 거부할 수 있으며, 거부할 경우 서비스 이용이 제한됩니다.<br/>
                         서비스 이용 과정에서 부정이용방지, 비인가 사용 방지, 통계 및 서비스 품질 향상 목적으로 단말기<br/>
@@ -36,14 +36,21 @@ const InfoAgreement = () => {
                             agreementText='[선택]마케팅 수신 동의'
                     />
                     <p className='register-agreement-notice'>
-                        ㈜Youth! 마케팅 수신 동의 약관
+                        ㈜Youth! 마케팅 수신 동의 약관<br/><br/>
 
-                        [제 1장 총칙]
+                        [제 1장 총칙]<br/>
                         
-                        1조 목적
-                        본 약관은 회원(Youth! 서비스 약관에 동의한 마케팅 수신 동의를 말하며, 이하 “회원”)이 주식회사 Youth!(이하 “회사”)가 제공하는 서비스(이하 “서비스”)를 이용함에 있어 회사와 회원의 권리/의무 및 책임사항을 규정함을 목적으로 합니다.
-                        제2조 이용약관의 효력 및 변경
-                        ① 본 약관은 서비스를 신청한 고객이 동의하고 회사가
+                        · 1조 목적<br/>
+                        
+                           <span className='register-notice-span'>본 약관은 회원(Youth! 서비스 약관에 동의한 마케팅 수신 동의를 말하며, 이하 “회원”)이</span><br/>
+                           <span className='register-notice-span'>주식회사 Youth!(이하 “회사”)가 제공하는 서비스(이하 “서비스”)를 이용함에 있어 회사와 회원의 권리/의무 및 책임사항</span><br/>
+                           <span className='register-notice-span'>을 규정함을 목적으로 합니다.</span>
+                        
+                        <br/>
+                        · 제2조 이용약관의 효력 및 변경
+                        <br/>
+                        <span className='register-notice-span'>
+                        ① 본 약관은 서비스를 신청한 고객이 동의하고 회사가</span>
                     </p>
  
                     <br/>
