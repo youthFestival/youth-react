@@ -9,10 +9,16 @@
     margin: 0 auto;
 }
 
-.mySwiper2 {
+.swiper-container {
+    display: flex;
     width: 100%;
     height: 100%;
-    position: relative; /* 자식 요소를 절대적으로 설정 */
+    position: relative;
+}
+
+.swiper {
+    flex: 1;
+    position: relative;
     overflow: hidden;
 
     .swiper-slide {
@@ -23,33 +29,38 @@
         img {
             width: 1600px;
             height: 520px;
+            border-radius: 6px;
         }
     }
 }
 
-.mySwiper {
+.sub-image {
     display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    position: absolute;
     justify-content: center;
-    position: absolute; /* 절대 위치 설정 */
-    bottom: 40px; /* 하단에 위치시키기 */
-    z-index: 1; /* z-index 설정 */
-    width: auto;
-    margin: 0;
-    pointer-events: none; /* 슬라이드의 포인터 이벤트를 비활성화 */
-    .swiper-slide {
-        width: 52px !important;
-        height: 52px !important;
-        margin: 0 4px; /* 8px margin between slides */
-        display: flex;
-        pointer-events: auto; /* 이미지는 클릭 가능하도록 설정 */
-        img {
-            width: 52px;
-            height: 52px;
-        }
-    }
+    align-items: center;
+    left: calc(1920px - 1600px);
+    z-index: 1;
+    bottom: 40px;
 
-    .swiper-wrapper {
-        display: flex;
-        justify-content: center;
+    img {
+        width: 52px;
+        height: 52px;
+        margin: 0 4px;
+        cursor: pointer;
+        border-radius: 6px;
+        transition: filter 0.3s;
+
+        &.active {
+            width: 58px;
+            height: 58px;
+            filter: brightness(100%);
+        }
+
+        &.inactive {
+            filter: brightness(50%);
+        }
     }
 }
