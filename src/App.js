@@ -10,11 +10,13 @@ import RegisterForm from './features/register/pages/RegisterForm';
 import FestivalDetail from "./pages/FestivalDetail";
 import TempMain from "./pages/TempMain";
 import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
+import ChatBot from './features/chatBot/ChatBot';
 
 function App() {
 
   return (
     <BrowserRouter>
+      <ChatBot />
       <Routes>
         <Route path="/" element={<TempMain />} />
         <Route path="/admin" element={<AdminDashBoard />}>
@@ -31,6 +33,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/register/registerform" element={<RegisterForm />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
+        {/* <Route path="/" element={<Home />} /> */}
       </Routes>
     </BrowserRouter>
   );
