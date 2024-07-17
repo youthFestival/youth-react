@@ -1,32 +1,30 @@
 .find-tabmenu{
-    background-color: #dcdcdc;
-    color: rgb(232, 234, 237);
-    font-weight: bold;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    list-style: none;
-    margin-bottom: 7rem;
-    margin-top: 10px;
+    display: inline-flex;
+    padding: 0px 44.5px 0px 44.5px;
+    align-items: flex-start;
+    gap: 124px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
   
     .submenu {
+      margin: 0 auto;
       display: flex;
-      /* justify-content: space-between;
-      width: 380px;
-      heigth: 30px; */
-      width: calc(100% / 3);
-      padding: 10px;
-      font-size: 15px;
-      transition: 0.5s;
-      border-radius: 10px 10px 0px 0px;
+      width: 228px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      cursor: pointer;
     }
   
     .focused {
-      background-color: rgb(255, 255, 255);
-      color: rgb(21, 20, 20);
+      border-bottom: 2px solid #000000;
     }
   
     &.desc {
-      text-align: center;
+      width: 670px;
+      height: 258px;
+      flex-shrink: 0;
     }
 }
