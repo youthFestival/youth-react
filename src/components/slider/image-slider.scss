@@ -1,0 +1,55 @@
+.image-slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1920px;
+    height: 520px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.mySwiper2 {
+    width: 100%;
+    height: 100%;
+    position: relative; /* 자식 요소를 절대적으로 설정 */
+    overflow: hidden;
+
+    .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        img {
+            width: 1600px;
+            height: 520px;
+        }
+    }
+}
+
+.mySwiper {
+    display: flex;
+    justify-content: center;
+    position: absolute; /* 절대 위치 설정 */
+    bottom: 40px; /* 하단에 위치시키기 */
+    z-index: 1; /* z-index 설정 */
+    width: auto;
+    margin: 0;
+    pointer-events: none; /* 슬라이드의 포인터 이벤트를 비활성화 */
+    .swiper-slide {
+        width: 52px !important;
+        height: 52px !important;
+        margin: 0 4px; /* 8px margin between slides */
+        display: flex;
+        pointer-events: auto; /* 이미지는 클릭 가능하도록 설정 */
+        img {
+            width: 52px;
+            height: 52px;
+        }
+    }
+
+    .swiper-wrapper {
+        display: flex;
+        justify-content: center;
+    }
+}
