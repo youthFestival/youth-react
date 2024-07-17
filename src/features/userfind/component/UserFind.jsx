@@ -1,9 +1,12 @@
 import React from 'react';
+import '../styles/userfind.scss'
 
 const UserFind = () => {
     return (
-        <div>
-            
+        <div className='user-find'>
+            <div className='form'>
+
+            </div>
         </div>
     );
 };
