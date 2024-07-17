@@ -3,12 +3,16 @@ import {
     RegisterInput,
     RegisterGenderBtn,
     RegisterBtn,
-    RegisterAgreement
+    RegisterCheckbox
 } from '../index.js';
 import '../styles/registerform.css'
 
-
+/**
+ * 회원가입 정보 입력 폼 코드
+ * @returns 
+ */
 const RegisterForm = () => {
+      
     return (
         <div className='register-write-container'>
 
@@ -97,19 +101,21 @@ const RegisterForm = () => {
 
                   <br/>
 
-                  <RegisterAgreement
+                  <RegisterCheckbox
                          agreementType='checkbox'
                          agreementText='SMS, 이메일로 상품 및 이벤트 정보를 받겠습니다.(선택)'
                   />
 
-                  <RegisterAgreement
+                  <RegisterCheckbox
                          agreementType='checkbox'
                          agreementText='14세 미만입니다.'
                   />
-                  
+
                   <span className='register-age-limit-span'>만 14세 미만 회원은 법정대리인(부모님)동의를 받은 경우만 회원가입이 가능합니다.</span>
 
-                  <RegisterBtn/>
+                  <RegisterBtn
+                      registerBtnText='가입완료'
+                  />
                 
              </div>  
         </div>

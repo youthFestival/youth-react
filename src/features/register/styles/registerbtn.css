@@ -1,3 +1,7 @@
+.register-btn-navlink{
+   text-decoration: none;
+}
+
 .register-complete-btn{
     display: flex;
     width: 500px;

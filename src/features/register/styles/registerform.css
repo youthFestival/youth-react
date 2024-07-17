@@ -1,6 +1,5 @@
 .register-write-container{
-    display: flex;
-    height: 1041px;
+    display: grid;
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
@@ -8,7 +7,6 @@
 
 .register-header{
     display: flex;
-    width: 100vh;
     padding: 0px 320px 0.8px 320px;
     justify-content: center;
     border-bottom: 0.8px solid #89CFF0;
@@ -33,6 +31,7 @@
     width: 500px;
     height: 1000px;
     flex-shrink: 0;
+    margin: 0 auto;
 }
 
 .input-with-btn {
@@ -132,37 +131,6 @@
     font-weight: 400;
     line-height: 22px;
 }
-
-/* 
-@media (max-width: 768px) {
-    .register-header {
-        padding: 0px 20px;
-        flex-direction: column;
-        height: auto;
-    }
-
-    .register-header-youth {
-        font-size: 24px;
-        width: auto;
-        height: auto;
-    }
-
-    .register-header-center {
-        flex-direction: column;
-        padding-right: 0;
-    }
-
-    .register-center-main {
-        width: auto;
-        height: auto;
-        padding: 0px 20px;
-    }
-
-    .register-header-text {
-        font-size: 12px;
-        line-height: normal;
-    }
-} */
 
 @media (min-width: 480px) and (max-width: 1023px) {
 

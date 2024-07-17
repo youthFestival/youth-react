@@ -32,7 +32,7 @@ const Register = () => {
             <AuthBtn 
                 btnClassName='normal-register-btn'
                 btnText='개인 회원가입'
-                btnNavi={'/register/registerform'}
+                btnNavi={'/register/agreement'}
             />
 
 

@@ -2,14 +2,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import Login from './pages/Login';
 import Calendar from './pages/Calendar';
-import Home from './pages/TempMain';
-import Mypage from './pages/Mypage';
+import Mypage from './pages/Mypage'; 
 import Register from './pages/Register';
 import { UserInquiries } from "./features/dashboard";
 import RegisterForm from './features/register/pages/RegisterForm';
 import FestivalDetail from "./pages/FestivalDetail";
 import TempMain from "./pages/TempMain";
 import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
+import { MydetailFrame } from './features/usermanagement';
+import { InfoAgreement } from './features/register';
 
 function App() {
 
@@ -28,7 +29,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/mypage" element={<Mypage />} />
+          <Route path="/mypage/mydetail" element={<MydetailFrame />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/register/agreement" element={<InfoAgreement />} />
           <Route path="/register/registerform" element={<RegisterForm />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
       </Routes>
