@@ -14,7 +14,7 @@ import { MydetailFrame } from './features/usermanagement';
 import { InfoAgreement } from './features/register';
 import UserFind from './features/userfind/component/UserFind';
 import Header from "./components/header/Header";
-
+import Footer from "./components/footer/Footer";
 
 function App() {
 
@@ -41,9 +41,8 @@ function App() {
           <Route path="/register/registerform" element={<RegisterForm />} />
           <Route path="/userfind" element={<UserFind />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        <Route path="/header" element={<Header />} />
-        {/* <Route path="/results" element={<Result />}/> */}
-        
+          <Route path="/header" element={<Header />} />
+          <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
   );
