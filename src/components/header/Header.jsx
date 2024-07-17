@@ -39,7 +39,7 @@ const Header = () => {
     }
 
     const handleHomeClick = () => {
-        window.location.href = '/';
+        window.location.href = '/home';
     };
 
     const handleConsoleClick = () => {
