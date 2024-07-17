@@ -12,6 +12,7 @@ import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
 import ChatBot from './features/chatBot/ChatBot';
 import { MydetailFrame } from './features/usermanagement';
 import { InfoAgreement } from './features/register';
+import UserFind from './features/userfind/component/UserFind';
 import Header from "./components/header/Header";
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/register/agreement" element={<InfoAgreement />} />
           <Route path="/register/registerform" element={<RegisterForm />} />
+          <Route path="/userfind" element={<UserFind />} />
           <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
         <Route path="/header" element={<Header />} />
         {/* <Route path="/results" element={<Result />}/> */}
