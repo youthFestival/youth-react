@@ -1,26 +1,16 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AdminDashBoard from "./pages/AdminDashBoard";
-import Login from './pages/Login';
-import Calendar from './pages/Calendar';
-import Mypage from './pages/Mypage'; 
-import Register from './pages/Register';
-import { UserInquiries } from "./features/dashboard";
-import RegisterForm from './features/register/pages/RegisterForm';
-import FestivalDetail from "./pages/FestivalDetail";
-import TempMain from "./pages/TempMain";
-import InquiriesDetail from "./features/dashboard/pages/InquiriesDetail";
-import ChatBot from './features/chatBot/ChatBot';
-import { MydetailFrame } from './features/usermanagement';
-import { InfoAgreement } from './features/register';
-import UserFind from './features/userfind/pages/UserFind';
+import { AdminDashBoard, Calendar, FestivalDetail, InfoAgreement, InquiriesDetail, Login, MydetailFrame, Mypage, Register, TempMain, UserFind, UserInquiries, Chatbot, RegisterForm } from "./pages";
+
 import Header from "./components/header/Header";
 import Home from './pages/Home';
+
+
 
 function App() {
 
   return (
     <BrowserRouter>
-      <ChatBot />
+      <Chatbot />
       <Routes>
         <Route path="/test" element={<TempMain />} />
         <Route path="/admin" element={<AdminDashBoard />}>
