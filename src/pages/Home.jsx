@@ -34,7 +34,7 @@ function Home() {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <center style={{ marginTop: "200px" }}>
         <img
           src="youthfavicon.png"

@@ -1,11 +1,14 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import './header.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { IoIosSearch } from "react-icons/io";
+import { GoBell } from "react-icons/go";
 
 const Header = () => {
     const { user, dispatch } = useContext(AuthContext);
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
 
     const handleLogoutClick = async (e) => {
@@ -39,12 +42,18 @@ const Header = () => {
         window.location.href = '/';
     };
 
-    // const handleSearch = () => {
-    //     // NEW_SEARCH: 새로운 검색 결과를 상태에 저장합니다.
-    //     dispatch({ type: "NEW_SEARCH", payload: { cateno } });
-    //     // state에 정보를 담아 /list 화면이동한다. 
-    //     navigate("/list", { state: { cateno } });
-    // };
+    const handleConsoleClick = () => {
+        window.location.href = '/admin';
+    }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        navigate.push(`/results?query=${searchTerm}`);
+        // // NEW_SEARCH: 새로운 검색 결과를 상태에 저장합니다.
+        // dispatch({ type: "NEW_SEARCH", payload: { festivalName } });
+        // // state에 정보를 담아 /list 화면이동한다. 
+        // navigate("/list", { state: { festivalName } });
+    };
 
     return (
         <div className="header-header">
@@ -53,13 +62,21 @@ const Header = () => {
             </div>
             <div className="hsearch-container">
                 <div className="search-box">
-                    <input type="text" className="search-input"></input>
-                    <></>
+                    <form onSubmit={handleSearch}>
+                        <input
+                            type="text"
+                            className="search-input"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="Search for region, festival, or artist"
+                        />
+                        <IoIosSearch className="search-button" onClick={handleSearch}/>
+                    </form>
                 </div>
             </div>
             <div className="hitems">
-                {/* <bell></>
-                <console></> */}
+                <GoBell className="event-bell"/>
+                {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
                 {user ? 
                     (<button className="navButton" onClick={handleLogoutClick}>로그아웃</button>):
                     (<div className="navButton-container">
