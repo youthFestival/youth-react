@@ -1,13 +1,13 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations, mockComments } from './dummyDatas';
+import { mockFestivals, mockFestivalDetail, mockLineUp, mockPoster, mockPictures, mockBooths, mockBoothItems, mockRecommendations, mockComments, mockQnAs } from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
 const apiURL = process.env.REACT_APP_API_URL;
 
 export const handlers = [
-...adminHandler,
+    ...adminHandler,
     // "GET /user" 요청을 가로챕니다.
     http.get('api/users', () => {
 
@@ -108,116 +108,60 @@ export const handlers = [
      * 사용자가 선택한 축제의 상세 정보 조회
      */
     http.get(apiURL + '/festivals/:festivalId', async ({ params }) => {
-        const festivalId = parseInt(params.festivalId, 10);
-
-        // 가짜 데이터에서 해당 축제 정보를 찾아 반환
-        if (mockFestivalDetail.festivalDetails.festivalId === festivalId) {
             return HttpResponse.json({
                 message: "축제 상세 정보를 가져오는데 성공했습니다.",
                 info: mockFestivalDetail.festivalDetails
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "해당 축제를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
     /**
      * 사용자가 선택한 축제의 라인업 정보 조회
      */
     http.get(apiURL + `/festivals/:festivalId/line-ups`, async ({ params }) => {
-        const festivalId = parseInt(params.festivalId, 10);
-
-        if (mockLineUp.festivalId === festivalId) {
             return HttpResponse.json({
                 message: "축제 라인업 정보를 가져오는데 성공했습니다.",
                 lineUp: mockLineUp.lineUp
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "해당 축제의 라인업 정보를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
     // 사용자가 선택한 축제의 포스터 정보 조회
     http.get(apiURL + `/festivals/:festivalId/poster`, async ({ params }) => {
-        const festivalId = parseInt(params.festivalId, 10);
-
-        if (mockPoster.festivalId === festivalId) {
             return HttpResponse.json({
                 message: "포스터 정보를 가져오는데 성공했습니다.",
                 posterImage: mockPoster.posterImage
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "해당 축제의 포스터 정보를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
     // 사용자가 선택한 축제의 사진 정보 조회
     http.get(apiURL + `/festivals/:festivalId/pictures`, async ({ params }) => {
-        const festivalId = parseInt(params.festivalId, 10);
-
-        if (mockPictures.festivalId === festivalId) {
             return HttpResponse.json({
                 message: "사진 정보를 가져오는데 성공했습니다.",
                 pictures: mockPictures.pictures
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "해당 축제의 사진 정보를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
     // 사용자가 선택한 축제의 부스 정보 조회
     http.get(apiURL + `/festivals/:festivalId/booths`, async ({ params }) => {
-        const festivalId = parseInt(params.festivalId, 10);
-
-        if (mockBooths.festivalId === festivalId) {
             return HttpResponse.json({
                 message: "부스 정보를 가져오는데 성공했습니다.",
                 booths: mockBooths.booths
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "해당 축제의 부스 정보를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
     // 사용자가 선택한 부스의 아이템 정보 조회
     http.get(apiURL + `/booths/:boothId/items`, async ({ params }) => {
         const boothId = parseInt(params.boothId, 10);
-    
+
         const boothItems = mockBoothItems.find(item => item.boothId === boothId);
         if (boothItems) {
             return HttpResponse.json({
@@ -238,10 +182,8 @@ export const handlers = [
 
     // 추천 축제 핸들러
     http.get(apiURL + `/festivals/:festivalId/recommendations`, async ({ params, request }) => {
-        const festivalId = parseInt(params.festivalId, 10);
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "3", 10);
 
-        if (mockRecommendations.festivalId === festivalId) {
             const recommendations = mockRecommendations.recommendations.slice(0, limit);
             return HttpResponse.json({
                 message: "추천 축제 정보를 가져오는데 성공했습니다.",
@@ -249,19 +191,10 @@ export const handlers = [
             }, {
                 status: 200
             });
-        } else {
-            return HttpResponse.json({
-                error: "Not Found",
-                message: "추천 축제를 찾을 수 없습니다."
-            }, {
-                status: 404
-            });
-        }
     }),
 
-    // 사용자가 선택한 축제의 댓글 정보 조회
+    // 사용자가 선택한 축제의 기대평 정보 조회
     http.get(apiURL + `/comments/:festivalId`, async ({ params, request }) => {
-        const festivalId = parseInt(params.festivalId, 10);
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
         const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
 
@@ -270,15 +203,33 @@ export const handlers = [
             message: "조회되었습니다",
             limit,
             offset,
-            total: mockComments.comments.length, // 총 댓글 수 추가
+            total: mockComments.comments.length,
             comments
         }, {
             status: 200
         });
     }),
+
+    // 사용자가 선택한 축제의 QnA 정보 조회
+    http.get(apiURL + `/inquiries2/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const qnaList = mockQnAs.qnaList;
+        return HttpResponse.json({
+            message: "조회되었습니다",
+            limit,
+            offset,
+            total: mockQnAs.qnaList.length,
+            qnaList
+        }, {
+            status: 200
+        });
+    }),
+
     http.get(apiURL + '/faq', async () => {
         return HttpResponse.json({
-            faq:[
+            faq: [
                 { question: '비밀번호는 어떻게 바꾸나요?', answer: 'asdf1 휴대폰 간편결제 비밀번호를 변경하고 싶다면 네이버페이 주문/결제 페이지의 휴대폰 간편결제 창에서 비밀번호 변경을 클릭한 후 기존 비밀번호로 인증하고 새 비밀번호를 등록하면 됩※ 비밀번호가 타인에서 유출되지 않도록 주의해 주시고, 정기적으로 변경해 주세1. 일반결제 > 휴대폰 간편결제> 비밀번호 변경 클릭2. 기존 비밀번호 인증 후 새 비밀번호 등록' },
                 { question: '비밀번호는 어떻게 바꾸나요?', answer: 'asdf2 휴대폰 간편결제 비밀번호를 변경하고 싶다면 네이버페이 주문/결제 페이지의 휴대폰 간편결제 창에서 비밀번호 변경을 클릭한 후 기존 비밀번호로 인증하고 새 비밀번호를 등록하면 됩※ 비밀번호가 타인에서 유출되지 않도록 주의해 주시고, 정기적으로 변경해 주세1. 일반결제 > 휴대폰 간편결제> 비밀번호 변경 클릭2. 기존 비밀번호 인증 후 새 비밀번호 등록' },
                 { question: '비밀번호는 어떻게 바꾸나요?', answer: 'asdf3 휴대폰 간편결제 비밀번호를 변경하고 싶다면 네이버페이 주문/결제 페이지의 휴대폰 간편결제 창에서 비밀번호 변경을 클릭한 후 기존 비밀번호로 인증하고 새 비밀번호를 등록하면 됩※ 비밀번호가 타인에서 유출되지 않도록 주의해 주시고, 정기적으로 변경해 주세1. 일반결제 > 휴대폰 간편결제> 비밀번호 변경 클릭2. 기존 비밀번호 인증 후 새 비밀번호 등록' },
@@ -293,13 +244,13 @@ export const handlers = [
             status: 200
         })
     }),
-    http.post(apiURL + '/chatbot-question', async ({request}) => {
+    http.post(apiURL + '/chatbot-question', async ({ request }) => {
         const data = await request.json();
         console.log(data);
         let answer;
-        if(data.question === "이름") {
+        if (data.question === "이름") {
             answer = "챗봇";
-        } else if (data.question === "생년월일"){
+        } else if (data.question === "생년월일") {
             answer = "2024-07-16";
         } else {
             answer = "데이터 없음";
@@ -307,9 +258,9 @@ export const handlers = [
         return HttpResponse.json(
             {
                 answer: answer
-            },{
-                status: 200
-            }
+            }, {
+            status: 200
+        }
         )
     })
 

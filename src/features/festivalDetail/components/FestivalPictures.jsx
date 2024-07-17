@@ -3,8 +3,6 @@ import axios from 'axios';
 import "../styles/festival-detail.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
 import rightArrow from '../icons/artist-right-arrow.svg';
-import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
-import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
 
 const FestivalPictures = ({ festivalId }) => {
     const [pictures, setPictures] = useState([]);
@@ -58,16 +56,6 @@ const FestivalPictures = ({ festivalId }) => {
                 <button className="pictures-carousel-control-next" onClick={handleNext}>
                     <img src={rightArrow} alt="Next" className='pictures-control-btn' />
                 </button>
-            </div>
-            <div className='pictures-actions'>
-                <button className='pictures-btn'>
-                    <LikeIcon />
-                </button>
-                <span>2</span>
-                <button className='pictures-btn'>
-                    <ShareIcon />
-                </button>
-                <span>6</span>
             </div>
         </div>
     );

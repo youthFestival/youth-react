@@ -1,0 +1,137 @@
+{
+    "message": "조회되었습니다",
+    "limit": 10,
+    "offset": 10,
+    "qnaList": [
+        {
+            "title": "행사 시간 문의",
+            "username": "leejin",
+            "create": "2024-01-01",
+            "status": "답변완료",
+            "content": "행사 시간이 어떻게 되나요?",
+            "answerId": 1,
+            "isSecret": false,
+            "id": 1
+        },
+        {
+            "title": "주차 가능 여부",
+            "username": "kimmin",
+            "create": "2024-02-01",
+            "status": "답변완료",
+            "content": "주차가 가능한가요?",
+            "answerId": 2,
+            "isSecret": true,
+            "id": 2
+        },
+        {
+            "title": "출연진 문의",
+            "username": "anji",
+            "create": "2024-12-25",
+            "status": "접수중",
+            "content": "출연진 명단을 알 수 있나요?",
+            "answerId": null,
+            "isSecret": false,
+            "id": 3
+        },
+        {
+            "title": "음식 메뉴 문의",
+            "username": "jungwoo",
+            "create": "2024-03-10",
+            "status": "접수완료",
+            "content": "축제에서 제공되는 음식 메뉴가 궁금합니다.",
+            "answerId": 4,
+            "isSecret": false,
+            "id": 4
+        },
+        {
+            "title": "행사 위치 문의",
+            "username": "sungmin",
+            "create": "2024-04-15",
+            "status": "접수중",
+            "content": "행사 위치가 어디인가요?",
+            "answerId": null,
+            "isSecret": true,
+            "id": 5
+        },
+        {
+            "title": "티켓 구매 방법",
+            "username": "yuna",
+            "create": "2024-05-20",
+            "status": "접수완료",
+            "content": "티켓은 어떻게 구매할 수 있나요?",
+            "answerId": 6,
+            "isSecret": false,
+            "id": 6
+        },
+        {
+            "title": "자원봉사 신청",
+            "username": "minji",
+            "create": "2024-06-25",
+            "status": "답변완료",
+            "content": "자원봉사 신청은 어떻게 하나요?",
+            "answerId": 7,
+            "isSecret": false,
+            "id": 7
+        },
+        {
+            "title": "행사 일정 변경",
+            "username": "jiho",
+            "create": "2024-07-01",
+            "status": "접수중",
+            "content": "행사 일정이 변경되었나요?",
+            "answerId": null,
+            "isSecret": true,
+            "id": 8
+        },
+        {
+            "title": "환불 정책",
+            "username": "seoyun",
+            "create": "2024-08-05",
+            "status": "답변완료",
+            "content": "환불 정책이 어떻게 되나요?",
+            "answerId": 9,
+            "isSecret": false,
+            "id": 9
+        },
+        {
+            "title": "행사 참여 방법",
+            "username": "jinhyuk",
+            "create": "2024-09-10",
+            "status": "답변완료",
+            "content": "행사에 참여하려면 어떻게 해야 하나요?",
+            "answerId": 10,
+            "isSecret": true,
+            "id": 10
+        },
+        {
+            "title": "행사 프로그램",
+            "username": "soojin",
+            "create": "2024-10-15",
+            "status": "접수중",
+            "content": "행사 프로그램은 어떻게 구성되어 있나요?",
+            "answerId": null,
+            "isSecret": false,
+            "id": 11
+        },
+        {
+            "title": "기념품 문의",
+            "username": "chaeun",
+            "create": "2024-11-20",
+            "status": "답변완료",
+            "content": "축제 기념품은 어떤 것이 있나요?",
+            "answerId": 12,
+            "isSecret": true,
+            "id": 12
+        },
+        {
+            "title": "아티스트 문의",
+            "username": "cldnea",
+            "create": "2024-11-20",
+            "status": "답변완료",
+            "content": "축제 기념품은 어떤 것이 있나요?",
+            "answerId": 13,
+            "isSecret": true,
+            "id": 13
+        }
+    ]
+}

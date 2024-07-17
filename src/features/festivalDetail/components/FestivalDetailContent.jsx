@@ -11,7 +11,7 @@ const FestivalDetailContent = ({ activeTab, festivalId }) => {
     if (activeTab === "comments") {
         return <FestivalDetailComments festivalId={festivalId} />;
     } else if (activeTab === "qna") {
-        return <FestivalDetailQnA />;
+        return <FestivalDetailQnA festivalId={festivalId} />;
     } else {
         return (
             <div>

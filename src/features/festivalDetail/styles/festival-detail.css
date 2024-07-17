@@ -338,18 +338,6 @@
     height: auto;
 }
 
-.pictures-btn {
-    background: none;
-    border: none;
-}
-
-.pictures-actions {
-    margin-top: 10px;
-    width: 53%;
-    display: flex;
-    align-items: center;
-}
-
 /* FestivalBooth */
 .festival-booth-container {
     width: 100%;
@@ -453,8 +441,8 @@
 }
 
 .recommendation-img {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     margin-bottom: 10px;
     border-radius: 50%;
 }
@@ -565,4 +553,146 @@
     font-size: 12px;
     margin-left: 8px;
     color: #666666;
+}
+
+/*FestivalDetailQnA*/
+.qna-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.qna-buttons {
+    display: flex;
+    align-items: center;
+    width: 53%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.exclude-secret-label {
+    margin-right: 18px;
+}
+
+.qna-filter-button {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 20px;
+    color: #6C6C6C;
+}
+
+.qna-filter-button.active {
+    background-color: #89CFF0;
+    color: white;
+}
+
+.qna-filter-button.active .qna-filter-count {
+    color: white;
+}
+
+.qna-filter-count {
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #6C6C6C;
+}
+
+.qna-checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.secret-checkbox {
+    margin-right: 5px;
+}
+
+.qna-btn-container {
+    width: 53%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.qna-btn {
+    background-color: #89CFF0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.qna-table {
+    width: 53%;
+    border-collapse: collapse;
+    color: #1A1A1A;
+}
+
+.qna-table-head {
+    background-color: #f2f2f2;
+}
+
+.qna-table-header {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.qna-table-body .qna-table-cell {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 30px;
+    font-size: 14px;
+}
+
+#qna-title {
+    text-align: left;
+    padding-left: 40px;
+}
+
+.secret-title {
+    color: #A7A3A3;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pagination-button-move {
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 26px;
+    color: #999;
+}
+
+.pagination-button:disabled {
+    background-color: #89CFF0;
+    color: white;
+    cursor: default;
 }
