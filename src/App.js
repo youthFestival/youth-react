@@ -15,6 +15,7 @@ import { InfoAgreement } from './features/register';
 import UserFind from './features/userfind/pages/UserFind';
 import Header from "./components/header/Header";
 
+
 function App() {
 
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="inquiries/*" element={<UserInquiries />} />
           <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
+
           <Route path="/login" element={<Login />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/mypage" element={<Mypage />} />
