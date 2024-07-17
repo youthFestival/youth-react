@@ -68,7 +68,7 @@ const Header = () => {
                             className="search-input"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="Search for region, festival, or artist"
+                            placeholder="대학교, 페스티벌, 지역, 아티스트를 검색해 보세요!"
                         />
                         <IoIosSearch className="search-button" onClick={handleSearch}/>
                     </form>
