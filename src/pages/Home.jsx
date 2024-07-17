@@ -1,11 +1,11 @@
-import Header from "./components/header/Header";
+import Slider from '../components/slider/ImageSilder'
 
 function Home() {
   return (
     <div>
-      <Header />
+      <Slider />
     </div>
-  )
+  );
 }
 
 export default Home;

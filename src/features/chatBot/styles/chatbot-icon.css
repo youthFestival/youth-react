@@ -2,10 +2,10 @@
     position: fixed;
     right: 30px;
     bottom: 25px;
-    width: 80px;
-    height: 80px;
-    min-height: 80px;
-    max-height: 80px;
+    width: 56px;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
     overflow: hidden;
     background-color: #89CFF0;
     border: hidden;
@@ -15,9 +15,10 @@
 }
 
 .chatbot-icon img {
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
+    
     transition: filter 0.3s;
 }
 
