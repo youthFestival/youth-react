@@ -11,13 +11,15 @@ function RegisterGenderBtn ({}) {
             <div className='gender-choice-form'>
                 
                 <span className='gender-span'>성별</span>
-
-                <button className='gender-man'>
-                    남자
-                </button>
-                <button className='gender-woman'>
-                    여자
-                </button>
+                
+                <div className='register-gender-btn'>
+                    <button className='gender-man'>
+                        남자
+                    </button>
+                    <button className='gender-woman'>
+                        여자
+                    </button>
+                </div>
             </div>      
         </div>
     );

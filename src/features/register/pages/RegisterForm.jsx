@@ -14,18 +14,8 @@ const RegisterForm = () => {
 
              
             <div className='register-header'>
-
                   <span className='register-header-youth'>Youth!</span>
-
-                        <div className='register-header-center'>
-
-                              <div className='register-center-main'>
-                                    <span className='register-header-text'>회원가입</span>
-                              </div>
-                              
-                        </div>
             </div>
-
 
             <div className='register-write-form'>   
                  <div className='input-with-btn'>
@@ -116,12 +106,12 @@ const RegisterForm = () => {
                          agreementType='checkbox'
                          agreementText='14세 미만입니다.'
                   />
+                  
                   <span className='register-age-limit-span'>만 14세 미만 회원은 법정대리인(부모님)동의를 받은 경우만 회원가입이 가능합니다.</span>
+
                   <RegisterBtn/>
-
-
-
-             </div>
+                
+             </div>  
         </div>
     );
 };
