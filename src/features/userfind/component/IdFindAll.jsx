@@ -3,7 +3,6 @@ import {
        IdFind, 
        FindBtn 
 } from '../index.js';
-import '../styles/idfindall.scss';
 
 const IdFindAll = () => {
     return (
