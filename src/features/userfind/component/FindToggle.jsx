@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/idfind.scss';
+import '../styles/findtoggle.scss';
 
-const IdFind = ({ findType, findText, togleContents, toggleText }) => {
+const FindToggle = ({ findType, findText, togleContents, toggleText }) => {
     const [findRadio, setFindRadio] = useState(true);
     const [isToggled, setIsToggled] = useState(false);
 
@@ -27,14 +27,12 @@ const IdFind = ({ findType, findText, togleContents, toggleText }) => {
                 className='find-radio'
             /> <span className=''>{findText}</span>
 
-            {isToggled && (
-                <div className='toggle-content'>
-                    <p className='to'>{toggleText}</p>
-                    {togleContents}
-                </div>
-            )}
+            <div className={`toggle-content ${isToggled ? 'open' : ''}`}>
+                <p className='toggle-text'>{toggleText}</p>
+                {togleContents}
+            </div>
         </div>
     );
 };
 
-export default IdFind;
+export default FindToggle;

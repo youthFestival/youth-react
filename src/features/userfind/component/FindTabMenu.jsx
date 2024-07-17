@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
     IdFindAll,
+    PwFindAll
 } from '../index.js';
 import '../styles/findtabmenu.scss';
 
@@ -14,7 +15,7 @@ const FindTabMenu = () => {
         },
         { 
             name: '비밀번호 찾기', 
-            content: 'Tab menu 2' 
+            content: <PwFindAll/> 
         }
     ];
 

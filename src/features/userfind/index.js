@@ -1,4 +1,5 @@
 export { default as FindTabMenu } from './component/FindTabMenu';
-export { default as IdFind } from './component/IdFind';
+export { default as FindToggle } from './component/FindToggle';
 export { default as IdFindAll } from './component/IdFindAll';
+export { default as PwFindAll } from './component/PwFindAll';
 export { default as FindBtn } from './component/FindBtn';
