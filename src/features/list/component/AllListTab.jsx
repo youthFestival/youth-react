@@ -20,35 +20,35 @@ const AllListTab = () => {
                     {
                         posterSrc: '',
                         posterAlt: '',
-                        festivalTitle: 'All Festival 1',
+                        festivalTitle: 'All Festival Poster 1',
                         festivalLocation: 'Location 1',
                         festivalDate: 'Date 1'
                     },
                     {
                         posterSrc: '',
                         posterAlt: '',
-                        festivalTitle: 'All Festival 2',
+                        festivalTitle: 'All Festival Poster 2',
                         festivalLocation: 'Location 2',
                         festivalDate: 'Date 2'
                     },
                     {
                         posterSrc: '',
                         posterAlt: '',
-                        festivalTitle: 'All Festival 3',
+                        festivalTitle: 'All Festival Poster 3',
                         festivalLocation: 'Location 3',
                         festivalDate: 'Date 3'
                     },
                     {
                         posterSrc: '',
                         posterAlt: '',
-                        festivalTitle: 'All Festival 4',
+                        festivalTitle: 'All Festival Poster 4',
                         festivalLocation: 'Location 4',
                         festivalDate: 'Date 4'
                     },
                     {
                         posterSrc: '',
                         posterAlt: '',
-                        festivalTitle: 'All Festival 5',
+                        festivalTitle: 'All Festival Poster 5',
                         festivalLocation: 'Location 5',
                         festivalDate: 'Date 5'
                     },
