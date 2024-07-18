@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PosterComponent } from '../index.js';
 
 import '../styles/festivallist.scss'
@@ -9,24 +9,69 @@ import '../styles/festivallist.scss'
  */
 
 const FestivalListTab = () => {
+
+  const [festivalList, setFestivalList] = useState([]);
+
+  useEffect(() => {
+
+      const fetchData = async () => {
+
+      const data = [
+              {
+                  posterSrc: '',
+                  posterAlt: '',
+                  festivalTitle: 'Festival Poster 1',
+                  festivalLocation: 'Location 1',
+                  festivalDate: 'Date 1'
+              },
+              {
+                  posterSrc: '',
+                  posterAlt: '',
+                  festivalTitle: 'Festival Poster 2',
+                  festivalLocation: 'Location 2',
+                  festivalDate: 'Date 2'
+              },
+              {
+                  posterSrc: '',
+                  posterAlt: '',
+                  festivalTitle: 'Festival Poster 3',
+                  festivalLocation: 'Location 3',
+                  festivalDate: 'Date 3'
+              },
+              {
+                  posterSrc: '',
+                  posterAlt: '',
+                  festivalTitle: 'Festival Poster 4',
+                  festivalLocation: 'Location 4',
+                  festivalDate: 'Date 4'
+              },
+              {
+                  posterSrc: '',
+                  posterAlt: '',
+                  festivalTitle: 'Festival Poster 5',
+                  festivalLocation: 'Location 5',
+                  festivalDate: 'Date 5'
+              },
+          ];
+          setFestivalList(data);
+        };
+
+    fetchData();
+    }, []);
+
     return (
         <div className='festival-list'>
 
-            <PosterComponent 
-              posterSrc=''
-              posterAlt=''
-              festivalTitle='축제이름'
-              festivalLocation='축제장소'
-              festivalDate='축제일시'
-            />
-
-            <PosterComponent 
-              posterSrc=''
-              posterAlt=''
-              festivalTitle='축제이름'
-              festivalLocation='축제장소'
-              festivalDate='축제일시'
-            />
+            {festivalList.map((festival, index) => (
+                <PosterComponent 
+                    key={index}
+                    posterSrc={festival.posterSrc}
+                    posterAlt={festival.posterAlt}
+                    festivalTitle={festival.festivalTitle}
+                    festivalLocation={festival.festivalLocation}
+                    festivalDate={festival.festivalDate}
+                />
+            ))}
             
         </div>
     );

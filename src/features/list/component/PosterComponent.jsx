@@ -14,6 +14,7 @@ const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation
                     <img 
                         className='image'
                         src={posterSrc}
+                        alt={posterAlt}
                     />
 
                     <span className='span1'>{festivalTitle}</span>

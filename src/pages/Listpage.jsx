@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { 
-    ListTabmenu 
+    ListTabmenu,
+    TopButton
 } from '../features/list/index.js';
 import '../styles/listpage.scss'
 
@@ -15,7 +16,6 @@ const Listpage = () => {
     // 이벤트 핸들러를 정의합니다.
     const handleSelectChange = (event) => {
         const { id, value } = event.target;
-        // 선택한 값에 따라 테두리 색상을 변경합니다.
         setBorderColors((prevColors) => ({
             ...prevColors,
             [id]: value === 'default' ? '#ccc' : '#89CFF0'
@@ -66,8 +66,8 @@ const Listpage = () => {
                         <option value="제주도">제주도</option>
                     </select>
                 </div> 
-            </div>
             
+            <TopButton /></div>
         </div>
     );
 };

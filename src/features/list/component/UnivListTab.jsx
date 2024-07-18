@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PosterComponent } from '../index.js';
 
 import '../styles/festivallist.scss'
@@ -9,25 +9,71 @@ import '../styles/festivallist.scss'
  */
 
 const UnivListTab = () => {
+
+  const [univList, setUnivList] = useState([]);
+
+  useEffect(() => {
+      
+      const fetchData = async () => {
+
+          const data = [
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'Univ Festival 1',
+                        festivalLocation: 'Location 1',
+                        festivalDate: 'Date 1'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'Univ Festival 2',
+                        festivalLocation: 'Location 2',
+                        festivalDate: 'Date 2'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'Univ Festival 3',
+                        festivalLocation: 'Location 3',
+                        festivalDate: 'Date 3'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'Univ Festival 4',
+                        festivalLocation: 'Location 4',
+                        festivalDate: 'Date 4'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'Univ Festival 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                ];
+                setUnivList(data);
+            };
+
+            fetchData();
+        }, []);
+
+
     return (
 
         <div className='festival-list'>
 
-            <PosterComponent 
-              posterSrc=''
-              posterAlt=''
-              festivalTitle='축제이름'
-              festivalLocation='축제장소'
-              festivalDate='축제일시'
-            />
-
-            <PosterComponent 
-              posterSrc=''
-              posterAlt=''
-              festivalTitle='축제이름'
-              festivalLocation='축제장소'
-              festivalDate='축제일시'
-            />
+            {univList.map((univ, index) => (
+                <PosterComponent 
+                    key={index}
+                    posterSrc={univ.posterSrc}
+                    posterAlt={univ.posterAlt}
+                    festivalTitle={univ.festivalTitle}
+                    festivalLocation={univ.festivalLocation}
+                    festivalDate={univ.festivalDate}
+                />
+            ))}
 
         </div>
     );
