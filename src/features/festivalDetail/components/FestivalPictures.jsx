@@ -27,11 +27,15 @@ const FestivalPictures = ({ festivalId }) => {
     }, [festivalId]);
 
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 1 + pictures.length) % pictures.length);
+        if (currentIndex > 0) {
+            setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0));
+        }
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % pictures.length);
+        if (currentIndex < pictures.length - 3) {
+            setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, pictures.length - 3));
+        }
     };
 
     if (loading) return <p>Loading...</p>;
@@ -45,15 +49,23 @@ const FestivalPictures = ({ festivalId }) => {
                 <h2 className='pictures-header-text'>사진</h2>
             </div>
             <div className="pictures-slider">
-                <button className="pictures-carousel-control-prev" onClick={handlePrev}>
+                <button 
+                    className="pictures-carousel-control-prev" 
+                    onClick={handlePrev} 
+                    disabled={currentIndex === 0}
+                >
                     <img src={leftArrow} alt="Previous" className='pictures-control-btn' />
                 </button>
                 <div className="pictures-list">
                     {currentPictures.map((picture, index) => (
-                        <img key={index} src={picture.picture} alt={`Festival picture ${currentIndex + index + 1}`} className="festival-picture" />
+                        <img key={index} src={picture.picture} alt={`Festival ${currentIndex + index + 1}`} className="festival-picture" />
                     ))}
                 </div>
-                <button className="pictures-carousel-control-next" onClick={handleNext}>
+                <button 
+                    className="pictures-carousel-control-next" 
+                    onClick={handleNext} 
+                    disabled={currentIndex >= pictures.length - 3}
+                >
                     <img src={rightArrow} alt="Next" className='pictures-control-btn' />
                 </button>
             </div>

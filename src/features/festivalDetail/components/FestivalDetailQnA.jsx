@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import QnAModal from './QnAModal';
 import "../styles/festival-detail.css";
 
 const FestivalDetailQnA = ({ festivalId }) => {
@@ -9,11 +10,14 @@ const FestivalDetailQnA = ({ festivalId }) => {
     const [currentPage, setCurrentPage] = useState(0);
     const [filter, setFilter] = useState('전체');
     const [excludeSecret, setExcludeSecret] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [newQnA, setNewQnA] = useState({ title: '', content: '', category: '선택', isSecret: false });
+    const [categoryError, setCategoryError] = useState(false);
 
     const qnaPerPage = 10;
     const maxVisibleButtons = 10;
 
-    const fetchQnA = async (page) => {
+    const fetchQnA = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
@@ -24,18 +28,24 @@ const FestivalDetailQnA = ({ festivalId }) => {
         } finally {
             setLoading(false);
         }
-    };
+    }, [festivalId]);
 
     useEffect(() => {
         fetchQnA(currentPage);
-    }, [festivalId, currentPage]);
+    }, [festivalId, currentPage, fetchQnA]);
 
     useEffect(() => {
         setCurrentPage(0);
     }, [filter, excludeSecret]);
 
     const formatUsername = (username) => {
+        if (!username) return '';
         return username.slice(0, -4) + '****';
+    };
+
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('ko-KR', options);
     };
 
     const handlePageChange = (page) => {
@@ -63,6 +73,49 @@ const FestivalDetailQnA = ({ festivalId }) => {
 
     const totalPages = Math.ceil(filteredQnaList.length / qnaPerPage);
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setNewQnA({ title: '', content: '', category: '선택', isSecret: false });
+        setCategoryError(false);
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setNewQnA(prevState => ({
+            ...prevState,
+            [name]: type === 'checkbox' ? checked : value
+        }));
+        if (name === 'category' && value !== '선택') {
+            setCategoryError(false);
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (newQnA.category === '선택') {
+            setCategoryError(true);
+            return;
+        }
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            await axios.post(`${apiUrl}/inquiries`, {
+                ...newQnA,
+                festivalId,
+                authorId: "user123",
+                updatedAt: new Date().toISOString()
+            });
+            alert('QnA가 등록되었습니다.');
+            closeModal();
+            fetchQnA(currentPage);
+        } catch (error) {
+            console.error('QnA 등록에 실패했습니다.', error);
+        }
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -84,7 +137,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
                         onChange={handleExcludeSecretChange}
                     />
                     <label htmlFor="exclude-secret" className='exclude-secret-label'>비밀글 제외</label>
-                    <button className="qna-btn">Q&A 작성하기</button>
+                    <button className="qna-btn" onClick={openModal}>Q&A 작성하기</button>
                 </div>
             </div>
             <table className="qna-table">
@@ -102,7 +155,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
                             <td className="qna-table-cell">{qna.status}</td>
                             <td className={`qna-table-cell ${qna.isSecret ? 'secret-title' : ''}`} id='qna-title'>{qna.isSecret ? "비밀글 입니다." : qna.title}</td>
                             <td className="qna-table-cell">{formatUsername(qna.username)}</td>
-                            <td className="qna-table-cell">{qna.create}</td>
+                            <td className="qna-table-cell">{formatDate(qna.create)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -129,6 +182,14 @@ const FestivalDetailQnA = ({ festivalId }) => {
                     </span>
                 )}
             </div>
+            <QnAModal
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                handleSubmit={handleSubmit}
+                newQnA={newQnA}
+                handleInputChange={handleInputChange}
+                categoryError={categoryError}
+            />
         </div>
     );
 };

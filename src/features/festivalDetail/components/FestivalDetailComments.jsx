@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import CommentModal from './CommentModal';
 import "../styles/festival-detail.css";
 
 const FestivalDetailComments = ({ festivalId }) => {
@@ -8,29 +9,37 @@ const FestivalDetailComments = ({ festivalId }) => {
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [newComment, setNewComment] = useState({ content: '' });
 
     const commentsPerPage = 10;
     const maxVisibleButtons = 10;
 
-    useEffect(() => {
-        const fetchComments = async (page) => {
-            try {
-                const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/comments/${festivalId}?limit=${commentsPerPage}&offset=${page * commentsPerPage}`);
-                setComments(response.data.comments);
-                setTotalPages(Math.ceil(response.data.total / commentsPerPage));
-            } catch (error) {
-                setError('댓글 정보를 가져오는데 실패했습니다.');
-            } finally {
-                setLoading(false);
-            }
-        };
+    const fetchComments = useCallback(async (page) => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await axios.get(`${apiUrl}/comments/${festivalId}?limit=${commentsPerPage}&offset=${page * commentsPerPage}`);
+            setComments(response.data.comments);
+            setTotalPages(Math.ceil(response.data.total / commentsPerPage));
+        } catch (error) {
+            setError('댓글 정보를 가져오는데 실패했습니다.');
+        } finally {
+            setLoading(false);
+        }
+    }, [festivalId]);
 
+    useEffect(() => {
         fetchComments(currentPage);
-    }, [festivalId, currentPage]);
+    }, [festivalId, currentPage, fetchComments]);
 
     const formatUsername = (username) => {
+        if (!username) return '****'; // 기본 값으로 '****' 반환
         return username.slice(0, -4) + '****';
+    };
+
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        return new Date(dateString).toLocaleDateString('ko-KR', options);
     };
 
     const handlePageChange = (page) => {
@@ -42,13 +51,48 @@ const FestivalDetailComments = ({ festivalId }) => {
         return Array.from({ length: Math.min(maxVisibleButtons, totalPages - startPage) }, (_, index) => startPage + index);
     };
 
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setNewComment({ content: '' });
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setNewComment(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            await axios.post(`${apiUrl}/comments`, {
+                ...newComment,
+                festivalId,
+                userId: "user123",
+                isChild: false
+            });
+            alert('댓글이 등록되었습니다.');
+            closeModal();
+            fetchComments(currentPage);
+        } catch (error) {
+            console.error('댓글 등록에 실패했습니다.', error);
+        }
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
     return (
         <div className="comments-container">
             <div className="comments-btn-container">
-                <button className="comments-btn">기대평 작성하기</button>
+                <button className="comments-btn" onClick={openModal}>기대평 작성하기</button>
             </div>
             <table className="comments-table">
                 <thead className="comments-table-head">
@@ -65,7 +109,7 @@ const FestivalDetailComments = ({ festivalId }) => {
                             <td className="comments-table-cell">{currentPage * commentsPerPage + index + 1}</td>
                             <td className="comments-table-cell" id='comment-content'>{comment.content}</td>
                             <td className="comments-table-cell">{formatUsername(comment.username)}</td>
-                            <td className="comments-table-cell">{comment.updatedAt}</td>
+                            <td className="comments-table-cell">{formatDate(comment.updatedAt)}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -92,6 +136,13 @@ const FestivalDetailComments = ({ festivalId }) => {
                     </span>
                 )}
             </div>
+            <CommentModal
+                isOpen={isModalOpen}
+                onRequestClose={closeModal}
+                handleSubmit={handleSubmit}
+                newComment={newComment}
+                handleInputChange={handleInputChange}
+            />
         </div>
     );
 };

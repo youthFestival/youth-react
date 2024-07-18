@@ -108,54 +108,54 @@ export const handlers = [
      * 사용자가 선택한 축제의 상세 정보 조회
      */
     http.get(apiURL + '/festivals/:festivalId', async ({ params }) => {
-            return HttpResponse.json({
-                message: "축제 상세 정보를 가져오는데 성공했습니다.",
-                info: mockFestivalINfo.info
-            }, {
-                status: 200
-            });
+        return HttpResponse.json({
+            message: "축제 상세 정보를 가져오는데 성공했습니다.",
+            info: mockFestivalINfo.info
+        }, {
+            status: 200
+        });
     }),
 
     /**
      * 사용자가 선택한 축제의 라인업 정보 조회
      */
     http.get(apiURL + `/festivals/:festivalId/line-ups`, async ({ params }) => {
-            return HttpResponse.json({
-                message: "축제 라인업 정보를 가져오는데 성공했습니다.",
-                lineUp: mockFestivalINfo.lineUp
-            }, {
-                status: 200
-            });
+        return HttpResponse.json({
+            message: "축제 라인업 정보를 가져오는데 성공했습니다.",
+            lineUp: mockFestivalINfo.lineUp
+        }, {
+            status: 200
+        });
     }),
 
     // 사용자가 선택한 축제의 포스터 정보 조회
     http.get(apiURL + `/festivals/:festivalId/poster`, async ({ params }) => {
-            return HttpResponse.json({
-                message: "포스터 정보를 가져오는데 성공했습니다.",
-                posterImage: mockFestivalINfo.posterImage
-            }, {
-                status: 200
-            });
+        return HttpResponse.json({
+            message: "포스터 정보를 가져오는데 성공했습니다.",
+            posterImage: mockFestivalINfo.posterImage
+        }, {
+            status: 200
+        });
     }),
 
     // 사용자가 선택한 축제의 사진 정보 조회
     http.get(apiURL + `/festivals/:festivalId/pictures`, async ({ params }) => {
-            return HttpResponse.json({
-                message: "사진 정보를 가져오는데 성공했습니다.",
-                pictures: mockFestivalINfo.pictures
-            }, {
-                status: 200
-            });
+        return HttpResponse.json({
+            message: "사진 정보를 가져오는데 성공했습니다.",
+            pictures: mockFestivalINfo.pictures
+        }, {
+            status: 200
+        });
     }),
 
     // 사용자가 선택한 축제의 부스 정보 조회
     http.get(apiURL + `/festivals/:festivalId/booths`, async ({ params }) => {
-            return HttpResponse.json({
-                message: "부스 정보를 가져오는데 성공했습니다.",
-                booths: mockBooths.booths
-            }, {
-                status: 200
-            });
+        return HttpResponse.json({
+            message: "부스 정보를 가져오는데 성공했습니다.",
+            booths: mockBooths.booths
+        }, {
+            status: 200
+        });
     }),
 
     // 사용자가 선택한 부스의 아이템 정보 조회
@@ -184,13 +184,13 @@ export const handlers = [
     http.get(apiURL + `/festivals/:festivalId/recommendations`, async ({ params, request }) => {
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "3", 10);
 
-            const recommendations = mockFestivalINfo.recommendations.slice(0, limit);
-            return HttpResponse.json({
-                message: "추천 축제 정보를 가져오는데 성공했습니다.",
-                recommendations
-            }, {
-                status: 200
-            });
+        const recommendations = mockFestivalINfo.recommendations.slice(0, limit);
+        return HttpResponse.json({
+            message: "추천 축제 정보를 가져오는데 성공했습니다.",
+            recommendations
+        }, {
+            status: 200
+        });
     }),
 
     // 사용자가 선택한 축제의 기대평 정보 조회
@@ -224,6 +224,37 @@ export const handlers = [
             qnaList
         }, {
             status: 200
+        });
+    }),
+
+    // QnA 작성
+    http.post(apiURL + `/inquiries`, async ({ request }) => {
+        const data = await request.json();
+        mockCommentsAndQnA.qnaList.push({
+            id: mockCommentsAndQnA.qnaList.length + 1,
+            ...data,
+            status: '접수중',
+            create: new Date().toISOString()
+        });
+        return HttpResponse.json({
+            message: '글이 등록되었습니다.'
+        }, {
+            status: 201
+        });
+    }),
+
+    // 댓글 작성
+    http.post(apiURL + `/comments`, async ({ request }) => {
+        const data = await request.json();
+        mockCommentsAndQnA.comments.push({
+            id: mockCommentsAndQnA.comments.length + 1,
+            ...data,
+            updatedAt: new Date().toISOString()
+        });
+        return HttpResponse.json({
+            message: '댓글이 등록되었습니다.'
+        }, {
+            status: 201
         });
     }),
 
