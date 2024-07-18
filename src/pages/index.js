@@ -4,6 +4,7 @@ import FestivalDetail from "./FestivalDetail";
 import Home from "./Home";
 import Login from "./Login";
 import Mypage from "./Mypage";
+import Listpage from './Listpage';
 
 // 회원가입 옵션 페이지, 및 회원가입 입력 페이지
 import Register from "./Register";
@@ -29,4 +30,21 @@ import Chatbot from "../features/chatBot/ChatBot";
 
 
 
-export { AdminDashBoard, Calendar, FestivalDetail, Home, Login, Mypage, Register, TempMain, UserInquiries, InquiriesDetail, MydetailFrame, InfoAgreement, UserFind, Chatbot, RegisterForm };
+export { 
+    AdminDashBoard, 
+    Calendar, 
+    FestivalDetail, 
+    Home, 
+    Login, 
+    Mypage, 
+    Register, 
+    TempMain, 
+    UserInquiries, 
+    InquiriesDetail, 
+    MydetailFrame, 
+    InfoAgreement, 
+    UserFind, 
+    Chatbot, 
+    RegisterForm, 
+    Listpage 
+};

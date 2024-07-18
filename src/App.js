@@ -1,11 +1,25 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AdminDashBoard, Calendar, FestivalDetail, InfoAgreement, InquiriesDetail, Login, MydetailFrame, Mypage, Register, TempMain, UserFind, UserInquiries, Chatbot, RegisterForm } from "./pages";
+import { 
+      AdminDashBoard, 
+      Calendar, 
+      FestivalDetail, 
+      InfoAgreement, 
+      InquiriesDetail, 
+      Login, 
+      MydetailFrame, 
+      Mypage, 
+      Register, 
+      TempMain, 
+      UserFind, 
+      UserInquiries, 
+      Chatbot, 
+      RegisterForm,
+      Listpage } from "./pages";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
-import Listpage from './pages/Listpage';
 
 
 
