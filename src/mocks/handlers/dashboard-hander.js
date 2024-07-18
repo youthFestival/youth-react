@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw";
-import { mockInquiries } from "../dummyDatas";
+import { mockInquiries, mockUsers } from "../dummyDatas";
 
 
 const apiURL = process.env.REACT_APP_API_URL;
@@ -16,8 +16,6 @@ const handler = [
          * category	String 	“페스티벌”,”계정” 중 해당 문의의 카태고리 유형,  명시하지 않을 시, 카테고리에 상관없이 모든 데이터를 가져옴
          * status	String	“접수중”,”답변완료”,”접수완료”등 현재 글의 상태에 관한 유형 명시하지 않았을 때는 필터 적용 X
          */
-
-        const notNullData = new Map();
 
         const limit = +url.searchParams.get('limit') || 15
         const offset = +url.searchParams.get('offset') || 0
@@ -109,7 +107,38 @@ const handler = [
                 }
 
             }, { status: 200 })
-    })
+    }),
+
+
+    //사용자 여러 명 조회
+    http.get(apiURL + '/users', async ({ request }) => {
+        const url = new URL(request.url)
+
+        const limit = +url.searchParams.get('limit') || 15
+        const offset = +url.searchParams.get('offset') || 0
+
+
+        const users = mockUsers.users.filter((inquiry) => {
+            //limit과 offset을 이용하여 조회할 데이터를 필터링
+            if (inquiry.id < offset || inquiry.id >= offset + limit) {
+                return false;
+            }
+            return true;
+        })
+
+        console.log(users);
+
+
+
+        return HttpResponse.json(
+            {
+                ...mockUsers,
+                limit,
+                offset,
+                users,
+
+            }, { status: 200 })
+    }),
 ]
 
 export default handler;

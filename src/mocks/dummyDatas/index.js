@@ -6,5 +6,6 @@ import mockFestivalINfo from './dummyFestivalInfo.json'
 import mockBooths from './dummyBooths.json'
 import mockBoothItems from './dummyBoothItems.json'
 import mockCommentsAndQnA from './dummyCommentsAndQnA.json'
+import mockUsers from './dummyUsers.json'
 
-export { mockFestivals, mockInquiries, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA }
+export { mockFestivals, mockInquiries, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA, mockUsers}
