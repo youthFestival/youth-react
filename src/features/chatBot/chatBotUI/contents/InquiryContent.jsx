@@ -49,7 +49,7 @@ const InquiryContent = () => {
 
     return (
         <div className='inquiry-container'>
-            <div className='title'>Yooth에 문의하기</div>
+            <div className='inquiry-title'>Yooth에 문의하기</div>
             <div className='chat-area' ref={chatAreaRef}>
                 {chatHistory.map((msg, idx) => 
                     msg.type === 'question' ? (

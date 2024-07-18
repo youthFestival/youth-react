@@ -9,7 +9,9 @@
     max-height: 716px;
     overflow: hidden;
     border-radius: 25px;
+    background-color: #ffffff;
     box-shadow: rgb(0 0 0 / 5%) 0px 6px 30px 5px;
+    z-index: 100;
 }
 .chatbot-container * {
     margin: 0;
