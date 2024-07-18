@@ -26,10 +26,11 @@ const FindToggle = ({ findType, findText, toggleContents, toggleText }) => {
                     )}
                 </button>
             )}
-            <label htmlFor={'find-radio'}></label>
+
             <input 
                 type={findType}
                 className='find-radio'
+                name='find'
             /> <span className=''>{findText}</span>
 
             <div className={`toggle-content ${isToggled ? 'open' : ''}`}>
