@@ -88,6 +88,9 @@ function TempMain() {
       <NavLink to="/login" style={navLinkStyle}>
         Login
       </NavLink>
+      <NavLink to="/register" style={navLinkStyle}>
+        Register
+      </NavLink>
       <NavLink to="/mypage" style={navLinkStyle}>
         My
       </NavLink>
