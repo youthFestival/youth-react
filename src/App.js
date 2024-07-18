@@ -5,6 +5,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
+import Listpage from './pages/Listpage';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
         <Route path="/header" element={<Header />} />
         <Route path="/footer" element={<Footer />} />
+        <Route path="/list" element={<Listpage/>} />
 
 
         <Route path="/test">
