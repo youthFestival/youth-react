@@ -1,6 +1,8 @@
 import React from 'react';
 import '../styles/userfind.scss'
-import {FindTabMenu} from '../index.js';
+import {
+    FindTabMenu
+} from '../index.js';
 
 const UserFind = () => {
     return (

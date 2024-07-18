@@ -100,8 +100,8 @@ function TempMain() {
       <NavLink to="/userfind" style={navLinkStyle}>
         User Find
       </NavLink>
-      <NavLink to="#" style={navLinkStyle}>
-        List 커밍순
+      <NavLink to="/list" style={navLinkStyle}>
+        List
       </NavLink>
 
       <p>

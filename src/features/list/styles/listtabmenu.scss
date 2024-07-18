@@ -1,23 +1,38 @@
 .list-tabmenu{
-    display: inline-flex;
+    display: grid;
     align-items: flex-start;
-    gap: 124px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    width: 1280px;
+    height: 51px;  
+    
+    .tabform{
+        width: 500px;
+    }
+
+    .listcontent{
+        width: 1280px;
+        margin: 0 auto;
+        margin-top: 114px;
+        gap: 50px;
+    }
 
     .listsubmenu {
         margin: 0 auto;
-        display: flex;
-        width: 228px;
+        display: inline-flex;
+        width: 70px;
         flex-direction: column;
         align-items: center;
         text-align: center;
         height: 50px;
         line-height: 50px;
         cursor: pointer;
+        margin-left: 5%;
       }
     
       .focused {
         border-bottom: 2px solid #89CFF0;
+        color: #89CFF0;
+        
       }
     
       &.desc {

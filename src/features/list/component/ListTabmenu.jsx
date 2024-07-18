@@ -7,6 +7,10 @@ import {
 
 import '../styles/listtabmenu.scss'
 
+/**
+ * 리스트 페이지 탭메뉴(전체, 대학축제, 페스티벌)
+ * @returns 
+ */
 const ListTabmenu = () => {
     const [listTab, setListTab] = useState(0);
 
@@ -17,11 +21,11 @@ const ListTabmenu = () => {
         },
         { 
             name: '대학축제', 
-            content: <FestivalListTab/>
+            content: <UnivListTab/>
         },
         { 
             name: '페스티벌', 
-            content: <UnivListTab/>
+            content:<FestivalListTab/>
         }
     ];
 
@@ -31,18 +35,18 @@ const ListTabmenu = () => {
 
     return (
         <div className='list-tabmenu'>
-            <div className='form'>
-                {menuData.map((el, index) => (
+            <div className='tabform'>
+                {menuData.map((list, index) => (
                     <li 
                         key={index} 
                         className={index === listTab ? "listsubmenu focused" : "listsubmenu"}
                         onClick={() => listTabMenuHandler(index)}
                     >
-                        {el.name}
+                        {list.name}
                     </li>
                 ))}
             </div>
-            <p>{menuData[listTab].content}</p>
+            <p className='listcontent'>{menuData[listTab].content}</p>
         </div>
     );
 };
