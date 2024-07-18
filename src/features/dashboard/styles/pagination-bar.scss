@@ -1,0 +1,52 @@
+
+.pagination {
+  /* 커서 깜빡임 금지 */
+  position: relative;
+  caret-color: transparent;
+  padding: 0px;
+  align-self: center;
+  display: flex;
+  cursor: pointer;
+  list-style-type: none;
+  gap: 10px;
+
+  /* 드래그 금지 */
+  user-select: none;
+  /* 텍스트 선택 비활성화 */
+  -webkit-user-drag: none;
+  /* 드래그 비활성화 (웹킷 브라우저용) */
+
+  li {
+    text-align: center;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #5f6368;
+
+    &.current-page {
+      font-weight: 700;
+    }
+
+    &:nth-child(3)::before,
+    &:nth-child(4)::before {
+      color: #dbdbdb;
+      width: 24px;
+      height: 24px;
+      position: absolute;
+      content: "|";
+      transform: translateX(-100%);
+    }
+  }
+
+  .ico {
+    color: #5f6368;
+  }
+
+  .disable {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: #d8d8d8;
+  }
+}

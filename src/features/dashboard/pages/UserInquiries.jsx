@@ -1,36 +1,23 @@
-import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../../../hooks/useFetch";
 import { Header } from "../components";
-import "../styles/user-inquiries.css";
+import "../styles/user-inquiries.scss";
 import { withParams } from "../../../utils/util";
-import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import PaginationBar from "../components/PaginationBar";
 
 function UserInquiries() {
-  let { "*": paramPage } = useParams();
-
-  const [page, setPage] = useState(paramPage);
-
-  if (page === "") {
-    setPage(1);
-  }
-
-  useEffect(() => {
-    navigiate("./" + page);
-  }, [page]);
+  const page = useParams()["*"] || 1;
+  const navigate = useNavigate();
 
   const DEFAULT_LIMIT = 15;
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL +
-    "/inquiries" +
-    withParams({
-      limit: DEFAULT_LIMIT,
-      offset: (page - 1) * DEFAULT_LIMIT + 1,
-    })
+      "/inquiries" +
+      withParams({
+        limit: DEFAULT_LIMIT,
+        offset: (page - 1) * DEFAULT_LIMIT + 1,
+      })
   );
-  const navigiate = useNavigate();
-
-  const hasNextPage = data?.inquiries?.length === DEFAULT_LIMIT;
-  const hasPreviousPage = page > 1;
 
   return (
     <>
@@ -85,16 +72,17 @@ function UserInquiries() {
               <tr
                 className="row-flex"
                 onClick={(e) => {
-                  navigiate("detail/" + inquiry.id);
+                  navigate("detail/" + inquiry.id);
                 }}
               >
                 <td className="col"> {inquiry.id}</td>
                 {/* 페스티벌의 경우, 값에 따라 스타일을 다르게 줘야함. */}
                 <td
-                  className={`col category ${inquiry.category === "페스티벌"
+                  className={`col category ${
+                    inquiry.category === "페스티벌"
                       ? "col-festival"
                       : "col-account"
-                    }`}
+                  }`}
                 >
                   <span>{inquiry.category}</span>
                 </td>
@@ -108,38 +96,10 @@ function UserInquiries() {
         }
       </table>
       {/* 페이지 이동 */}
-      <ol className="pagination">
-        <span
-          class={`ico material-symbols-outlined ${hasPreviousPage ? "" : "disable"
-            }`}
-          onClick={(e) => {
-            setPage(page - 1);
-          }}
-        >
-          keyboard_arrow_left
-        </span>
-
-        {hasPreviousPage && (
-          <>
-            <li className="previous" onClick={(e) => setPage(page - 1)}>
-              {+page - 1}
-            </li>
-          </>
-        )}
-        <li className="current-page">{page}</li>
-        {hasNextPage && (
-          <>
-            <li onClick={(e) => setPage(+page + 1)}>{+page + 1}</li>
-          </>
-        )}
-        <span
-          class={`ico material-symbols-outlined ${hasNextPage ? "" : "disable"
-            }`}
-          onClick={(e) => setPage(+page + 1)}
-        >
-          keyboard_arrow_right
-        </span>
-      </ol>
+      <PaginationBar
+        numOfCurrentData={data?.inquiries.length}
+        limit={DEFAULT_LIMIT}
+      />
     </>
   );
 }
