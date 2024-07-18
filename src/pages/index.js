@@ -16,6 +16,8 @@ import TempMain from "./TempMain";
 // export pages
 import UserInquiries from "../features/dashboard/pages/UserInquiries"
 import InquiriesDetail from "../features/dashboard/pages/InquiriesDetail"
+import MemberManagement from "../features/dashboard/pages/MemberManagement";
+
 
 // 마이페이지 및 회원가입
 import { MydetailFrame } from "../features/usermanagement";
@@ -46,5 +48,6 @@ export {
     UserFind, 
     Chatbot, 
     RegisterForm, 
-    Listpage 
+    Listpage,
+    MemberManagement
 };

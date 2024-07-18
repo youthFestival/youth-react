@@ -14,7 +14,8 @@ import {
       UserInquiries, 
       Chatbot, 
       RegisterForm,
-      Listpage } from "./pages";
+      Listpage, 
+      MemberManagement} from "./pages";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
@@ -31,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<div>대시보드</div>} />
-          <Route path="members" element={<div>회원관리 및 조회</div>} />
+          <Route path="members/*" element={<MemberManagement/>} />
           <Route path="logs" element={<div>활동 로그</div>} />
           <Route path="register-festival" element={<div>축제 추가</div>} />
           <Route path="inquiries/*" element={<UserInquiries />} />
