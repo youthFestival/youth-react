@@ -1,14 +1,14 @@
 import useFetch from "../../../hooks/useFetch";
 import { Header } from "../components";
-import "../styles/user-inquiries.scss";
+import "../styles/common.scss";
 import { withParams } from "../../../utils/util";
 import { useNavigate, useParams } from "react-router-dom";
 import PaginationBar from "../components/PaginationBar";
+import TableComponent from "../components/TableComponent";
 
 function UserInquiries() {
   const page = useParams()["*"] || 1;
   const navigate = useNavigate();
-
   const DEFAULT_LIMIT = 15;
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL +
@@ -19,83 +19,48 @@ function UserInquiries() {
       })
   );
 
+  const headers = [
+    "번호",
+    "문의 유형",
+    "문의 제목",
+    "작성자",
+    "문의 날짜",
+    "상태",
+  ];
+
+  const rows = data?.inquiries.map((inquiry) => ({
+    onClick: () => navigate("detail/" + inquiry.id),
+    cells: [
+      { content: inquiry.id, className: "" },
+      {
+        content: (
+          <span
+            className={`category ${
+              inquiry.category === "페스티벌" ? "col-festival" : "col-account"
+            }`}
+          >
+            {inquiry.category}
+          </span>
+        ),
+        className: "category",
+      },
+      { content: inquiry.title, className: "title" },
+      { content: inquiry.userAlias, className: "" },
+      { content: inquiry.updatedAt, className: "" },
+      { content: inquiry.status, className: "status" },
+    ],
+  }));
+
   return (
     <>
-      <Header title="고객 문의 내역" subTitle="고객 문의 및 답변">
-        {/* <SearchBar /> */}
-        {/* <Filter> */}
-      </Header>
-
-      <table className="inquiries-table">
-        {/* 제목 부분 */}
-        <tr className="row-flex">
-          <th className="col">번호 </th>
-          <th className="col">문의 유형</th>
-          <th className="col title">문의 제목</th>
-          <th className="col">작성자</th>
-          <th className="col">문의 날짜</th>
-          <th className="col">상태</th>
-        </tr>
-        {
-          // 로딩 중일 경우 "로딩중..." 출력
-          loading && (
-            <tr className="row-flex">
-              <td className="col" colSpan="6">
-                로딩중...
-              </td>
-            </tr>
-          )
-        }
-        {
-          // 에러 발생 시 "에러 발생" 출력
-          error && (
-            <tr className="row-flex">
-              <td className="col" colSpan="6">
-                에러 {error} 발생
-              </td>
-            </tr>
-          )
-        }
-
-        {/* 내용 부분 */}
-        {
-          // 데이터가 없을 경우 "문의 내역이 없습니다." 출력
-          data?.inquiries?.length === 0 ? (
-            <tr className="row-flex">
-              <td className="col" colSpan="6">
-                문의 내역이 없습니다.
-              </td>
-            </tr>
-          ) : (
-            // 데이터가 있을 경우, 데이터를 출력
-            data?.inquiries.map((inquiry) => (
-              <tr
-                className="row-flex"
-                onClick={(e) => {
-                  navigate("detail/" + inquiry.id);
-                }}
-              >
-                <td className="col"> {inquiry.id}</td>
-                {/* 페스티벌의 경우, 값에 따라 스타일을 다르게 줘야함. */}
-                <td
-                  className={`col category ${
-                    inquiry.category === "페스티벌"
-                      ? "col-festival"
-                      : "col-account"
-                  }`}
-                >
-                  <span>{inquiry.category}</span>
-                </td>
-                <td className="col title">{inquiry.title}</td>
-                <td className="col">{inquiry.userAlias}</td>
-                <td className="col">{inquiry.updatedAt}</td>
-                <td className="col status">{inquiry.status}</td>
-              </tr>
-            ))
-          )
-        }
-      </table>
-      {/* 페이지 이동 */}
+      <Header title="고객 문의 내역" subTitle="고객 문의 및 답변" />
+      <TableComponent
+        headers={headers}
+        rows={rows}
+        loading={loading}
+        error={error}
+        emptyMessage="문의 내역이 없습니다."
+      />
       <PaginationBar
         numOfCurrentData={data?.inquiries.length}
         limit={DEFAULT_LIMIT}
