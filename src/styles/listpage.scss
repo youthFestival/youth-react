@@ -1,5 +1,8 @@
 .list-page{
-    height: 2278px;
-    flex-shrink: 0;
     display: flex;
+
+    .listmain{
+        margin: 0 auto;
+        border:1px solid black;
+    }
 }

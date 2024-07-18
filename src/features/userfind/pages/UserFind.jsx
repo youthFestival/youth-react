@@ -11,12 +11,8 @@ const UserFind = () => {
                     계정찾기
                 </span>
                
-
                 <FindTabMenu />
-
-
-
-                
+            
             </div>
         </div>
     );

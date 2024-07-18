@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../styles/findtoggle.scss';
 
-const FindToggle = ({ findType, findText, togleContents, toggleText }) => {
+/**
+ * 
+ * 계정찾기 라디오 토글 컴포넌트
+ * @returns 
+ */
+const FindToggle = ({ findType, findText, toggleContents, toggleText }) => {
     const [findRadio, setFindRadio] = useState(true);
     const [isToggled, setIsToggled] = useState(false);
 
@@ -29,7 +34,7 @@ const FindToggle = ({ findType, findText, togleContents, toggleText }) => {
 
             <div className={`toggle-content ${isToggled ? 'open' : ''}`}>
                 <p className='toggle-text'>{toggleText}</p>
-                {togleContents}
+                {toggleContents}
             </div>
         </div>
     );

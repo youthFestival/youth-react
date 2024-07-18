@@ -1,16 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {
+    AllListTab,
+    FestivalListTab,
+    UnivListTab
+} from '../index.js';
+
+import '../styles/listtabmenu.scss'
 
 const ListTabmenu = () => {
     const [listTab, setListTab] = useState(0);
 
     const menuData = [
         { 
-            name: '아이디 찾기', 
-            content: <IdFindAll/>
+            name: '전체', 
+            content: <AllListTab/>
         },
         { 
-            name: '비밀번호 찾기', 
-            content: <PwFindAll/> 
+            name: '대학축제', 
+            content: <FestivalListTab/>
+        },
+        { 
+            name: '페스티벌', 
+            content: <UnivListTab/>
         }
     ];
 
@@ -24,7 +35,7 @@ const ListTabmenu = () => {
                 {menuData.map((el, index) => (
                     <li 
                         key={index} 
-                        className={index === listTab ? "submenu focused" : "submenu"}
+                        className={index === listTab ? "listsubmenu focused" : "listsubmenu"}
                         onClick={() => listTabMenuHandler(index)}
                     >
                         {el.name}

@@ -1,0 +1,28 @@
+.list-tabmenu{
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 124px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    .listsubmenu {
+        margin: 0 auto;
+        display: flex;
+        width: 228px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+      }
+    
+      .focused {
+        border-bottom: 2px solid #89CFF0;
+      }
+    
+      &.desc {
+        width: 670px;
+        height: 258px;
+        flex-shrink: 0;
+      }
+}

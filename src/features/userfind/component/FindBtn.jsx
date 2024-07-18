@@ -7,11 +7,11 @@ import '../styles/findbtn.scss';
  * @returns 
  */
 function FindBtn ({ findBtnText, findNavLink, findType }) {
-    const [finClickBtn, setFindClickBtn] = useState(true);
+    const [findClickBtn, setFindClickBtn] = useState(true);
     const [findIsContents, setFindIsContents] = useState(false);
 
     const findClickBtnHandler = () => {
-        setFindClickBtn(!finClickBtn);
+        setFindClickBtn(!findClickBtn);
         setFindIsContents(!findIsContents);
     };
 
