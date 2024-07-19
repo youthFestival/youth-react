@@ -8,11 +8,10 @@ import {
 import axios from 'axios';
 import '../styles/login.css';
 import { NavLink } from 'react-router-dom';
-
-
+import { AuthContext } from '../contexts/AuthContext.jsx';
 
 /**
- * 로그인 화면
+ * 로그인 페이지 
  * @returns
  */
 const Login = () => {
