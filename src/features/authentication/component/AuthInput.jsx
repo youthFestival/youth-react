@@ -13,7 +13,8 @@ function AuthInput({
               inputValue,
               imgSrc,
               imgAlt, 
-              inputOnChange
+              inputOnChange,
+              id
     }) 
     {
     
@@ -42,6 +43,7 @@ function AuthInput({
                 value={inputValue}
                 onChange={inputOnChange}
                 ref={inputLoginRef}
+                id={id}
             />
             
             {inputType === 'password' && (

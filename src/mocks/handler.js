@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA } from './dummyDatas';
+import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA, mockUsers } from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
@@ -38,22 +38,21 @@ export const handlers = [
     http.post(apiURL + '/auth/login', async ({ request, cookies }) => {
 
         const data = await request.json();
-        const DUMMY_HASH = 'd3b07384d113edec49eaa6238ad5ff00';
-        let isVaild = false;
 
+        console.log(data)
+
+        const DUMMY_HASH = 'd3b07384d113edec49eaa6238ad5ff00';
+    
         console.log(data.userId, data.password, data);
 
-        if (
-            (data.userId === "admin" && data.password === "1234") ||
-            (data.userId === "kangminjun" && data.password === "kangminjun1234")
-        ) {
-            isVaild = true;
-        }
+        const loginUser = mockUsers.users.find((user)=>user.userId === data.userId && user.password === data.password)
+    
+        const {password, ...user } = loginUser;
 
-
-        return isVaild ? HttpResponse.json({
+        return loginUser ? HttpResponse.json({
             token: DUMMY_HASH,
-            message: "로그인에 성공하였습니다."
+            message: "로그인에 성공하였습니다.",
+            user
         }, {
             headers: {
                 'Set-Cookie': `token=${DUMMY_HASH}; Path=/; SameSite=Strict`

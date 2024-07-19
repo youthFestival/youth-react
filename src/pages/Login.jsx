@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import {
     AuthBtn,
     AuthLogo, 
@@ -15,38 +15,32 @@ import { AuthContext } from '../contexts/AuthContext.jsx';
  * @returns
  */
 const Login = () => {
-  const [inputIdValue, setInputIdValue] = useState(); //아이디 값에 대한 상태관리
-  const [inputPwValue, setInputPwValue] = useState(); //비밀번호 값에 대한 상태관리
-  const [token, setToken] = useState(null);
-  const { userLoginIdRef, userLoginPwRef}  = useRef();
-  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const { dispatch } = useContext(AuthContext);
+
+  const [credentials, setCredentials ] = useState({
+    userId: undefined,
+    password: undefined,
+  })
   
-
-  const authInputIdHandler = (e) => {
-    setInputIdValue(e.target.value);
-  };
-
-  const authInputPwHandler = (e) => {
-    setInputPwValue(e.target.value);
-  };
+  const handleChange = (e) => {
+       setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  }
 
   const loginBtnClickHandler = async () => {
     try {
-      const response = await axios.post(
-        `${apiUrl}/auth/login`,
-        {
-          userId: inputIdValue,
-          password: inputPwValue
-        },
-        { withCredentials: true }
-      );
-
-      console.log(response);
-      setToken(response.data.token);
+      const apiUrl = process.env.REACT_APP_API_URL;
+      console.log(`API URL: ${apiUrl}`)
+      const response = await axios.post(`${apiUrl}/auth/login`,credentials,{ withCredentials: true });
+      console.log(response.data);
+      dispatch({ type: "LOGIN", payload: response.data});
       alert(response.data.message);
-    } catch (e) {
-      console.error(e);
-      alert("로그인 실패! ID: kangminjun, PW:kangminjun1234를 작성하시오.");
+    } catch (err) {
+      if(err.response && err.response.data && err.response.data.message){
+        alert(err.response.data.message);
+      } else {
+        alert("로그인 정보 잘못되었습니다. 다시 시도해주세요.")
+      }
     }
   };
 
@@ -67,10 +61,10 @@ const Login = () => {
               inputType="text"
               inputClassName="login-id-input"
               inputPlaceHolder="아이디"
-              inputValue={inputIdValue}
-              inputOnChange={authInputIdHandler}
-              inputRef={userLoginIdRef}
+              id={"userId"}
+              inputOnChange={handleChange}
             />
+
 
             <AuthInput
               formClassName="input-pw-bar"
@@ -79,9 +73,8 @@ const Login = () => {
               inputType="password"
               inputClassName="login-pw-input"
               inputPlaceHolder="비밀번호"
-              inputValue={inputPwValue}
-              inputOnChange={authInputPwHandler}
-              inputRef={userLoginPwRef}
+              inputOnChange={handleChange}
+              id={"password"}
             />
           </div>
 
