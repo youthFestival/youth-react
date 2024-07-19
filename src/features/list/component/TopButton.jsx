@@ -19,7 +19,7 @@ const TopButton = () => {
            <button id="topbtn" onClick={topButtonHandler}>
                <img 
                      src="/icons/top_button.png" 
-                     alt="리스트 탑 버튼" 
+                     alt="탑 버튼" 
                      className='image'
                 />
            </button>
