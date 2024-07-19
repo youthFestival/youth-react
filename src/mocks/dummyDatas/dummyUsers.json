@@ -5,8 +5,8 @@
   "users": [
     {
       "id": 1,
-      "userId": "user001",
-      "password": "P@ssw0rd1",
+      "userId": "kangminjun",
+      "password": "kangminjun1234",
       "email": "hongildong@example.com",
       "createdAt": "2023-07-18T10:00:00Z",
       "gender": "남성",
@@ -18,8 +18,8 @@
     },
     {
       "id": 2,
-      "userId": "user002",
-      "password": "P@ssw0rd2",
+      "userId": "admin",
+      "password": "1234",
       "email": "leesoonshin@example.com",
       "createdAt": "2023-07-18T11:00:00Z",
       "gender": "남성",
