@@ -5,7 +5,7 @@ import {
     UnivListTab
 } from '../index.js';
 
-import '../styles/listtabmenu.scss'
+import '../styles/list-tab-menu.scss'
 
 /**
  * 리스트 페이지 탭메뉴(전체, 대학축제, 페스티벌)

@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/mydetailframe.css'
+import '../styles/my-detail-frame.scss'
 
 const MydetailFrame = () => {
     return (
-        <div>
+        <div className='edit-info'>
             <button className='my-main-btn'>MY MAIN</button>
         </div>
     );

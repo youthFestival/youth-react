@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/findtoggle.scss';
+import '../styles/find-toggle.scss';
 
 /**
  * 

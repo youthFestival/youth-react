@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/authbtn.css'
+import '../styles/auth-btn.css'
 
 /**
  * 로그인 버튼 컴포넌트

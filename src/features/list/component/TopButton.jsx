@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/topbutton.scss'
+import '../styles/top-button.scss'
 
 /**
  * 탑 버튼 컴포넌트 

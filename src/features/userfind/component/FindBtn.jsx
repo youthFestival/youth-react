@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../styles/findbtn.scss';
+import '../styles/find-btn.scss';
 
 /**
  * 계정찾기 토글 안 버튼 컴포넌트

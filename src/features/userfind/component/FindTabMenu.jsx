@@ -3,7 +3,7 @@ import {
     IdFindAll,
     PwFindAll
 } from '../index.js';
-import '../styles/findtabmenu.scss';
+import '../styles/find-tabmenu.scss';
 
 const FindTabMenu = () => {
     const [findTab, setFindTab] = useState(0);
