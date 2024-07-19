@@ -3,6 +3,7 @@
 }
 
 .info-edit,
+.info-edit,
 .pick-festival,
 .pick-artist,
 .delete-info {
@@ -12,12 +13,8 @@
     justify-content: flex-end;
     align-items: center;
     gap: 5px;
-    margin: 20px;
+    margin: 18px;
     font-size: 10px;
-}
-
-.info-edit{
-    margin: 21px;
 }
 
 .info-edit-icon{

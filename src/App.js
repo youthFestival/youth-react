@@ -22,6 +22,8 @@ import Footer from "./components/footer/Footer";
 import Nav from "./components/nav/Nav";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
+import { Navigate } from 'react-router-dom';
+import { EditProfile } from './features/usermanagement';
 
 
 
@@ -45,7 +47,8 @@ function App() {
 
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/mydetail" element={<MydetailFrame />}>
-             <Route path='edit-profile' element={<div>test</div>}/>
+             <Route index element={<Navigate to="edit-profile" />} />
+             <Route path='edit-profile' element={<EditProfile/>}/>
              <Route path='edit-artist' element={<div>test</div>}/>
              <Route path='favorites' element={<div>test</div>}/>
              <Route path='inquiries' element={<div>test</div>}/>
