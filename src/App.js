@@ -19,6 +19,7 @@ import {
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
+import Nav from "./components/nav/Nav";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
 
@@ -51,7 +52,7 @@ function App() {
         <Route path="/header" element={<Header />} />
         <Route path="/footer" element={<Footer />} />
         <Route path="/list" element={<Listpage/>} />
-
+        <Route path="/nav" element={<Nav />} />
 
         <Route path="/test">
           <Route path="" element={<TempMain />} />
