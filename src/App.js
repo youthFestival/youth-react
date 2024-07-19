@@ -42,8 +42,18 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
+
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/mypage/mydetail" element={<MydetailFrame />} />
+        <Route path="/mydetail" element={<MydetailFrame />}>
+             <Route path='edit-profile' element={<div>test</div>}/>
+             <Route path='edit-artist' element={<div>test</div>}/>
+             <Route path='favorites' element={<div>test</div>}/>
+             <Route path='inquiries' element={<div>test</div>}/>
+             <Route path='qna' element={<div>test</div>}/>
+             <Route path='comments' element={<div>test</div>}/>
+             <Route path='deletion' element={<div>test</div>}/>
+        </Route>
+        
         <Route path="/register" element={<Register />} />
         <Route path="/register/agreement" element={<InfoAgreement />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
