@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/userfind.scss'
+import '../styles/user-find.scss'
 import {
     FindTabMenu
 } from '../index.js';

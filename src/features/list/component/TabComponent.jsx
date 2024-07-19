@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/tabcomponent.scss'
+import '../styles/tab-component.scss'
 
 const TabComponent = ({ listType, listText, listContents }) => {
     const [isToggled, setIsToggled] = useState(false);

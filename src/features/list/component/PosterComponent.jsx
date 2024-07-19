@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/postercomponent.scss'
+import '../styles/poster-component.scss'
 
 /**
  * 포스터 컴포넌트  

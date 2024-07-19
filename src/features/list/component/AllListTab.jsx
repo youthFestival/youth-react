@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { PosterComponent } from '../index.js';
 
-import '../styles/festivallist.scss'
+import '../styles/festival-list.scss'
 
 /**
  * 전체 탭 메뉴 모든 컴포넌트

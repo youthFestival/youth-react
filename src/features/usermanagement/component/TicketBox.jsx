@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/ticketbox.css'
+import '../styles/ticket-box.css'
 /**
  * Mypage 다른 페이지 이동 아이콘 컴포넌트
  * @returns 

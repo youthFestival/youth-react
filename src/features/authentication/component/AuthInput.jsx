@@ -1,5 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
-import '../styles/authinput.css'
+import React, { useState, useRef } from 'react';
+import '../styles/auth-input.css'
 /**
  * Auth Input
  * @returns 

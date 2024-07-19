@@ -6,6 +6,7 @@ import {
 import '../styles/infoagreement.css'
 
 const InfoAgreement = () => {
+
     return (
         <div className='info-agreement-container'>
             

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/myinfoicon.css'
+import '../styles/my-info-icon.css'
 /**
  * Mypage 내 정보 관리 아이콘 컴포넌트
  * @returns 

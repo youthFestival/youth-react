@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import'../styles/authcheckbox.css'
+import'../styles/auth-checkbox.css'
 
 /**
  * Checkbox 
