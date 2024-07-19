@@ -2,7 +2,9 @@
     display: flex;
     align-items: center;
     height: 49px;
-    background-color: rgb(93, 190, 222);
+    background-color: rgb(255, 255, 255);
+    padding-left: 90px;
+    padding-top: 5px;
 }
 
 .nlist-container {
@@ -26,9 +28,5 @@
 }
 
 .nnavi-button:hover {
-    border-bottom: 2px solid #000000;
-}
-
-.nnavi-button2:hover {
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid #89CFF0;
 }
