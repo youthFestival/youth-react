@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/iconbox.css'
+import '../styles/icon-box.css'
 /**
  * Mypage 아이콘 박스 컴포넌트
  * @returns 
