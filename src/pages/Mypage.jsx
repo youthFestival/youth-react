@@ -47,6 +47,10 @@ const Mypage = () => {
                       iconText1='메인페이지'
                       iconText2='페스티벌 페이지'
                       iconText3='캘린더 페이지'
+
+                      navLink1={'/home'}
+                      navLink2={'/list'}
+                      navLink3={'/calendar'}
                    
                 />
 
@@ -58,6 +62,10 @@ const Mypage = () => {
                       iconText1='1:1 문의'
                       iconText2='내 QnA'
                       iconText3='내 기대평'
+
+                      navLink1={'/mydetail/inquiries'}
+                      navLink2={'/mydetail/Qna'}
+                      navLink3={'/mydetail/comments'}
                 />
                
                 

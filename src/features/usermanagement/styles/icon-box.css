@@ -49,3 +49,8 @@
     letter-spacing: -0.5px;
     margin-top: 10px;
 }
+
+.my-icon-navlink{
+    color: inherit;
+    text-decoration: none;
+}
