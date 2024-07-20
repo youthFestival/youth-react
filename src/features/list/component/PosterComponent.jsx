@@ -12,6 +12,12 @@ const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation
         <div className='postercomponent'>  
                 <div className='form'>
                     <div className='contents'>
+
+                        <img 
+                            className='favorite'
+                            src='/icons/favorite.png'
+                            alt='찜 하트 아이콘'
+                        />
                         <img 
                             className='image'
                             src={posterSrc}
