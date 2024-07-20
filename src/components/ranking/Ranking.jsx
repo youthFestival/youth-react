@@ -30,10 +30,6 @@ const Ranking = () => {
                 <p className="rank-title">실시간 랭킹</p>
             </div>
             <div className="rank-button-container">
-                <button className="rank-button">대학축제</button>
-                <button className="rank-button">페스티벌</button>
-            </div>
-            <div className="rank-button-container">
                 <button onClick={() => setCategory('University')} className="rank-button">대학축제</button>
                 <button onClick={() => setCategory('Festival')} className="rank-button">페스티벌</button>
             </div>
