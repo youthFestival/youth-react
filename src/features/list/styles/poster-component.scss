@@ -21,22 +21,24 @@
     .span1,
     .span2{
         display: flex;
-        width: 207px;
+        width: 240px;
         height: 33px;
         flex-direction: column;
         justify-content: center;
         flex-shrink: 0;
         color: #000000;
         font-style: normal;
-        font-weight: 700;
         line-height: 16px;
     }
 
     .span1{
         font-size: 17px;
+        font-weight: 700;
+
     }
 
     .span2{
         font-size: 16px;
+        font-weight: 400;
     }
 }

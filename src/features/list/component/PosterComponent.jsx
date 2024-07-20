@@ -1,4 +1,5 @@
 import React from 'react';
+
 import '../styles/poster-component.scss'
 
 /**
@@ -8,20 +9,20 @@ import '../styles/poster-component.scss'
 
 const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate }) => {
     return (
-        <div className='postercomponent'>
-            <div className='form'>
-                <div className='contents'>
-                    <img 
-                        className='image'
-                        src={posterSrc}
-                        alt={posterAlt}
-                    />
+        <div className='postercomponent'>  
+                <div className='form'>
+                    <div className='contents'>
+                        <img 
+                            className='image'
+                            src={posterSrc}
+                            alt={posterAlt}
+                        />
 
-                    <span className='span1'>{festivalTitle}</span>
-                    <span className='span2'>{festivalLocation}</span>
-                    <span className='span2'>{festivalDate}</span>
+                        <span className='span1'>{festivalTitle}</span>
+                        <span className='span2'>{festivalLocation}</span>
+                        <span className='span2'>{festivalDate}</span>
+                    </div>
                 </div>
-            </div>
         </div>
     );
 };
