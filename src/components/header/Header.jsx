@@ -15,15 +15,15 @@ const Header = () => {
     const handleLogoutClick = async (e) => {
         e.preventDefault();
         try {
-          console.log("logout")
-          const apiUrl = process.env.REACT_APP_API_URL;
-          console.log("apiurl",apiUrl)
-          const res = await axios.post(`${apiUrl}/auth/logout`, {}, {withCredentials: true})
-          dispatch({ type: "LOGOUT" });
-          navigate("/");
-          console.log(res.data);
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const res = await axios.post(`${apiUrl}/auth/logout`, {}, { withCredentials: true });
+
+            if (res.status === 200) {
+                dispatch({ type: "LOGOUT" });
+                navigate("/home");
+            }
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
     };
 

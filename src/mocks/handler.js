@@ -67,6 +67,24 @@ export const handlers = [
             })
     }),
 
+
+    /**
+     * 로그아웃 처리 Mock 함수
+     *
+     */
+    http.post(apiURL + '/auth/logout', async ({ request, cookies }) => {
+        // 클라이언트 측의 토큰을 제거하도록 설정
+        return HttpResponse.json({
+            message: "로그아웃에 성공하였습니다."
+        }, {
+            headers: {
+                'Set-Cookie': 'token=; Path=/; Max-Age=0; SameSite=Strict'
+            },
+            status: 200,
+        });
+    }),
+
+
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
      */
