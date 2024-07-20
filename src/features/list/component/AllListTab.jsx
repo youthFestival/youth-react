@@ -18,17 +18,17 @@ const AllListTab = () => {
 
           const data = [
                     {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'All Festival Poster 1',
-                        festivalLocation: 'Location 1',
-                        festivalDate: 'Date 1'
+                        posterSrc: '/mockposter/khu_poster.png',
+                        posterAlt: '경희대학교 서울캠퍼스 축제 포스터',
+                        festivalTitle: '경희대학교 서울캠퍼스 봄 대동제',
+                        festivalLocation: '경희대학교',
+                        festivalDate: 'startDate ~ endDate'
                     },
                     {
-                        posterSrc: '',
+                        posterSrc: '/mockposter/seoulpark.png',
                         posterAlt: '',
-                        festivalTitle: 'All Festival Poster 2',
-                        festivalLocation: 'Location 2',
+                        festivalTitle: '서울파크 뮤직 페스티벌',
+                        festivalLocation: '서울 올림픽 공원 88잔디마당, 88호수수변무대',
                         festivalDate: 'Date 2'
                     },
                     {

@@ -8,13 +8,14 @@
     margin-top: 110px;
     margin-left: 50px;
     margin-right: 50px;
-    
+
     span {
         line-height: 21px;
     }
 
     .editor{
         display: flex;
+        position: relative;
     }
 
     .profile {
@@ -54,7 +55,15 @@
     }
 
     .write {
-        margin-bottom: 50px;
+        margin-bottom: 100px;
+    }
+
+    .container{
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
     }
 
 }
