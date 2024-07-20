@@ -20,7 +20,6 @@ import {
 
 import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
-import PostEditor from "./features/dashboard/components/PostEditor";
 import { Navigate } from 'react-router-dom';
 import {
   EditProfile,
@@ -28,6 +27,9 @@ import {
   Inquiries,
   InquiriesSave
 } from './features/usermanagement/index.js';
+
+// test
+import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
 
 
 
@@ -72,7 +74,7 @@ function App() {
 
         <Route path="/test">
           <Route path="" element={<TempMain />} />
-          <Route path="editor" element={<PostEditor />} />
+          <Route path="editor" element={<EditProfileModal />} />
         </Route>
 
       </Routes>
