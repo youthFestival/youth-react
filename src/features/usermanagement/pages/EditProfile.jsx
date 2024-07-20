@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/edit-profile.scss'
 import { 
-     AuthInput, AuthBtn
+     AuthInput, 
+     AuthBtn
     } from '../../authentication/index.js';
 
 const EditProfile = () => {
