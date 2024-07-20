@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import {
-    AuthBtn,
-    AuthLogo, 
-    AuthInput,
-    AuthCheckbox
+  AuthBtn,
+  AuthLogo,
+  AuthInput,
+  AuthCheckbox
 } from '../features/authentication/index.js';
 import axios from 'axios';
 import '../styles/login.css';
@@ -21,26 +21,26 @@ const Login = () => {
   const { dispatch } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [credentials, setCredentials ] = useState({
+  const [credentials, setCredentials] = useState({
     userId: undefined,
     password: undefined,
   })
-  
+
   const handleChange = (e) => {
-       setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   }
 
   const loginBtnClickHandler = async () => {
     try {
       const apiUrl = process.env.REACT_APP_API_URL;
       console.log(`API URL: ${apiUrl}`)
-      const response = await axios.post(`${apiUrl}/auth/login`,credentials,{ withCredentials: true });
+      const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
       console.log(response.data);
-      dispatch({ type: "LOGIN", payload: response.data});
+      dispatch({ type: "LOGIN", payload: response.data });
       alert(response.data.message);
-      navigate('/home');
+      navigate('/');
     } catch (err) {
-      if(err.response && err.response.data && err.response.data.message){
+      if (err.response && err.response.data && err.response.data.message) {
         alert(err.response.data.message);
       } else {
         alert("로그인 정보 잘못되었습니다. 다시 시도해주세요.")

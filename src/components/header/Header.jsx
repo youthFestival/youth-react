@@ -20,7 +20,7 @@ const Header = () => {
 
             if (res.status === 200) {
                 dispatch({ type: "LOGOUT" });
-                navigate("/home");
+                navigate("/");
             }
         } catch (err) {
             console.log(err);
@@ -40,7 +40,7 @@ const Header = () => {
     }
 
     const handleHomeClick = () => {
-        window.location.href = '/home';
+        window.location.href = '/';
     };
 
     const handleConsoleClick = () => {
@@ -59,11 +59,11 @@ const Header = () => {
     return (
         <div className="header-header">
 
-      
+
             <div className="hlogo-container">
                 <div className="logo" onClick={handleHomeClick}>Youth!</div>
             </div>
-            
+
             <form onSubmit={handleSearch} className='search-box'>
                 <input
                     type="text"
@@ -72,25 +72,25 @@ const Header = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="대학교, 페스티벌, 지역, 아티스트를 검색해 보세요!"
                 />
-                <IoIosSearch className="search-button" onClick={handleSearch}/>
+                <IoIosSearch className="search-button" onClick={handleSearch} />
             </form>
-      
+
 
             <div className="hitems">
-                <GoBell className="event-bell"/>
+                <GoBell className="event-bell" />
                 {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
-                {user ? 
+                {user ?
                     (<div className="navButton-container">
                         <button className="navButton" onClick={handleLogoutClick}>로그아웃</button>
                         <button className="navButton" onClick={handlePageClick}>마이페이지</button>
-                    </div>):
+                    </div>) :
                     (<div className="navButton-container">
                         <button className="navButton" onClick={handleLoginClick}>로그인</button>
                         <button className="navButton" onClick={handleRegisterClick}>회원가입</button>
                     </div>)
                 }
-                
-                    
+
+
             </div>
         </div>
     )
