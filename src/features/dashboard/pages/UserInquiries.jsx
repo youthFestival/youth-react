@@ -12,22 +12,21 @@ function UserInquiries() {
   const DEFAULT_LIMIT = 15;
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL +
-      "/inquiries" +
-      withParams({
-        limit: DEFAULT_LIMIT,
-        offset: (page - 1) * DEFAULT_LIMIT + 1,
-      })
+    "/inquiries" +
+    withParams({
+      limit: DEFAULT_LIMIT,
+      offset: (page - 1) * DEFAULT_LIMIT + 1,
+    })
   );
 
   const headers = [
-    "번호",
-    "문의 유형",
-    "문의 제목",
-    "작성자",
-    "문의 날짜",
-    "상태",
+    { content: "번호", className: "header-number" },
+    { content: "문의 유형", className: "header-type" },
+    { content: "문의 제목", className: "header-title" },
+    { content: "작성자", className: "header-author" },
+    { content: "문의 날짜", className: "header-date" },
+    { content: "상태", className: "header-status" }
   ];
-
   const rows = data?.inquiries.map((inquiry) => ({
     onClick: () => navigate("detail/" + inquiry.id),
     cells: [
@@ -35,9 +34,8 @@ function UserInquiries() {
       {
         content: (
           <span
-            className={`category ${
-              inquiry.category === "페스티벌" ? "col-festival" : "col-account"
-            }`}
+            className={`category ${inquiry.category === "페스티벌" ? "col-festival" : "col-account"
+              }`}
           >
             {inquiry.category}
           </span>
