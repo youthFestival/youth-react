@@ -21,7 +21,10 @@ import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
 import { Navigate } from 'react-router-dom';
-import { EditProfile } from './features/usermanagement';
+import { 
+  EditProfile,
+  Inquiries
+} from './features/usermanagement/index.js';
 
 
 
@@ -49,7 +52,7 @@ function App() {
              <Route path='edit-profile' element={<EditProfile/>}/>
              <Route path='edit-artist' element={<div>test</div>}/>
              <Route path='favorites' element={<div>test</div>}/>
-             <Route path='inquiries' element={<div>test</div>}/>
+             <Route path='inquiries' element={<Inquiries/>}/>
              <Route path='qna' element={<div>test</div>}/>
              <Route path='comments' element={<div>test</div>}/>
              <Route path='deletion' element={<div>test</div>}/>
