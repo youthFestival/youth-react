@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "../styles/side-menu.css";
+import "../styles/side-menu.scss";
 
 const icoPath = "/icons/adminDashboard";
 const menuItems = [
