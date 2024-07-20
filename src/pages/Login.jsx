@@ -1,4 +1,5 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from 'react-router-dom';
 import {
     AuthBtn,
     AuthLogo, 
@@ -10,6 +11,7 @@ import '../styles/login.css';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx';
 
+
 /**
  * 로그인 페이지 
  * @returns
@@ -17,6 +19,7 @@ import { AuthContext } from '../contexts/AuthContext.jsx';
 const Login = () => {
 
   const { dispatch } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const [credentials, setCredentials ] = useState({
     userId: undefined,
@@ -35,6 +38,7 @@ const Login = () => {
       console.log(response.data);
       dispatch({ type: "LOGIN", payload: response.data});
       alert(response.data.message);
+      navigate('/home');
     } catch (err) {
       if(err.response && err.response.data && err.response.data.message){
         alert(err.response.data.message);
