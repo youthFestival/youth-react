@@ -5,6 +5,11 @@
     justify-content: center;
 
     .rank-title-container {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
         .rank-title {
             // font-family: 'Pretendard';
             font-size: 28px;
@@ -13,23 +18,42 @@
     }
     
     .rank-button-container {
-
+      display: flex;
+      align-items: center;
+      justify-content: center;
         align-items: center;
         justify-content: center;
 
-        .rank-button {
+        .category-button {
             width: 97px;
             height: 44px;
             margin-left: 30px;
+            font-size: 15px;
+            font-weight: 500;
+            background-color: #ffffff;
+            color: rgb(0, 0, 0);
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 30px;
         }
 
-        .rank-button {
-
+        .category-button.active {
+          background-color: skyblue;
+          color: white;
+          border: none;
+          border-radius: 30px;
         }
+
     }
 
-    .rank-body-container {
-
+    .rank-slider-container {
+      .slider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
 
 }
@@ -42,20 +66,8 @@
     margin-bottom: 20px;
   }
   
-  .category-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .rank-category-button:hover {
-    background-color:#89CFF0;
-  }
-  
+
+
   .slider-container {
     display: flex;
     align-items: center;
@@ -85,30 +97,6 @@
     object-fit: cover;
   }
   
-  .nav-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    padding: 10px;
-  }
-  
-  .nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  .nav-button:focus {
-    outline: none;
-  }
-  
-  .nav-button:first-of-type {
-    left: 0;
-  }
-  
-  .nav-button:last-of-type {
-    right: 0;
-  }
+ 
+
   
