@@ -20,6 +20,8 @@ import {
 import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
+import { Navigate } from 'react-router-dom';
+import { EditProfile } from './features/usermanagement';
 
 
 
@@ -40,8 +42,19 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/calendar" element={<Calendar />} />
+
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/mypage/mydetail" element={<MydetailFrame />} />
+        <Route path="/mydetail" element={<MydetailFrame />}>
+             <Route index element={<Navigate to="edit-profile" />} />
+             <Route path='edit-profile' element={<EditProfile/>}/>
+             <Route path='edit-artist' element={<div>test</div>}/>
+             <Route path='favorites' element={<div>test</div>}/>
+             <Route path='inquiries' element={<div>test</div>}/>
+             <Route path='qna' element={<div>test</div>}/>
+             <Route path='comments' element={<div>test</div>}/>
+             <Route path='deletion' element={<div>test</div>}/>
+        </Route>
+        
         <Route path="/register" element={<Register />} />
         <Route path="/register/agreement" element={<InfoAgreement />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
