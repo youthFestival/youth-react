@@ -17,9 +17,7 @@ import {
       Listpage, 
       MemberManagement} from "./pages";
 
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import Nav from "./components/nav/Nav";
+import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
 import PostEditor from "./features/dashboard/components/PostEditor";
 
@@ -49,10 +47,8 @@ function App() {
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        <Route path="/header" element={<Header />} />
-        <Route path="/footer" element={<Footer />} />
         <Route path="/list" element={<Listpage/>} />
-        <Route path="/nav" element={<Nav />} />
+        <Route path="/ranking" element={<Ranking />} />
 
         <Route path="/test">
           <Route path="" element={<TempMain />} />

@@ -1,0 +1,114 @@
+.rank-container {
+
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .rank-title-container {
+        .rank-title {
+            // font-family: 'Pretendard';
+            font-size: 28px;
+            font-weight: bold;
+        }
+    }
+    
+    .rank-button-container {
+
+        align-items: center;
+        justify-content: center;
+
+        .rank-button {
+            width: 97px;
+            height: 44px;
+            margin-left: 30px;
+        }
+
+        .rank-button {
+
+        }
+    }
+
+    .rank-body-container {
+
+    }
+
+}
+
+.app {
+    text-align: center;
+  }
+  
+  .button-container {
+    margin-bottom: 20px;
+  }
+  
+  .category-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .rank-category-button:hover {
+    background-color:#89CFF0;
+  }
+  
+  .slider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 800px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+  }
+  
+  .festival-card {
+    min-width: 150px;
+    height: 200px;
+    margin: 0 5px;
+    text-align: center;
+  }
+  
+  .festival-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .nav-button:focus {
+    outline: none;
+  }
+  
+  .nav-button:first-of-type {
+    left: 0;
+  }
+  
+  .nav-button:last-of-type {
+    right: 0;
+  }
+  
