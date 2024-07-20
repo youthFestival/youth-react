@@ -23,7 +23,8 @@ import PostEditor from "./features/dashboard/components/PostEditor";
 import { Navigate } from 'react-router-dom';
 import { 
   EditProfile,
-  Inquiries
+  Inquiries,
+  InquiriesSave
 } from './features/usermanagement/index.js';
 
 
@@ -53,6 +54,7 @@ function App() {
              <Route path='edit-artist' element={<div>test</div>}/>
              <Route path='favorites' element={<div>test</div>}/>
              <Route path='inquiries' element={<Inquiries/>}/>
+             <Route path='inquiries-save' element={<InquiriesSave/>}/>
              <Route path='qna' element={<div>test</div>}/>
              <Route path='comments' element={<div>test</div>}/>
              <Route path='deletion' element={<div>test</div>}/>
