@@ -4,7 +4,7 @@ import './footer.css';
 const Footer = () => {
 
     return (
-        <div className="footer-footer">
+        <div className="footer-footer" id='wrapper'>
             <div className="ftop-container">
                 <div className="fleft-container">
                     <strong className="fyouth">(주)Youth!</strong>

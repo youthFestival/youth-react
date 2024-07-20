@@ -1,6 +1,6 @@
 .list-page{
     display: grid;
-
+    height: 100%;
     .look{
         display: flex;
         width: 128px;
@@ -20,6 +20,7 @@
 
     .listmain{
         display: grid;
+        position:relative;
         margin: 0 auto;
     }
 

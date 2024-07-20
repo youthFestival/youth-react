@@ -5,6 +5,7 @@ import {
 } from '../features/list/index.js';
 import Nav from '../components/nav/Nav.jsx';
 import Header from '../components/header/Header.jsx';
+import Footer from '../components/footer/Footer.jsx';
 
 import '../styles/listpage.scss'
 
@@ -30,6 +31,7 @@ const Listpage = () => {
 
                     <Header />
                     <Nav />
+                    
 
                 <span className='look'>둘러보기</span>
 
@@ -76,6 +78,7 @@ const Listpage = () => {
                 </div>
                 
                 <TopButton />
+               
         </div>
     );
 };

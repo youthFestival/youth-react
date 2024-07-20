@@ -29,7 +29,7 @@ const AllListTab = () => {
                         posterAlt: '',
                         festivalTitle: '서울파크 뮤직 페스티벌',
                         festivalLocation: '서울 올림픽 공원 88잔디마당, 88호수수변무대',
-                        festivalDate: 'startDate ~ endDate'
+                        festivalDate: 'Date 2'
                     },
                     {
                         posterSrc: '',
