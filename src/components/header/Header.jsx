@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import './header.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { GoBell } from "react-icons/go";
+// import './header.css';
+import './header.scss'
+
 
 const Header = () => {
     const { user, dispatch } = useContext(AuthContext);
@@ -57,34 +59,38 @@ const Header = () => {
 
     return (
         <div className="header-header">
+
+      
             <div className="hlogo-container">
                 <div className="logo" onClick={handleHomeClick}>Youth!</div>
             </div>
-            <div className="hsearch-container">
-                <div className="search-box">
-                    <form onSubmit={handleSearch}>
-                        <input
-                            type="text"
-                            className="search-input"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="대학교, 페스티벌, 지역, 아티스트를 검색해 보세요!"
-                        />
-                        <IoIosSearch className="search-button" onClick={handleSearch}/>
-                    </form>
-                </div>
-            </div>
+            
+            <form onSubmit={handleSearch} className='search-box'>
+                <input
+                    type="text"
+                    className="search-input"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="대학교, 페스티벌, 지역, 아티스트를 검색해 보세요!"
+                />
+                <IoIosSearch className="search-button" onClick={handleSearch}/>
+            </form>
+      
+
             <div className="hitems">
                 <GoBell className="event-bell"/>
                 {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
                 {user ? 
-                    (<button className="navButton" onClick={handleLogoutClick}>로그아웃</button>):
+                    (<div className="navButton-container">
+                        <button className="navButton" onClick={handleLogoutClick}>로그아웃</button>
+                        <button className="navButton" onClick={handlePageClick}>마이페이지</button>
+                    </div>):
                     (<div className="navButton-container">
                         <button className="navButton" onClick={handleLoginClick}>로그인</button>
                         <button className="navButton" onClick={handleRegisterClick}>회원가입</button>
                     </div>)
                 }
-                <button className="navButton" onClick={handlePageClick}>마이페이지</button>
+                
                     
             </div>
         </div>

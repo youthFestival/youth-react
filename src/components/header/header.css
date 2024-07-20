@@ -1,18 +1,17 @@
 .header-header {
     align-items: center;
-    padding: 20px;
-    width: 1920;
+    padding: 10px;
     height: 60px;
     top: 0;
     left: 0;
     background-color: #ffffff;
     padding: 20px;
     display: flex;
-    /* border-bottom: 2px solid #89CFF0; */
+    border-bottom: 1px solid #89CFF0;
 }
 
 .logo {
-    font-family: 'Pretendard';
+  font-family: "Noto Sans", sans-serif;
     font-size: 40px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -45,8 +44,8 @@
 }
 
 .hitems {
-  padding-left: 220px;
-  display: flex;
+  /* padding-left: 220px; */
+  display: inline-flex;
 }
 
 .event-bell {
@@ -56,13 +55,12 @@
 }
 
 .navButton {
-  font-family: 'Pretendard';
-  background: none; /* 배경 제거 */
-  border: none; /* 테두리 제거 */
-  color:rgb(0, 0, 0);/* 텍스트 색상 설정 */
-  font-size: 15px; /* 버튼 폰트 크기 설정 */
-  padding: 5px 10px 0px 10px; /* 버튼 여백 설정 */
-  cursor: pointer; /* 마우스 커서 변경 */
+  background: none;
+  border: none;
+  color:rgb(0, 0, 0);
+  font-size: 15px;
+  padding: 5px 10px 0px 10px;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
