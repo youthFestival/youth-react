@@ -90,8 +90,8 @@ const Login = () => {
 
           <div className="login-userfind-register">
 
-            <NavLink className={'find-id'}>아이디 찾기</NavLink>
-            <NavLink className={'find-pw'}>비밀번호 찾기</NavLink>
+            <NavLink className={'find-id'} to={'/userfind'} >아이디 찾기</NavLink>
+            <NavLink className={'find-pw'} to={'/userfind'}>비밀번호 찾기</NavLink>
             <NavLink className={'go-register'} to={'/register'}>회원가입</NavLink>
 
           </div>
