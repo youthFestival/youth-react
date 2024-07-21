@@ -5,10 +5,11 @@ import ArtistInfo from "./ArtistInfo";
 import FestivalPoster from "./FestivalPoster";
 import FestivalPictures from "./FestivalPictures";
 import FestivalBooth from "./FestivalBooth";
+import Map from "./Map";
 import FestivalRecommendations from "./FestivalRecommendations";
 import "../styles/festival-detail.css";
 
-const FestivalDetailContent = ({ activeTab, festivalId }) => {
+const FestivalDetailContent = ({ activeTab, festivalId, mapRef }) => {
     if (activeTab === "comments") {
         return <FestivalDetailComments festivalId={festivalId} />;
     } else if (activeTab === "qna") {
@@ -20,6 +21,9 @@ const FestivalDetailContent = ({ activeTab, festivalId }) => {
                 <FestivalPoster festivalId={festivalId} />
                 <FestivalPictures festivalId={festivalId} />
                 <FestivalBooth festivalId={festivalId} />
+                <div ref={mapRef}>
+                    <Map festivalId={festivalId} />
+                </div>
                 <FestivalRecommendations festivalId={festivalId} />
             </div>
         );

@@ -108,6 +108,7 @@
 .icon {
     margin-left: 5px;
     width: 15%;
+    cursor: pointer;
 }
 
 #like-icon {
@@ -124,6 +125,10 @@
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
+}
+
+.scroll-to-map-icon {
+    cursor: pointer;
 }
 
 /*FestivalDetailContent*/
@@ -703,4 +708,55 @@
 
 .Festival-contents-container {
     margin-bottom: 200px;
+}
+
+.qna-table-body .qna-table-cell.clickable-title {
+    cursor: pointer;
+}
+
+.qna-content-wrapper {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    animation: slideDown 0.3s ease-out;
+}
+
+.qna-content {
+    padding: 20px 75px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
+
+/*Map*/
+.map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    flex-direction: column;
+    text-align: left; /* 추가 */
+}
+
+.map {
+    width: 53%;
+    height: 302px;
+}
+
+.map-text {
+    width: 53%;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
