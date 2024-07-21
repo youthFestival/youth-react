@@ -1,8 +1,9 @@
 import React from 'react';
+import '../styles/artist-pick.scss';
 
-import '../styles/artist-pick.scss'
 /**
- * 아티스트 선택 컴포넌트  
+ * 
+ * 아티스트 선택 컴포넌트 
  * @returns 
  */
 

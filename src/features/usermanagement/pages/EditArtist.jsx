@@ -49,7 +49,6 @@ const EditArtist = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            // Mock data fetch, replace with real data fetching logic
             const data = [
                 {
                     artistSrc: '/coogie.png',
@@ -121,6 +120,7 @@ const EditArtist = () => {
                     <IoIosSearch className="search-button" onClick={handleSearch} />
                 </div>
             </div>
+            
             <button className='edit-button' onClick={handleEditToggle}>
                 {isEditMode ? '저장' : '수정'}
             </button>
@@ -139,6 +139,7 @@ const EditArtist = () => {
                     />
                 ))}
                 </div>
+               
                 <div className='saved-artists'>
                     {savedArtists.map((artist, index) => (
                         <div key={index} className='saved-artist'>
@@ -146,8 +147,8 @@ const EditArtist = () => {
                         </div>
                     ))}
                 </div> 
-                
-                <div className='pagination'>
+
+                 <div className='pagination'>
                     <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
                         이전
                     </button>
@@ -155,7 +156,7 @@ const EditArtist = () => {
                     <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
                         다음
                     </button>
-                </div>
+                </div> 
                    
         </div>
     );
