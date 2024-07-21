@@ -1,8 +1,36 @@
-.search-list{
+.search-list {
     display: grid;
     margin-top: 30px;
 
-    .search-form{
+    .search-edit {
+        display: flex;
+        position: relative;
+    }
+    
+    .edit-button {
+        position: absolute;
+        color: #FFFFFF;
+        display: flex;
+        width: 80px;
+        height: 40px;
+        right: 0;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        gap: 5px;
+        flex-shrink: 0;
+        flex-wrap: wrap;
+        border-radius: 10px;
+        border: none;
+        background: #89CFF0;
+        cursor: pointer;
+    }
+
+    .edit-button:hover{
+        background-color: #0C87C1;
+    }
+
+    .search-form {
         margin: 0 auto;
         display: flex;
         width: 450px;
@@ -36,16 +64,44 @@
         margin-top: 5px;
     }
 
-    .artist-container{
+    .artist-container {
         display: flex;
-        width: 1331px;
+        position: relative;
+        height: 876px;
         justify-content: center;
         align-items: flex-start;
         align-content: flex-start;
-        gap:50px;
+        gap: 10px;
         flex-shrink: 0;
         flex-wrap: wrap;
-        border: 1px solid black;
-        margin-top: 60px;
+        margin-top: 50px;
     }
+
+    .pagination {
+        position: absolute;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+    }
+
+    .prev-button, .next-button {
+        padding: 5px 10px;
+        background: none;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .prev-button:hover, .next-button:hover{
+        background-color: #0C87C1;
+        color: #FFFFFF;
+    }
+
+    .prev-button:disabled, .next-button:disabled {
+        background-color: #D8D1D1;
+        cursor: not-allowed;
+    }
+
 }

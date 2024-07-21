@@ -11,10 +11,11 @@
         background: none;
 
     .artist-button{
-       margin: 0 auto;
+        margin: 0 auto;
+        background: none;
+        border: none;
     }
-
-
+   
 
     .form{
         display: grid;
@@ -25,18 +26,17 @@
     }
 
     .image{
-        width: 250px;
-        height: 260px;
+        width: 230px;
+        height: 230px;
         flex-shrink: 0;
         border-radius: 100%;
-        border: 1px solid red;
         z-index: 5;
     }
 
-    .span1{
+    .span{
         display: flex;
         width: 240px;
-        height: 33px;
+        height: 40px;
         flex-direction: column;
         justify-content: center;
         flex-shrink: 0;
@@ -46,4 +46,13 @@
         font-size: 17px;
         font-weight: 700;
     }
+
+    .artistcomponent.selected .image {
+        border: 2px solid #89CFF0;
+    }
+    
+    .artistcomponent.selected .span {
+        color: #89CFF0;
+    }
+    
 }

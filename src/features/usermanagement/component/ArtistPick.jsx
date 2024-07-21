@@ -6,23 +6,21 @@ import '../styles/artist-pick.scss'
  * @returns 
  */
 
-const ArtistPick = ({ artistSrc, artistAlt, artistName }) => {
-
+const ArtistPick = ({ artistSrc, artistAlt, artistName, isSelected, onClick }) => {
     return (
-        <div className='artistcomponent'>  
-                <div className='form'>
-                    <div className='contents'>
-                        
-                        <img 
+        <div className={`artistcomponent ${isSelected ? 'selected' : ''}`} onClick={onClick}>
+            <div className='form'>
+                <div className='contents'>
+                    <button className='artist-button'>
+                        <img
                             className='image'
                             src={artistSrc}
-                            alt={artistAlt}
+                            alt={artistAlt || 'Artist Image'}
                         />
-                        <button className='artist-button'>
-                            <span className='span1'>{artistName}</span>
-                        </button>
-                    </div>
+                        <span className='span'>{artistName}</span>
+                    </button>
                 </div>
+            </div>
         </div>
     );
 };
