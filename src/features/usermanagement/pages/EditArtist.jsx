@@ -16,6 +16,7 @@ const EditArtist = () => {
     const [artistList, setArtistList] = useState([]);
     const [page, setPage] = useState(1);
     const [totalArtists, setTotalArtists] = useState(0);
+    const [savedArtists, setSavedArtists] = useState([]);
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -23,15 +24,18 @@ const EditArtist = () => {
     };
 
     const handleEditToggle = () => {
-        if (isEditMode) {
-            // 데이터베이스 아티스트 정보 관리 부분
+        if (isEditMode && selectedArtist) {
+            if (!savedArtists.some(artist => artist.artistName === selectedArtist.artistName)) {
+                setSavedArtists([...savedArtists, selectedArtist]);
+            }
+            setSelectedArtist(null);
         }
         setIsEditMode(!isEditMode);
     };
 
-    const handleArtistClick = (artistName) => {
+    const handleArtistClick = (artist) => {
         if (isEditMode) {
-            setSelectedArtist(artistName === selectedArtist ? null : artistName);
+            setSelectedArtist(artist === selectedArtist ? null : artist);
         }
     };
 
@@ -58,55 +62,37 @@ const EditArtist = () => {
                     artistName: '헤이즈',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/loco.png',
+                    artistAlt: '로꼬 프로필',
+                    artistName: '로꼬',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/heize.png',
+                    artistAlt: '헤이즈 프로필',
+                    artistName: '헤이즈',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/heize.png',
+                    artistAlt: '헤이즈 프로필',
+                    artistName: '헤이즈',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/heize.png',
+                    artistAlt: '헤이즈 프로필',
+                    artistName: '헤이즈',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/heize.png',
+                    artistAlt: '헤이즈 프로필',
+                    artistName: '헤이즈',
                 },
                 {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
+                    artistSrc: '/heize.png',
+                    artistAlt: '헤이즈 프로필',
+                    artistName: '헤이즈',
                 },
-                {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
-                },
-                {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
-                },
-                {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
-                },
-                {
-                    artistSrc: '',
-                    artistAlt: '',
-                    artistName: 'Artist Name',
-                }
+
+               
             ];
 
             setTotalArtists(data.length);
@@ -140,6 +126,27 @@ const EditArtist = () => {
             </button>
 
             <div className='artist-container'>
+               
+            
+                {artistList.map((artist, index) => (
+                    <ArtistPick
+                        key={index}
+                        artistSrc={artist.artistSrc}
+                        artistAlt={artist.artistAlt}
+                        artistName={artist.artistName}
+                        isSelected={selectedArtist === artist}
+                        onClick={() => handleArtistClick(artist)}
+                    />
+                ))}
+                </div>
+                <div className='saved-artists'>
+                    {savedArtists.map((artist, index) => (
+                        <div key={index} className='saved-artist'>
+                            <img src={artist.artistSrc} alt={artist.artistAlt} />
+                        </div>
+                    ))}
+                </div> 
+                
                 <div className='pagination'>
                     <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
                         이전
@@ -149,18 +156,7 @@ const EditArtist = () => {
                         다음
                     </button>
                 </div>
-            
-                {artistList.map((artist, index) => (
-                    <ArtistPick
-                        key={index}
-                        artistSrc={artist.artistSrc}
-                        artistAlt={artist.artistAlt}
-                        artistName={artist.artistName}
-                        isSelected={selectedArtist === artist.artistName}
-                        onClick={() => handleArtistClick(artist.artistName)}
-                    />
-                ))}
-            </div>
+                   
         </div>
     );
 };
