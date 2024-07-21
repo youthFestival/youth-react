@@ -4,11 +4,14 @@ import {
     TicketBox,
     MyInfoIcon
 } from '../features/usermanagement';
+import Header from '../components/header/Header';
+import Footer from '../components/footer/Footer';
 import '../styles/mypage.css'
 
 const Mypage = () => {
     return (
         <div className='my-container'>
+            <Header/>
             <div className='my-contents'>
 
                 <div className='my-management-box'>
@@ -91,6 +94,7 @@ const Mypage = () => {
                     />
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

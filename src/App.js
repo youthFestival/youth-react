@@ -14,7 +14,7 @@ import {
   UserInquiries,
   Chatbot,
   RegisterForm,
-  Listpage,
+  List,
   MemberManagement
 } from "./pages";
 
@@ -69,7 +69,7 @@ function App() {
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        <Route path="/list" element={<Listpage />} />
+        <Route path="/list" element={<List />} />
         <Route path="/ranking" element={<Ranking />} />
 
         <Route path="/test">

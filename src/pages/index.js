@@ -4,7 +4,7 @@ import FestivalDetail from "./FestivalDetail";
 import Home from "./Home";
 import Login from "./Login";
 import Mypage from "./Mypage";
-import Listpage from './Listpage';
+import List from './List';
 
 // 회원가입 옵션 페이지, 및 회원가입 입력 페이지
 import Register from "./Register";
@@ -48,6 +48,6 @@ export {
     UserFind, 
     Chatbot, 
     RegisterForm, 
-    Listpage,
+    List,
     MemberManagement
 };

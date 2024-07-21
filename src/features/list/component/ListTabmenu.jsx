@@ -6,6 +6,7 @@ import {
 } from '../index.js';
 
 import '../styles/list-tab-menu.scss'
+import Footer from '../../../components/footer/Footer.jsx';
 
 /**
  * 리스트 페이지 탭메뉴(전체, 대학축제, 페스티벌)
@@ -47,7 +48,9 @@ const ListTabmenu = () => {
                 ))}
             </div>
             <p className='listcontent'>{menuData[listTab].content}</p>
+            <Footer/>
         </div>
+        
     );
 };
 

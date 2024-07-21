@@ -138,7 +138,18 @@ const EditArtist = () => {
             <button className='edit-button' onClick={handleEditToggle}>
                 {isEditMode ? '저장' : '수정'}
             </button>
+
             <div className='artist-container'>
+                <div className='pagination'>
+                    <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                        이전
+                    </button>
+                    <span>{page}</span>
+                    <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
+                        다음
+                    </button>
+                </div>
+            
                 {artistList.map((artist, index) => (
                     <ArtistPick
                         key={index}
@@ -149,15 +160,6 @@ const EditArtist = () => {
                         onClick={() => handleArtistClick(artist.artistName)}
                     />
                 ))}
-            
-            <div className='pagination'>
-                <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
-                    이전
-                </button>
-                <span>{page}</span>
-                <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
-                    다음
-                </button></div>
             </div>
         </div>
     );

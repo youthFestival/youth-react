@@ -52,6 +52,71 @@ const AllListTab = () => {
                         festivalLocation: 'Location 5',
                         festivalDate: 'Date 5'
                     },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+
+                     {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
+                    {
+                        posterSrc: '',
+                        posterAlt: '',
+                        festivalTitle: 'All Festival Poster 5',
+                        festivalLocation: 'Location 5',
+                        festivalDate: 'Date 5'
+                    },
                 ];
                 setAllList(data);
             };
