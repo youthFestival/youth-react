@@ -4,6 +4,8 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 #calendar-container {

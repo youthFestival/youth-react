@@ -8,6 +8,7 @@
     border-bottom: 1px solid #E6E6EB;
     padding-bottom: 48px;
     margin: 0 auto;
+    margin-top: 40px;
 }
 
 .festival-image-area {
@@ -133,6 +134,7 @@
     height: 80px;
     padding-top: 20px;
     margin: 0 auto;
+    /* margin-bottom: 200px; */
 }
 
 .tabs {
@@ -460,6 +462,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 .comments-btn-container {
@@ -562,6 +565,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 .qna-buttons {
@@ -695,4 +699,8 @@
     background-color: #89CFF0;
     color: white;
     cursor: default;
+}
+
+.Festival-contents-container {
+    margin-bottom: 200px;
 }

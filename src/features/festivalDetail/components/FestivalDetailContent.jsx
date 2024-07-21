@@ -6,6 +6,7 @@ import FestivalPoster from "./FestivalPoster";
 import FestivalPictures from "./FestivalPictures";
 import FestivalBooth from "./FestivalBooth";
 import FestivalRecommendations from "./FestivalRecommendations";
+import "../styles/festival-detail.css";
 
 const FestivalDetailContent = ({ activeTab, festivalId }) => {
     if (activeTab === "comments") {
@@ -14,7 +15,7 @@ const FestivalDetailContent = ({ activeTab, festivalId }) => {
         return <FestivalDetailQnA festivalId={festivalId} />;
     } else {
         return (
-            <div>
+            <div className="Festival-contents-container">
                 <ArtistInfo festivalId={festivalId} />
                 <FestivalPoster festivalId={festivalId} />
                 <FestivalPictures festivalId={festivalId} />
