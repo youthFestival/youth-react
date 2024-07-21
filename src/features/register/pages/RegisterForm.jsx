@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import {
     RegisterInput,
     RegisterGenderBtn,
@@ -11,7 +11,7 @@ import '../styles/registerform.css'
  * 회원가입 정보 입력 폼 코드
  * @returns 
  */
-const RegisterForm = () => {
+const RegisterForm = () => {        
       
     return (
         <div className='register-write-container'>
@@ -28,6 +28,7 @@ const RegisterForm = () => {
                               registerInputType='text'
                               registerInputPlaceHolder='6~20자 영문, 숫자'  
                               registerInputClassName='register-id-input' 
+                              registerInputOnChange={''}
                         />
                         <button className='register-check-btn'>중복확인</button>
                   </div>
@@ -36,14 +37,16 @@ const RegisterForm = () => {
                         registerText='비밀번호'
                         registerInputType='password'
                         registerInputPlaceHolder='8~12자 영문, 숫자, 특수문자' 
-                        registerInputClassName='register-pw-input'   
+                        registerInputClassName='register-pw-input'
+                        registerInputOnChange={''}   
                   />
 
                  <RegisterInput
                         registerText='비밀번호 확인'
                         registerInputType='password'
                         registerInputPlaceHolder='8~12자 영문, 숫자, 특수문자'
-                        registerInputClassName='register-pwcheck-input'    
+                        registerInputClassName='register-pwcheck-input' 
+                        registerInputOnChange={''}   
                   />
                    
                   <RegisterGenderBtn/>
@@ -52,7 +55,8 @@ const RegisterForm = () => {
                         registerText='이름'
                         registerInputType='text'
                         registerInputPlaceHolder='이름을 입력하세요.'
-                        registerInputClassName='register-name-input'  
+                        registerInputClassName='register-name-input'
+                        registerInputOnChange={''}  
                   />
                  
 
@@ -61,7 +65,8 @@ const RegisterForm = () => {
                               registerText='주소'
                               registerInputType='text'
                               registerInputPlaceHolder='주소를 입력하세요.'  
-                              registerInputClassName='register-address-input' 
+                              registerInputClassName='register-address-input'
+                              registerInputOnChange={''} 
                         />
                         <button className='register-check-btn'>주소찾기</button>
                   </div>
@@ -71,6 +76,7 @@ const RegisterForm = () => {
                           registerInputType='text'
                           registerInputPlaceHolder='상세주소를 입력하세요.'  
                           registerInputClassName='register-detail-address'
+                          registerInputOnChange={''}
                   />
 
                   <div className='email-with-dropdown'>
@@ -79,6 +85,7 @@ const RegisterForm = () => {
                               registerInputType='email'
                               registerInputPlaceHolder='이메일을 입력하세요.'  
                               registerInputClassName='register-email-input'
+                              registerInputOnChange={''}
                         />
                         <select name="" id="email-dropdown">
                               <option value='직접입력' className='email-option'>직접입력</option>
@@ -94,7 +101,8 @@ const RegisterForm = () => {
                               registerText='휴대폰'
                               registerInputType='tel'
                               registerInputPlaceHolder='휴대폰 번호를 입력하세요.'  
-                              registerInputClassName='register-phone-input' 
+                              registerInputClassName='register-phone-input'
+                              registerInputOnChange={''} 
                         />
                         <button className='register-check-btn'>인증번호받기</button>
                   </div>
@@ -115,6 +123,7 @@ const RegisterForm = () => {
 
                   <RegisterBtn
                       registerBtnText='가입완료'
+                      registerOnClick={''}
                   />
                 
              </div>  
