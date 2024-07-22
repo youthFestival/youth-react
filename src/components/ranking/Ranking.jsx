@@ -231,10 +231,11 @@ const Ranking = () => {
                     slidesPerView={5}
                     slidesPerGroup={5} // 한 번에 5개 슬라이드씩 이동
                     pagination={{ clickable: true }}
-                    navigation
-                    loop
+                    navigation={true}
+                    loop={true}
                     className="swiper-container"
                 > 
+                    
                 {filteredFestivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
                     // <PosterComponent key={festival.id} festival={festival} />
                     <MainPosterComponent 
