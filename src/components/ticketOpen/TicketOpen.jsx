@@ -22,7 +22,7 @@ const TicketOpen = () => {
                         festivalTitle: '서울숲재즈페스티벌',
                         festivalLocation: '서울숲',
                         festivalDate: '2024.10.12 ~2024.10.13',
-                        ticketOpen : '08.01 10:00'
+                        festivalTicketOpen : '8.01(목) 10:00'
                     },
                     {
                         posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24005722_p.gif',
@@ -30,7 +30,7 @@ const TicketOpen = () => {
                         festivalTitle: '2024 인천펜타포트 락 페스티벌',
                         festivalLocation: '송도달빛축제공원',
                         festivalDate: '2024.08.02 ~2024.08.04',
-                        ticketOpen : '08.01 10:00'
+                        festivalTicketOpen : '8.01(목) 10:00'
                     },
                     {
                         posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24010346_p.gif',
@@ -38,7 +38,7 @@ const TicketOpen = () => {
                         festivalTitle: '대구 - 2024 THE HYPER DAY (더하이퍼데이)',
                         festivalLocation: '대구스타디움 동편광장 일대',
                         festivalDate: '2024.10.12',
-                        ticketOpen : '08.01 10:00'
+                        festivalTicketOpen : '8.01(목) 10:00'
                     },
                     {
                         posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24009897_p.gif',
@@ -46,7 +46,7 @@ const TicketOpen = () => {
                         festivalTitle: '2024 세종 센트럴파크 뮤직페스티벌',
                         festivalLocation: '세종 센트럴파크',
                         festivalDate: '2024.09.06 ~2024.09.08',
-                        ticketOpen : '08.01 10:00'
+                        festivalTicketOpen : '8.01(목) 10:00'
                     },
                     {
                         posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24009195_p.gif',
@@ -54,7 +54,7 @@ const TicketOpen = () => {
                         festivalTitle: '2024 전주얼티밋뮤직페스티벌',
                         festivalLocation: '전주종합경기장',
                         festivalDate: '2024.08.09 ~2024.08.11',
-                        ticketOpen : '08.01 10:00'
+                        festivalTicketOpen :'8.01(목) 10:00'
                     },
                     {
                       posterSrc: '',
@@ -62,7 +62,7 @@ const TicketOpen = () => {
                       festivalTitle: 'All Festival Poster 6',
                       festivalLocation: 'Location 6',
                       festivalDate: 'Date 6',
-                      ticketOpen : '08.01 10:00'
+                      festivalTicketOpen : '8.01(목) 10:00'
                   },
                   ];
                   setFestivals(data);
@@ -78,7 +78,13 @@ const TicketOpen = () => {
             </div>
             <div className="ticket-grid">
                 {festivals.map((festival) => (
-                    <OpenTicket key={festival.id} festival={festival} />
+                    <OpenTicket 
+                    key={festival.id} 
+                    festival={festival}
+                    posterSrc={festival.posterSrc}
+                    posterAlt={festival.posterAlt}
+                    festivalTitle={festival.festivalTitle}
+                    festivalTicketOpen={festival.festivalTicketOpen} />
                 ))}
             </div>
         </div>

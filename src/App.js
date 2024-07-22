@@ -31,7 +31,7 @@ import {
 
 // test
 import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
-
+import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
 
 function App() {
@@ -77,6 +77,8 @@ function App() {
         <Route path="/test">
           <Route path="" element={<TempMain />} />
           <Route path="editor" element={<EditProfileModal />} />
+          <Route path="openticket" element={<OpenTicket/>}/>
+  
         </Route>
 
       </Routes>
