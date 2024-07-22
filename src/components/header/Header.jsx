@@ -4,12 +4,13 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { GoBell } from "react-icons/go";
+import TopTalkArea from "./topTalkArea/TopTalkArea";
 import './header.scss'
-
 
 const Header = () => {
     const { user, dispatch } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState('');
+    const [isExpanded, setIsExpanded] = useState(false);
     const navigate = useNavigate();
 
     const handleLogoutClick = async (e) => {
@@ -50,16 +51,10 @@ const Header = () => {
     const handleSearch = (e) => {
         e.preventDefault();
         navigate.push(`/results?query=${searchTerm}`);
-        // // NEW_SEARCH: 새로운 검색 결과를 상태에 저장합니다.
-        // dispatch({ type: "NEW_SEARCH", payload: { festivalName } });
-        // // state에 정보를 담아 /list 화면이동한다. 
-        // navigate("/list", { state: { festivalName } });
     };
 
     return (
         <div className="header-header">
-
-
             <div className="hlogo-container">
                 <div className="logo" onClick={handleHomeClick}>Youth!</div>
             </div>
@@ -75,9 +70,11 @@ const Header = () => {
                 <IoIosSearch className="search-button" onClick={handleSearch} />
             </form>
 
-
             <div className="hitems">
-                <GoBell className="event-bell" />
+                <div className="bell-container">
+                    <GoBell className="event-bell" onClick={() => setIsExpanded(!isExpanded)} />
+                    {isExpanded && <TopTalkArea />}
+                </div>
                 {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
                 {user ?
                     (<div className="navButton-container">
@@ -89,8 +86,6 @@ const Header = () => {
                         <button className="navButton" onClick={handleRegisterClick}>회원가입</button>
                     </div>)
                 }
-
-
             </div>
         </div>
     )

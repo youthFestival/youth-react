@@ -1,0 +1,26 @@
+.talk_area {
+    .arrow-up {
+        position: absolute;
+        top: -16px;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 15px solid #ddd;
+        z-index: 1;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid white;
+            z-index: 2;
+        }
+    }
+}
