@@ -34,9 +34,11 @@
 }
 
 .input-with-btn {
-    position:relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
 }
 
 .register-check-btn {
@@ -79,6 +81,12 @@
     width: 340px;
 }
 
+.register-detail-address {
+    flex-grow: 1;
+    padding: 10px 5px;
+    border: none;
+    position:relative;
+}
 
 .register-id-input:focus,
 .register-pw-input:focus,
@@ -90,6 +98,7 @@
 .register-phone-input:focus{
     outline: none;
 }
+
 
 .email-with-dropdown{
     position:relative;

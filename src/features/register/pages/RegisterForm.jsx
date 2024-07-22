@@ -32,7 +32,7 @@ const RegisterForm = () => {
             registerInputType="text"
             registerInputPlaceHolder="6~20자 영문, 숫자"
             registerInputClassName="register-id-input"
-            registerInputOnChange={""}
+            // registerInputOnChange={""}
           />
           <button className="register-check-btn">중복확인</button>
         </div>
@@ -42,7 +42,7 @@ const RegisterForm = () => {
           registerInputType="password"
           registerInputPlaceHolder="8~12자 영문, 숫자, 특수문자"
           registerInputClassName="register-pw-input"
-          registerInputOnChange={""}
+          // registerInputOnChange={""}
         />
 
         <RegisterInput
@@ -50,7 +50,7 @@ const RegisterForm = () => {
           registerInputType="password"
           registerInputPlaceHolder="8~12자 영문, 숫자, 특수문자"
           registerInputClassName="register-pwcheck-input"
-          registerInputOnChange={""}
+          // registerInputOnChange={""}
         />
 
         <RegisterGenderBtn />
@@ -60,10 +60,10 @@ const RegisterForm = () => {
           registerInputType="text"
           registerInputPlaceHolder="이름을 입력하세요."
           registerInputClassName="register-name-input"
-          registerInputOnChange={""}
+          // registerInputOnChange={""}
         />
 
-        <div className="input-with-btn">
+        
           <RegisterInput
             registerText="주소"
             registerInputType="text"
@@ -72,16 +72,18 @@ const RegisterForm = () => {
             registerInputValue={address}
             registerInputOnChange={(e) => setAddress(e.target.value)}
           />
+          
+      
+        <div className="input-with-btn">
+          <RegisterInput
+            registerText="상세주소"
+            registerInputType="text"
+            registerInputPlaceHolder="상세주소를 입력하세요."
+            registerInputClassName="register-detail-address"
+            // registerInputOnChange={""}
+          />
           <AddressSearchBtn onAddressSelect={handleAddressSelect} />
         </div>
-
-        <RegisterInput
-          registerText="상세주소"
-          registerInputType="text"
-          registerInputPlaceHolder="상세주소를 입력하세요."
-          registerInputClassName="register-detail-address"
-          registerInputOnChange={""}
-        />
 
         <div className="email-with-dropdown">
           <RegisterInput
@@ -89,7 +91,7 @@ const RegisterForm = () => {
             registerInputType="email"
             registerInputPlaceHolder="이메일을 입력하세요."
             registerInputClassName="register-email-input"
-            registerInputOnChange={""}
+            // registerInputOnChange={""}
           />
           <select name="" id="email-dropdown">
             <option value="직접입력" className="email-option">
@@ -116,7 +118,7 @@ const RegisterForm = () => {
             registerInputType="tel"
             registerInputPlaceHolder="휴대폰 번호를 입력하세요."
             registerInputClassName="register-phone-input"
-            registerInputOnChange={""}
+            // registerInputOnChange={""}
           />
           <button className="register-check-btn">인증번호받기</button>
         </div>
@@ -138,7 +140,7 @@ const RegisterForm = () => {
           가능합니다.
         </span>
 
-        <RegisterBtn registerBtnText="가입완료" registerOnClick={""} />
+        <RegisterBtn registerBtnText="가입완료" />
       </div>
     </div>
   );

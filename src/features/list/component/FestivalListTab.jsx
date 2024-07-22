@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/festival-list.scss";
+import axios from 'axios';
 import PosterComponent from "./PosterComponent";
+import "../styles/festival-list.scss";
 
 /**
  * 페스티벌 탭 메뉴 모든 컴포넌트
@@ -8,51 +9,32 @@ import PosterComponent from "./PosterComponent";
  */
 
 const FestivalListTab = () => {
+  
   const [festivalList, setFestivalList] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = [
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Festival Poster 1",
-          festivalLocation: "Location 1",
-          festivalDate: "Date 1",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Festival Poster 2",
-          festivalLocation: "Location 2",
-          festivalDate: "Date 2",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Festival Poster 3",
-          festivalLocation: "Location 3",
-          festivalDate: "Date 3",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Festival Poster 4",
-          festivalLocation: "Location 4",
-          festivalDate: "Date 4",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-      ];
-      setFestivalList(data);
-    };
+  const festivalGetHandler = async () => {
+      try {
+          const apiUrl = process.env.REACT_APP_API_URL;
+          console.log(`API URL: ${apiUrl}`);
+          const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
+          console.log(response.data);
 
-    fetchData();
+          return response.data.festivals;
+
+      } catch (err) {
+          console.log(err);
+          return [];
+      }
+  };
+      
+
+  useEffect(() => {
+      const fetchData = async () => {
+          const data = await festivalGetHandler();
+          setFestivalList(data);
+      };
+
+      fetchData();
   }, []);
 
   return (
@@ -62,9 +44,9 @@ const FestivalListTab = () => {
           key={index}
           posterSrc={festival.posterSrc}
           posterAlt={festival.posterAlt}
-          festivalTitle={festival.festivalTitle}
+          festivalTitle={festival.name}
           festivalLocation={festival.festivalLocation}
-          festivalDate={festival.festivalDate}
+          festivalDate={`${festival.startDate} - ${festival.endDate}`}
         />
       ))}
     </div>

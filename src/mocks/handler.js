@@ -89,9 +89,6 @@ export const handlers = [
      * 
      */
     http.get(apiURL + '/festival', async ({ request }) => {
-
-
-
         try {
         
             const url = new URL(request.url)
@@ -132,8 +129,39 @@ export const handlers = [
         }
     }),
     
-        
-
+    /**
+     * 페스티벌 포스터만 불러오기
+     */
+    // http.get(apiURL + '/festival', async ({ request }) => {
+    //     try {
+    //         const url = new URL(request.url);
+    //         const category = url.searchParams.get('category');
+            
+    //         if (category === '페스티벌') {
+    //             // mockFestivalList에서 카테고리가 '페스티벌'인 항목만 필터링
+    //             const filteredFestivalList = mockFestivalList.filter((festival) => festival.categories === category);
+    //             return HttpResponse.json({
+    //                 ...filteredFestivalList
+    //             }, {
+    //                 status: 200,
+    //             });
+    //         } else {
+    //             return HttpResponse.json({
+    //                 error: '카테고리가 페스티벌이 아닙니다.'
+    //             }, {
+    //                 status: 401,
+    //             });
+    //         }
+    //     } catch (error) {
+    //         console.log('Error fetching festival data:', error);
+    //         return HttpResponse.json({
+    //             error: 'Internal Server Error'
+    //         }, {
+    //             status: 500,
+    //         });
+    //     }
+    // }),
+    
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
