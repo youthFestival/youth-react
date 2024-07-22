@@ -21,14 +21,13 @@ import MemberManagement from "../features/dashboard/pages/MemberManagement";
 
 // 마이페이지 및 회원가입
 import { MydetailFrame } from "../features/usermanagement";
-import { InfoAgreement } from "../features/register";
 
 // 아이디 및 비밀번호 찾기
 import UserFind from "../features/userfind/pages/UserFind";
 
 // 챗봇
 import Chatbot from "../features/chatBot/ChatBot";
-
+import PrivacyPolicy from "../features/register/pages/PrivacyPolicy";
 
 
 
@@ -44,7 +43,7 @@ export {
     UserInquiries, 
     InquiriesDetail, 
     MydetailFrame, 
-    InfoAgreement, 
+    PrivacyPolicy, 
     UserFind, 
     Chatbot, 
     RegisterForm, 
