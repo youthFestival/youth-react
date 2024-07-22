@@ -9,12 +9,12 @@ import Footer from './../components/footer/Footer';
 const Calendar = () => {
     return (
         <div>
-            <Header />
-            <Nav />
+            <Header/>
+            <Nav/>
             <ImageSlider />
             <FestivalCalendar />
-            <TopButton />
-            <Footer />
+            <TopButton/>
+            <Footer/>
         </div>
     );
 };

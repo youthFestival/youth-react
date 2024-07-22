@@ -27,7 +27,7 @@
 
 .fbottom-container {
     height: 72px;
-    width: 1340px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,5 +49,4 @@
 .fbottom {
     color: #1212127d;
     font-size: 12px;
-    padding-left: 275px;
 }
