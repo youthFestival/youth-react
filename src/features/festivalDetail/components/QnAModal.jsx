@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import '../styles/QnAModal.scss';
+import '../styles/qna-modal.scss';
 
 const QnAModal = ({ isOpen, onRequestClose, handleSubmit, newQnA, handleInputChange, categoryError }) => {
     const handleCategoryChange = (e) => {

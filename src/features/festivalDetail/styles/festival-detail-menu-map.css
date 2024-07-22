@@ -1,0 +1,36 @@
+/*FestivalDetailMenu*/
+.festival-detail-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #666666;
+    border-radius: 44%;
+    width: 24px;
+    height: 18px;
+    font-size: 12px;
+    margin-left: 8px;
+    color: #666666;
+}
+
+/*Map*/
+.map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    flex-direction: column;
+    text-align: left; /* 추가 */
+}
+
+.map {
+    width: 53%;
+    height: 302px;
+}
+
+.map-text {
+    width: 53%;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+}

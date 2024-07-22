@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import "../styles/festival-detail-menu-map.css";
 
 const Map = ({ festivalId }) => {
   const mapContainer = useRef(null);

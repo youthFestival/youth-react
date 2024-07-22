@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../styles/festival-detail.css";
+import "../styles/festival-booth.css";
 
 const FestivalBooth = ({ festivalId }) => {
     const [booths, setBooths] = useState([]);

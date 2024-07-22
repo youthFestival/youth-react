@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
-import '../styles/CommentModal.scss';
+import '../styles/comment-modal.scss';
 
 const CommentModal = ({ isOpen, onRequestClose, handleSubmit, newComment, handleInputChange }) => {
     return (

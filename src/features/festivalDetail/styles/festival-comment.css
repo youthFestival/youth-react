@@ -1,0 +1,86 @@
+.comments-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+
+.comments-btn-container {
+    width: 53%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.comments-btn {
+    background-color: #89CFF0;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.comments-table {
+    width: 53%;
+    border-collapse: collapse;
+}
+
+.comments-table-head {
+    background-color: #f2f2f2;
+}
+
+.comments-table-header {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 30px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.comments-table-body .comments-table-cell {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    height: 30px;
+    font-size: 14px;
+}
+
+#comment-content {
+    text-align: left;
+    padding-left: 40px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pagination-button-move {
+    background: none;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 26px;
+    color: #999;
+}
+
+.pagination-button:disabled {
+    background-color: #89CFF0;
+    color: white;
+    cursor: default;
+}

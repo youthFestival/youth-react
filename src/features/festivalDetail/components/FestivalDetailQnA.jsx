@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import QnAModal from './QnAModal';
-import "../styles/festival-detail.css";
+import "../styles/festival-detail-qna.css";
 
 const FestivalDetailQnA = ({ festivalId }) => {
     const [qnaList, setQnaList] = useState([]);

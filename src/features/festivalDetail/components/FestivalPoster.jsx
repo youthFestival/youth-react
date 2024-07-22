@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "../styles/festival-detail.css";
+import "../styles/festival-poster-picture.css";
 import axios from 'axios';
 
 const FestivalPoster = ({ festivalId }) => {

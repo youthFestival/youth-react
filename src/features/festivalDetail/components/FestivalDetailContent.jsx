@@ -7,7 +7,7 @@ import FestivalPictures from "./FestivalPictures";
 import FestivalBooth from "./FestivalBooth";
 import Map from "./Map";
 import FestivalRecommendations from "./FestivalRecommendations";
-import "../styles/festival-detail.css";
+import "../styles/festival-detail-content.css";
 
 const FestivalDetailContent = ({ activeTab, festivalId, mapRef }) => {
     if (activeTab === "comments") {

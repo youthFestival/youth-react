@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../styles/festival-detail.css";
+import "../styles/festival-info.css";
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
 import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';

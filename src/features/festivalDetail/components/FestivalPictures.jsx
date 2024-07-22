@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../styles/festival-detail.css";
+import "../styles/festival-poster-picture.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
 import rightArrow from '../icons/artist-right-arrow.svg';
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "../styles/festival-detail.css";
+import "../styles/festival-recommendation.css";
 
 const FestivalRecommendations = ({ festivalId }) => {
     const [recommendations, setRecommendations] = useState([]);

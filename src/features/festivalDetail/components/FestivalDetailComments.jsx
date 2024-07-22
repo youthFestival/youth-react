@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import CommentModal from './CommentModal';
-import "../styles/festival-detail.css";
+import "../styles/festival-comment.css";
 
 const FestivalDetailComments = ({ festivalId }) => {
     const [comments, setComments] = useState([]);
