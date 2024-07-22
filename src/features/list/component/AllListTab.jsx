@@ -13,7 +13,7 @@ const AllListTab = () => {
 
     const [allList, setAllList] = useState([]);
 
-    const festivalInfoGetHandler = async() => {
+    const allGetHandler = async() => {
         try{
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(`API URL: ${apiUrl}`)
@@ -32,7 +32,7 @@ const AllListTab = () => {
   useEffect(() => {
   
       const fetchData = async () => {
-                const data = await festivalInfoGetHandler();
+                const data = await allGetHandler();
                 setAllList(data);
             };
 

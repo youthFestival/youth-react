@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-
-import "../styles/listpage.scss";
 import TopButton from "../component/TopButton";
 import ListTabmenu from "../component/ListTabmenu";
+import "../styles/listpage.scss";
+
 
 const Listpage = () => {
   const [borderColors, setBorderColors] = useState({

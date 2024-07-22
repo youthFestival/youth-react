@@ -25,7 +25,7 @@ const AddressSearchBtn = ({ onAddressSelect }) => {
 
   return (
     <div>
-      <button className="register-check-btn" onClick={handleOpen}>주소찾기</button>
+      <button className="address-search-btn" onClick={handleOpen}>주소찾기</button>
       {open && (
         <>
           <div className="modal-overlay" onClick={handleClose}></div>
