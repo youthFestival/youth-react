@@ -3,10 +3,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-width: 1024px;
     width: 100%;
-    max-width: 1920px;
-    height: 520px;  // 기본 높이 설정
+    aspect-ratio: 1920 / 520;
+
     margin: 0 auto;
     margin-top: 10px;
 
