@@ -1,3 +1,6 @@
+@import "~swiper/css"; 
+@import "~swiper/css/navigation"; 
+
 .rank-container {
 
     width: 100%;
@@ -49,54 +52,44 @@
     }
 
     .rank-slider-container {
-      .slider {
         display: flex;
         align-items: center;
         justify-content: center;
-      }
+  
     }
+
+
+  
 
 }
 
-.app {
-    text-align: center;
-  }
-  
-  .button-container {
-    margin-bottom: 20px;
-  }
-  
+.swiper-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-
-  .slider-container {
+  .swiper-slide {
     display: flex;
-    align-items: center;
     justify-content: center;
-    position: relative;
-    width: 800px;
-    overflow: hidden;
-    margin: 0 auto;
+    align-items: center;
   }
-  
-  .slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: skyblue;
   }
-  
-  .festival-card {
-    min-width: 150px;
-    height: 200px;
-    margin: 0 5px;
-    text-align: center;
+
+  .swiper-pagination-bullets {
+    bottom: 10px;
   }
-  
-  .festival-image {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
+
+  .swiper-pagination-bullet {
+    background-color: skyblue;
   }
-  
+}
+
+
  
 
   

@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import './ranking.scss';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; 
-import 'swiper/css/navigation'; 
-import MainPosterComponent from '../../features/list/component/MainPosterComponent';
+import OpenTicket from '../../features/list/component/OpenTicket';
+import './ticketOpen.scss';
 
-const Ranking = () => {
+const TicketOpen = () => {
 
     const [festivals, setFestivals] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [category, setCategory] = useState('University');
-    const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
 
     // useEffect(() => {
     //     const data = fetchFestivalData();
@@ -189,55 +184,17 @@ const Ranking = () => {
   
               fetchData();
           }, []);
-    
-      const filteredFestivals = festivals.filter(festival => festival.categories === category);
-    
-    //   const handleNext = () => {
-    //     setCurrentIndex((prevIndex) => (prevIndex + 5) % filteredFestivals.length);
-    //   };
-    
-      const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 5 + filteredFestivals.length) % filteredFestivals.length);
-      };
-
-      const handleCategoryChange = (newCategory) => {
-        setCategory(newCategory);
-        setCurrentIndex(0); // 인덱스 초기화
-      };
-
 
     return (
         <div className="rank-container">
             <div className="rank-title-container">
-                <p className="rank-title">실시간 랭킹</p>
-            </div>
-            <div className="rank-button-container">
-                <button
-                    onClick={() => handleCategoryChange('University')}
-                    className={`category-button ${category === 'University' ? 'active' : ''}`}
-                >
-                    대학축제
-                </button>
-                <button
-                    onClick={() => handleCategoryChange('Festival')}
-                    className={`category-button ${category === 'Festival' ? 'active' : ''}`}
-                >
-                    페스티벌
-                </button>
+                <p className="rank-title">티켓 오픈</p>
             </div>
             <div className="rank-slider-container">
-                <Swiper
-                    spaceBetween={30}
-                    slidesPerView={5}
-                    slidesPerGroup={5} // 한 번에 5개 슬라이드씩 이동
-                    pagination={{ clickable: true }}
-                    navigation
-                    loop
-                    className="swiper-container"
-                > 
-                {filteredFestivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
+                {/* <div className="slider">
+                {filteredFestivals.slice(currentIndex, currentIndex + 5).map((festival) => (
                     // <PosterComponent key={festival.id} festival={festival} />
-                    <MainPosterComponent 
+                    <TicketOpen
                     key={festival.id}
                     festival={festival}
                     posterSrc={festival.posterSrc}
@@ -245,13 +202,12 @@ const Ranking = () => {
                     festivalTitle={festival.festivalTitle}
                     festivalLocation={festival.festivalLocation}
                     festivalDate={festival.festivalDate}
-                    index={numbers[(currentNumberIndex + index) % numbers.length]}
-                    />
-                    ))}
-                </Swiper>
+                />
+                ))}
+                </div> */}
             </div>
         </div>
     )
 }
 
-export default Ranking;
+export default TicketOpen;
