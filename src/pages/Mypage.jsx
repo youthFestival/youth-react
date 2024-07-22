@@ -47,8 +47,8 @@ const Mypage = () => {
                     iconImg2='./icons/mypage/festivalpage.png'
                     iconImg3='./icons/mypage/calanderpage.png'
 
-                    iconText1='메인페이지'
-                    iconText2='페스티벌 페이지'
+                    iconText1='메인 페이지'
+                    iconText2='리스트 페이지'
                     iconText3='캘린더 페이지'
 
                     navLink1={'/'}

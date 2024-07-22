@@ -108,37 +108,49 @@ const EditArtist = () => {
 
     return (
         <div className='search-list'>
-            <div className='search-edit'>
-                <div className='search-form'>
-                    <input
-                        type="text"
-                        className="search-input"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        placeholder="아티스트를 검색해 보세요!"
-                    />
-                    <IoIosSearch className="search-button" onClick={handleSearch} />
-                </div>
-            </div>
             
-            <button className='edit-button' onClick={handleEditToggle}>
-                {isEditMode ? '저장' : '수정'}
-            </button>
+                <div className='search-edit'>
+                    <div className='search-form'>
+                        <input
+                            type="text"
+                            className="search-input"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            placeholder="아티스트를 검색해 보세요!"
+                        />
+                        <IoIosSearch className="search-button" onClick={handleSearch} />
+                    </div>
+                </div>
+            
+                <button className='edit-button' onClick={handleEditToggle}>
+                    {isEditMode ? '저장' : '수정'}
+                </button>
 
-            <div className='artist-container'>
-               
-            
-                {artistList.map((artist, index) => (
-                    <ArtistPick
-                        key={index}
-                        artistSrc={artist.artistSrc}
-                        artistAlt={artist.artistAlt}
-                        artistName={artist.artistName}
-                        isSelected={selectedArtist === artist}
-                        onClick={() => handleArtistClick(artist)}
-                    />
-                ))}
+                <div className='pagination'>
+                    <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                        이전
+                    </button>
+                    <span>{page}</span>
+                    <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
+                        다음
+                    </button>
+                </div>    
+
+                <div className='artist-container'>
+                
+                
+                    {artistList.map((artist, index) => (
+                        <ArtistPick
+                            key={index}
+                            artistSrc={artist.artistSrc}
+                            artistAlt={artist.artistAlt}
+                            artistName={artist.artistName}
+                            isSelected={selectedArtist === artist}
+                            onClick={() => handleArtistClick(artist)}
+                        />
+                    ))}
                 </div>
+
                
                 <div className='saved-artists'>
                     {savedArtists.map((artist, index) => (
@@ -148,15 +160,7 @@ const EditArtist = () => {
                     ))}
                 </div> 
 
-                 <div className='pagination'>
-                    <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
-                        이전
-                    </button>
-                    <span>{page}</span>
-                    <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
-                        다음
-                    </button>
-                </div> 
+
                    
         </div>
     );

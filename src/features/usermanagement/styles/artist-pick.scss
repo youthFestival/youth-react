@@ -1,7 +1,7 @@
 .artistcomponent {
     display: flex;
-    width: 300px;
-    height: 350px;
+    width: 280px;
+    height: 280px;
     padding: 10px 38px 35px 38px;
     flex-direction: column;
     justify-content: flex-end;
@@ -21,16 +21,16 @@
     }
 
     .contents {
-        margin: 33px 17px 141px 17px;
+        margin: 33px 17px 100px 17px;
     }
 
     .image {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
         flex-shrink: 0;
         border-radius: 100%;
         z-index: 5;
-        border: 2px solid transparent; /* Default border color */
+        border: 2px solid transparent;
     }
 
     .span {
@@ -47,9 +47,14 @@
         font-weight: 700;
     }
 
-    &.selected .image {
+    &.selected .image  {
         border: 3px solid #89CFF0; 
+        .active{
+            border: 3px solid #89CFF0; 
+         }
     }
+
+   
 
     &.selected .span {
         color: #89CFF0; 

@@ -4,9 +4,9 @@ import {
     FestivalListTab,
     UnivListTab
 } from '../index.js';
-
-import '../styles/list-tab-menu.scss'
 import Footer from '../../../components/footer/Footer.jsx';
+import '../styles/list-tab-menu.scss'
+
 
 /**
  * 리스트 페이지 탭메뉴(전체, 대학축제, 페스티벌)
