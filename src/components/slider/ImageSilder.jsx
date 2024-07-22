@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,10 +13,14 @@ import './image-slider.scss';
 // import required modules
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
+import ColorThief from 'colorthief';
+
 const ImageSlider = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [mainSwiper, setMainSwiper] = useState(null);
-    const [activeIndex, setActiveIndex] = useState(0); // Add state for active index
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [bgColor, setBgColor] = useState('#fff');
+    const imageRefs = useRef([]);
 
     const images = [
         'https://swiperjs.com/demos/images/nature-1.jpg',
@@ -37,8 +41,27 @@ const ImageSlider = () => {
         }
     };
 
+    const updateBgColor = (index) => {
+        const img = imageRefs.current[index];
+        if (img.complete) {
+            const colorThief = new ColorThief();
+            const result = colorThief.getColor(img);
+            setBgColor(`rgb(${result[0]}, ${result[1]}, ${result[2]})`);
+        } else {
+            img.addEventListener('load', () => {
+                const colorThief = new ColorThief();
+                const result = colorThief.getColor(img);
+                setBgColor(`rgb(${result[0]}, ${result[1]}, ${result[2]})`);
+            });
+        }
+    };
+
+    useEffect(() => {
+        updateBgColor(activeIndex);
+    }, [activeIndex]);
+
     return (
-        <div className="image-slider-container">
+        <div className="image-slider-container" style={{ backgroundColor: bgColor }}>
             <div className='swiper-container'>
                 <Swiper
                     onSwiper={setMainSwiper}
@@ -56,7 +79,12 @@ const ImageSlider = () => {
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
-                            <img src={image} alt={`Slide ${index + 1}`} />
+                            <img 
+                                ref={(el) => imageRefs.current[index] = el}
+                                src={image} 
+                                alt={`Slide ${index + 1}`}
+                                crossOrigin="anonymous" 
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>
@@ -66,8 +94,8 @@ const ImageSlider = () => {
                             key={index} 
                             src={image} 
                             alt={`Sub-Slide ${index + 1}`}
-                            className={index === activeIndex ? 'active' : 'inactive'} // Apply class based on active index
-                            onClick={() => handleThumbClick(index)} // Add onClick event
+                            className={index === activeIndex ? 'active' : 'inactive'}
+                            onClick={() => handleThumbClick(index)}
                         />
                     ))}
                 </div>

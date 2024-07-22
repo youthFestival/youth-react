@@ -26,7 +26,9 @@
             
             img {
                 width: 100%;
-                aspect-ratio: 1920 / 520;
+                max-width: 1600px;
+                aspect-ratio: 1600 / 520;
+                margin: 0 auto;
                 object-fit: cover;
             }
         }
