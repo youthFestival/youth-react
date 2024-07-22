@@ -25,7 +25,8 @@ import {
   EditProfile,
   EditArtist,
   Inquiries,
-  InquiriesSave
+  InquiriesSave,
+  DeleteAccount
 } from './features/usermanagement/index.js';
 
 // test
@@ -61,12 +62,12 @@ function App() {
           <Route path='inquiries-save' element={<InquiriesSave />} />
           <Route path='qna' element={<div>test</div>} />
           <Route path='comments' element={<div>test</div>} />
-          <Route path='deletion' element={<div>test</div>} />
+          <Route path='deletion' element={<DeleteAccount />} />
         </Route>
 
         <Route path="/register" element={<Register />} />
         <Route path="/register/agreement" element={<PrivacyPolicy
- />} />
+        />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />

@@ -14,7 +14,7 @@ const QnAModal = ({ isOpen, onRequestClose, handleSubmit, newQnA, handleInputCha
             onRequestClose={onRequestClose}
             contentLabel="QnA 작성"
             className="QnA-modal"
-            overlayClassName="overlay"
+            overlayClassName="QnA-overlay"
         >
             <div className="QnA-modal-content">
                 <div className="QnA-modal-title">

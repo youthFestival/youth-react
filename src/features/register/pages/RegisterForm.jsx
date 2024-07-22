@@ -5,6 +5,7 @@ import {
   RegisterCheckbox,
   RegisterGenderBtn,
   RegisterInput,
+  AddressSearchBtn,
 } from "../component";
 
 /**
@@ -12,6 +13,12 @@ import {
  * @returns
  */
 const RegisterForm = () => {
+  const [address, setAddress] = useState("");
+
+  const handleAddressSelect = (selectedAddress) => {
+    setAddress(selectedAddress);
+  };
+
   return (
     <div className="register-write-container">
       <div className="register-header">
@@ -62,9 +69,10 @@ const RegisterForm = () => {
             registerInputType="text"
             registerInputPlaceHolder="주소를 입력하세요."
             registerInputClassName="register-address-input"
-            registerInputOnChange={""}
+            registerInputValue={address}
+            registerInputOnChange={(e) => setAddress(e.target.value)}
           />
-          <button className="register-check-btn">주소찾기</button>
+          <AddressSearchBtn onAddressSelect={handleAddressSelect} />
         </div>
 
         <RegisterInput

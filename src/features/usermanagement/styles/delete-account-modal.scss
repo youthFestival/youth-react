@@ -1,0 +1,92 @@
+.delete-account-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-account-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 8px;
+    outline: none;
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+
+        .modal-title {
+            margin: 0;
+            font-size: 1.5em;
+        }
+    }
+
+    .modal-body {
+        margin-bottom: 20px;
+        .delete-account-input {
+            width: 92%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+    }
+
+    .modal-footer {
+        display: flex;
+        justify-content: space-between;
+
+        .delete-account-modal-button {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+            text-align: center;
+
+            &.delete-button {
+                background-color: #f00;
+                color: white;
+
+                &:disabled {
+                    background-color: #ccc;
+                    cursor: not-allowed;
+                }
+
+                &:hover:enabled {
+                    background-color: #c00;
+                }
+            }
+
+            &.cancel-button {
+                background-color: #ccc;
+                color: white;
+
+                &:hover {
+                    background-color: #999;
+                }
+            }
+        }
+    }
+}

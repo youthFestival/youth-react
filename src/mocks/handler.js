@@ -346,6 +346,28 @@ export const handlers = [
         });
     }),
 
+    //회원 탈퇴
+    http.delete(apiURL + '/user/:id', async ({ params }) => {
+        const userId = parseInt(params.id, 10);
+        const userIndex = mockUsers.users.findIndex(user => user.id === userId);
+    
+        if (userIndex !== -1) {
+            mockUsers.users.splice(userIndex, 1);
+            return HttpResponse.json({
+                message: "회원탈퇴가 성공적으로 이루어졌습니다."
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                error: "Not Found",
+                message: "User not found."
+            }, {
+                status: 404
+            });
+        }
+    }),
+
     http.get(apiURL + '/faq', async () => {
         return HttpResponse.json({
             faq: [

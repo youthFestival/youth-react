@@ -80,6 +80,7 @@
 
 #festival-share-btn {
     width: 125px;
+    cursor: pointer;
 }
 
 .festival-organizer {

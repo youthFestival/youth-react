@@ -39,9 +39,15 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         return (minAge === 0 || minAge === null) ? "전체관람가" : `${minAge}세 이상`;
     };
 
-    const copyUrl = () => {
-
-    }
+    const copyUrl = async () => {
+        try {
+            const url = window.location.href;
+            await navigator.clipboard.writeText(url);
+            alert('URL이 클립보드에 복사되었습니다.');
+        } catch (err) {
+            alert('URL 복사에 실패했습니다.');
+        }
+    };
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
