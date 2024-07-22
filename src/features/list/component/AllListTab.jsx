@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
-
-import "../styles/festival-list.scss";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import PosterComponent from "./PosterComponent";
+import "../styles/festival-list.scss";
+
 
 /**
  * 전체 탭 메뉴 모든 컴포넌트
@@ -9,132 +10,49 @@ import PosterComponent from "./PosterComponent";
  */
 
 const AllListTab = () => {
-  const [allList, setAllList] = useState([]);
+
+    const [allList, setAllList] = useState([]);
+
+    const festivalInfoGetHandler = async() => {
+        try{
+            const apiUrl = process.env.REACT_APP_API_URL;
+            console.log(`API URL: ${apiUrl}`)
+            const response = await axios.get(`${apiUrl}/festivals`);
+            console.log(response.data)
+            return response.data.festival;
+        } catch (err){
+            console.log(err);
+            return[];
+        }
+    }
+        
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = [
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 1",
-          festivalLocation: "Location 1",
-          festivalDate: "Date 1",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 2",
-          festivalLocation: "Location 2",
-          festivalDate: "Date 2",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 3",
-          festivalLocation: "Location 3",
-          festivalDate: "Date 3",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 4",
-          festivalLocation: "Location 4",
-          festivalDate: "Date 4",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
+  
+      const fetchData = async () => {
+                const data = await festivalInfoGetHandler();
+                setAllList(data);
+            };
 
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
+            fetchData();
+    }, []);
 
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "All Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-      ];
-      setAllList(data);
-    };
+    return (
+        <div className='festival-list'>
 
-    fetchData();
-  }, []);
-
-  return (
-    <div className="festival-list">
-      {allList.map((all, index) => (
-        <PosterComponent
-          key={index}
-          posterSrc={all.posterSrc}
-          posterAlt={all.posterAlt}
-          festivalTitle={all.festivalTitle}
-          festivalLocation={all.festivalLocation}
-          festivalDate={all.festivalDate}
-        />
-      ))}
-    </div>
-  );
+            {allList.map((all, index) => (
+                <PosterComponent 
+                    key={index}
+                    posterSrc={all.posterSrc}
+                    posterAlt={all.posterAlt}
+                    festivalTitle={all.name}
+                    festivalLocation={all.festivalLocation}
+                    festivalDate={`${all.startDate} - ${all.endDate}`}
+                />
+            ))}
+            
+        </div>
+    );
 };
 
 export default AllListTab;

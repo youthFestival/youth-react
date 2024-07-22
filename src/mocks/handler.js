@@ -84,6 +84,45 @@ export const handlers = [
         });
     }),
 
+    /**
+     * 축제 포스터 정보 조회
+     * 
+     */
+    http.get(apiURL + '/festival', async ({ request }) => {
+        try {
+            const data = await request.json();
+            console.log(data.name, data.categories);
+    
+            const festivalList = mockFestivals.festivals.find(
+                (festival) => festival.name === data.name && festival.categories === data.categories
+            );
+    
+            if (festivalList) {
+                const { id, ...festival } = festivalList;
+                return HttpResponse.json({
+                    festival
+                }, {
+                    status: 200,
+                });
+            } else {
+                return HttpResponse.json({
+                    error: '포스터를 갖고오는데 실패했습니다.'
+                }, {
+                    status: 401,
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching festival data:', error);
+            return HttpResponse.json({
+                error: 'Internal Server Error'
+            }, {
+                status: 500,
+            });
+        }
+    }),
+    
+        
+
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  

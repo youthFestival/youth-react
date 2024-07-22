@@ -136,21 +136,18 @@ const EditArtist = () => {
                     </button>
                 </div>    
 
-                <div className='artist-container'>
-                
-                
-                    {artistList.map((artist, index) => (
-                        <ArtistPick
-                            key={index}
-                            artistSrc={artist.artistSrc}
-                            artistAlt={artist.artistAlt}
-                            artistName={artist.artistName}
-                            isSelected={selectedArtist === artist}
-                            onClick={() => handleArtistClick(artist)}
-                        />
-                    ))}
-                </div>
-
+                    <div className='artist-container'>
+                        {artistList.map((artist, index) => (
+                            <ArtistPick
+                                key={index}
+                                artistSrc={artist.artistSrc}
+                                artistAlt={artist.artistAlt}
+                                artistName={artist.artistName}
+                                isSelected={selectedArtist === artist}
+                                onClick={() => handleArtistClick(artist)}
+                            />
+                        ))}
+                    </div>
                
                 <div className='saved-artists'>
                     {savedArtists.map((artist, index) => (

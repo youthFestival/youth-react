@@ -30,25 +30,22 @@ const ListTabmenu = () => {
     setListTab(index);
   };
 
-  return (
-    <div className="list-tabmenu">
-      <div className="tabform">
-        {menuData.map((list, index) => (
-          <li
-            key={index}
-            className={
-              index === listTab ? "listsubmenu focused" : "listsubmenu"
-            }
-            onClick={() => listTabMenuHandler(index)}
-          >
-            {list.name}
-          </li>
-        ))}
-      </div>
-      <p className="listcontent">{menuData[listTab].content}</p>
-      <Footer />
-    </div>
-  );
+    return (
+        <div className='list-tabmenu'>
+            <div className='tabform'>
+                {menuData.map((list, index) => (
+                    <li 
+                        key={index} 
+                        className={index === listTab ? "listsubmenu focused" : "listsubmenu"}
+                        onClick={() => listTabMenuHandler(index)}
+                    >
+                        {list.name}
+                    </li>
+                ))}
+            </div>
+            <p className='listcontent'>{menuData[listTab].content}</p>
+        </div>
+    );
 };
 
 export default ListTabmenu;
