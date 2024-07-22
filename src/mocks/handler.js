@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA, mockUsers } from './dummyDatas';
+import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA, mockUsers, mockFestivalList } from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
@@ -89,18 +89,29 @@ export const handlers = [
      * 
      */
     http.get(apiURL + '/festival', async ({ request }) => {
+
+
+
         try {
-            const data = await request.json();
-            console.log(data.name, data.categories);
+        
+            const url = new URL(request.url)
+
+
+            // const limit = +url.searchParams.get('limit') || 15
+            // const offset = +url.searchParams.get('offset') || 0
+            // const category = url.searchParams.get('category')
+            // const status = url.searchParams.get('status')
     
-            const festivalList = mockFestivals.festivals.find(
-                (festival) => festival.name === data.name && festival.categories === data.categories
-            );
+        
+            // console.log({request})
+            // const data = await request.json();    
+            const festivalList = mockFestivalList;
+                
+                // (festival) => festival.name === data.name && festival.categories === data.categories
     
             if (festivalList) {
-                const { id, ...festival } = festivalList;
                 return HttpResponse.json({
-                    festival
+                    ...festivalList
                 }, {
                     status: 200,
                 });
@@ -112,7 +123,7 @@ export const handlers = [
                 });
             }
         } catch (error) {
-            console.error('Error fetching festival data:', error);
+            console.log('Error fetching festival data:', error);
             return HttpResponse.json({
                 error: 'Internal Server Error'
             }, {

@@ -17,9 +17,11 @@ const AllListTab = () => {
         try{
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(`API URL: ${apiUrl}`)
-            const response = await axios.get(`${apiUrl}/festivals`);
+            const response = await axios.get(`${apiUrl}/festival`);
             console.log(response.data)
-            return response.data.festival;
+
+            return response.data.festivals;
+
         } catch (err){
             console.log(err);
             return[];
@@ -40,7 +42,7 @@ const AllListTab = () => {
     return (
         <div className='festival-list'>
 
-            {allList.map((all, index) => (
+            {allList?.map((all, index) => (
                 <PosterComponent 
                     key={index}
                     posterSrc={all.posterSrc}

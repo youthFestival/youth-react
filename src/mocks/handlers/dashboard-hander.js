@@ -9,6 +9,7 @@ const handler = [
     //문의글 여러 개 조회
     http.get(apiURL + '/inquiries', async ({ request }) => {
         const url = new URL(request.url)
+        await request.json();
         /**
          * 
          * limit	Int	조회할 문의 글 갯수 기본 값 15
