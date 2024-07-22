@@ -3,7 +3,6 @@ import {
   AdminDashBoard,
   Calendar,
   FestivalDetail,
-  InfoAgreement,
   InquiriesDetail,
   Login,
   MydetailFrame,
@@ -15,7 +14,8 @@ import {
   Chatbot,
   RegisterForm,
   List,
-  MemberManagement
+  MemberManagement,
+  PrivacyPolicy
 } from "./pages";
 
 import Ranking from "./components/ranking/Ranking";
@@ -65,7 +65,8 @@ function App() {
         </Route>
 
         <Route path="/register" element={<Register />} />
-        <Route path="/register/agreement" element={<InfoAgreement />} />
+        <Route path="/register/agreement" element={<PrivacyPolicy
+ />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
