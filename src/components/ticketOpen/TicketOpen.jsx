@@ -78,7 +78,7 @@ const TicketOpen = () => {
             </div>
             <div className="ticket-grid">
                 {festivals.map((festival) => (
-                    <TicketOpen key={festival.id} festival={festival} />
+                    <OpenTicket key={festival.id} festival={festival} />
                 ))}
             </div>
         </div>
