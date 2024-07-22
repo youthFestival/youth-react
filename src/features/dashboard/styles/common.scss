@@ -4,12 +4,12 @@
   tr:nth-child(1) {
     border-bottom: 1px solid black;
 
-    th:nth-child(3) {
-        line-height: 20px;
-    min-width: 100px;
-    flex: 4 4 400px;
-    font-size: 16px;
-    align-items: start;
+    .header-title {
+      line-height: 20px;
+      min-width: 100px;
+      flex: 4 4 400px;
+      font-size: 16px;
+      align-items: start;
     }
   }
 
@@ -41,6 +41,7 @@
     flex: 4 4 400px;
     font-size: 16px;
     align-items: start;
+    text-align: start;
   }
 
   .col.category span {

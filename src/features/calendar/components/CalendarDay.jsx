@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../styles/festival-calendar.css";
 
 const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, isLastColumn, isToday }) => {
@@ -35,7 +36,9 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
             <div className={`calendar-date ${dateClass} ${todayClass}`}>{date}</div>
             {displayEvents.map((event, index) => (
                 <div key={index} className={getEventClass(event)}>
-                    {(date === new Date(event.startDate).getDate() || (date === new Date(event.endDate).getDate() && isFirstColumn)) ? event.name : ""}
+                    {(date === new Date(event.startDate).getDate() || (date === new Date(event.endDate).getDate() && isFirstColumn)) ? (
+                        <Link to={`/festivaldetail/${event.id}`} className="event-link">{event.name}</Link>
+                    ) : ""}
                 </div>
             ))}
         </td>

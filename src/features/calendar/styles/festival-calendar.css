@@ -4,6 +4,8 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 #calendar-container {
@@ -48,7 +50,8 @@
     height: auto;
 }
 
-#calendar-previous-btn:active, #calendar-next-btn:active {
+#calendar-previous-btn:active,
+#calendar-next-btn:active {
     background-color: #89CFF0;
     color: white;
 }
@@ -137,6 +140,11 @@
     border-right: none;
 }
 
+.event-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* 모바일(430px ~ 1023px) */
 @media (min-width: 300px) and (max-width: 1023px) {
     #calendar-page {
@@ -173,7 +181,8 @@
         height: auto;
     }
 
-    #calendar-previous-btn, #calendar-next-btn {
+    #calendar-previous-btn,
+    #calendar-next-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-0%);
@@ -224,7 +233,7 @@
     }
 
     .festival {
-        font-weight: 300;      
+        font-weight: 300;
         font-size: 20px;
     }
 }

@@ -1,0 +1,145 @@
+:root {
+  --admin-nav-background-color: #1E232E;
+  --admin-nav-text-color: #7A90A9;
+  --admin-nav-menu-border-color: #2D3646;
+  --admin-nav-text-enable-color: #FFF;
+}
+
+.sidebar {
+  color: var(--admin-nav-text-enable-color);
+  font-weight: 600;
+  /* position: absolute; */
+  background-color: var(--admin-nav-background-color);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 250px;
+
+
+
+
+  .nav-header {
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 0 20px;
+    align-items: center;
+    white-space: nowrap;
+
+
+    .console-logo {
+      width: 50px;
+      height: 50px;
+    }
+
+    .title {
+      flex: 1;
+      font-size: 12px;
+      line-height: 11px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    span:nth-child(2) {
+      font-weight: 700;
+    }
+  }
+
+
+
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 38px;
+    height: 38px;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--admin-nav-menu-border-color);
+
+    span {
+      font-size: 12px;
+      color: var(--admin-nav-text-color);
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    img {
+      opacity: 0;
+      position: absolute;
+    }
+
+    &.active span {
+      color: white;
+    }
+  }
+
+}
+
+/* 1024 사이즈제어 */
+@media (min-width: 430px) and (max-width: 1024px) {
+
+
+  .sidebar {
+    height: 100%;
+    min-height: 100vh;
+    min-width: 40px;
+    display: flex;
+    align-items: center;
+    border-bottom: 0.5px solid var(--admin-nav-text-enable-color);
+    transition: min-width 0.3s ease-out;
+
+    .nav-header {
+      display: flex;
+      justify-content: start;
+      padding-inline: 0px;
+      height: auto;
+
+      .console-logo {
+        display: none;
+      }
+
+      .title {
+        border-bottom: 1px solid #808080;
+
+        span:nth-child(1) {
+          line-height: 21px;
+          padding: 8px 6px;
+          font-size: 10px;
+          color: var(--app-primary-color);
+          display: block;
+        }
+
+        span:nth-child(2) {
+          display: none;
+        }
+
+      }
+
+
+    }
+
+    .menu-item {
+      border: none;
+      width: 40px;
+
+      span {
+        display: none;
+      }
+
+      img {
+        display: flex;
+        width: 16px;
+        height: 16px;
+        position: relative;
+        opacity: 1;
+      }
+    }
+
+
+
+  }
+}

@@ -14,18 +14,22 @@ function TicketBox ({
     return (
         <div className='ticket-box'>
             <div className='ticket-text'>
-                <div className='ticket-1'>
-                    <img src={ticketImg1} alt="티켓 아이콘 1" className='ticket-icon1'/>
-                    <p className='ticket-text1'>
-                       {ticketText1}
-                    </p>
-                </div>
-                <div className='ticket-2'>
-                    <img src={ticketImg2} alt="티켓 아이콘 2" className='ticket-icon2'/>
-                    <p className='ticket-text2'>
-                        {ticketText2}
-                    </p>
-                </div>
+                <a href="https://tickets.interpark.com/" target='_blank' className='interpark-link'>
+                    <div className='ticket-1'>    
+                        <img src={ticketImg1} alt="티켓 아이콘 1" className='ticket-icon1'/>
+                        <p className='ticket-text1'>
+                        {ticketText1}
+                        </p>   
+                    </div> 
+                </a>
+                <a href="https://ticket.melon.com/main/index.htm" target='_blank' className='interpark-link'>
+                    <div className='ticket-2'>
+                        <img src={ticketImg2} alt="티켓 아이콘 2" className='ticket-icon2'/>
+                        <p className='ticket-text2'>
+                            {ticketText2}
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
    

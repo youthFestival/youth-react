@@ -13,20 +13,50 @@
         "organizerUrl": "https://example.com"
     },
     "lineUp": [
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/021/11/694/2111694_20230913105320.jpg/melon/thumbnail/320x300", "lineUpName": "쿠기" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/006/88/432/688432_20201014150323.jpg/melon/thumbnail/320x300", "lineUpName": "로꼬" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/16/984/716984_20240422104110.jpg/melon/thumbnail/320x300", "lineUpName": "한요한" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/008/73/162/873162_20230530151627.jpg/melon/thumbnail/320x300", "lineUpName": "키드밀리 (Kid Milli)" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/018/66/689/1866689_20221124114330.jpg/melon/thumbnail/320x300", "lineUpName": "우원재" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/86/499/786499_20220722171049.jpg/melon/thumbnail/320x300", "lineUpName": "저스디스 (JUSTHIS)" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/62/839/2862839_20230724173256.jpg/melon/thumbnail/320x300", "lineUpName": "JAEHA (재하)" },
-        { "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/027/54/623/2754623_20201214142344.jpg/melon/thumbnail/320x300", "lineUpName": "호미들"}
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/021/11/694/2111694_20230913105320.jpg/melon/thumbnail/320x300",
+            "lineUpName": "쿠기"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/006/88/432/688432_20201014150323.jpg/melon/thumbnail/320x300",
+            "lineUpName": "로꼬"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/16/984/716984_20240422104110.jpg/melon/thumbnail/320x300",
+            "lineUpName": "한요한"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/008/73/162/873162_20230530151627.jpg/melon/thumbnail/320x300",
+            "lineUpName": "키드밀리 (Kid Milli)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/018/66/689/1866689_20221124114330.jpg/melon/thumbnail/320x300",
+            "lineUpName": "우원재"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/86/499/786499_20220722171049.jpg/melon/thumbnail/320x300",
+            "lineUpName": "저스디스 (JUSTHIS)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/62/839/2862839_20230724173256.jpg/melon/thumbnail/320x300",
+            "lineUpName": "JAEHA (재하)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/027/54/623/2754623_20201214142344.jpg/melon/thumbnail/320x300",
+            "lineUpName": "호미들"
+        }
     ],
     "posterImage": "https://ticketimage.interpark.com/Play/image/etc/24/24008427-02.jpg",
     "pictures": [
-        { "picture": "https://img.hankyung.com/photo/202306/01.33792282.1.jpg" },
-        { "picture": "https://img.hankyung.com/photo/202306/01.33792283.1.jpg" },
-        { "picture": "https://img.hankyung.com/photo/202306/01.33792281.1.jpg" }
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792282.1.jpg"
+        },
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792283.1.jpg"
+        },
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792281.1.jpg"
+        }
     ],
     "recommendations": [
         {
@@ -40,6 +70,13 @@
         {
             "imgUrl": "https://i.namu.wiki/i/Z1XdhqOnsbBpe8b_q1gb_8U23EqVDJkzQOMLVZjqGz4KNRfqEyHnYUBI7WW49LRT63XqDSfjl9uqkyrdHzDZljETF-GwGdGkfydr-NkBk6Sts8_zGLkpUjQljaGKhUVEFvgt4YHwFN9fS73fu9KknA.svg",
             "name": "2024 연세대학교 축제"
+        }
+    ],
+    "festivals": [
+        {
+            "id" : 1,
+            "latitude": 37.6684,
+            "longitude": 126.7459
         }
     ]
 }

@@ -8,6 +8,7 @@
     border-bottom: 1px solid #E6E6EB;
     padding-bottom: 48px;
     margin: 0 auto;
+    margin-top: 40px;
 }
 
 .festival-image-area {
@@ -107,6 +108,7 @@
 .icon {
     margin-left: 5px;
     width: 15%;
+    cursor: pointer;
 }
 
 #like-icon {
@@ -125,6 +127,10 @@
     text-overflow: ellipsis;
 }
 
+.scroll-to-map-icon {
+    cursor: pointer;
+}
+
 /*FestivalDetailContent*/
 .tabs-container {
     display: flex;
@@ -133,6 +139,7 @@
     height: 80px;
     padding-top: 20px;
     margin: 0 auto;
+    /* margin-bottom: 200px; */
 }
 
 .tabs {
@@ -460,6 +467,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 .comments-btn-container {
@@ -562,6 +570,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    margin-bottom: 200px;
 }
 
 .qna-buttons {
@@ -695,4 +704,59 @@
     background-color: #89CFF0;
     color: white;
     cursor: default;
+}
+
+.Festival-contents-container {
+    margin-bottom: 200px;
+}
+
+.qna-table-body .qna-table-cell.clickable-title {
+    cursor: pointer;
+}
+
+.qna-content-wrapper {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    animation: slideDown 0.3s ease-out;
+}
+
+.qna-content {
+    padding: 20px 75px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 1000px;
+        opacity: 1;
+    }
+}
+
+/*Map*/
+.map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    flex-direction: column;
+    text-align: left; /* 추가 */
+}
+
+.map {
+    width: 53%;
+    height: 302px;
+}
+
+.map-text {
+    width: 53%;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
 }

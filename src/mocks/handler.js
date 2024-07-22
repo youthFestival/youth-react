@@ -42,12 +42,12 @@ export const handlers = [
         console.log(data)
 
         const DUMMY_HASH = 'd3b07384d113edec49eaa6238ad5ff00';
-    
+
         console.log(data.userId, data.password, data);
 
-        const loginUser = mockUsers.users.find((user)=>user.userId === data.userId && user.password === data.password)
-    
-        const {password, ...user } = loginUser;
+        const loginUser = mockUsers.users.find((user) => user.userId === data.userId && user.password === data.password)
+
+        const { password, ...user } = loginUser;
 
         return loginUser ? HttpResponse.json({
             token: DUMMY_HASH,
@@ -66,6 +66,24 @@ export const handlers = [
                 status: 401,
             })
     }),
+
+
+    /**
+     * 로그아웃 처리 Mock 함수
+     *
+     */
+    http.post(apiURL + '/auth/logout', async ({ request, cookies }) => {
+        // 클라이언트 측의 토큰을 제거하도록 설정
+        return HttpResponse.json({
+            message: "로그아웃에 성공하였습니다."
+        }, {
+            headers: {
+                'Set-Cookie': 'token=; Path=/; Max-Age=0; SameSite=Strict'
+            },
+            status: 200,
+        });
+    }),
+
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
@@ -173,6 +191,27 @@ export const handlers = [
             return HttpResponse.json({
                 error: "Not Found",
                 message: "해당 부스의 아이템 정보를 찾을 수 없습니다."
+            }, {
+                status: 404
+            });
+        }
+    }),
+
+    // 지도
+    http.get(apiURL + '/festivals/:festivalId/location', async ({ params }) => {
+        const festivalId = parseInt(params.festivalId, 10);
+        const festival = mockFestivalINfo.festivals.find(f => f.id === festivalId);
+        if (festival) {
+            return HttpResponse.json({
+                latitude: festival.latitude,
+                longitude: festival.longitude
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                error: "Not Found",
+                message: "Festival not found"
             }, {
                 status: 404
             });

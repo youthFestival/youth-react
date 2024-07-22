@@ -6,7 +6,7 @@ import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg'
 import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
 import { ReactComponent as NextIcon } from '../../../assets/next-icon.svg';
 
-const FestivalInfo = ({ festivalId }) => {
+const FestivalInfo = ({ festivalId, onScrollToMap }) => {
     const [festival, setFestival] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -60,7 +60,7 @@ const FestivalInfo = ({ festivalId }) => {
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
                     <div className='festival-additional-info'>
-                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival.organizer}</span><NextIcon /></p>
+                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival.organizer}</span><NextIcon onClick={onScrollToMap} className="scroll-to-map-icon" /></p>
                         <p className='festival-min-age'><span className='festival-info-text'>관람등급</span>{formatMinAge(festival.minAge)}</p>
                         <p className='festival-tel'><span className='festival-info-text'>전화번호</span>{festival.tel}</p>
                     </div>
@@ -72,10 +72,10 @@ const FestivalInfo = ({ festivalId }) => {
                     </button>
                     <button className='festival-button' id='festival-share-btn'>
                         공유하기
-                        <ShareIcon className='icon' id='share-icon'/>
+                        <ShareIcon className='icon' id='share-icon' />
                     </button>
                     <span className='festival-likes'>
-                        <LikeIcon className='icon' id='like-icon'/> 2
+                        <LikeIcon className='icon' id='like-icon' /> 2
                     </span>
                 </div>
             </div>

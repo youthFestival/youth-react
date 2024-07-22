@@ -13,6 +13,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newQnA, setNewQnA] = useState({ title: '', content: '', category: '선택', isSecret: false });
     const [categoryError, setCategoryError] = useState(false);
+    const [expandedQnAId, setExpandedQnAId] = useState(null);
 
     const qnaPerPage = 10;
     const maxVisibleButtons = 10;
@@ -116,6 +117,10 @@ const FestivalDetailQnA = ({ festivalId }) => {
         }
     };
 
+    const toggleQnA = (id) => {
+        setExpandedQnAId(prevId => (prevId === id ? null : id));
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -151,12 +156,23 @@ const FestivalDetailQnA = ({ festivalId }) => {
                 </thead>
                 <tbody className="qna-table-body">
                     {filteredQnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                        <tr key={qna.id}>
-                            <td className="qna-table-cell">{qna.status}</td>
-                            <td className={`qna-table-cell ${qna.isSecret ? 'secret-title' : ''}`} id='qna-title'>{qna.isSecret ? "비밀글 입니다." : qna.title}</td>
-                            <td className="qna-table-cell">{formatUsername(qna.username)}</td>
-                            <td className="qna-table-cell">{formatDate(qna.create)}</td>
-                        </tr>
+                        <React.Fragment key={qna.id}>
+                            <tr onClick={() => !qna.isSecret && toggleQnA(qna.id)}>
+                                <td className="qna-table-cell">{qna.status}</td>
+                                <td className={`qna-table-cell ${qna.isSecret ? 'secret-title' : 'clickable-title'}`} id='qna-title'>{qna.isSecret ? "비밀글 입니다." : qna.title}</td>
+                                <td className="qna-table-cell">{formatUsername(qna.username)}</td>
+                                <td className="qna-table-cell">{formatDate(qna.create)}</td>
+                            </tr>
+                            {expandedQnAId === qna.id && (
+                                <tr>
+                                    <td colSpan="4" className="qna-content-wrapper">
+                                        <div className="qna-content">
+                                            <p><span className="ni-eun">-</span> {qna.content}</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            )}
+                        </React.Fragment>
                     ))}
                 </tbody>
             </table>
