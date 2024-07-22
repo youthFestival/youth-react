@@ -5,6 +5,19 @@
     min-height: 100vh;
     background-color: #f0f0f0;
   }
+
+.ticket-title-container {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+          .rank-title {
+              // font-family: 'Pretendard';
+              font-size: 28px;
+              font-weight: bold;
+          }
+}
   
   .ticket-grid {
     display: grid;
