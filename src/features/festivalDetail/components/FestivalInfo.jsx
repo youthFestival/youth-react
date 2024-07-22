@@ -39,6 +39,10 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         return (minAge === 0 || minAge === null) ? "전체관람가" : `${minAge}세 이상`;
     };
 
+    const copyUrl = () => {
+
+    }
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -70,7 +74,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <a className='festival-link' href={festival.organizerUrl}>공식 홈페이지</a>
                         <HomepageIcon className='icon' />
                     </button>
-                    <button className='festival-button' id='festival-share-btn'>
+                    <button className='festival-button' id='festival-share-btn' onClick={copyUrl}>
                         공유하기
                         <ShareIcon className='icon' id='share-icon' />
                     </button>
