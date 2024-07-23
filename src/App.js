@@ -39,7 +39,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Chatbot />
       <Routes>
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<div>대시보드</div>} />
@@ -49,7 +48,10 @@ function App() {
           <Route path="inquiries/*" element={<UserInquiries />} />
           <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<>
+          <Home />
+          <Chatbot />
+        </>} />
         <Route path="/login" element={<Login />} />
         <Route path="/oauth/kakao" element={<AuthHandler />} />
         <Route path="/calendar" element={<Calendar />} />
