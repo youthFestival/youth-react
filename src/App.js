@@ -33,7 +33,7 @@ import {
 import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
 import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
-import KakaoAuthHandler from './pages/oauthredirect/KakaoAuthHandler.jsx'
+import AuthHandler from './pages/AuthHandler.jsx'
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
         </Route>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/oauth/kakao" element={<KakaoAuthHandler />} />
+        <Route path="/oauth/kakao" element={<AuthHandler />} />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/mypage" element={<Mypage />} />
