@@ -60,7 +60,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                 icon: 'error',
                 confirmButtonText: '확인',
                 customClass: {
-                    confirmButton: 'custom-confirm-button' // 커스텀 클래스 추가
+                    confirmButton: 'custom-confirm-button'
                 }
             });
         }

@@ -1,14 +1,16 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { 
-    mockFestivals, 
-    mockFestivalINfo, 
-    mockBooths, 
-    mockBoothItems, 
-    mockCommentsAndQnA, 
-    mockUsers, 
+import {
+    mockFestivals,
+    mockFestivalINfo,
+    mockBooths,
+    mockBoothItems,
+    mockCommentsAndQnA,
+    mockUsers,
     mockFestivalList,
-    mockArtist } from './dummyDatas';
+    mockArtist,
+    mockFindId
+} from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
@@ -97,7 +99,7 @@ export const handlers = [
      */
     http.get(apiURL + '/festival', async ({ request }) => {
         try {
-        
+
             const url = new URL(request.url)
 
 
@@ -105,18 +107,18 @@ export const handlers = [
             // const offset = +url.searchParams.get('offset') || 0
             const category = url.searchParams.get('category')
             // const status = url.searchParams.get('status')
-    
-        
+
+
             // console.log({request})
             // const data = await request.json();    
             const festivalList = mockFestivalList;
-                
-                // (festival) => festival.name === data.name && festival.categories === data.categories
-    
+
+            // (festival) => festival.name === data.name && festival.categories === data.categories
+
             if (festivalList) {
                 return HttpResponse.json({
                     ...festivalList
-                } , {
+                }, {
                     status: 200,
                 });
             } else {
@@ -135,7 +137,7 @@ export const handlers = [
             });
         }
     }),
-    
+
     /**
      * 페스티벌 포스터만 불러오기
      */
@@ -143,14 +145,14 @@ export const handlers = [
         try {
             const url = new URL(request.url);
             const category = url.searchParams.get('category');
-            
+
             // 필터링된 결과를 저장할 배열을 초기화합니다.
             let filteredFestivalList = [];
-    
+
             if (category === '페스티벌') {
                 // mockFestivalList가 배열이라고 가정하고, 필터링하여 배열로 반환합니다.
                 filteredFestivalList = mockFestivalList.filter(festival => festival.categories === '페스티벌');
-                
+
                 if (filteredFestivalList.length > 0) {
                     return HttpResponse.json({
                         festivals: filteredFestivalList
@@ -179,12 +181,12 @@ export const handlers = [
                 status: 500,
             });
         }
-    }),    
+    }),
 
     /**
      * 마이페이지 아티스트 조회 
      */
-    http.get(apiURL+'/artist', async ({ request }) => {
+    http.get(apiURL + '/artist', async ({ request }) => {
         try {
             const url = new URL(request.url);
             const artistProfile = mockArtist;
@@ -206,7 +208,7 @@ export const handlers = [
 
         }
     }),
-    
+
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
@@ -423,7 +425,7 @@ export const handlers = [
     http.delete(apiURL + '/user/:id', async ({ params }) => {
         const userId = parseInt(params.id, 10);
         const userIndex = mockUsers.users.findIndex(user => user.id === userId);
-    
+
         if (userIndex !== -1) {
             mockUsers.users.splice(userIndex, 1);
             return HttpResponse.json({
@@ -435,6 +437,30 @@ export const handlers = [
             return HttpResponse.json({
                 error: "Not Found",
                 message: "User not found."
+            }, {
+                status: 404
+            });
+        }
+    }),
+
+    //아이디 찾기
+    http.post(apiURL + '/auth/find-username-email', async ({ request }) => {
+        const data = await request.json();
+        const { username, email } = data;
+
+        const user = mockFindId.users.find(user => user.username === username && user.email === email);
+
+        if (user) {
+            return HttpResponse.json({
+                message: '아이디 찾기에 성공했습니다.',
+                userId: user.userId
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '일치하는 아이디를 찾을 수 없습니다.',
+                userId: null
             }, {
                 status: 404
             });

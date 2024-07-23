@@ -9,6 +9,7 @@ import mockCommentsAndQnA from './dummyCommentsAndQnA.json'
 import mockUsers from './dummyUsers.json'
 import mockFestivalList from './dummyFestivalList.json'
 import mockArtist from './dummyArtist.json'
+import mockFindId from './dummyFindedUserId.json'
 
 export { 
     mockFestivals, 
@@ -19,5 +20,6 @@ export {
     mockCommentsAndQnA, 
     mockUsers, 
     mockFestivalList, 
-    mockArtist 
+    mockArtist,
+    mockFindId 
 }
