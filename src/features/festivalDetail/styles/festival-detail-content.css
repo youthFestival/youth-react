@@ -1,3 +1,17 @@
+/*FestivalDetailMenu*/
+.festival-detail-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #666666;
+    border-radius: 44%;
+    width: 24px;
+    height: 18px;
+    font-size: 12px;
+    margin-left: 8px;
+    color: #666666;
+}
+
 .tabs-container {
     display: flex;
     justify-content: center;
@@ -12,7 +26,8 @@
     border-bottom: 1px solid #e0e0e0;
     background-color: #fff;
     padding: 0 20px;
-    width: 976px;
+    width: 90%;
+    max-width: 960px;
     margin: 0 auto;
 }
 

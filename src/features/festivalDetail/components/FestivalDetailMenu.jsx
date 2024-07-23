@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import "../styles/festival-detail-menu-map.css";
+import "../styles/festival-detail-content.css";
 
 const FestivalDetailMenu = ({ activeTab, onTabChange, festivalId }) => {
     const [commentCount, setCommentCount] = useState(0);
