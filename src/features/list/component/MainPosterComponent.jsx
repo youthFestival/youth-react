@@ -18,14 +18,14 @@ const MainPosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLoca
                             src={posterSrc}
                             alt={posterAlt}
                         />
-
-                        
-                        <h3 className="ranking-number">{index}</h3>
-                        
-
-                        <span className='span1'>{festivalTitle}</span>
-                        <span className='span2'>{festivalLocation}</span>
-                        <span className='span2'>{festivalDate}</span>
+                        <div className="overlay">
+                            <p className="ranking-number">{index}</p>
+                        </div> 
+                        <div className='bottom'>
+                            <span className='span1'>{festivalTitle}</span>
+                            <span className='span2'>{festivalLocation}</span>
+                            <span className='span2'>{festivalDate}</span>
+                        </div>
                     </div>
                 </div>
         </div>

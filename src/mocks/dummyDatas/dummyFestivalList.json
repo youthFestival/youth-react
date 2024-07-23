@@ -3,7 +3,7 @@
     "festivals": [
         {
             "id": 1,
-            "name": "2024 고려대학교 축제",
+            "festivalTitle": "2024 고려대학교 축제",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "대학축제",
@@ -13,7 +13,7 @@
         },
         {
             "id": 2,
-            "name": "쏜애플",
+            "festivalTitle": "쏜애플",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -22,7 +22,7 @@
         },
         {
             "id": 3,
-            "name": "2024 서울대학교 축제",
+            "festivalTitle": "2024 서울대학교 축제",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "대학축제",
@@ -31,7 +31,7 @@
         },
         {
             "id": 4,
-            "name": "장기하",
+            "festivalTitle": "장기하",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -40,7 +40,7 @@
         },
         {
             "id": 5,
-            "name": "정아로",
+            "festivalTitle": "정아로",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -49,7 +49,7 @@
         },
         {
             "id": 6,
-            "name": "신인류",
+            "festivalTitle": "신인류",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -58,7 +58,7 @@
         },
         {
             "id": 7,
-            "name": "이바다",
+            "festivalTitle": "이바다",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -67,7 +67,7 @@
         },
         {
             "id": 8,
-            "name": "전자양",
+            "festivalTitle": "전자양",
             "startDate": "2024-06-30",
             "endDate": "2024-06-30",
             "categories": "페스티벌",
@@ -76,7 +76,7 @@
         },
         {
             "id": 9,
-            "name": "시인을 위하여",
+            "festivalTitle": "시인을 위하여",
             "startDate": "2024-07-01",
             "endDate": "2024-07-01",
             "categories": "페스티벌",
@@ -85,7 +85,7 @@
         },
         {
             "id": 10,
-            "name": "잭킹콩",
+            "festivalTitle": "잭킹콩",
             "startDate": "2024-07-01",
             "endDate": "2024-07-01",
             "categories": "페스티벌",
@@ -94,7 +94,7 @@
         },
         {
             "id": 11,
-            "name": "장기하",
+            "festivalTitle": "장기하",
             "startDate": "2024-07-02",
             "endDate": "2024-07-02",
             "categories": "페스티벌",
@@ -103,7 +103,7 @@
         },
         {
             "id": 12,
-            "name": "2024 인하대학교 축제",
+            "festivalTitle": "2024 인하대학교 축제",
             "startDate": "2024-07-03",
             "endDate": "2024-07-03",
             "categories": "대학축제",
@@ -112,7 +112,7 @@
         },
         {
             "id": 13,
-            "name": "장기하",
+            "festivalTitle": "장기하",
             "startDate": "2024-07-04",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -121,7 +121,7 @@
         },
         {
             "id": 14,
-            "name": "[여우락 페스티벌]박우재",
+            "festivalTitle": "[여우락 페스티벌]박우재",
             "startDate": "2024-07-04",
             "endDate": "2024-07-04",
             "categories": "페스티벌",
@@ -130,7 +130,7 @@
         },
         {
             "id": 15,
-            "name": "공중그늘",
+            "festivalTitle": "공중그늘",
             "startDate": "2024-07-04",
             "endDate": "2024-07-04",
             "categories": "페스티벌",
@@ -139,7 +139,7 @@
         },
         {
             "id": 16,
-            "name": "쏜애플",
+            "festivalTitle": "쏜애플",
             "startDate": "2024-07-05",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -148,7 +148,7 @@
         },
         {
             "id": 17,
-            "name": "[여우락 페스티벌]허윤정",
+            "festivalTitle": "[여우락 페스티벌]허윤정",
             "startDate": "2024-07-05",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -157,7 +157,7 @@
         },
         {
             "id": 18,
-            "name": "라쿠나, Television off",
+            "festivalTitle": "라쿠나, Television off",
             "startDate": "2024-07-05",
             "endDate": "2024-07-05",
             "categories": "페스티벌",
@@ -166,7 +166,7 @@
         },
         {
             "id": 19,
-            "name": "Tuesday Beach CLub",
+            "festivalTitle": "Tuesday Beach CLub",
             "startDate": "2024-07-05",
             "endDate": "2024-07-05",
             "categories": "페스티벌",
@@ -175,7 +175,7 @@
         },
         {
             "id": 20,
-            "name": "나상현씨밴드",
+            "festivalTitle": "나상현씨밴드",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -184,7 +184,7 @@
         },
         {
             "id": 21,
-            "name": "다브다, 불고기디스코",
+            "festivalTitle": "다브다, 불고기디스코",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -193,7 +193,7 @@
         },
         {
             "id": 22,
-            "name": "박소은",
+            "festivalTitle": "박소은",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -202,7 +202,7 @@
         },
         {
             "id": 23,
-            "name": "소란",
+            "festivalTitle": "소란",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -211,7 +211,7 @@
         },
         {
             "id": 24,
-            "name": "크랙샷",
+            "festivalTitle": "크랙샷",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -220,7 +220,7 @@
         },
         {
             "id": 25,
-            "name": "페퍼톤스",
+            "festivalTitle": "페퍼톤스",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -229,7 +229,7 @@
         },
         {
             "id": 26,
-            "name": "피에타",
+            "festivalTitle": "피에타",
             "startDate": "2024-07-06",
             "endDate": "2024-07-06",
             "categories": "페스티벌",
@@ -238,7 +238,7 @@
         },
         {
             "id": 27,
-            "name": "김창완밴드",
+            "festivalTitle": "김창완밴드",
             "startDate": "2024-07-07",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -247,7 +247,7 @@
         },
         {
             "id": 28,
-            "name": "나상현씨밴드",
+            "festivalTitle": "나상현씨밴드",
             "startDate": "2024-07-07",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -256,7 +256,7 @@
         },
         {
             "id": 29,
-            "name": "달담, 현서",
+            "festivalTitle": "달담, 현서",
             "startDate": "2024-07-07",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -265,7 +265,7 @@
         },
         {
             "id": 30,
-            "name": "유발이",
+            "festivalTitle": "유발이",
             "startDate": "2024-07-07",
             "endDate": "2024-07-07",
             "categories": "페스티벌",
@@ -274,7 +274,7 @@
         },
         {
             "id": 31,
-            "name": "이한철",
+            "festivalTitle": "이한철",
             "startDate": "2024-07-07",
             "endDate": "2024-07-07",
             "categories": "페스티벌",

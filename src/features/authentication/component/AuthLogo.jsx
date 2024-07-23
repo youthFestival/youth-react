@@ -6,10 +6,11 @@ import React from 'react';
  */
 
 function AuthLogo (props){
-     const {logoDivName, logoHref, logoSrc, logoAlt, logoClassName} =  props
+     const {logoDivName, logoHref, logoSrc, logoAlt, logoClassName, onClick} =  props
      return( 
      <a
         href={logoHref}
+        onClick={onClick}
      >
           <div
              className={logoDivName}
