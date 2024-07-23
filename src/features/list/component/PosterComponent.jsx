@@ -23,10 +23,12 @@ const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation
                             src={posterSrc}
                             alt={posterAlt}
                         />
-
-                        <span className='span1'>{festivalTitle}</span>
-                        <span className='span2'>{festivalLocation}</span>
-                        <span className='span2'>{festivalDate}</span>
+  
+                        <div class="span-container">
+                            <span className='span1'>{festivalTitle}</span>
+                            <span className='span2'>{festivalLocation}</span>
+                            <span className='span2'>{festivalDate}</span>
+                        </div>
                     </div>
                 </div>
         </div>

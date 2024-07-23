@@ -12,8 +12,14 @@ import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx';
 
 const KAKAO_REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+const NAVER_REST_API_KEY = process.env.REACT_APP_NAVER_REST_API_KEY;
+
 const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/kakao';
+const NAVER_REDIRECT_URI = 'http://localhost:3000/oauth/naver';
+const NAVER_STATE = 'flase'
+
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
+const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_REST_API_KEY}&state=${NAVER_STATE}&redirect_uri=${NAVER_REDIRECT_URI}`;
 
 /**
  * 로그인 페이지 
@@ -51,17 +57,19 @@ const Login = () => {
     }
   };
 
-  const kakaoLogin = () => {
+  const openPopup = (url, service) => {
     const width = 500;
     const height = 600;
     const left = (window.innerWidth - width) / 2;
     const top = (window.innerHeight - height) / 2;
   
     const popup = window.open(
-      KAKAO_AUTH_URL,
-      'kakaoLogin',
+      url,
+      'loginPopup',
       `width=${width},height=${height},top=${top},left=${left}`
     );
+    
+    popup.service = service;
   
     const timer = setInterval(() => {
       if (popup.closed) {
@@ -132,7 +140,7 @@ const Login = () => {
               logoSrc="./icons/company/kakaologo.png"
               logoAlt="카카오 로그인 아이콘"
               logoClassName="kakaologo"
-              onClick={kakaoLogin}
+              onClick={() => openPopup(KAKAO_AUTH_URL, 'kakao')}
             />
 
             <AuthLogo
@@ -141,6 +149,7 @@ const Login = () => {
               logoSrc="./icons/company/naverlogo.png"
               logoAlt="네이버 로그인 아이콘"
               logoClassName="naverlogo"
+              onClick={() => openPopup(NAVER_AUTH_URL, 'naver')}
             />
 
             <AuthLogo

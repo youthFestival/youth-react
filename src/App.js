@@ -33,13 +33,12 @@ import {
 import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
 import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
-import KakaoAuthHandler from './pages/oauthredirect/KakaoAuthHandler.jsx'
+import AuthHandler from './pages/AuthHandler.jsx'
 
 function App() {
 
   return (
     <BrowserRouter>
-      <Chatbot />
       <Routes>
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<div>대시보드</div>} />
@@ -49,9 +48,12 @@ function App() {
           <Route path="inquiries/*" element={<UserInquiries />} />
           <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<>
+          <Home />
+          <Chatbot />
+        </>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/oauth/kakao" element={<KakaoAuthHandler />} />
+        <Route path="/oauth/kakao" element={<AuthHandler />} />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/mypage" element={<Mypage />} />
