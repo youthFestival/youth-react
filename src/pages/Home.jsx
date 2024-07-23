@@ -4,6 +4,7 @@ import Footer from '../components/footer/Footer';
 import Nav from '../components/nav/Nav';
 import Ranking from '../components/ranking/Ranking';
 import TicketOpen from '../components/ticketOpen/TicketOpen';
+import Region from '../components/region/Region';
 
 function Home() {
   return (
@@ -13,7 +14,9 @@ function Home() {
       <Slider />
       <Ranking />
       <TicketOpen />
+      <Region />
       <Footer />
+      
     </div>
   );
 }
