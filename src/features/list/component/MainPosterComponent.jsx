@@ -21,7 +21,7 @@ const MainPosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLoca
                         <div className="overlay">
                             <p className="ranking-number">{index}</p>
                         </div> 
-                        <div className='bottom'>
+                        <div className='span-container'>
                             <span className='span1'>{festivalTitle}</span>
                             <span className='span2'>{festivalLocation}</span>
                             <span className='span2'>{festivalDate}</span>
