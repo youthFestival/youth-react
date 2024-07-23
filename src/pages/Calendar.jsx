@@ -5,16 +5,19 @@ import ImageSlider from './../components/slider/ImageSilder';
 import Header from './../components/header/Header';
 import Nav from "./../components/nav/Nav";
 import Footer from './../components/footer/Footer';
+import '../features/calendar/styles/festival-calendar.css';
 
 const Calendar = () => {
     return (
         <div>
-            <Header/>
-            <Nav/>
-            <ImageSlider />
+            <Header />
+            <Nav />
+            <div className="festival-calendar-slider">
+                <ImageSlider />
+            </div>
             <FestivalCalendar />
-            <TopButton/>
-            <Footer/>
+            <TopButton />
+            <Footer />
         </div>
     );
 };

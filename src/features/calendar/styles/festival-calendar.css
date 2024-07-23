@@ -237,3 +237,12 @@
         font-size: 20px;
     }
 }
+
+/*Calendar.jsx*/
+.festival-calendar-slider {
+    width: 78.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

@@ -1,16 +1,9 @@
 .tabs-container {
     display: flex;
     justify-content: center;
-    width: 51.77%;
     height: 80px;
     padding-top: 20px;
     margin: 0 auto;
-}
-
-@media (min-width:1024px) {
-    .tabs-container {
-        width: 100%;
-    }
 }
 
 .tabs {

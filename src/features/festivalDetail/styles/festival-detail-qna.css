@@ -1,5 +1,4 @@
 .qna-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +9,8 @@
 .qna-buttons {
     display: flex;
     align-items: center;
-    width: 53%;
+    width: 90%;
+    max-width: 1000px;
     justify-content: space-between;
     margin-bottom: 20px;
 }
@@ -57,13 +57,6 @@
     margin-right: 5px;
 }
 
-.qna-btn-container {
-    width: 53%;
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
-}
-
 .qna-btn {
     background-color: #89CFF0;
     color: white;
@@ -75,7 +68,8 @@
 }
 
 .qna-table {
-    width: 53%;
+    width: 90%;
+    max-width: 1000px;
     border-collapse: collapse;
     color: #1A1A1A;
 }
