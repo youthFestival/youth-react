@@ -3,7 +3,6 @@ import './region.scss';
 import RegionComponent from '../../features/list/component/RegionComponent';
 
 const Region = () => {
-
     const [festivals, setFestivals] = useState([]);
     const [category, setCategory] = useState('University');
 
@@ -111,38 +110,44 @@ const Region = () => {
       };
 
     return (
-        <div className="region-container">
-            <div className="region-title-container">
-                <p className="region-title">내 근처 축제 Pick!</p>
+        
+            <div className="region-container">
+                
+                <div className="region-title-container">
+                    <p className="region-title">내 근처 축제 Pick!</p>
+                </div>
+                <div className="region-button-container">
+                    <button
+                        onClick={() => handleCategoryChange('University')}
+                        className={`category-button ${category === 'University' ? 'active' : ''}`}
+                    >
+                        대학축제
+                    </button>
+                    <button
+                        onClick={() => handleCategoryChange('Festival')}
+                        className={`category-button ${category === 'Festival' ? 'active' : ''}`}
+                    >
+                        페스티벌
+                    </button>
+                </div>
+                <div className="region-content-container">
+                    {filteredFestivals.map((festival) => (
+                        <RegionComponent 
+                        
+                        key={festival.id}
+                        festival={festival}
+                        posterSrc={festival.posterSrc}
+                        posterAlt={festival.posterAlt}
+                        festivalTitle={festival.festivalTitle}
+                        festivalLocation={festival.festivalLocation}
+                        festivalDate={festival.festivalDate}
+                        />
+                        ))}
+                </div>
             </div>
-            <div className="region-button-container">
-                <button
-                    onClick={() => handleCategoryChange('University')}
-                    className={`category-button ${category === 'University' ? 'active' : ''}`}
-                >
-                    대학축제
-                </button>
-                <button
-                    onClick={() => handleCategoryChange('Festival')}
-                    className={`category-button ${category === 'Festival' ? 'active' : ''}`}
-                >
-                    페스티벌
-                </button>
-            </div>
-            <div className="region-content-container">
-                {filteredFestivals.map((festival) => (
-                    <RegionComponent 
-                    key={festival.id}
-                    festival={festival}
-                    posterSrc={festival.posterSrc}
-                    posterAlt={festival.posterAlt}
-                    festivalTitle={festival.festivalTitle}
-                    festivalLocation={festival.festivalLocation}
-                    festivalDate={festival.festivalDate}
-                    />
-                    ))}
-            </div>
-        </div>
+        
+        
+        
     )
 }
 

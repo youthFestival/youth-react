@@ -5,8 +5,11 @@ import Nav from '../components/nav/Nav';
 import Ranking from '../components/ranking/Ranking';
 import TicketOpen from '../components/ticketOpen/TicketOpen';
 import Region from '../components/region/Region';
+import { AuthContext } from "../../src/contexts/AuthContext";
+import React, { useContext } from "react";
 
 function Home() {
+  const { user, dispatch } = useContext(AuthContext);
   return (
     <div>
       <Header />
@@ -14,7 +17,7 @@ function Home() {
       <Slider />
       <Ranking />
       <TicketOpen />
-      <Region />
+      {user ? (<Region />) : ("")}
       <Footer />
       
     </div>
