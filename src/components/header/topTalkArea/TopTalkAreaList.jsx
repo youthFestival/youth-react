@@ -6,7 +6,7 @@ const TopTalkAreaList = ({ username, event, onEventClick }) => {
     return (
         <div className='top-talk-area-list-container'>
             <div className='header'>
-                <div className='category'> [ {category} ]  2024 인천펜타포트 락 페스티벌</div>
+                <div className='category'> [ {category} ] </div>
                 <div className='event-push'> {createdAt}</div>
             </div>
             <div className='content'>

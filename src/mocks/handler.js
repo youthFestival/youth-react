@@ -9,7 +9,8 @@ import {
     mockUsers,
     mockFestivalList,
     mockArtist,
-    mockFindId
+    mockFindId,
+    mockEvents
 } from './dummyDatas';
 import { adminHandler } from './handlers';
 
@@ -502,6 +503,35 @@ export const handlers = [
             status: 200
         }
         )
+    }),
+    http.get(apiURL + '/event/:userId', async ({params}) => {
+        const userId = params.userId;
+        const events = mockEvents.event.filter(event => event.userId === userId);
+        //console.log(events);
+        return HttpResponse.json({
+            events: events
+        }, {
+            status: 200
+        })
+    }),
+    http.put(apiURL + '/event/:id/read', async ({params}) => {
+        const eventId = parseInt(params.id, 10);
+        const eventIndex = mockEvents.event.findIndex(event => event.id === eventId);
+        console.log(eventIndex);
+        if (eventIndex !== -1) {
+            mockEvents.event[eventIndex].isChecked = true;
+            return HttpResponse.json({
+                event: mockEvents.event[eventIndex]
+            }, {
+                status: 200
+            })
+        } else {
+            return HttpResponse.json({
+                message: "Not found"
+            }, {
+                status: 404
+            })
+        }
     })
 
 ];

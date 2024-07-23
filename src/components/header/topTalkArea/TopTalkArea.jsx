@@ -15,7 +15,7 @@ const TopTalkArea = () => {
         const eventData = async () => {
             try {
                 const response = await axios.get(`${apiURL}/event/${userId}`);
-                setEvents(response.data);
+                setEvents(response.data.events);
             } catch (error) {
                 console.log(error.response.data.message)
             }
@@ -25,8 +25,8 @@ const TopTalkArea = () => {
 
     const handleEventClick = async (id, redirectUrl) => {
         try {
-            await axios.put(`${apiURL}/event/${id}/read`);
-            setEvents(events.filter(event => event.id !== id));
+            const response = await axios.put(`${apiURL}/event/${id}/read`);
+            setEvents(events.filter(event => event.id !== parseInt(id, 10)));
             window.location.href = redirectUrl;
         } catch (error) {
             console.log(error.response.data.message);
@@ -37,14 +37,18 @@ const TopTalkArea = () => {
             <div className="arrow-up"></div>
             <div className="layer_box">
                 <div className="box_content">
-                {events.map(event => (
-                        <TopTalkAreaList
+                {events && events.length > 0 ? (
+                        events.map(event => (
+                            <TopTalkAreaList
                             username={user.user.username}
-                            key={event.id}
-                            event={event}
-                            onEventClick={handleEventClick}
-                        />
-                    ))}
+                                key={event.id}
+                                event={event}
+                                onEventClick={handleEventClick}
+                            />
+                        ))
+                    ) : (
+                        <div>No notifications available</div>
+                    )}
                 </div>
             </div>
         </div>
