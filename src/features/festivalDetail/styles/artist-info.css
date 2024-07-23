@@ -8,9 +8,10 @@
 
 .artist-description-container {
     display: flex;
-    width: 52%;
+    flex-direction: row;
     height: 73px;
     margin-top: 10px;
+    align-items: center;
 }
 
 .artist-description {

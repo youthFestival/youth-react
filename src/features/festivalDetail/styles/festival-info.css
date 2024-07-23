@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 51.77%;
+    width: 50%;
     border-bottom: 1px solid #E6E6EB;
     padding-bottom: 48px;
     margin: 0 auto;
@@ -18,7 +18,7 @@
 
 .festival-image-area {
     width: 250px;
-    height: 350px;
+    height: 360px;
     margin-right: 30px;
 }
 
