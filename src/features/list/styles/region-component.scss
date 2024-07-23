@@ -1,0 +1,45 @@
+.postercomponent{
+    width: 274px;
+    height: 500px;
+    flex-shrink: 0;
+
+    .form{
+        display: grid;
+    }
+
+    .contents{
+        margin: 33px 17px 141px 17px;
+    }
+
+    .image{
+        width: 240px;
+        height: 320px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .span1,
+    .span2{
+        display: flex;
+        width: 240px;
+        height: 33px;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+        color: #000000;
+        font-style: normal;
+        line-height: 16px;
+    }
+
+    .span1{
+        font-size: 17px;
+        font-weight: 700;
+
+    }
+
+    .span2{
+        font-size: 16px;
+        font-weight: 400;
+    }
+}

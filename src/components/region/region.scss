@@ -1,28 +1,23 @@
-@import "~swiper/css"; 
-@import "~swiper/css/navigation"; 
-
-.rank-container {
+.region-container {
 
     width: 100%;
     align-items: center;
     justify-content: center;
-    margin-top: 100px;
     margin-bottom: 100px;
-
-    .rank-title-container {
+    .region-title-container {
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-        .rank-title {
+        .region-title {
             // font-family: 'Pretendard';
             font-size: 28px;
             font-weight: bold;
         }
     }
     
-    .rank-button-container {
+    .region-button-container {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -53,7 +48,7 @@
 
     }
 
-    .rank-slider-container {
+    .region-content-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -64,34 +59,3 @@
   
 
 }
-
-.swiper-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: skyblue;
-  }
-
-  .swiper-pagination-bullets {
-    bottom: 10px;
-  }
-
-  .swiper-pagination-bullet {
-    background-color: skyblue;
-  }
-}
-
-
- 
-
-  
