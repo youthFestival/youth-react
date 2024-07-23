@@ -1,0 +1,31 @@
+.top-talk-area-list-container {
+    width: auto;
+    aspect-ratio: 390 / 105;
+    border: 1px solid #ddd;
+    border-radius: 11px;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    margin-top: 7px;
+
+    .header, .content, .footer {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+    }
+
+    .header {
+        height: auto;
+        font-size: 17px;
+        flex-direction: column;
+        .category {
+            margin-right: auto;
+        }
+        .event-push {
+            margin-right: auto;
+            font-size: 14px;
+            color: #909090;
+        }
+    }
+}

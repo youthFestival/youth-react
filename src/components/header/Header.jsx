@@ -71,10 +71,10 @@ const Header = () => {
             </form>
 
             <div className="hitems">
-                <div className="bell-container">
+                {user !== null && <div className="bell-container">
                     <GoBell className="event-bell" onClick={() => setIsExpanded(!isExpanded)} />
                     {isExpanded && <TopTalkArea />}
-                </div>
+                </div>}
                 {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
                 {user ?
                     (<div className="navButton-container">
