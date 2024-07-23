@@ -1,6 +1,14 @@
 // src/mocks/handlers.js
 import { http, HttpResponse } from 'msw';
-import { mockFestivals, mockFestivalINfo, mockBooths, mockBoothItems, mockCommentsAndQnA, mockUsers, mockFestivalList } from './dummyDatas';
+import { 
+    mockFestivals, 
+    mockFestivalINfo, 
+    mockBooths, 
+    mockBoothItems, 
+    mockCommentsAndQnA, 
+    mockUsers, 
+    mockFestivalList,
+    mockArtist } from './dummyDatas';
 import { adminHandler } from './handlers';
 
 // 공통 CORS 헤더를 설정하는 함수
@@ -73,7 +81,6 @@ export const handlers = [
      *
      */
     http.post(apiURL + '/auth/logout', async ({ request, cookies }) => {
-        // 클라이언트 측의 토큰을 제거하도록 설정
         return HttpResponse.json({
             message: "로그아웃에 성공하였습니다."
         }, {
@@ -96,7 +103,7 @@ export const handlers = [
 
             // const limit = +url.searchParams.get('limit') || 15
             // const offset = +url.searchParams.get('offset') || 0
-            // const category = url.searchParams.get('category')
+            const category = url.searchParams.get('category')
             // const status = url.searchParams.get('status')
     
         
@@ -109,7 +116,7 @@ export const handlers = [
             if (festivalList) {
                 return HttpResponse.json({
                     ...festivalList
-                }, {
+                } , {
                     status: 200,
                 });
             } else {
@@ -132,35 +139,73 @@ export const handlers = [
     /**
      * 페스티벌 포스터만 불러오기
      */
-    // http.get(apiURL + '/festival', async ({ request }) => {
-    //     try {
-    //         const url = new URL(request.url);
-    //         const category = url.searchParams.get('category');
+    http.get(apiURL + '/festival', async ({ request }) => {
+        try {
+            const url = new URL(request.url);
+            const category = url.searchParams.get('category');
             
-    //         if (category === '페스티벌') {
-    //             // mockFestivalList에서 카테고리가 '페스티벌'인 항목만 필터링
-    //             const filteredFestivalList = mockFestivalList.filter((festival) => festival.categories === category);
-    //             return HttpResponse.json({
-    //                 ...filteredFestivalList
-    //             }, {
-    //                 status: 200,
-    //             });
-    //         } else {
-    //             return HttpResponse.json({
-    //                 error: '카테고리가 페스티벌이 아닙니다.'
-    //             }, {
-    //                 status: 401,
-    //             });
-    //         }
-    //     } catch (error) {
-    //         console.log('Error fetching festival data:', error);
-    //         return HttpResponse.json({
-    //             error: 'Internal Server Error'
-    //         }, {
-    //             status: 500,
-    //         });
-    //     }
-    // }),
+            // 필터링된 결과를 저장할 배열을 초기화합니다.
+            let filteredFestivalList = [];
+    
+            if (category === '페스티벌') {
+                // mockFestivalList가 배열이라고 가정하고, 필터링하여 배열로 반환합니다.
+                filteredFestivalList = mockFestivalList.filter(festival => festival.categories === '페스티벌');
+                
+                if (filteredFestivalList.length > 0) {
+                    return HttpResponse.json({
+                        festivals: filteredFestivalList
+                    }, {
+                        status: 200,
+                    });
+                } else {
+                    return HttpResponse.json({
+                        error: 'No festivals found for the given category.'
+                    }, {
+                        status: 404,
+                    });
+                }
+            } else {
+                return HttpResponse.json({
+                    error: 'Invalid category.'
+                }, {
+                    status: 400,
+                });
+            }
+        } catch (error) {
+            console.log('Error fetching festival data:', error);
+            return HttpResponse.json({
+                error: 'Internal Server Error'
+            }, {
+                status: 500,
+            });
+        }
+    }),    
+
+    /**
+     * 마이페이지 아티스트 조회 
+     */
+    http.get(apiURL+'/artist', async ({ request }) => {
+        try {
+            const url = new URL(request.url);
+            const artistProfile = mockArtist;
+
+            if (artistProfile) {
+                return HttpResponse.json({
+                    ...artistProfile
+                }, {
+                    status: 200,
+                });
+            } else {
+                return HttpResponse.json({
+                    error: '아티스트 프로필을 갖고오는데 실패했습니다.'
+                }, {
+                    status: 401,
+                });
+            }
+        } catch (err) {
+
+        }
+    }),
     
 
     /**

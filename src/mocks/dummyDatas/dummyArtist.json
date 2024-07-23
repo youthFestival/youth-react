@@ -1,0 +1,78 @@
+{
+    "message": "아티스트 프로필 데이터 조회 성공",
+    "total":0,
+    "Artists": [
+        {
+            "artistName": "쿠기",
+            "artistSrc": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.namu.wiki%2Fi%2FsAQz9_-DjzhXKcDNdkEw5__swVPUUbL43Q-jScA6ERa9GNVinmdWSrjkLoZJiIy8Dqc_ZoNoJXBpWf0N7rU8rA.webp&type=a340"
+        },
+        {
+            "artistName": "헤이즈",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA4MjhfMjE3%2FMDAxNjkzMjEwMzA0MDk3.bWtDq1_opgYmm51Ie9xzvrZGbaK6ilSqNKy8fNBigAAg.Fp13ERwjcx026-UgEsbmmWTlnKynYQ929PYO39VjxxYg.JPEG.tgking76%2F%25C7%25EC%25C0%25CC%25C1%25EE9_%25282%2529.jpg&type=a340"
+        },
+        {
+            "artistName": "로꼬",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzExMDZfMjA5%2FMDAxNjk5MjUzNjM2NzE5.BlWldQ5JC9xBSjsUQASaafZ7xamUSdMF_FyV22GtVmcg.rPxvkWd6wF7vDOZz8afxmZ2zwttE4k0Q2F6u8hkE0UYg.JPEG.rudqls108%2FIMG_4855.jpg&type=a340"
+        },
+        {
+            "artistName": "비오",
+            "artistSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAHSz3qk9fkEp02J5uO66aZBRtzsG6C5USYA&s"
+        },
+        {
+            "artistName": "빅나티",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimage.nmv.naver.net%2Fblog_2023_06_08_1930%2Fb68fb805-05b7-11ee-8bd0-d4f5ef58ad5e_01.jpg&type=a340"
+        },
+        {
+            "artistName": "애쉬아일랜드",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MjBfMTcg%2FMDAxNjU4Mjg3MTk1NTYx.LEXeTFCDthZpgJkV3fV9EFrrJN64RhrBMoCkCPozFaQg.rJhcUzJhmaPVkd8b3pzBr_TOr0S43fzC6p-pJcineJAg.JPEG.0212guswl%2F56cd730eede616408b2ba6a02ae6fbc8ace6460424d6f127b73d28d4cdd734f97f09571c723.jpeg&type=a340"
+        },
+        {
+            "artistName": "지코",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA0MzBfMTEw%2FMDAxNzE0NDYxOTY1MTI4.I2qLbBlgDfgjefxWuoVUvfK_LRViNdHZJPWP_2poOvEg.iuF1b2SRQXpWNbrgki4SN-zLjc0ga3BqX7Eo-YmRLuwg.JPEG%2Fimages_%25281%2529.jpg&type=a340"
+        },
+        {
+            "artistName": "저스디스",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F465%2F2022%2F08%2F09%2F0000005845_001_20220809131001874.jpg&type=a340"
+        },
+        {
+            "artistName": "기리보이",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDAxMTlfOTUg%2FMDAxNzA1NjY2NDcwMzcx.LiXVMRvy0wpqtEA-tFK6PX5TMrXePW8SgAYxSgszVkgg.SZb3r2GvgAs1Ye7GC1zIAJlhb5Xs72L7mppSgeNu7jkg.PNG.distron%2F%25EA%25B8%25B0%25EB%25A6%25AC.PNG&type=a340"
+        },
+        {
+            "artistName": "사이먼 도미닉",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzAyMDhfMTM0%2FMDAxNjc1ODQwMDA0Nzc0.0aa7Fa7v0ph5i2yq4ndh6uQAiEz364a2QjlTI4LWDUcg.tk6FpFJ59xDuAWB-Cd6l5NIavWgbWVqHFcUXNwzzfocg.JPEG.skdmleksql0918%2F%25BD%25D3%25B5%25F0.jpg&type=a340"
+        },
+        {
+            "artistName": "크러쉬",
+            "artistSrc": "https://search.pstatic.net/sunny/?src=https%3A%2F%2Fi.pinimg.com%2F736x%2F2a%2F35%2F03%2F2a350358c90a87c68ac33cab431182f0.jpg&type=a340"
+        },
+        {
+            "artistName": "pH-1",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyNDA1MDZfMTY2%2FMDAxNzE0OTg5Njg2NDMx.OaFcDiJLjEOZ1WH5jboT7yoBeQcppPXpAQ5pH2uT5qYg.79kjMBq3ls6D4l1gQ52MOph12wZY5uc6bu0ovMspvj0g.JPEG%2FWHJhgsB%25A3%25DFfBHEJFVqE03WRfT%25A3%25DFGXe6HiJTxnZu4PONWjzQHj3EJ7bd0XCWevofzbMzBlyzAmECsnY4.jpg&type=a340"
+        },
+        {
+            "artistName": "릴러말즈",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMjFfMjEz%2FMDAxNjY2MzM4NDI5Mzc1.hRTk6PrZAlAyAbrAUJ8tKOy3_yIZE7AHfnFYunbs8uQg.bF0zGL94WdyutljLw-0tGgIJ5DLree3KsKha8ozuaOgg.JPEG.qkrgudwls423%2FKakaoTalk_Photo_2022-10-21-16-22-19_004.jpeg&type=a340"
+        },
+        {
+            "artistName": "스키니 브라운",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5352%2F2022%2F07%2F11%2F20220711124315_1774695_800_1200_20220711130202393.jpg&type=a340"
+        },
+        {
+            "artistName": "호미들",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTEyMjlfODMg%2FMDAxNjQwNzQ5ODMzODA2.yEo5go7etaADMPU4Gu5Kxb4Ckyj3RcsjQqh4-1goP90g.pudDkO7GLHcRD5r77BAALUpQjzrnk2FOSQEWkmP9wbUg.JPEG.pkeunyoo%2Fe50e4a2659fe3d1794f084cc16d9ac1a677324926db98407041c93dff8d6d302ffc822358236.jpg&type=a340"
+        },
+        {
+            "artistName": "양홍원",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEyMjJfMjg4%2FMDAxNjcxNjkxNDk0MTc4.inXTYpJ29vSz4tUVsCKJOOcgnexdVWkqHi4pG2XJ-Kgg.F29XiJF0SkEzuoR5K10kf1GuEZAAYdefR9wPiWsCV6og.JPEG.hfeuir%2F991CAA405E22EDBC2F.jpg&type=a340"
+        },
+        {
+            "artistName": "이센스",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA5MjlfMjE4%2FMDAxNjY0NDA5Mjc2MDEz.80I70KhQxLw0PyZy61oyUwTkxQtiR2k-LOs-ez8UOKIg.kSqi7c7Ylt5RFcOwvaPbfUCONW47Mis6r8qqrOCp3usg.JPEG.call110926%2F5c35b5d33cb845a308fb7e5d4fd582ee58146089921c3b5d202518ec1861cb96ad6cc8563c0.jpeg&type=a340"
+        },
+        {
+            "artistName": "빈지노",
+            "artistSrc": "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAxNzA3MTJfMjU0%2FMDAxNDk5ODQ5NTUyNTg1.gjYRj9y_wP3wCwTh7KCsoTqlG7NOEHjSQa54vNzDXq0g.sJQ7uP8y3BVXKVLIRPS13pBenLwsbLy8vFzCOwGzyo8g.JPEG.soskq10%2F%25BA%25F3%25C1%25F6%25B3%25EB%2528Beenzino%2529_-_Aqua_Man_%25BA%25F2%25B9%25C2%25C1%25F7_bigmusic_4.jpg&type=a340"
+        }
+    ]
+}

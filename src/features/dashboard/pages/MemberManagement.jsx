@@ -50,7 +50,7 @@ function MemberManagement() {
 
   return (
     <>
-      <Header title="고객 문의 내역" subTitle="고객 문의 및 답변" />
+      <Header title="회원 조회" subTitle="회원 관리 및 조회" />
       <TableComponent
         headers={headers}
         rows={rows}

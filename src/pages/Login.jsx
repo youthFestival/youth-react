@@ -11,6 +11,9 @@ import '../styles/login.css';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx';
 
+const KAKAO_REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/kakao';
+const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 
 /**
  * 로그인 페이지 
@@ -46,6 +49,28 @@ const Login = () => {
         alert("로그인 정보 잘못되었습니다. 다시 시도해주세요.")
       }
     }
+  };
+
+  const kakaoLogin = () => {
+    const width = 500;
+    const height = 600;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
+  
+    const popup = window.open(
+      KAKAO_AUTH_URL,
+      'kakaoLogin',
+      `width=${width},height=${height},top=${top},left=${left}`
+    );
+  
+    const timer = setInterval(() => {
+      if (popup.closed) {
+        clearInterval(timer);
+        // 팝업 창이 닫힌 후 추가 작업을 수행합니다.
+        console.log("팝업 창이 닫혔습니다.");
+        // 예: 사용자 정보를 업데이트하거나 상태를 변경합니다.
+      }
+    }, 1000);
   };
 
   return (
@@ -107,6 +132,7 @@ const Login = () => {
               logoSrc="./icons/company/kakaologo.png"
               logoAlt="카카오 로그인 아이콘"
               logoClassName="kakaologo"
+              onClick={kakaoLogin}
             />
 
             <AuthLogo

@@ -44,7 +44,7 @@ const ArtistInfo = ({ festivalId }) => {
     return (
         <div className="artist-info-container">
             <div className='artist-description-container'>
-                <h2 className='artist-description'>출연진</h2>
+                <span className='artist-description'>출연진</span>
             </div>
             <div className="artist-list-wrapper">
                 <button className="carousel-control-prev" onClick={() => scroll('left')}>

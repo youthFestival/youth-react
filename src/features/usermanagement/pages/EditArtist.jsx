@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { ArtistPick } from '../index.js';
 import '../styles/edit-artist.scss';
+import axios from 'axios';
 
 /**
  * 내 아티스트 수정 리스트 컴포넌트 
@@ -20,7 +21,7 @@ const EditArtist = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        navigate(`/results?query=${searchTerm}`);
+        navigate(`/artist?${searchTerm}`);
     };
 
     const handleEditToggle = () => {
@@ -47,118 +48,90 @@ const EditArtist = () => {
         setPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = [
-                {
-                    artistSrc: '/coogie.png',
-                    artistAlt: '쿠기 프로필',
-                    artistName: '쿠기',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-                {
-                    artistSrc: '/loco.png',
-                    artistAlt: '로꼬 프로필',
-                    artistName: '로꼬',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-                {
-                    artistSrc: '/heize.png',
-                    artistAlt: '헤이즈 프로필',
-                    artistName: '헤이즈',
-                },
-
-               
-            ];
-
-            setTotalArtists(data.length);
-
-            const pageSize = 6;
-            const offset = (page - 1) * pageSize;
-            const paginatedData = data.slice(offset, offset + pageSize);
-
-            setArtistList(paginatedData);
-        };
-
-        fetchData();
-    }, [page]);
-
-    return (
-        <div className='search-list'>
+    const artistGetHandler = async() => {
+        try{
+                const apiUrl = process.env.REACT_APP_API_URL;
+                console.log(`API URL: ${apiUrl}`)
+                const response = await axios.get(`${apiUrl}/artist`);
+                console.log(response.data)
+                console.log('안녕하세요')
+                const { artists = [], total = 0 } = response.data;
+                setTotalArtists(total);
+                return artists;
+            } catch(err){
+                console.log(err);
+                return[];
+            }
             
-                <div className='search-edit'>
-                    <div className='search-form'>
-                        <input
-                            type="text"
-                            className="search-input"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            placeholder="아티스트를 검색해 보세요!"
-                        />
-                        <IoIosSearch className="search-button" onClick={handleSearch} />
-                    </div>
-                </div>
-            
-                <button className='edit-button' onClick={handleEditToggle}>
-                    {isEditMode ? '저장' : '수정'}
-                </button>
+        }
 
-                <div className='pagination'>
-                    <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
-                        이전
-                    </button>
-                    <span>{page}</span>
-                    <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
-                        다음
-                    </button>
-                </div>    
+        useEffect(() => {
+            const fetchData = async () => {
+                const data = await artistGetHandler(page);
+                setArtistList(data);
+                const pageSize = 6;
+                const offset = (page - 1) * pageSize;
+                const paginatedData = data.slice(offset, offset + pageSize);
+                setArtistList(paginatedData);
+            };
+            fetchData(); 
+        }, [page]);
 
-                    <div className='artist-container'>
-                        {artistList.map((artist, index) => (
-                            <ArtistPick
-                                key={index}
-                                artistSrc={artist.artistSrc}
-                                artistAlt={artist.artistAlt}
-                                artistName={artist.artistName}
-                                isSelected={selectedArtist === artist}
-                                onClick={() => handleArtistClick(artist)}
+       
+
+        
+
+        return (
+            <div className='search-list'>
+                
+                    <div className='search-edit'>
+                        <div className='search-form'>
+                            <input
+                                type="text"
+                                className="search-input"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                placeholder="아티스트를 검색해 보세요!"
                             />
-                        ))}
-                    </div>
-               
-                <div className='saved-artists'>
-                    {savedArtists.map((artist, index) => (
-                        <div key={index} className='saved-artist'>
-                            <img src={artist.artistSrc} alt={artist.artistAlt} />
+                            <IoIosSearch className="search-button" onClick={handleSearch} />
                         </div>
-                    ))}
-                </div> 
+                    </div>
+                
+                    <button className='edit-button' onClick={handleEditToggle}>
+                        {isEditMode ? '저장' : '수정'}
+                    </button>
 
+                    <div className='pagination'>
+                        <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                            이전
+                        </button>
+                        <span>{page}</span>
+                        <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
+                            다음
+                        </button>
+                    </div>    
 
-                   
+                        <div className='artist-container'>
+                            {artistList?.map((artist, index) => (
+                                <ArtistPick
+                                    key={index}
+                                    artistSrc={artist.artistSrc}
+                                    artistAlt={artist.artistAlt}
+                                    artistName={artist.artistName}
+                                    isSelected={selectedArtist === artist}
+                                    onClick={() => handleArtistClick(artist)}
+                                />
+                            ))}
+                        </div>
+                
+                    <div className='saved-artists'>
+                        {savedArtists.map((artist, index) => (
+                            <div key={index} className='saved-artist'>
+                                <img src={artist.artistSrc} />
+                            </div>
+                        ))}
+               </div> 
+   
         </div>
     );
 };

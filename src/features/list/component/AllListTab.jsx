@@ -47,7 +47,7 @@ const AllListTab = () => {
                     key={index}
                     posterSrc={all.posterSrc}
                     posterAlt={all.posterAlt}
-                    festivalTitle={all.name}
+                    festivalTitle={all.festivalTitle}
                     festivalLocation={all.festivalLocation}
                     festivalDate={`${all.startDate} - ${all.endDate}`}
                 />

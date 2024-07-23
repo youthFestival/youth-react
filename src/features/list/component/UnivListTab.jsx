@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-
-import "../styles/festival-list.scss";
+import axios from 'axios';
 import PosterComponent from "./PosterComponent";
-
+import "../styles/festival-list.scss";
 /**
  * 대학축제 탭 메뉴 모든 컴포넌트
  * @returns
@@ -11,50 +10,31 @@ import PosterComponent from "./PosterComponent";
 const UnivListTab = () => {
   const [univList, setUnivList] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = [
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Univ Festival Poster 1",
-          festivalLocation: "Location 1",
-          festivalDate: "Date 1",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Univ Festival Poster 2",
-          festivalLocation: "Location 2",
-          festivalDate: "Date 2",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Univ Festival Poster 3",
-          festivalLocation: "Location 3",
-          festivalDate: "Date 3",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Univ Festival Poster 4",
-          festivalLocation: "Location 4",
-          festivalDate: "Date 4",
-        },
-        {
-          posterSrc: "",
-          posterAlt: "",
-          festivalTitle: "Univ Festival Poster 5",
-          festivalLocation: "Location 5",
-          festivalDate: "Date 5",
-        },
-      ];
-      setUnivList(data);
-    };
+  const univGetHandler = async() => {
+    try{
+        const apiUrl = process.env.REACT_APP_API_URL;
+        console.log(`API URL: ${apiUrl}`)
+        const response = await axios.get(`${apiUrl}/festival`);
+        console.log(response.data)
 
-    fetchData();
-  }, []);
+        return response.data.festivals;
+
+    } catch (err){
+        console.log(err);
+        return[];
+    }
+}
+    
+
+useEffect(() => {
+
+  const fetchData = async () => {
+            const data = await univGetHandler();
+            setUnivList(data);
+        };
+
+        fetchData();
+}, []);
 
   return (
     <div className="festival-list">
@@ -65,7 +45,7 @@ const UnivListTab = () => {
           posterAlt={univ.posterAlt}
           festivalTitle={univ.festivalTitle}
           festivalLocation={univ.festivalLocation}
-          festivalDate={univ.festivalDate}
+          festivalDate={`${univ.startDate} - ${univ.endDate}`}
         />
       ))}
     </div>

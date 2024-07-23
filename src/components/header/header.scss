@@ -7,7 +7,6 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 auto;
-  padding: 0 30px;
   position: relative;
 
   .header-logo-search {
@@ -116,8 +115,9 @@
     position: absolute;
     top: 45px;
     right: 0;
-    transform: translateX(5.8%);
+    transform: translateX(5.5%);
     width: 425px;
+    max-height: 630px;
     background-color: white;
     border: 1px solid #ddd;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

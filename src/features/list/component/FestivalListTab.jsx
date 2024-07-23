@@ -7,50 +7,46 @@ import "../styles/festival-list.scss";
  * 페스티벌 탭 메뉴 모든 컴포넌트
  * @returns
  */
-
 const FestivalListTab = () => {
-  
-  const [festivalList, setFestivalList] = useState([]);
+    const [festivalList, setFestivalList] = useState([]);
 
-  const festivalGetHandler = async () => {
-      try {
-          const apiUrl = process.env.REACT_APP_API_URL;
-          console.log(`API URL: ${apiUrl}`);
-          const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
-          console.log(response.data);
+    const festivalGetHandler = async () => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            console.log(`API URL: ${apiUrl}`);
+            const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
+            console.log(response.data);
+            return response.data.festivals;
+        } catch (err) {
+            console.log(err);
+            return [];
+        }
+    };
 
-          return response.data.festivals;
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await festivalGetHandler();
+            setFestivalList(data);
+        };
 
-      } catch (err) {
-          console.log(err);
-          return [];
-      }
-  };
-      
+        fetchData();
+    }, []);
 
-  useEffect(() => {
-      const fetchData = async () => {
-          const data = await festivalGetHandler();
-          setFestivalList(data);
-      };
-
-      fetchData();
-  }, []);
-
-  return (
-    <div className="festival-list">
-      {festivalList.map((festival, index) => (
-        <PosterComponent
-          key={index}
-          posterSrc={festival.posterSrc}
-          posterAlt={festival.posterAlt}
-          festivalTitle={festival.name}
-          festivalLocation={festival.festivalLocation}
-          festivalDate={`${festival.startDate} - ${festival.endDate}`}
-        />
-      ))}
-    </div>
-  );
+    return (
+        <div className="festival-list">
+            {festivalList.map((festival, index) => (
+                <PosterComponent
+                    key={index}
+                    posterSrc={festival.posterSrc}
+                    posterAlt={festival.posterAlt}
+                    festivalTitle={festival.festivalTitle}
+                    festivalLocation={festival.festivalLocation}
+                    festivalDate={`${festival.startDate} - ${festival.endDate}`}
+                />
+            ))}
+        </div>
+    );
 };
 
 export default FestivalListTab;
+
