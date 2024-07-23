@@ -14,13 +14,29 @@ import './image-slider.scss';
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 import ColorThief from 'colorthief';
+import axios from 'axios';
+const apiURL = process.env.REACT_APP_API_URL;
 
 const ImageSlider = () => {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [mainSwiper, setMainSwiper] = useState(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [bgColor, setBgColor] = useState('#fff');
+    //const [images, setImages] = useState([]);
     const imageRefs = useRef([]);
+
+    // useEffect(() => {
+    //     const imageData = async () => {
+    //         try{
+    //             const response = await axios.get(`${apiURL}/festival`);
+    //             const data = response.data.festivals.images;
+    //             setImages(data);
+    //         } catch (error) {
+    //             console.log(error.response.data.errorMessage);
+    //         }
+    //     }
+    //     imageData();
+    // },[])
 
     const images = [
         'https://swiperjs.com/demos/images/nature-1.jpg',
