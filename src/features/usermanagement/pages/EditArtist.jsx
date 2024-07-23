@@ -24,6 +24,33 @@ const EditArtist = () => {
         navigate(`/artist?${searchTerm}`);
     };
 
+    const artistGetHandler = async () => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            console.log(`API URL: ${apiUrl}`);
+            const response = await axios.get(`${apiUrl}/artist`);
+            console.log(response.data);
+            console.log('안녕하세요');
+            const { Artists = [] } = response.data;
+            setTotalArtists(Artists.length);
+            return Artists;
+        } catch (err) {
+            console.log(err);
+            return [];
+        }
+    };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await artistGetHandler();
+            const pageSize = 6;
+            const offset = (page - 1) * pageSize;
+            const paginatedData = data.slice(offset, offset + pageSize);
+            setArtistList(paginatedData);
+        };
+        fetchData();
+    }, [page]);
+
     const handleEditToggle = () => {
         if (isEditMode && selectedArtist) {
             if (!savedArtists.some(artist => artist.artistName === selectedArtist.artistName)) {
@@ -48,92 +75,54 @@ const EditArtist = () => {
         setPage((prevPage) => Math.max(prevPage - 1, 1));
     };
 
-    const artistGetHandler = async() => {
-        try{
-                const apiUrl = process.env.REACT_APP_API_URL;
-                console.log(`API URL: ${apiUrl}`)
-                const response = await axios.get(`${apiUrl}/artist`);
-                console.log(response.data)
-                console.log('안녕하세요')
-                const { artists = [], total = 0 } = response.data;
-                setTotalArtists(total);
-                return artists;
-            } catch(err){
-                console.log(err);
-                return[];
-            }
-            
-        }
-
-        useEffect(() => {
-            const fetchData = async () => {
-                const data = await artistGetHandler(page);
-                setArtistList(data);
-                const pageSize = 6;
-                const offset = (page - 1) * pageSize;
-                const paginatedData = data.slice(offset, offset + pageSize);
-                setArtistList(paginatedData);
-            };
-            fetchData(); 
-        }, [page]);
-
-       
-
-        
-
-        return (
-            <div className='search-list'>
-                
-                    <div className='search-edit'>
-                        <div className='search-form'>
-                            <input
-                                type="text"
-                                className="search-input"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                placeholder="아티스트를 검색해 보세요!"
-                            />
-                            <IoIosSearch className="search-button" onClick={handleSearch} />
-                        </div>
+    return (
+        <div className='search-list'>
+            <div className='search-edit'>
+                <div className='search-form'>
+                    <input
+                        type="text"
+                        className="search-input"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder="아티스트를 검색해 보세요!"
+                    />
+                    <IoIosSearch className="search-button" onClick={handleSearch} />
+                </div>
+            </div>
+            <button className='edit-button' onClick={handleEditToggle}>
+                {isEditMode ? '저장' : '수정'}
+            </button>
+            <div className='pagination'>
+                <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                    이전
+                </button>
+                <span>{page}</span>
+                <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
+                    다음
+                </button>
+            </div>
+            <div className='artist-container'>
+                {artistList?.map((artist, index) => (
+                    <ArtistPick
+                        key={index}
+                        artistSrc={artist.artistSrc}
+                        artistAlt={artist.artistAlt}
+                        artistName={artist.artistName}
+                        isSelected={selectedArtist === artist}
+                        onClick={() => handleArtistClick(artist)}
+                    />
+                ))}
+            </div>
+            <div className='saved-artists'>
+                {savedArtists.map((artist, index) => (
+                    <div key={index} className='saved-artist'>
+                        <img src={artist.artistSrc} />
                     </div>
-                
-                    <button className='edit-button' onClick={handleEditToggle}>
-                        {isEditMode ? '저장' : '수정'}
-                    </button>
-
-                    <div className='pagination'>
-                        <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
-                            이전
-                        </button>
-                        <span>{page}</span>
-                        <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
-                            다음
-                        </button>
-                    </div>    
-
-                        <div className='artist-container'>
-                            {artistList?.map((artist, index) => (
-                                <ArtistPick
-                                    key={index}
-                                    artistSrc={artist.artistSrc}
-                                    artistAlt={artist.artistAlt}
-                                    artistName={artist.artistName}
-                                    isSelected={selectedArtist === artist}
-                                    onClick={() => handleArtistClick(artist)}
-                                />
-                            ))}
-                        </div>
-                
-                    <div className='saved-artists'>
-                        {savedArtists.map((artist, index) => (
-                            <div key={index} className='saved-artist'>
-                                <img src={artist.artistSrc} />
-                            </div>
-                        ))}
-               </div> 
-   
+                ))}
+            </div>
         </div>
     );
 };
 
 export default EditArtist;
+

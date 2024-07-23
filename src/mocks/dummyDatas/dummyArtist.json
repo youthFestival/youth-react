@@ -1,6 +1,5 @@
 {
     "message": "아티스트 프로필 데이터 조회 성공",
-    "total":0,
     "Artists": [
         {
             "artistName": "쿠기",
