@@ -227,7 +227,7 @@ const Ranking = () => {
             </div>
             <div className="rank-slider-container">
                 <Swiper
-                    spaceBetween={30}
+                    spaceBetween={20}
                     slidesPerView={5}
                     slidesPerGroup={5} // 한 번에 5개 슬라이드씩 이동
                     pagination={{ clickable: true }}
