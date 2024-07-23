@@ -43,11 +43,11 @@ const ImageSlider = () => {
 
     const updateBgColor = (index) => {
         const img = imageRefs.current[index];
-        if (img.complete) {
+        if (img && img.complete) {
             const colorThief = new ColorThief();
             const result = colorThief.getColor(img);
             setBgColor(`rgb(${result[0]}, ${result[1]}, ${result[2]})`);
-        } else {
+        } else if (img) {
             img.addEventListener('load', () => {
                 const colorThief = new ColorThief();
                 const result = colorThief.getColor(img);
@@ -65,7 +65,7 @@ const ImageSlider = () => {
             <div className='swiper-container'>
                 <Swiper
                     onSwiper={setMainSwiper}
-                    onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+                    onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
                     style={{
                         '--swiper-navigation-color': '#fff',
                         '--swiper-pagination-color': '#fff',
