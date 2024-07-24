@@ -49,6 +49,7 @@ const Favorites = () => {
                     {favoriteList.map((favorite, index) => (
                         <div key={index} className='component'>
                             <PosterComponent
+                                showFavoriteIcon={false}
                                 posterSrc={favorite.posterSrc}
                                 posterAlt={favorite.posterAlt}
                                 festivalTitle={favorite.festivalTitle}
