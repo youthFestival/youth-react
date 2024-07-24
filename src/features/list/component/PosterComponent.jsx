@@ -7,7 +7,7 @@ import '../styles/poster-component.scss'
  * @returns 
  */
 
-const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate }) => {
+const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate, festivalOnclick }) => {
     return (
         <div className='postercomponent'>  
                 <div className='form'>
@@ -24,7 +24,7 @@ const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation
                             alt={posterAlt}
                         />
   
-                        <div class="span-container">
+                        <div class="span-container" onClick={festivalOnclick}>
                             <span className='span1'>{festivalTitle}</span>
                             <span className='span2'>{festivalLocation}</span>
                             <span className='span2'>{festivalDate}</span>
