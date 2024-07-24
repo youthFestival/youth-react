@@ -14,7 +14,8 @@ function AuthInput({
               imgSrc,
               imgAlt, 
               inputOnChange,
-              id
+              id,
+              showAuthIcon = true
     }) 
     {
     
@@ -28,13 +29,15 @@ function AuthInput({
       return (
         <div className={formClassName}>
           <div className='input-write'>
-            <img 
+            {showAuthIcon &&(
+               <img 
                     src={imgSrc}
                     alt={imgAlt}
                     width={"24px"} 
                     height={"24px"}
-            />
-
+              />
+            )}
+           
             <label htmlFor={inputClassName}></label>
             <input 
                 type={ inputType === 'password' && showPassword ? inputType : "text"  }    

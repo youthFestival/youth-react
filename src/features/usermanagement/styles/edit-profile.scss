@@ -1,8 +1,48 @@
-.edit-profile{
+.edit-profile {
     width: 740px;
     height: 780px;
-    flex-shrink: 0;
+    display: grid;
     border: 1px solid black;
     margin-top: 50px;
     margin-left: 30px;
+
+    .edit {
+        display: flex;
+        margin-top: 30px;
+        margin-left: 30px;
+
+        .id,
+        .name,
+        .email,
+        .tel,
+        .gender,
+        .address {
+            display: flex;
+            width: 470.311px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 5px;
+            margin: 0 auto;
+
+            .component {
+                border: 1px solid #000000;
+                width: 100px;
+                height: 30px;
+
+                .id-input,
+                .name-input,
+                .email-input,
+                .tel-input,
+                .gender-input,
+                .address-input {
+                    height: 20px;
+                    justify-content: center;
+                    flex-shrink: 0;
+                    color: #000;
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
 }

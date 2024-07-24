@@ -7,7 +7,6 @@ import classNames from 'classnames';
 
 import '../styles/edit-artist.scss';
 
-
 /**
  * 내 아티스트 수정 리스트 컴포넌트 
  * @returns 
@@ -55,7 +54,10 @@ const EditArtist = () => {
 
     const handleEditToggle = () => {
         if (isEditMode && selectedArtist) {
-            if (!savedArtists.some(artist => artist.artistName === selectedArtist.artistName)) {
+            const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
+            if (isAlreadySaved) {
+                setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
+            } else {
                 setSavedArtists([...savedArtists, selectedArtist]);
             }
             setSelectedArtist(null);
@@ -92,7 +94,7 @@ const EditArtist = () => {
                 </div>
             </div> 
 
-             <div className='saved-artists'>
+            <div className='saved-artists'>
                 {savedArtists.map((artist, index) => (
                     <div key={index} className='saved-artist'>
                         <img src={artist.artistSrc} />
@@ -107,11 +109,9 @@ const EditArtist = () => {
                 })} 
                 onClick={handleEditToggle}
             >
-                    {isEditMode ? '저장' : '수정'}
+                {isEditMode ? '저장' : '수정'}
             </button>
 
-           
-         
             <div className='artist-container'>
                 {artistList?.map((artist, index) => (
                     <ArtistPick
@@ -134,10 +134,10 @@ const EditArtist = () => {
                     다음
                 </button>
             </div>
-         
         </div>
     );
 };
 
 export default EditArtist;
+
 
