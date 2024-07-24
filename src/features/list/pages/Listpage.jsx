@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TopButton from "../component/TopButton";
 import ListTabmenu from "../component/ListTabmenu";
+import Dropdown from '../component/Dropdown';
 import "../styles/listpage.scss";
 
 
@@ -28,40 +29,31 @@ const Listpage = () => {
         <ListTabmenu />
 
         <div className="dropdown-form">
-          <select
-            id="lanking"
-            onChange={handleSelectChange}
-            style={{ borderColor: borderColors.lanking }}
-          >
-            <option value="최신순">최신순</option>
-            <option value="거리순">거리순</option>
-            <option value="인기순">인기순</option>
-          </select>
+        <Dropdown
+                id="lanking"
+                value="최신순"
+                options={["최신순", "거리순", "인기순"]}
+                onChange={handleSelectChange}
+                borderColor={borderColors.lanking}
+            />
 
-          <select
-            id="status"
-            onChange={handleSelectChange}
-            style={{ borderColor: borderColors.status }}
-          >
-            <option value="개최중">개최중</option>
-            <option value="전체">전체</option>
-          </select>
+            <Dropdown
+                id="status"
+                value="개최중"
+                options={["개최중", "전체"]}
+                onChange={handleSelectChange}
+                borderColor={borderColors.status}
+            />
 
-          <select
-            id="locality"
-            onChange={handleSelectChange}
-            style={{ borderColor: borderColors.locality }}
-          >
-            <option value="지역전체">지역전체</option>
-            <option value="서울">서울</option>
-            <option value="경기도">경기도</option>
-            <option value="강원도">강원도</option>
-            <option value="충청도">충청도</option>
-            <option value="경상도">경상도</option>
-            <option value="전라도">전라도</option>
-            <option value="제주도">제주도</option>
-          </select>
+            <Dropdown
+                id="locality"
+                value="지역전체"
+                options={["지역전체", "서울", "경기도", "강원도", "충청도", "경상도", "전라도", "제주도"]}
+                onChange={handleSelectChange}
+                borderColor={borderColors.locality}
+            />
         </div>
+        
       </div>
 
       <TopButton />
