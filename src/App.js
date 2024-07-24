@@ -62,7 +62,7 @@ function App() {
           <Route index element={<Navigate to="edit-profile" />} />
           <Route path='edit-profile' element={<EditProfile />} />
           <Route path='edit-artist' element={<EditArtist />} />
-          <Route path='favorites' element={<div>test</div>} />
+          <Route path='favorites' element={<Favorites />} />
           <Route path='inquiries' element={<Inquiries />} />
           <Route path='inquiries-save' element={<InquiriesSave />} />
           <Route path='inquiries-list' element={<InquiriesList />} />
@@ -72,8 +72,7 @@ function App() {
         </Route>
 
         <Route path="/register" element={<Register />} />
-        <Route path="/register/agreement" element={<PrivacyPolicy
-        />} />
+        <Route path="/register/agreement" element={<PrivacyPolicy />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
