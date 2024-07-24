@@ -9,7 +9,7 @@ import {
     mockUsers,
     mockFestivalList,
     mockArtist,
-    mockFindId,
+    mockFindUser,
     mockEvents,
     mockFavorites
 } from './dummyDatas';
@@ -430,7 +430,7 @@ export const handlers = [
         const data = await request.json();
         const { username, email } = data;
 
-        const user = mockFinedUser.users.find(user => user.username === username && user.email === email);
+        const user = mockFindUser.users.find(user => user.username === username && user.email === email);
 
         if (user) {
             return HttpResponse.json({
@@ -454,7 +454,7 @@ export const handlers = [
         const data = await request.json();
         const { userId, email } = data;
 
-        const user = mockFinedUser.users.find(user => user.userId === userId && user.email === email);
+        const user = mockFindUser.users.find(user => user.userId === userId && user.email === email);
 
         if (user) {
             return HttpResponse.json({

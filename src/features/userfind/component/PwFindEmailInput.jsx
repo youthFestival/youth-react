@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../styles/id-find-email-input.scss';
 
 const PwFindEmailInput = ({ onSubmit, requestSent }) => {
@@ -6,20 +7,31 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
     const [email, setEmail] = useState('');
     const [domain, setDomain] = useState('직접입력');
     const [timeLeft, setTimeLeft] = useState(180);
+    const [isTimerActive, setIsTimerActive] = useState(requestSent);
 
     useEffect(() => {
-        if (requestSent) {
-            const timer = setInterval(() => {
+        let timer;
+        if (isTimerActive) {
+            timer = setInterval(() => {
                 setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
             }, 1000);
-            return () => clearInterval(timer);
         }
-    }, [requestSent]);
+        return () => clearInterval(timer);
+    }, [isTimerActive]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
         onSubmit(userId, fullEmail);
+        setIsTimerActive(true);
+    };
+
+    const handleResend = async () => {
+        try {
+            setTimeLeft(180);
+            setIsTimerActive(true);
+        } catch (error) {
+        }
     };
 
     const formatTime = (seconds) => {
@@ -30,24 +42,24 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
 
     return (
         <form className="input-container" onSubmit={handleSubmit}>
-            <input 
-                type="text" 
-                placeholder="아이디" 
-                className="input-element" 
-                value={userId} 
+            <input
+                type="text"
+                placeholder="아이디"
+                className="input-element"
+                value={userId}
                 onChange={(e) => setUserId(e.target.value)}
             />
             <div className="input-element email-dropdown">
-                <input 
-                    type="text" 
-                    placeholder="이메일" 
-                    className="email-input" 
-                    value={email} 
+                <input
+                    type="text"
+                    placeholder="이메일"
+                    className="email-input"
+                    value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
-                <select 
-                    className="email-select" 
-                    value={domain} 
+                <select
+                    className="email-select"
+                    value={domain}
                     onChange={(e) => setDomain(e.target.value)}
                 >
                     <option value="직접입력">직접입력</option>
@@ -61,12 +73,13 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
             {requestSent && (
                 <>
                     <div className="verification-container">
-                        <input 
-                            type="text" 
-                            placeholder="인증코드 입력" 
-                            className="verification-input" 
+                        <input
+                            type="text"
+                            placeholder="인증코드 입력"
+                            className="verification-input"
                         />
-                        <span className="timer">{formatTime(timeLeft)}</span>
+                        <span className="timer">{timeLeft > 0 ? formatTime(timeLeft) : '시간초과'}</span>
+                        <button type="button" className="resend-button" onClick={handleResend}>재전송</button>
                     </div>
                     <button type="submit" className="email-verification">인증코드 인증</button>
                 </>
