@@ -10,8 +10,8 @@
     }
 
     .find-radio-image {
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         flex-shrink: 0;
     }
 
@@ -21,6 +21,8 @@
 
     .find-text {
         cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
     }
 
     .toggle-text {
@@ -30,7 +32,7 @@
         font-weight: 500;
         line-height: normal;
         text-align: left;
-        margin-left: 83px;
+        margin-left: 80px;
     }
 
     .toggle-content {

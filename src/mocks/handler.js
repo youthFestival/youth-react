@@ -9,7 +9,7 @@ import {
     mockUsers,
     mockFestivalList,
     mockArtist,
-    mockFindId,
+    mockFinedUser,
     mockEvents
 } from './dummyDatas';
 import { adminHandler } from './handlers';
@@ -449,7 +449,7 @@ export const handlers = [
         const data = await request.json();
         const { username, email } = data;
 
-        const user = mockFindId.users.find(user => user.username === username && user.email === email);
+        const user = mockFinedUser.users.find(user => user.username === username && user.email === email);
 
         if (user) {
             return HttpResponse.json({
@@ -462,6 +462,28 @@ export const handlers = [
             return HttpResponse.json({
                 message: '일치하는 아이디를 찾을 수 없습니다.',
                 userId: null
+            }, {
+                status: 404
+            });
+        }
+    }),
+
+    //비밀번호 재설정 요청
+    http.post(apiURL + '/auth/reset-password-request', async ({ request }) => {
+        const data = await request.json();
+        const { userId, email } = data;
+
+        const user = mockFinedUser.users.find(user => user.userId === userId && user.email === email);
+
+        if (user) {
+            return HttpResponse.json({
+                message: '인증 코드를 발송했습니다.',
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '아이디 혹은 이메일이 일치하지 않습니다.',
             }, {
                 status: 404
             });

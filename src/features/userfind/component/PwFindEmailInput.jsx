@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
 import '../styles/id-find-email-input.scss';
 
-const IdFindEmailInput = ({ onSubmit }) => {
-    const [username, setUsername] = useState('');
+const PwFindEmailInput = ({ onSubmit }) => {
+    const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
     const [domain, setDomain] = useState('직접입력');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
-        onSubmit(username, fullEmail);
-        setUsername('');
-        setEmail('');
+        onSubmit(userId, fullEmail);
     };
 
     return (
         <form className="input-container" onSubmit={handleSubmit}>
             <input 
                 type="text" 
-                placeholder="이름" 
+                placeholder="아이디" 
                 className="input-element" 
-                value={username} 
-                onChange={(e) => setUsername(e.target.value)}
+                value={userId} 
+                onChange={(e) => setUserId(e.target.value)}
             />
             <div className="input-element email-dropdown">
                 <input 
@@ -49,4 +47,4 @@ const IdFindEmailInput = ({ onSubmit }) => {
     );
 };
 
-export default IdFindEmailInput;
+export default PwFindEmailInput;
