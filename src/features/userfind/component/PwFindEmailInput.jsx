@@ -1,15 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/id-find-email-input.scss';
 
-const PwFindEmailInput = ({ onSubmit }) => {
+const PwFindEmailInput = ({ onSubmit, requestSent }) => {
     const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
     const [domain, setDomain] = useState('직접입력');
+    const [timeLeft, setTimeLeft] = useState(180);
+
+    useEffect(() => {
+        if (requestSent) {
+            const timer = setInterval(() => {
+                setTimeLeft((prevTime) => (prevTime > 0 ? prevTime - 1 : 0));
+            }, 1000);
+            return () => clearInterval(timer);
+        }
+    }, [requestSent]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
         onSubmit(userId, fullEmail);
+    };
+
+    const formatTime = (seconds) => {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     };
 
     return (
@@ -42,7 +58,22 @@ const PwFindEmailInput = ({ onSubmit }) => {
                     <option value="daum.net">daum.net</option>
                 </select>
             </div>
-            <button type="submit" className="email-verification">이메일 인증</button>
+            {requestSent && (
+                <>
+                    <div className="verification-container">
+                        <input 
+                            type="text" 
+                            placeholder="인증코드 입력" 
+                            className="verification-input" 
+                        />
+                        <span className="timer">{formatTime(timeLeft)}</span>
+                    </div>
+                    <button type="submit" className="email-verification">인증코드 인증</button>
+                </>
+            )}
+            {!requestSent && (
+                <button type="submit" className="email-verification">인증코드 발급</button>
+            )}
         </form>
     );
 };

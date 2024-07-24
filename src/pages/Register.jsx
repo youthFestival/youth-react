@@ -3,6 +3,7 @@ import {
     AuthBtn,
     AuthLogo, 
 } from '../features/authentication/index.js'
+import RegisterFindUserFooter from '../components/footer/RegisterFindUserFooter.jsx';
 
 import '../styles/register.css'
 
@@ -88,7 +89,8 @@ const Register = () => {
 
             </div>
             </div>       
-        </div>          
+        </div>       
+        <RegisterFindUserFooter/>   
     </div>
   );
 };

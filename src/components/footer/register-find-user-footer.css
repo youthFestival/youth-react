@@ -1,0 +1,12 @@
+.register-find-user-footer {
+    background-color: #FAFAFA;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.register-find-user-footer-text {
+    font-size: 11px;
+}

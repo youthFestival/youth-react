@@ -432,7 +432,7 @@ export const handlers = [
 
         if (user) {
             return HttpResponse.json({
-                message: '인증 코드를 발송했습니다.',
+                message: '인증코드를 발송했습니다.',
             }, {
                 status: 200
             });

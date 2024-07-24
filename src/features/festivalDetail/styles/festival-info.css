@@ -46,6 +46,10 @@
     height: 350px;
 }
 
+.festival-header {
+    margin-bottom: 50px;
+}
+
 .festival-main-info,
 .festival-additional-info {
     font-size: 13px;
@@ -54,6 +58,7 @@
 .festival-main-info {
     display: flex;
     width: 100%;
+    margin-bottom: 30px;
 }
 
 .festival-additional-info {
