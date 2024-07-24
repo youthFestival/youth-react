@@ -140,51 +140,6 @@ export const handlers = [
     }),
 
     /**
-     * 페스티벌 포스터만 불러오기
-     */
-    http.get(apiURL + '/festival', async ({ request }) => {
-        try {
-            const url = new URL(request.url);
-            const category = url.searchParams.get('category');
-
-            // 필터링된 결과를 저장할 배열을 초기화합니다.
-            let filteredFestivalList = [];
-
-            if (category === '페스티벌') {
-                // mockFestivalList가 배열이라고 가정하고, 필터링하여 배열로 반환합니다.
-                filteredFestivalList = mockFestivalList.filter(festival => festival.categories === '페스티벌');
-
-                if (filteredFestivalList.length > 0) {
-                    return HttpResponse.json({
-                        festivals: filteredFestivalList
-                    }, {
-                        status: 200,
-                    });
-                } else {
-                    return HttpResponse.json({
-                        error: 'No festivals found for the given category.'
-                    }, {
-                        status: 404,
-                    });
-                }
-            } else {
-                return HttpResponse.json({
-                    error: 'Invalid category.'
-                }, {
-                    status: 400,
-                });
-            }
-        } catch (error) {
-            console.log('Error fetching festival data:', error);
-            return HttpResponse.json({
-                error: 'Internal Server Error'
-            }, {
-                status: 500,
-            });
-        }
-    }),
-
-    /**
      * 마이페이지 아티스트 조회 
      */
     http.get(apiURL + '/artist', async ({ request }) => {

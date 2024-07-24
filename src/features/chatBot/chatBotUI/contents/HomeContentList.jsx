@@ -12,8 +12,8 @@ const HomeContentList = ({searchQuery}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(apiURL + '/faq');
-                const data = response.data.faq;
+                const response = await axios.get(apiURL + '/faqs');
+                const data = response.data.data;
                 setItems(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -44,8 +44,8 @@ const HomeContentList = ({searchQuery}) => {
                 itemFiltered.map((item, index) => (
                     <Item
                         key={index}
-                        question={item.question}
-                        answer={item.answer}
+                        question={item.title}
+                        answer={item.content}
                         isOpen={openIndex === index}
                         onToggle={() => handleToggle(index)}
                     />

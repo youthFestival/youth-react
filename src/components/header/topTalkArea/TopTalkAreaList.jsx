@@ -1,10 +1,10 @@
 import React from 'react'
 import './top-talk-area-list.scss'
 
-const TopTalkAreaList = ({ username, event, onEventClick }) => {
+const TopTalkAreaList = ({ username, event, onEventClick, read }) => {
     const { id, category, content, redirectUrl, createdAt } = event;
     return (
-        <div className='top-talk-area-list-container'>
+        <div className='top-talk-area-list-container' style={read ? {} : {color: '#ddd'}}>
             <div className='header'>
                 <div className='category'> [ {category} ] </div>
                 <div className='event-push'> {createdAt}</div>
@@ -15,7 +15,6 @@ const TopTalkAreaList = ({ username, event, onEventClick }) => {
             <div className='footer' onClick={() => onEventClick(id, redirectUrl)}>
                 ▶ 바로가기
             </div>
-            
         </div>
     )
 }
