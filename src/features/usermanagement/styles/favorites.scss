@@ -6,13 +6,11 @@
         .favorites{
             display: grid;
             align-items: flex-start;
-            gap: 15px;
             flex-shrink: 0;
             grid-template-columns: repeat(4, 1fr);
 
         .component{
             display: inline-flex;
-            margin: 0 auto;
         }
     }
 
@@ -42,5 +40,29 @@
             cursor: not-allowed;
         }
     }
-}
 
+
+    @media (max-width: 1400px) {
+        .favorites {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media (max-width: 1024px) {
+        .favorites {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .favorites {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .favorites {
+            grid-template-columns: 1fr;
+        }
+    }
+}
