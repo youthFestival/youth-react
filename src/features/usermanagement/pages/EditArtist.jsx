@@ -30,7 +30,6 @@ const EditArtist = () => {
             console.log(`API URL: ${apiUrl}`);
             const response = await axios.get(`${apiUrl}/artist`);
             console.log(response.data);
-            console.log('안녕하세요');
             const { Artists = [] } = response.data;
             setTotalArtists(Artists.length);
             return Artists;
@@ -90,9 +89,7 @@ const EditArtist = () => {
                 </div>
             </div> 
 
-            <button className='edit-button' onClick={handleEditToggle}>
-                    {isEditMode ? '저장' : '수정'}
-            </button>
+            
 
              <div className='saved-artists'>
                 {savedArtists.map((artist, index) => (
@@ -102,6 +99,9 @@ const EditArtist = () => {
                 ))}
             </div>
 
+            <button className='edit-button' onClick={handleEditToggle}>
+                    {isEditMode ? '저장' : '수정'}
+            </button>
          
             <div className='artist-container'>
                 {artistList?.map((artist, index) => (
@@ -125,13 +125,7 @@ const EditArtist = () => {
                     다음
                 </button>
             </div>
-
-
-            
-           
-           
-            
-            
+         
         </div>
     );
 };
