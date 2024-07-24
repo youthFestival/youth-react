@@ -30,7 +30,7 @@ const MydetailFrame = () => {
                 />
 
                 <NavLink
-                    to={'./inquiries'}
+                    to={'./inquiries-list'}
                     children={"1:1 문의"}
                     className='navlink'
                 />

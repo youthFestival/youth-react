@@ -66,7 +66,7 @@ const Mypage = () => {
                     iconText2='내 QnA'
                     iconText3='내 기대평'
 
-                    navLink1={'/mydetail/inquiries'}
+                    navLink1={'/mydetail/inquiries-list'}
                     navLink2={'/mydetail/Qna'}
                     navLink3={'/mydetail/comments'}
                 />

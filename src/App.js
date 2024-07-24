@@ -26,7 +26,8 @@ import {
   EditArtist,
   Inquiries,
   InquiriesSave,
-  DeleteAccount
+  DeleteAccount,
+  InquiriesList
 } from './features/usermanagement/index.js';
 
 // test
@@ -64,6 +65,7 @@ function App() {
           <Route path='favorites' element={<div>test</div>} />
           <Route path='inquiries' element={<Inquiries />} />
           <Route path='inquiries-save' element={<InquiriesSave />} />
+          <Route path='inquiries-list' element={<InquiriesList />} />
           <Route path='qna' element={<div>test</div>} />
           <Route path='comments' element={<div>test</div>} />
           <Route path='deletion' element={<DeleteAccount />} />
