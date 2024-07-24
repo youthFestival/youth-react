@@ -471,6 +471,27 @@ export const handlers = [
         }
     }),
 
+    // 인증 코드 인증
+    http.post(apiURL + '/auth/verify-code', async ({ request }) => {
+        const data = await request.json();
+        const { verificationCode } = data;
+        const validCode = mockFindUser.verificationCodes.find(code => code.verificationCode === verificationCode);
+        if (validCode) {
+            return HttpResponse.json({
+                message: '인증 성공',
+                access_token: 'fake-jwt-token'
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '인증코드가 유효하지 않습니다.'
+            }, {
+                status: 400
+            });
+        }
+    }),
+
     http.get(apiURL + '/faq', async () => {
         return HttpResponse.json({
             faq: [

@@ -6,6 +6,7 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
     const [userId, setUserId] = useState('');
     const [email, setEmail] = useState('');
     const [domain, setDomain] = useState('직접입력');
+    const [verificationCode, setVerificationCode] = useState('');
     const [timeLeft, setTimeLeft] = useState(180);
     const [isTimerActive, setIsTimerActive] = useState(requestSent);
 
@@ -31,6 +32,19 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
             setTimeLeft(180);
             setIsTimerActive(true);
         } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleVerifyCode = async () => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await axios.post(`${apiUrl}/auth/verify-code`, { verificationCode });
+            const { access_token } = response.data;
+            alert('인증 성공');
+            window.location.href = `/change-password?token=${access_token}`;
+        } catch (error) {
+            alert('인증코드가 유효하지 않습니다.');
         }
     };
 
@@ -77,11 +91,13 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
                             type="text"
                             placeholder="인증코드 입력"
                             className="verification-input"
+                            value={verificationCode}
+                            onChange={(e) => setVerificationCode(e.target.value)}
                         />
                         <span className="timer">{timeLeft > 0 ? formatTime(timeLeft) : '시간초과'}</span>
                         <button type="button" className="resend-button" onClick={handleResend}>재전송</button>
                     </div>
-                    <button type="submit" className="email-verification">인증코드 인증</button>
+                    <button type="button" className="email-verification" onClick={handleVerifyCode}>인증코드 인증</button>
                 </>
             )}
             {!requestSent && (
