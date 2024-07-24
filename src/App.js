@@ -27,7 +27,8 @@ import {
   Inquiries,
   InquiriesSave,
   DeleteAccount,
-  InquiriesList
+  InquiriesList,
+  Favorites
 } from './features/usermanagement/index.js';
 
 // test

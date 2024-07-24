@@ -23,7 +23,7 @@ export {
     mockUsers, 
     mockFestivalList, 
     mockArtist,
-    mockFindId,
+    mockFinedUser,
     mockEvents,
     mockFavorites
 }
