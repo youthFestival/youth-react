@@ -45,6 +45,7 @@ const Favorites = () => {
 
     return (
         <div className='favorites-menu'>
+            
                 <div className='favorites'>
                     {favoriteList.map((favorite, index) => (
                         <div key={index} className='component'>

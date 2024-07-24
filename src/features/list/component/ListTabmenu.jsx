@@ -44,6 +44,8 @@ const ListTabmenu = () => {
                 ))}
             </div>
             <p className='listcontent'>{menuData[listTab].content}</p>
+
+            <Footer/>
         </div>
     );
 };
