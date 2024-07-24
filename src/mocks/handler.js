@@ -492,6 +492,27 @@ export const handlers = [
         }
     }),
 
+    // 비밀번호 재설정
+    http.post(apiURL + '/auth/change-password', async ({ request }) => {
+        const data = await request.json();
+        const { newPassword, access_token } = data;
+
+        const isValidToken = true;
+        if (isValidToken) {
+            return HttpResponse.json({
+                message: '비밀번호가 성공적으로 변경되었습니다.'
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '토큰이 유효하지 않습니다.'
+            }, {
+                status: 400
+            });
+        }
+    }),
+
     http.get(apiURL + '/faq', async () => {
         return HttpResponse.json({
             faq: [

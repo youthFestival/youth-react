@@ -15,11 +15,12 @@ import {
   RegisterForm,
   List,
   MemberManagement,
-  PrivacyPolicy
+  PrivacyPolicy,
 } from "./pages";
 
 import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
+import ChangePassword from '../src/features/userfind/component/ChangePassword.jsx';
 import { Navigate } from 'react-router-dom';
 import {
   EditProfile,
@@ -79,6 +80,7 @@ function App() {
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
         <Route path="/list" element={<List />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/change-password" element={<ChangePassword />} />
 
         <Route path="/test">
           <Route path="" element={<TempMain />} />

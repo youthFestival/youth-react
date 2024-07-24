@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 import '../styles/id-find-email-input.scss';
 
 const PwFindEmailInput = ({ onSubmit, requestSent }) => {
@@ -9,6 +11,8 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
     const [verificationCode, setVerificationCode] = useState('');
     const [timeLeft, setTimeLeft] = useState(180);
     const [isTimerActive, setIsTimerActive] = useState(requestSent);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         let timer;
@@ -29,10 +33,24 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
 
     const handleResend = async () => {
         try {
+            const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
+            const apiUrl = process.env.REACT_APP_API_URL;
+            await axios.post(`${apiUrl}/auth/reset-password-request`, { userId, email: fullEmail });
             setTimeLeft(180);
             setIsTimerActive(true);
+            Swal.fire({
+                icon: 'success',
+                title: '인증코드를 다시 발송했습니다.',
+                confirmButtonColor: '#89CFF0',
+            });
         } catch (error) {
             console.error(error);
+            Swal.fire({
+                icon: 'error',
+                title: '인증코드 재발송에 실패했습니다.',
+                text: '아이디 혹은 이메일이 일치하지 않습니다.',
+                confirmButtonColor: '#89CFF0',
+            });
         }
     };
 
@@ -41,10 +59,21 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.post(`${apiUrl}/auth/verify-code`, { verificationCode });
             const { access_token } = response.data;
-            alert('인증 성공');
-            window.location.href = `/change-password?token=${access_token}`;
+            Swal.fire({
+                icon: 'success',
+                title: '인증 성공',
+                text: '비밀번호를 재설정할 수 있습니다.',
+                confirmButtonColor: '#89CFF0',
+            }).then(() => {
+                navigate(`/change-password?token=${access_token}`);
+            });
         } catch (error) {
-            alert('인증코드가 유효하지 않습니다.');
+            Swal.fire({
+                icon: 'error',
+                title: '인증 실패',
+                text: '인증코드가 유효하지 않습니다.',
+                confirmButtonColor: '#89CFF0',
+            });
         }
     };
 
