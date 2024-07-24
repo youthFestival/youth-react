@@ -17,7 +17,10 @@ const UnivListTab = () => {
         const response = await axios.get(`${apiUrl}/festival`);
         console.log(response.data)
 
-        return response.data.festivals;
+        const filteredFestivals = response.data.festivals.filter(festival =>
+          festival.categories && festival.categories.includes('대학축제')
+        );
+        return filteredFestivals;
 
     } catch (err){
         console.log(err);
@@ -25,7 +28,6 @@ const UnivListTab = () => {
     }
 }
     
-
 useEffect(() => {
 
   const fetchData = async () => {

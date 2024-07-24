@@ -16,7 +16,11 @@ const FestivalListTab = () => {
             console.log(`API URL: ${apiUrl}`);
             const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
             console.log(response.data);
-            return response.data.festivals;
+            
+            const filteredFestivals = response.data.festivals.filter(festival =>
+                festival.categories && festival.categories.includes('페스티벌')
+            );
+            return filteredFestivals;
         } catch (err) {
             console.log(err);
             return [];
@@ -49,4 +53,3 @@ const FestivalListTab = () => {
 };
 
 export default FestivalListTab;
-
