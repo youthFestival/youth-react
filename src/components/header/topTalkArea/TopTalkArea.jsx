@@ -26,7 +26,7 @@ const TopTalkArea = () => {
     const handleEventClick = async (id, redirectUrl) => {
         try {
             await axios.put(`${apiURL}/event/${id}/read`);
-            setEvents(events.filter(event => event.id !== parseInt(id, 10)));
+            setEvents(events);
             window.location.href = redirectUrl;
         } catch (error) {
             console.log(error.response.data.message);
@@ -46,6 +46,7 @@ const TopTalkArea = () => {
                                     key={event.id}
                                     event={event}
                                     onEventClick={handleEventClick}
+                                    read={event.isChecked}
                                 />
                             ))
                         ) : (

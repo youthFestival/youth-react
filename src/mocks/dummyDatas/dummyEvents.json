@@ -4,7 +4,7 @@
         "id": 1,
         "category": "디데이",
         "content": "The festival 2024 인천펜타포트 락 페스티벌 starts in less than 7 days!",
-        "redirectUrl": "/festivals/1",
+        "redirectUrl": "festivaldetail/1",
         "isChecked": false,
         "createdAt": "2024-07-25T12:00:00Z",
         "userId": "admin"
@@ -22,7 +22,7 @@
         "id": 3,
         "category": "구독한 행사 이벤트",
         "content": "New event: 2024 서울재즈페스티벌 has been added to your subscriptions.",
-        "redirectUrl": "/events/2",
+        "redirectUrl": "festivaldetail/1",
         "isChecked": true,
         "createdAt": "2024-07-23T08:45:00Z",
         "userId": "admin"
@@ -94,7 +94,7 @@
         "id": 11,
         "category": "디데이",
         "content": "The festival 2024 인천펜타포트 락 페스티벌 starts in less than 7 days!",
-        "redirectUrl": "/festivals/1",
+        "redirectUrl": "festivaldetail/1",
         "isChecked": false,
         "createdAt": "2024-07-25T12:00:00Z",
         "userId": "admin"
@@ -112,7 +112,7 @@
         "id": 13,
         "category": "구독한 행사 이벤트",
         "content": "New event: 2024 서울재즈페스티벌 has been added to your subscriptions.",
-        "redirectUrl": "/events/2",
+        "redirectUrl": "festivaldetail/1",
         "isChecked": true,
         "createdAt": "2024-07-23T08:45:00Z",
         "userId": "admin"
