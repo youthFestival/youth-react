@@ -1,6 +1,4 @@
 .search-list {
-    margin: 30px auto;
-    padding: 0 20px;
     max-width: 1200px;
     
     .search-edit {
@@ -68,7 +66,7 @@
         justify-content: center;
         align-items: center;
         margin: 0 auto;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
 
         .prev-button, .next-button {
             padding: 5px 10px;
@@ -93,27 +91,25 @@
     .saved-artists {
         display: flex;
         flex-wrap: nowrap;
-        justify-content: center;
-        gap: -30px;
+        justify-content: flex-start;
+        gap: -20px;
         margin-left: 120px;
         padding: 10px;
-        border-radius: 10%;
-        max-width: 500px;
-        overflow-x: auto;
+        border-radius: 20%;
+        max-width: 300px;
+        overflow-y: scroll;
         scrollbar-width: thin;
-
+    
         .saved-artist {
             flex: 0 0 auto;
             width: 80px;
             height: 80px;
-            left: -20px;
             border-radius: 50%;
             overflow: hidden;
             background-color: #f0f0f0;
             border: 3px solid #89CFF0;
             position: relative;
             z-index: 1;
-            float: right;
         }
     
         .saved-artist img {
@@ -123,10 +119,7 @@
         }
     }
     
-    // .saved-artists::-webkit-scrollbar {
-    //     display: none;
-    // }
-
+    
     @media (max-width: 768px) {
         .search-edit {
             .search-form {
