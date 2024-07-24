@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import "../styles/registerform.css";
 import {
   RegisterBtn,
@@ -63,18 +63,18 @@ const RegisterForm = () => {
           // registerInputOnChange={""}
         />
 
-        
-          <RegisterInput
-            registerText="주소"
-            registerInputType="text"
-            registerInputPlaceHolder="주소를 입력하세요."
-            registerInputClassName="register-address-input"
-            registerInputValue={address}
-            registerInputOnChange={(e) => setAddress(e.target.value)}
-          />
-          
-      
-        <div className="input-with-btn">
+         <div className="input-with-btn">
+            <RegisterInput
+              registerText="주소"
+              registerInputType="text"
+              registerInputPlaceHolder="주소를 입력하세요."
+              registerInputClassName="register-address-input"
+              registerInputValue={address}
+              registerInputOnChange={(e) => setAddress(e.target.value)}
+            />
+            <AddressSearchBtn onAddressSelect={handleAddressSelect} />
+          </div>
+       
           <RegisterInput
             registerText="상세주소"
             registerInputType="text"
@@ -82,8 +82,8 @@ const RegisterForm = () => {
             registerInputClassName="register-detail-address"
             // registerInputOnChange={""}
           />
-          <AddressSearchBtn onAddressSelect={handleAddressSelect} />
-        </div>
+          
+        
 
         <div className="email-with-dropdown">
           <RegisterInput

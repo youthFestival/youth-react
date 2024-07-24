@@ -150,3 +150,13 @@
 .scroll-to-map-icon {
     cursor: pointer;
 }
+
+.custom-confirm-button {
+    background-color: #89CFF0 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+}

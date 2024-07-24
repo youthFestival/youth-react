@@ -240,7 +240,8 @@
 
 /*Calendar.jsx*/
 .festival-calendar-slider {
-    width: 78.5%;
+    width: 86%;
+    max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;

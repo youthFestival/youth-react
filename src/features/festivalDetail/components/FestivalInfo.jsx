@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import "../styles/festival-info.css";
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
@@ -43,9 +44,25 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         try {
             const url = window.location.href;
             await navigator.clipboard.writeText(url);
-            alert('URL이 클립보드에 복사되었습니다.');
+            Swal.fire({
+                title: '성공!',
+                text: 'URL이 클립보드에 복사되었습니다.',
+                icon: 'success',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
         } catch (err) {
-            alert('URL 복사에 실패했습니다.');
+            Swal.fire({
+                title: '실패!',
+                text: 'URL 복사에 실패했습니다.',
+                icon: 'error',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
         }
     };
 

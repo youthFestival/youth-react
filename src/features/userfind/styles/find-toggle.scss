@@ -10,13 +10,19 @@
     }
 
     .find-radio-image {
-        width: 15px;
-        height: 15px;
+        width: 20px;
+        height: 20px;
         flex-shrink: 0;
     }
 
     .find-radio {
         display: none;
+    }
+
+    .find-text {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
     }
 
     .toggle-text {
@@ -25,17 +31,18 @@
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        text-align: center;
+        text-align: left;
+        margin-left: 80px;
     }
 
     .toggle-content {
         margin-top: 1rem;
         overflow: hidden;
-        max-height: 0; 
+        max-height: 0;
         transition: max-height 0.3s ease;
     }
 
     .toggle-content.open {
-        max-height: 200px;
+        max-height: 300px;
     }
 }

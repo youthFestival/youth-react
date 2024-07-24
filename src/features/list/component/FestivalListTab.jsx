@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PosterComponent from "./PosterComponent";
+
 import "../styles/festival-list.scss";
 
-/**
- * 페스티벌 탭 메뉴 모든 컴포넌트
- * @returns
- */
 const FestivalListTab = () => {
     const [festivalList, setFestivalList] = useState([]);
 
@@ -16,7 +13,11 @@ const FestivalListTab = () => {
             console.log(`API URL: ${apiUrl}`);
             const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
             console.log(response.data);
-            return response.data.festivals;
+            
+            const filteredFestivals = response.data.festivals.filter(festival =>
+                festival.categories && festival.categories.includes('페스티벌')
+            );
+            return filteredFestivals;
         } catch (err) {
             console.log(err);
             return [];
@@ -32,21 +33,26 @@ const FestivalListTab = () => {
         fetchData();
     }, []);
 
+    const getEventClass = (festival) => {
+        return "event-class"; 
+    };
+
+
     return (
         <div className="festival-list">
             {festivalList.map((festival, index) => (
-                <PosterComponent
-                    key={index}
-                    posterSrc={festival.posterSrc}
-                    posterAlt={festival.posterAlt}
-                    festivalTitle={festival.festivalTitle}
-                    festivalLocation={festival.festivalLocation}
-                    festivalDate={`${festival.startDate} - ${festival.endDate}`}
-                />
+                <div key={index} className={getEventClass(festival)}>
+                    <PosterComponent
+                        posterSrc={festival.posterSrc}
+                        posterAlt={festival.posterAlt}
+                        festivalTitle={festival.festivalTitle}
+                        festivalLocation={festival.festivalLocation}
+                        festivalDate={`${festival.startDate} - ${festival.endDate}`}
+                    />
+                </div>
             ))}
         </div>
     );
 };
 
 export default FestivalListTab;
-

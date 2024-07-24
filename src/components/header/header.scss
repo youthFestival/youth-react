@@ -114,7 +114,7 @@
 
   .talk_area {
     position: absolute;
-    top: 45px;
+    top: 25px;
     right: 0;
     transform: translateX(5.5%);
     width: 425px;
@@ -123,7 +123,7 @@
     border: 1px solid #ddd;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    z-index: 1000;
+    z-index: 100;
     display: none;
 }
 

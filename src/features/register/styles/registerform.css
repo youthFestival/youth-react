@@ -58,7 +58,7 @@
     font-weight: 400;
     line-height: normal;
     right: 0;
-    margin-top: 3%;
+    margin-top: 4%;
     cursor: pointer;
 }
 
@@ -81,11 +81,15 @@
     width: 340px;
 }
 
-.register-detail-address {
+.register-address-input {
     flex-grow: 1;
     padding: 10px 5px;
     border: none;
-    position:relative;
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .register-id-input:focus,
