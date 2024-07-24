@@ -25,7 +25,7 @@ const TopTalkArea = () => {
 
     const handleEventClick = async (id, redirectUrl) => {
         try {
-            const response = await axios.put(`${apiURL}/event/${id}/read`);
+            await axios.put(`${apiURL}/event/${id}/read`);
             setEvents(events.filter(event => event.id !== parseInt(id, 10)));
             window.location.href = redirectUrl;
         } catch (error) {
