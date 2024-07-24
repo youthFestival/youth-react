@@ -44,35 +44,35 @@ const Favorites = () => {
     };
 
     return (
-        <div className='favorites-menu'>
-            
-                <div className='favorites'>
-                    {favoriteList.map((favorite, index) => (
-                        <div key={index} className='component'>
-                            <PosterComponent
-                                showFavoriteIcon={false}
-                                posterSrc={favorite.posterSrc}
-                                posterAlt={favorite.posterAlt}
-                                festivalTitle={favorite.festivalTitle}
-                                festivalLocation={favorite.festivalLocation}
-                                festivalDate={`${favorite.startDate} - ${favorite.endDate}`}
-                            />
-                            {/* {(today === new Date(festival.startDate).getDate() || (today === new Date(festival.endDate).getDate() && isFirstColumn)) && (
-                                <Link to={`/festivaldetail/${favorite.id}`} className="favorite-link">{festival.name}</Link>
-                            )} */}
-                        </div>
-                    ))}
-                </div>
-                <div className='pagination'>
-                    <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
-                        이전
-                    </button>
-                    <span>{page}</span>
-                    <button className='next-button' onClick={handleNextPage} disabled={page * 8 >= totalFavorites}>
-                        다음
-                    </button>
-                </div>
-        </div>
+            <div className='favorites-container'>
+                
+                    <div className='favorites'>
+                        {favoriteList.map((favorite, index) => (
+                            <div key={index} className='component'>
+                                <PosterComponent
+                                    showFavoriteIcon={false}
+                                    posterSrc={favorite.posterSrc}
+                                    posterAlt={favorite.posterAlt}
+                                    festivalTitle={favorite.festivalTitle}
+                                    festivalLocation={favorite.festivalLocation}
+                                    festivalDate={`${favorite.startDate} - ${favorite.endDate}`}
+                                />
+                                {/* {(today === new Date(festival.startDate).getDate() || (today === new Date(festival.endDate).getDate() && isFirstColumn)) && (
+                                    <Link to={`/festivaldetail/${favorite.id}`} className="favorite-link">{festival.name}</Link>
+                                )} */}
+                            </div>
+                        ))}
+                    </div>
+                    <div className='pagination'>
+                        <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                            이전
+                        </button>
+                        <span>{page}</span>
+                        <button className='next-button' onClick={handleNextPage} disabled={page * 8 >= totalFavorites}>
+                            다음
+                        </button>
+                    </div>
+            </div>
     );
 };
 
