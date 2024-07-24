@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ const Header = () => {
     const { user, dispatch } = useContext(AuthContext);
     const [searchTerm, setSearchTerm] = useState('');
     const [isExpanded, setIsExpanded] = useState(false);
+    const eventRef = useRef(null);
     const navigate = useNavigate();
 
     const handleLogoutClick = async (e) => {
@@ -53,6 +54,19 @@ const Header = () => {
         navigate.push(`/results?query=${searchTerm}`);
     };
 
+    const handleClickOutSide = (e) => {
+        if (eventRef.current && !eventRef.current.contains(e.target)){
+            setIsExpanded(false);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutSide);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutSide);
+        }
+    })
+
     return (
         <div className="header-header">
             <div className="hlogo-container">
@@ -71,7 +85,7 @@ const Header = () => {
             </form>
 
             <div className="hitems">
-                {user !== null && <div className="bell-container">
+                {user !== null && <div className="bell-container" ref={eventRef}>
                     <GoBell className="event-bell" onClick={() => setIsExpanded(!isExpanded)} />
                     {isExpanded && <TopTalkArea />}
                 </div>}

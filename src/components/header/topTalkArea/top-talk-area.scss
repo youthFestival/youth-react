@@ -34,17 +34,18 @@
         margin-top: 7px;
         margin-bottom: 7px;
     }
-}
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #d3d3d3; /* 스크롤 바의 색상 */
-    border-radius: 11px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #a0a0a5;
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: #d3d3d3; /* 스크롤 바의 색상 */
+        border-radius: 11px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #a0a0a5;
+    }
+    
 }

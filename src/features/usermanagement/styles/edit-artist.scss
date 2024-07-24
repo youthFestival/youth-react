@@ -95,12 +95,12 @@
         flex-wrap: nowrap;
         justify-content: center;
         gap: -30px;
-        // margin-left: 120px;
+        margin-left: 120px;
         padding: 10px;
         border-radius: 10%;
         max-width: 500px;
         overflow-x: auto;
-        scrollbar-width: initial;
+        scrollbar-width: thin;
 
         .saved-artist {
             flex: 0 0 auto;

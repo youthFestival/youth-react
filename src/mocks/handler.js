@@ -9,8 +9,9 @@ import {
     mockUsers,
     mockFestivalList,
     mockArtist,
-    mockFinedUser,
-    mockEvents
+    mockFindId,
+    mockEvents,
+    mockFavorites
 } from './dummyDatas';
 import { adminHandler } from './handlers';
 
@@ -161,10 +162,35 @@ export const handlers = [
                 });
             }
         } catch (err) {
-
+            console.log(err)
         }
     }),
 
+    /**
+     * 찜 목록 조회
+     */
+    http.get(apiURL + '/favorite', async ({ request }) => {
+        try{
+            const url = new URL(request.url);
+            const favoritePoster = mockFavorites;
+
+            if(favoritePoster){
+                return HttpResponse.json({
+                    ...favoritePoster
+                }, {
+                    status: 200,
+                });
+            } else{
+                return HttpResponse.json({
+                    error:'찜 포스터 정보를 갖고오는데 실패했습니다.'
+                }, {
+                    status: 401,
+                });
+            }
+        } catch(err){
+             console.log(err)
+        }
+    }),
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  

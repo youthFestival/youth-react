@@ -10,3 +10,4 @@ export { default as Inquiries} from './pages/Inquiries';
 export { default as InquiriesSave} from './pages/InquiriesSave';
 export { default as MydetailFrame} from './pages/MydetailFrame';
 export {default as DeleteAccount} from './pages/DeleteAccount';
+export {default as InquiriesList} from './pages/InquiriesList';
