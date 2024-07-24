@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { ArtistPick } from '../index.js';
-import '../styles/edit-artist.scss';
 import axios from 'axios';
+import classNames from 'classnames';
+
+import '../styles/edit-artist.scss';
+
 
 /**
  * 내 아티스트 수정 리스트 컴포넌트 
@@ -89,8 +92,6 @@ const EditArtist = () => {
                 </div>
             </div> 
 
-            
-
              <div className='saved-artists'>
                 {savedArtists.map((artist, index) => (
                     <div key={index} className='saved-artist'>
@@ -98,10 +99,18 @@ const EditArtist = () => {
                     </div>
                 ))}
             </div>
-
-            <button className='edit-button' onClick={handleEditToggle}>
+            
+            <button 
+                className={classNames('edit-button', {
+                    'edit-mode': isEditMode,
+                    'save-mode': !isEditMode
+                })} 
+                onClick={handleEditToggle}
+            >
                     {isEditMode ? '저장' : '수정'}
             </button>
+
+           
          
             <div className='artist-container'>
                 {artistList?.map((artist, index) => (
