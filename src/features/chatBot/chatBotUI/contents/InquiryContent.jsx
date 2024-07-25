@@ -6,32 +6,35 @@ import MessageIcon from '../../icons/send-message-icon.svg'
 import '../../styles/content-inquiry.css'
 import axios from 'axios'
 
-const apiURL = process.env.REACT_APP_API_URL;
+const apiURL = process.env.REACT_APP_FLASK_URL;
 
 const InquiryContent = () => {
     const [message, setMessage] = useState('');
     const [botAnswer, setBotAnswer] = useState('');
+    const [link, setLink] = useState('');
     const [chatHistory, setChatHistory] = useState([]);
     const chatAreaRef = useRef(null);
 
     const handleChat = async () => {
         if (!message) return;
-        
+
+        const userMessage = message;
+        setChatHistory([...chatHistory, { type: 'question', text: userMessage }]);
+        setMessage('');
+
         try {
-            const response = await axios.post(apiURL + '/chatbot-question', {
-                question: message,
-            }, {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const response = await axios.post(apiURL + '/chatbot', {
+                question: userMessage,
             });
             const answer = response.data.answer;
+            const link = response.data.link;
             setBotAnswer(answer);
-            setChatHistory([...chatHistory, { type: 'question', text: message }, { type: 'answer', text: answer }]);
+            setLink(link);
+            setChatHistory([...chatHistory, { type: 'question', text: userMessage }, { type: 'answer', text: answer.replace(link, ''), link: link }]);
         } catch (error) {
             console.error('Error Chat:', error);
+            setChatHistory([...chatHistory, { type: 'question', text: userMessage }, { type: 'answer', text: 'Error occurred. Please try again.' }]);
         }
-        setMessage('');
     }
 
     const handleKeyPress = (e) => {
@@ -55,7 +58,7 @@ const InquiryContent = () => {
                     msg.type === 'question' ? (
                         <Question key={idx} question={msg.text} />
                     ) : (
-                        <Answer key={idx} answer={msg.text} />
+                        <Answer key={idx} answer={msg.text} link={msg.link}/>
                     )
                 )}
             </div>
