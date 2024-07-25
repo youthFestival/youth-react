@@ -76,8 +76,7 @@ const QnA = (festivalId) => {
                     </thead>
                     <tbody className="qna-table-body">
                         {qnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                            <React.Fragment key={qna.id} className='fragment'>
-                                    <tr>
+                                    <tr key={qna.id}>
                                         <td className="qna-table-cell">{qna.festivalName}</td>
                                         <td className="qna-table-cell">{qna.title}</td>
                                         <td className="qna-table-cell">{qna.content}</td>
@@ -92,7 +91,6 @@ const QnA = (festivalId) => {
                                             <button className='button' onClick={goWriteHandler}>삭제</button>
                                         </td>
                                     </tr>
-                            </React.Fragment>
                         ))}
                     </tbody>
                 </table>
