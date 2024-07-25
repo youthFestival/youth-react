@@ -58,12 +58,15 @@ const QnA = (festivalId) => {
             <div className='qna-container'>
                 <table className="qna-table">
                     <thead className="qna-table-head">
+                        
                         <tr>
                             <th className="qna-table-header">축제 이름</th>
                             <th className='qna-table-header'>제목</th>
                             <th className="qna-table-header">내용</th>
                             <th className="qna-table-header">문의 날짜</th>
                             <th className="qna-table-header">상태</th>
+                            <th className="qna-table-header">수정</th>
+                            <th className="qna-table-header">삭제</th>
                         </tr>
                     </thead>
                     <tbody className="qna-table-body">
@@ -76,9 +79,13 @@ const QnA = (festivalId) => {
                                         <td className="qna-table-cell">{formatDate(qna.create)}</td>
                                         <td className="qna-table-cell">{qna.status}</td> 
                                     
+                                        <td className="qna-table-cell">
+                                            <button className='button' onClick={goWriteHandler}>수정</button>
+                                        </td>
 
-                                        <button className='button' onClick={goWriteHandler}>수정</button>
-                                        <button className='button' onClick={goWriteHandler}>삭제</button>
+                                        <td className="qna-table-cell">
+                                            <button className='button' onClick={goWriteHandler}>삭제</button>
+                                        </td>
                                     </tr>
                             </React.Fragment>
                         ))}
