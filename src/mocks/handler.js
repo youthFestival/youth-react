@@ -11,7 +11,8 @@ import {
     mockArtist,
     mockFindUser,
     mockEvents,
-    mockFavorites
+    mockFavorites,
+    mockInquiries
 } from './dummyDatas';
 import { adminHandler } from './handlers';
 
@@ -192,8 +193,26 @@ export const handlers = [
         }
     }),
 
-    // 내 QnA 정보 조회
+    // 1:1문의 정보 조회
     http.get(apiURL + `/inquiry/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const inqList = mockInquiries.inquiries;
+        
+        return HttpResponse.json({
+            message: "1:1 문의 정보가 조회되었습니다",
+            limit,
+            offset,
+            total: mockInquiries.inquiries.length,
+            inqList
+        }, {
+            status: 200
+        });
+    }),
+
+    // 내 QnA 정보 조회
+    http.get(apiURL + `/qna/:festivalId`, async ({ params, request }) => {
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
         const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
 

@@ -35,7 +35,7 @@ const QnA = (festivalId) => {
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiry/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/qna/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
             console.log(response.data);
             setQnAList(response.data.qnaList || []);
         } catch (error) {
