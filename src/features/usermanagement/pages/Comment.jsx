@@ -4,23 +4,24 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/qna.scss'
 
 /**
- * 내 QnA
- * @param {*} festivalId 
+ * 내 기대평
+ * @param {} festivalId 
  * @returns 
  */
-const QnA = (festivalId) => {
 
-    const [qnaList, setQnAList] = useState([]);
+const Comment = (festivalId) => {
+
+    const [commentList, setCommentList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
 
     const navigate = useNavigate();
 
-    const qnaPerPage = 10;
+    const commentPerPage = 10;
     const maxVisibleButtons = 10;
 
-    const totalPages = Math.ceil(qnaList.length / qnaPerPage);
+    const totalPages = Math.ceil(commentList.length / commentPerPage);
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -29,17 +30,17 @@ const QnA = (festivalId) => {
 
     const getVisiblePageNumbers = () => {
         const startPage = Math.floor(currentPage / maxVisibleButtons) * maxVisibleButtons;
-        return Array.from({ length: Math.min(maxVisibleButtons, Math.ceil(qnaList.length / qnaPerPage) - startPage) }, (_, index) => startPage + index);
+        return Array.from({ length: Math.min(maxVisibleButtons, Math.ceil(commentList.length / commentPerPage) - startPage) }, (_, index) => startPage + index);
     };
 
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiry/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/comment/${festivalId}?limit=${commentPerPage}&offset=${page * commentPerPage}`);
             console.log(response.data);
-            setQnAList(response.data.qnaList || []);
+            setCommentList(response.data.comments || []);
         } catch (error) {
-            setError('내 QnA 정보를 가져오는데 실패했습니다.');
+            setError('내 기대평 정보를 가져오는데 실패했습니다.');
         } finally {
             setLoading(false);
         }
@@ -65,24 +66,22 @@ const QnA = (festivalId) => {
                     <thead className="qna-table-head">
                         
                         <tr>
-                            <th className="qna-table-header">축제 이름</th>
-                            <th className='qna-table-header'>제목</th>
+                            <th className="qna-table-header">번호</th>
+                            <th className='qna-table-header'>축제 이름</th>
                             <th className="qna-table-header">내용</th>
                             <th className="qna-table-header">작성 날짜</th>
-                            <th className="qna-table-header">상태</th>
                             <th className="qna-table-header">수정</th>
                             <th className="qna-table-header">삭제</th>
                         </tr>
                     </thead>
                     <tbody className="qna-table-body">
-                        {qnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                            <React.Fragment key={qna.id} className='fragment'>
+                        {commentList.slice(currentPage * commentPerPage, (currentPage + 1) * commentPerPage).map((comment, index) => (
+                            <React.Fragment key={comment.id} className='fragment'>
                                     <tr>
-                                        <td className="qna-table-cell">{qna.festivalName}</td>
-                                        <td className="qna-table-cell">{qna.title}</td>
-                                        <td className="qna-table-cell">{qna.content}</td>
-                                        <td className="qna-table-cell">{formatDate(qna.create)}</td>
-                                        <td className="qna-table-cell">{qna.status}</td> 
+                                        <td className="qna-table-cell">{currentPage * commentPerPage + index + 1}</td>
+                                        <td className="qna-table-cell">{comment.festivalName}</td>
+                                        <td className="qna-table-cell">{comment.content}</td>
+                                        <td className="qna-table-cell">{formatDate(comment.updatedAt)}</td> 
                                     
                                         <td className="qna-table-cell">
                                             <button className='button' onClick={goWriteHandler}>수정</button>
@@ -127,4 +126,4 @@ const QnA = (festivalId) => {
     );
 };
 
-export default QnA;
+export default Comment;

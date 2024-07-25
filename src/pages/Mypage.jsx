@@ -68,7 +68,7 @@ const Mypage = () => {
 
                     navLink1={'/mydetail/inquiries-list'}
                     navLink2={'/mydetail/Qna'}
-                    navLink3={'/mydetail/comments'}
+                    navLink3={'/mydetail/comment'}
                 />
 
 
