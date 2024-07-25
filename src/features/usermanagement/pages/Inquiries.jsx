@@ -19,10 +19,14 @@ const Inquiries = () => {
 
                 <div className="editor">
                     <div className="title">
-                        <label>제목</label>
-                        <input type="text" placeholder="제목을 입력하세요" />
+                        <label>축제 이름</label>
+                        <input type="text" className="title-text" placeholder="축제 이름을 입력하세요" />
                     </div>
-
+                    <div className="title">
+                        <label>제목</label>
+                        <input type="text" className="title-text" placeholder="제목을 입력하세요" />
+                    </div>
+                    
 
                     <ReactQuill theme="snow" value={value} onChange={setValue}  className='write'/>
 
