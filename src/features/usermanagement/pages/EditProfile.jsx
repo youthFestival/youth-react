@@ -34,13 +34,13 @@ const EditProfile = () => {
             ))}
             <div className='btn'>
                 <AuthBtn
-                    btnClassName='cancel'
-                    btnText='취소'
-                />
-
-                <AuthBtn
                     btnClassName='update'
                     btnText='수정'
+                />
+                
+                <AuthBtn
+                    btnClassName='cancel'
+                    btnText='취소'
                 />
             </div>
 
