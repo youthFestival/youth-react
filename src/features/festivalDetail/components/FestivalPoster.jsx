@@ -11,7 +11,7 @@ const FestivalPoster = ({ festivalId }) => {
         const fetchPoster = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}/poster`);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}/poster`);
                 setPosterImage(response.data.posterImage);
             } catch (error) {
                 setError('포스터 정보를 가져오는데 실패했습니다.');
