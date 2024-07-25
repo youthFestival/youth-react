@@ -2,7 +2,9 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import '../styles/dropdown.scss';
 
-const Dropdown = ({ id, value, options, onChange, borderColor }) => {
+
+
+const Dropdown = ({ id, className, value, options, menu, item, onChange, borderColor }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(value);
     const dropdownRef = useRef(null);
@@ -19,7 +21,7 @@ const Dropdown = ({ id, value, options, onChange, borderColor }) => {
         <div className="list-dropdown" ref={dropdownRef} style={{ borderColor }}>
             <button
                 type="button"
-                className="dropdown-toggle"
+                className={className}
                 onClick={handleToggle}
             >
                 {selectedOption}
@@ -30,11 +32,11 @@ const Dropdown = ({ id, value, options, onChange, borderColor }) => {
                 />
             </button>
             {isOpen && (
-                <ul className="dropdown-menu">
+                <ul className={menu}>
                     {options.map((option) => (
                         <li
                             key={option}
-                            className={classNames('dropdown-item', { selected: option === selectedOption })}
+                            className={classNames({item}, { selected: option === selectedOption })}
                             onClick={() => handleOptionClick(option)}
                         >
                             {option}

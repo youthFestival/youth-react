@@ -23,17 +23,27 @@ const EditProfile = () => {
                 <div key={index} className='edit'>
                     <div className={profile.inputClassName}>
                         <h3>{profile.label}</h3>
-                        <div className='component'>
-                            <AuthInput 
-                                inputType={profile.inputType}
-                                inputClassName={`${profile.inputClassName}-input`}
-                                // inputValue={}
-                                showAuthIcon={false}
-                            />
-                        </div>
+                        <AuthInput 
+                            inputType={profile.inputType}
+                            inputClassName={`${profile.inputClassName}-input`}
+                            placeholder={`Enter your ${profile.label}`}
+                            showAuthIcon={false}
+                        />
                     </div>
                 </div>
             ))}
+            <div className='btn'>
+                <AuthBtn
+                    btnClassName='update'
+                    btnText='수정'
+                />
+                
+                <AuthBtn
+                    btnClassName='cancel'
+                    btnText='취소'
+                />
+            </div>
+
         </div>
     );
 };

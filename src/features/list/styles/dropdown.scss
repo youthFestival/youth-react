@@ -6,21 +6,6 @@
     cursor: pointer;
     user-select: none;
 
-    .dropdown-toggle {
-        position: relative;
-        display: flex;
-        align-items: center;
-        background-color: #FFFFFF;
-        border: none;
-        padding: 10px;
-        padding-right: 30px;
-        width: 80px;
-        font-size: 11px;
-        text-align: left;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-
     .dropdown-icon {
         position: absolute;
         right: 10px; 
@@ -29,30 +14,4 @@
         height: 20px;
     }
 
-    .dropdown-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: #FFFFFF;
-        border: 1px solid #89CFF0;
-        border-radius: 0px 0px 5px 5px;
-        z-index: 100;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        font-size: 11px;
-        display: block;
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    }
-
-    .dropdown-item {
-        padding: 10px;
-        cursor: pointer;
-        
-        &:hover, &.selected {
-            background-color: #89CFF0;
-            color: #FFFFFF;
-        }
-    }
 }
