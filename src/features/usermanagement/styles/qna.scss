@@ -39,21 +39,49 @@
 
             }
             
-            .qna-table-body .qna-table-cell {
-                border-bottom: 1px solid #dddddd;
-                padding: 8px;
-                text-align: center;
-                height: 30px;
-                font-size: 14px;
+            .qna-table-body{ 
+                
+                .fragment {
+                        display: block;
+                    
+
+                    .qna-table-cell {
+                        border-bottom: 1px solid #dddddd;
+                        padding: 8px;
+                        text-align: center;
+                        height: 30px;
+                        font-size: 14px;
+                    }
+
+                    
+                
+                }   .button{
+                        background-color: #89cff0;
+                        color: rgb(255, 255, 255);
+                        border: #a7a7a7;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        font-size: 15px;
+                        margin-left: 10px;
+                        margin-top: 8px;
+                        margin-bottom: 8px;
+
+                        &:hover {
+                            color: #1A1A1A;
+                            background-color: #cccccc;
+                        }
+                    }
+                }
             }
         }
-
 
         .pagination {
             margin-top: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 0 auto;
         }
 
         .pagination-button {
@@ -89,7 +117,7 @@
             }
         }
 
-    }
+    
 }
 
 

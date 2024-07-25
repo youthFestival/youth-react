@@ -45,7 +45,7 @@ const QnA = (festivalId) => {
     }, [festivalId, currentPage, fetchQna]);
 
     const goWriteHandler = () => {
-        navigate('/mydetail/qna');
+        navigate('/mydetail/edit-qna');
     }
 
     const handlePageChange = (page) => {
@@ -68,41 +68,47 @@ const QnA = (festivalId) => {
                     </thead>
                     <tbody className="qna-table-body">
                         {qnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                            <React.Fragment key={qna.id}>
-                                <tr>
-                                    <td className="qna-table-cell">{qna.festivalName}</td>
-                                    <td className="qna-table-cell">{qna.title}</td>
-                                    <td className="qna-table-cell">{qna.content}</td>
-                                    <td className="qna-table-cell">{formatDate(qna.create)}</td>
-                                    <td className="qna-table-cell">{qna.status}</td>
-                                </tr>
+                            <React.Fragment key={qna.id} className='fragment'>
+                                    <tr>
+                                        <td className="qna-table-cell">{qna.festivalName}</td>
+                                        <td className="qna-table-cell">{qna.title}</td>
+                                        <td className="qna-table-cell">{qna.content}</td>
+                                        <td className="qna-table-cell">{formatDate(qna.create)}</td>
+                                        <td className="qna-table-cell">{qna.status}</td> 
+                                    
+
+                                        <button className='button' onClick={goWriteHandler}>수정</button>
+                                        <button className='button' onClick={goWriteHandler}>삭제</button>
+                                    </tr>
                             </React.Fragment>
                         ))}
                     </tbody>
                 </table>
-                <div className="pagination">
-                    {currentPage > 0 && (
-                        <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage - 1)}>
-                            keyboard_arrow_left
-                        </span>
-                    )}
-                    {getVisiblePageNumbers().map(pageNumber => (
-                        <button
-                            key={pageNumber}
-                            className="pagination-button"
-                            onClick={() => handlePageChange(pageNumber)}
-                            disabled={pageNumber === currentPage}
-                        >
-                            {pageNumber + 1}
-                        </button>
-                    ))}
-                    {currentPage < totalPages - 1 && (
-                        <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage + 1)}>
-                            keyboard_arrow_right
-                        </span>
-                    )}
-                </div>
+               
 
+            </div> 
+            
+            <div className="pagination">
+                {currentPage > 0 && (
+                    <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage - 1)}>
+                        keyboard_arrow_left
+                    </span>
+                )}
+                {getVisiblePageNumbers().map(pageNumber => (
+                    <button
+                        key={pageNumber}
+                        className="pagination-button"
+                        onClick={() => handlePageChange(pageNumber)}
+                        disabled={pageNumber === currentPage}
+                    >
+                        {pageNumber + 1}
+                    </button>
+                ))}
+                {currentPage < totalPages - 1 && (
+                    <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage + 1)}>
+                        keyboard_arrow_right
+                    </span>
+                )}
             </div>
 
         </div>
