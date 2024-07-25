@@ -13,6 +13,7 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
             "대학축제": "university-festival",
             "페스티벌": "general-festival"
         };
+        console.log("카테고리 ::"+ category)
         return categoryMap[category] || "unknown-category";
     };
 
@@ -21,14 +22,14 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
         const endDate = new Date(event.endDate).getDate();
         if (endDate > startDate) { // 축제 기간이 하루를 넘는 경우
             if (date === startDate) {
-                return `festival ${categoryToClassName(event.categories)} festival-continued`;
+                return `festival ${categoryToClassName(event.category)} festival-continued`;
             } else if (date === endDate && isFirstColumn) {
-                return `festival ${categoryToClassName(event.categories)}`;
+                return `festival ${categoryToClassName(event.category)}`;
             } else if (date > startDate && date < endDate) {
-                return `festival ${categoryToClassName(event.categories)} festival-continued`;
+                return `festival ${categoryToClassName(event.category)} festival-continued`;
             }
         }
-        return `festival ${categoryToClassName(event.categories)}`;
+        return `festival ${categoryToClassName(event.category)}`;
     };
 
     return (

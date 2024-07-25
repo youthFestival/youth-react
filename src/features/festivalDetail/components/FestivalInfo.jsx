@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../styles/festival-info.css";
+import FestivalLike from './FestivalLike';
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
-import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
 import { ReactComponent as NextIcon } from '../../../assets/next-icon.svg';
 
 const FestivalInfo = ({ festivalId, onScrollToMap }) => {
@@ -102,7 +102,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <ShareIcon className='icon' id='share-icon' />
                     </button>
                     <span className='festival-likes'>
-                        <LikeIcon className='icon' id='like-icon' /> 2
+                        <FestivalLike festivalId={festivalId}/>
                     </span>
                 </div>
             </div>

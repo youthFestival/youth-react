@@ -170,32 +170,32 @@ export const handlers = [
      * 찜 목록 조회
      */
     http.get(apiURL + '/favorite', async ({ request }) => {
-        try{
+        try {
             const url = new URL(request.url);
             const favoritePoster = mockFavorites;
 
-            if(favoritePoster){
+            if (favoritePoster) {
                 return HttpResponse.json({
                     ...favoritePoster
                 }, {
                     status: 200,
                 });
-            } else{
+            } else {
                 return HttpResponse.json({
-                    error:'찜 포스터 정보를 갖고오는데 실패했습니다.'
+                    error: '찜 포스터 정보를 갖고오는데 실패했습니다.'
                 }, {
                     status: 401,
                 });
             }
-        } catch(err){
-             console.log(err)
+        } catch (err) {
+            console.log(err)
         }
     }),
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
      */
-    http.get(apiURL + '/calendar-festivals', async ({ request }) => {
+    http.get(apiURL + '/festival/calender', async ({ request }) => {
         const url = new URL(request.url)
 
         const year = +url.searchParams.getAll('year')
@@ -307,11 +307,11 @@ export const handlers = [
     // 지도
     http.get(apiURL + '/festivals/:festivalId/location', async ({ params }) => {
         const festivalId = parseInt(params.festivalId, 10);
-        const festival = mockFestivalINfo.festivals.find(f => f.id === festivalId);
-        if (festival) {
+        const geolocation = mockFestivalINfo.geolocation.find(f => f.id === festivalId);
+        if (geolocation) {
             return HttpResponse.json({
-                latitude: festival.latitude,
-                longitude: festival.longitude
+                latitude: geolocation.latitude,
+                longitude: geolocation.longitude
             }, {
                 status: 200
             });
@@ -323,6 +323,47 @@ export const handlers = [
                 status: 404
             });
         }
+    }),
+
+    // 축제 찜 조회
+    http.get(apiURL + `/festival/:festivalId/like`, async ({ request }) => {
+        const userId = mockFestivalINfo.userId;
+        const likeCount = mockFestivalINfo.likeCount;
+        const liked = mockFestivalINfo.liked;
+
+        return HttpResponse.json({
+            userId,
+            likeCount,
+            liked
+        }, {
+            status: 200
+        });
+    }),
+
+    // 축제 찜 추가
+    http.put(apiURL + `/festival/:festivalId/like`, async ({ request }) => {
+        const userId = mockFestivalINfo.userId;
+        let likeCount;
+        let liked;
+
+        if (request.method === 'PUT') {
+            likeCount = mockFestivalINfo.likeCount + 1;
+            liked = true;
+        } else if (request.method === 'DELETE') {
+            likeCount = mockFestivalINfo.likeCount - 1;
+            liked = false;
+        }
+
+        mockFestivalINfo.likeCount = likeCount;
+        mockFestivalINfo.liked = liked;
+
+        return HttpResponse.json({
+            userId,
+            likeCount,
+            liked
+        }, {
+            status: 200
+        });
     }),
 
     // 추천 축제 핸들러
@@ -549,7 +590,7 @@ export const handlers = [
         }
         )
     }),
-    http.get(apiURL + '/event/:userId', async ({params}) => {
+    http.get(apiURL + '/event/:userId', async ({ params }) => {
         const userId = params.userId;
         const events = mockEvents.event.filter(event => event.userId === userId);
         //console.log(events);
@@ -559,7 +600,7 @@ export const handlers = [
             status: 200
         })
     }),
-    http.put(apiURL + '/event/:id/read', async ({params}) => {
+    http.put(apiURL + '/event/:id/read', async ({ params }) => {
         const eventId = parseInt(params.id, 10);
         const eventIndex = mockEvents.event.findIndex(event => event.id === eventId);
         console.log(eventIndex);
