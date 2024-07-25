@@ -84,11 +84,11 @@ const QnA = (festivalId) => {
                                         <td className="qna-table-cell">{qna.status}</td> 
                                     
                                         <td className="qna-table-cell">
-                                            <button className='button' onClick={goWriteHandler}>수정</button>
+                                            <button className='edit-button' onClick={goWriteHandler}>수정</button>
                                         </td>
 
                                         <td className="qna-table-cell">
-                                            <button className='button' onClick={goWriteHandler}>삭제</button>
+                                            <button className='delete-button' onClick={goWriteHandler}>삭제</button>
                                         </td>
                                     </tr>
                         ))}

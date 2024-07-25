@@ -55,8 +55,8 @@
 
                     
                 
-                }   .button{
-                        background-color: #89cff0;
+                }   .edit-button,
+                    .delete-button{
                         color: rgb(255, 255, 255);
                         border: #a7a7a7;
                         padding: 5px 10px;
@@ -71,6 +71,13 @@
                             color: #1A1A1A;
                             background-color: #cccccc;
                         }
+                    }
+                    
+                    .edit-button{
+                        background-color: #89cff0;
+                    }
+                    .delete-button{
+                        background-color: #d26b6b;
                     }
                 }
             }
