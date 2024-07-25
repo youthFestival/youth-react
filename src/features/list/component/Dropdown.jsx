@@ -2,14 +2,7 @@ import React, { useState, useRef } from 'react';
 import classNames from 'classnames';
 import '../styles/dropdown.scss';
 
-const Dropdown = ({ 
-           id, 
-           value, 
-           options, 
-           onChange, 
-           borderColor 
-    }) => {
-        
+const Dropdown = ({ id, value, options, onChange, borderColor }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(value);
     const dropdownRef = useRef(null);
@@ -30,6 +23,11 @@ const Dropdown = ({
                 onClick={handleToggle}
             >
                 {selectedOption}
+                <img 
+                    src={isOpen ? "/icons/dropdown/dropdown_on.png" : "/icons/dropdown/dropdown_off.png"} 
+                    alt={isOpen ? "dropdown on" : "dropdown off"} 
+                    className='dropdown-icon'
+                />
             </button>
             {isOpen && (
                 <ul className="dropdown-menu">

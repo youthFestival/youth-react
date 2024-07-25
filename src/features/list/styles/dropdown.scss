@@ -7,13 +7,25 @@
     user-select: none;
 
     .dropdown-toggle {
-        background-color: white;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: #FFFFFF;
         border: none;
         padding: 10px;
+        padding-right: 30px;
         width: 90px;
         text-align: left;
         border-radius: 4px;
         cursor: pointer;
+    }
+
+    .dropdown-icon {
+        position: absolute;
+        right: 10px; 
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
     }
 
     .dropdown-menu {
@@ -29,17 +41,17 @@
         padding: 0;
         list-style: none;
         font-size: 13px;
+        display: block;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    }
 
-        .dropdown-item {
-            padding: 10px;
-            cursor: pointer;
-            
-
-            &:hover, &.selected {
-                background-color: #89CFF0;
-                color: #FFFFFF;
-                
-            }
+    .dropdown-item {
+        padding: 10px;
+        cursor: pointer;
+        
+        &:hover, &.selected {
+            background-color: #89CFF0;
+            color: #FFFFFF;
         }
     }
 }
