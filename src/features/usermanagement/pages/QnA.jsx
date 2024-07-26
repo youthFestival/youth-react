@@ -3,6 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/qna.scss'
 
+/**
+ * 내 QnA
+ * @param {*} festivalId 
+ * @returns 
+ */
 const QnA = (festivalId) => {
 
     const [qnaList, setQnAList] = useState([]);
@@ -30,11 +35,11 @@ const QnA = (festivalId) => {
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/qna/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
             console.log(response.data);
             setQnAList(response.data.qnaList || []);
         } catch (error) {
-            setError('QnA 정보를 가져오는데 실패했습니다.');
+            setError('내 QnA 정보를 가져오는데 실패했습니다.');
         } finally {
             setLoading(false);
         }
@@ -63,7 +68,7 @@ const QnA = (festivalId) => {
                             <th className="qna-table-header">축제 이름</th>
                             <th className='qna-table-header'>제목</th>
                             <th className="qna-table-header">내용</th>
-                            <th className="qna-table-header">문의 날짜</th>
+                            <th className="qna-table-header">작성 날짜</th>
                             <th className="qna-table-header">상태</th>
                             <th className="qna-table-header">수정</th>
                             <th className="qna-table-header">삭제</th>
@@ -71,8 +76,7 @@ const QnA = (festivalId) => {
                     </thead>
                     <tbody className="qna-table-body">
                         {qnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                            <React.Fragment key={qna.id} className='fragment'>
-                                    <tr>
+                                    <tr key={qna.id}>
                                         <td className="qna-table-cell">{qna.festivalName}</td>
                                         <td className="qna-table-cell">{qna.title}</td>
                                         <td className="qna-table-cell">{qna.content}</td>
@@ -80,14 +84,13 @@ const QnA = (festivalId) => {
                                         <td className="qna-table-cell">{qna.status}</td> 
                                     
                                         <td className="qna-table-cell">
-                                            <button className='button' onClick={goWriteHandler}>수정</button>
+                                            <button className='edit-button' onClick={goWriteHandler}>수정</button>
                                         </td>
 
                                         <td className="qna-table-cell">
-                                            <button className='button' onClick={goWriteHandler}>삭제</button>
+                                            <button className='delete-button' onClick={goWriteHandler}>삭제</button>
                                         </td>
                                     </tr>
-                            </React.Fragment>
                         ))}
                     </tbody>
                 </table>

@@ -18,7 +18,8 @@ const Header = () => {
         e.preventDefault();
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const res = await axios.post(`${apiUrl}/auth/logout`, {}, { withCredentials: true });
+            const res = await axios.get(`${apiUrl}/auth/logout`, {}, { withCredentials: true });
+            alert(res.data.message);
 
             if (res.status === 200) {
                 dispatch({ type: "LOGOUT" });

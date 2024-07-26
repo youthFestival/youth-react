@@ -11,7 +11,8 @@ import {
     mockArtist,
     mockFindUser,
     mockEvents,
-    mockFavorites
+    mockFavorites,
+    mockInquiries
 } from './dummyDatas';
 import { adminHandler } from './handlers';
 
@@ -192,6 +193,59 @@ export const handlers = [
         }
     }),
 
+    // 1:1문의 정보 조회
+    http.get(apiURL + `/inquiry/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const inqList = mockInquiries.inquiries;
+        
+        return HttpResponse.json({
+            message: "1:1 문의 정보가 조회되었습니다",
+            limit,
+            offset,
+            total: mockInquiries.inquiries.length,
+            inqList
+        }, {
+            status: 200
+        });
+    }),
+
+    // 내 QnA 정보 조회
+    http.get(apiURL + `/qna/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const qnaList = mockCommentsAndQnA.qnaList;
+
+        return HttpResponse.json({
+            message: "내 QnA가 조회되었습니다",
+            limit,
+            offset,
+            total: mockCommentsAndQnA.qnaList.length,
+            qnaList
+        }, {
+            status: 200
+        });
+    }),
+
+    // 내 기대평 정보 조회
+    http.get(apiURL + `/comment/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const commentList = mockCommentsAndQnA.comments.slice(offset, offset + limit);
+        return HttpResponse.json({
+            message: "내 기대평이 조회되었습니다",
+            limit,
+            offset,
+            total: mockCommentsAndQnA.comments.length,
+            commentList
+        }, {
+            status: 200
+        });
+    }),
+
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
      */
@@ -243,7 +297,7 @@ export const handlers = [
     /**
      * 사용자가 선택한 축제의 라인업 정보 조회
      */
-    http.get(apiURL + `/festivals/:festivalId/line-ups`, async ({ params }) => {
+    http.get(apiURL + `/festival/:festivalId/line-up`, async ({ params }) => {
         return HttpResponse.json({
             message: "축제 라인업 정보를 가져오는데 성공했습니다.",
             lineUp: mockFestivalINfo.lineUp
@@ -253,7 +307,7 @@ export const handlers = [
     }),
 
     // 사용자가 선택한 축제의 포스터 정보 조회
-    http.get(apiURL + `/festivals/:festivalId/poster`, async ({ params }) => {
+    http.get(apiURL + `/festival/:festivalId/poster`, async ({ params }) => {
         return HttpResponse.json({
             message: "포스터 정보를 가져오는데 성공했습니다.",
             posterImage: mockFestivalINfo.posterImage
@@ -305,7 +359,7 @@ export const handlers = [
     }),
 
     // 지도
-    http.get(apiURL + '/festivals/:festivalId/location', async ({ params }) => {
+    http.get(apiURL + '/festival/:festivalId/location', async ({ params }) => {
         const festivalId = parseInt(params.festivalId, 10);
         const geolocation = mockFestivalINfo.geolocation.find(f => f.id === festivalId);
         if (geolocation) {
@@ -379,6 +433,24 @@ export const handlers = [
         });
     }),
 
+    // 사용자가 선택한 축제의 QnA 정보 조회
+    http.get(apiURL + `/inquiries2/:festivalId`, async ({ params, request }) => {
+        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
+        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
+
+        const qnaList = mockCommentsAndQnA.qnaList;
+        
+        return HttpResponse.json({
+            message: "조회되었습니다",
+            limit,
+            offset,
+            total: mockCommentsAndQnA.qnaList.length,
+            qnaList
+        }, {
+            status: 200
+        });
+    }),
+
     // 사용자가 선택한 축제의 기대평 정보 조회
     http.get(apiURL + `/comments/:festivalId`, async ({ params, request }) => {
         const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
@@ -396,39 +468,6 @@ export const handlers = [
         });
     }),
 
-    // 사용자가 선택한 축제의 QnA 정보 조회
-    http.get(apiURL + `/inquiries2/:festivalId`, async ({ params, request }) => {
-        const limit = parseInt(new URL(request.url).searchParams.get("limit") || "10", 10);
-        const offset = parseInt(new URL(request.url).searchParams.get("offset") || "0", 10);
-
-        const qnaList = mockCommentsAndQnA.qnaList;
-        return HttpResponse.json({
-            message: "조회되었습니다",
-            limit,
-            offset,
-            total: mockCommentsAndQnA.qnaList.length,
-            qnaList
-        }, {
-            status: 200
-        });
-    }),
-
-    // QnA 작성
-    http.post(apiURL + `/inquiries`, async ({ request }) => {
-        const data = await request.json();
-        mockCommentsAndQnA.qnaList.push({
-            id: mockCommentsAndQnA.qnaList.length + 1,
-            ...data,
-            status: '접수중',
-            create: new Date().toISOString()
-        });
-        return HttpResponse.json({
-            message: '글이 등록되었습니다.'
-        }, {
-            status: 201
-        });
-    }),
-
     // 댓글 작성
     http.post(apiURL + `/comments`, async ({ request }) => {
         const data = await request.json();
@@ -439,6 +478,22 @@ export const handlers = [
         });
         return HttpResponse.json({
             message: '댓글이 등록되었습니다.'
+        }, {
+            status: 201
+        });
+    }),
+
+     // QnA 작성
+     http.post(apiURL + `/inquiries`, async ({ request }) => {
+        const data = await request.json();
+        mockCommentsAndQnA.qnaList.push({
+            id: mockCommentsAndQnA.qnaList.length + 1,
+            ...data,
+            status: '접수중',
+            create: new Date().toISOString()
+        });
+        return HttpResponse.json({
+            message: '글이 등록되었습니다.'
         }, {
             status: 201
         });
@@ -619,5 +674,4 @@ export const handlers = [
             })
         }
     })
-
 ];

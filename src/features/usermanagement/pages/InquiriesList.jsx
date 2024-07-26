@@ -30,7 +30,7 @@ const InquiriesList = ({festivalId}) => {
     const fetchInq = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=${inqPerPage}&offset=${page * inqPerPage}`);
+            const response = await axios.get(`${apiUrl}/inquiry/${festivalId}?limit=${inqPerPage}&offset=${page * inqPerPage}`);
             console.log(response.data);
             setInqList(response.data.inqList || []);
         } catch (error) {
@@ -54,14 +54,15 @@ const InquiriesList = ({festivalId}) => {
 
     return (
         <div className='mydetail-inquiries'>
+
             <div className='inq-button-container'>
                 <button className='inq-button' onClick={goWriteHandler}>문의 작성하기</button>
             </div>
+
             <table className="inq-table">
                 <thead className="inq-table-head">
                     <tr>
                         <th className="inq-table-header">구분</th>
-                        <th className='inq-table-header'>축제 이름</th>
                         <th className="inq-table-header">제목</th>
                         <th className="inq-table-header">문의 날짜</th>
                         <th className="inq-table-header">상태</th>
@@ -69,18 +70,18 @@ const InquiriesList = ({festivalId}) => {
                 </thead>
                 <tbody className="inq-table-body">
                     {inqList.slice(currentPage * inqPerPage, (currentPage + 1) * inqPerPage).map((inquiries) => (
-                        <React.Fragment key={inquiries.id}>
-                            <tr>
+                            <tr key={inquiries.id}>
                                 <td className="inq-table-cell">{inquiries.category}</td>
-                                <td className="inq-table-cell">{inquiries.festivalName}</td>
                                 <td className="inq-table-cell">{inquiries.title}</td>
-                                <td className="inq-table-cell">{formatDate(inquiries.create)}</td>
+                                <td className="inq-table-cell">{formatDate(inquiries.updatedAt)}</td>
                                 <td className="inq-table-cell">{inquiries.status}</td>
                             </tr>
-                        </React.Fragment>
                     ))}
                 </tbody>
             </table>
+
+            
+
             <div className="pagination">
                 {currentPage > 0 && (
                     <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage - 1)}>
