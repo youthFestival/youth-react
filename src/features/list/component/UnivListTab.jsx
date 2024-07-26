@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PosterComponent from "./PosterComponent";
+import { Link } from 'react-router-dom';
 import "../styles/festival-list.scss";
 /**
  * 대학축제 탭 메뉴 모든 컴포넌트
@@ -41,14 +42,16 @@ useEffect(() => {
   return (
     <div className="festival-list">
       {univList.map((univ, index) => (
-        <PosterComponent
-          key={index}
-          posterSrc={univ.posterSrc}
-          posterAlt={univ.posterAlt}
-          festivalTitle={univ.festivalTitle}
-          festivalLocation={univ.festivalLocation}
-          festivalDate={`${univ.startDate} - ${univ.endDate}`}
-        />
+          <Link to={`/festival/${univ.festivalId}`} key={index}>
+            <PosterComponent
+              key={index}
+              posterSrc={univ.posterSrc}
+              posterAlt={univ.posterAlt}
+              festivalTitle={univ.festivalTitle}
+              festivalLocation={univ.festivalLocation}
+              festivalDate={`${univ.startDate} - ${univ.endDate}`}
+            />
+        </Link>
       ))}
     </div>
   );

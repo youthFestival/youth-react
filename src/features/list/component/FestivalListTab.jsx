@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import PosterComponent from "./PosterComponent";
-
+import { Link } from 'react-router-dom';
 import "../styles/festival-list.scss";
 
 const FestivalListTab = () => {
@@ -11,7 +11,7 @@ const FestivalListTab = () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(`API URL: ${apiUrl}`);
-            const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
+            const response = await axios.get(`${apiUrl}/festival`);
             console.log(response.data);
             
             const filteredFestivals = response.data.festivals.filter(festival =>
@@ -42,14 +42,16 @@ const FestivalListTab = () => {
         <div className="festival-list">
             {festivalList.map((festival, index) => (
                 <div key={index} className={getEventClass(festival)}>
-                    <PosterComponent
-                        posterSrc={festival.posterSrc}
-                        posterAlt={festival.posterAlt}
-                        festivalTitle={festival.festivalTitle}
-                        festivalLocation={festival.festivalLocation}
-                        festivalDate={`${festival.startDate} - ${festival.endDate}`}
-                    />
-                </div>
+                    <Link to={`/festival/${festival.festivalId}`} key={index}>
+                        <PosterComponent
+                            posterSrc={festival.posterSrc}
+                            posterAlt={festival.posterAlt}
+                            festivalTitle={festival.festivalTitle}
+                            festivalLocation={festival.festivalLocation}
+                            festivalDate={`${festival.startDate} - ${festival.endDate}`}
+                        />
+                    </Link>
+             </div>         
             ))}
         </div>
     );
