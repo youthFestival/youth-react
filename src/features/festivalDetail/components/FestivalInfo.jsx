@@ -30,12 +30,25 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         fetchFestival();
     }, [festivalId]);
 
-    const calculateDDay = (startDate) => {
+    const calculateDDay = (startDate, endDate) => {
         const today = new Date();
         const start = new Date(startDate);
-        const timeDiff = start - today;
-        const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        return dayDiff;
+        const end = new Date(endDate);
+        today.setHours(0, 0, 0, 0);
+        start.setHours(0, 0, 0, 0);
+        end.setHours(0, 0, 0, 0);
+
+        if (today > end) {
+            return "종료";
+        } else if (today >= start && today <= end) {
+            return "진행 중";
+        } else if (today.toDateString() === start.toDateString()) {
+            return "D-Day";
+        } else {
+            const timeDiff = start - today;
+            const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            return `D-${dayDiff}`;
+        }
     };
 
     const formatMinAge = (minAge) => {
@@ -78,7 +91,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         return date.toLocaleString('ko-KR', options);
     };
 
-    if (loading) return <Spinner/>;
+    if (loading) return <Spinner />;
     if (error) return <p>{error}</p>;
 
     return (
@@ -88,7 +101,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
             </div>
             <div className='festival-details'>
                 <div className='festival-header'>
-                    <span className='d-day'>D{calculateDDay(festival.startDate)}</span>
+                    <span className='d-day'>{calculateDDay(festival.startDate, festival.endDate)}</span>
                     <h1 className='festival-name'>{festival.festivalName}</h1>
                     <p className='festival-description'>{festival.description}</p>
                 </div>
@@ -114,7 +127,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <ShareIcon className='icon' id='share-icon' />
                     </button>
                     <span className='festival-likes'>
-                        <FestivalLike festivalId={festivalId}/>
+                        <FestivalLike festivalId={festivalId} />
                     </span>
                 </div>
             </div>

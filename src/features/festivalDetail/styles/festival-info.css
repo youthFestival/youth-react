@@ -141,6 +141,16 @@
     width: auto;
 }
 
+#like-icon.red {
+    fill: red;
+    stroke: red;
+}
+
+#like-icon.white {
+    fill: white;
+    stroke: black;
+}
+
 #share-icon {
     width: 20%;
 }

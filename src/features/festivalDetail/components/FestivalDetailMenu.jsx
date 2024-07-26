@@ -6,7 +6,6 @@ const FestivalDetailMenu = ({ activeTab, onTabChange, festivalId }) => {
     const [commentCount, setCommentCount] = useState(0);
     const [qnaCount, setQnaCount] = useState(0);
 
-
     useEffect(() => {
         const fetchCommentCount = async () => {
             try {
@@ -26,8 +25,15 @@ const FestivalDetailMenu = ({ activeTab, onTabChange, festivalId }) => {
         const fetchQnaCount = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=1&offset=0`);
-                setQnaCount(response.data.total);
+                const response = await axios.get(`${apiUrl}/inquiry`, {
+                    params: {
+                        festivalId,
+                        page: 0
+                    }
+                });
+                const qnaCount = response.data.inquiries ? response.data.inquiries.length : 0;
+                setQnaCount(qnaCount);
+                console.log(qnaCount);
             } catch (error) {
                 console.error('QnA 수를 가져오는데 실패했습니다.');
             }

@@ -22,9 +22,14 @@ const FestivalDetailQnA = ({ festivalId }) => {
     const fetchQnA = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/inquiry`, {
+                params: {
+                    festivalId,
+                    page,
+                }
+            });
             console.log(response.data);
-            setQnaList(response.data.qnaList || []);
+            setQnaList(response.data.inquiries || []);
         } catch (error) {
             setError('QnA 정보를 가져오는데 실패했습니다.');
         } finally {
@@ -56,7 +61,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
 
     const getVisiblePageNumbers = () => {
         const startPage = Math.floor(currentPage / maxVisibleButtons) * maxVisibleButtons;
-        return Array.from({ length: Math.min(maxVisibleButtons, Math.ceil(filteredQnaList.length / qnaPerPage) - startPage) }, (_, index) => startPage + index);
+        return Array.from({ length: Math.min(maxVisibleButtons, totalPages - startPage) }, (_, index) => startPage + index);
     };
 
     const handleFilterChange = (newFilter) => {
@@ -69,7 +74,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
 
     const filteredQnaList = qnaList.filter(qna => {
         if (filter !== '전체' && qna.status !== filter) return false;
-        if (excludeSecret && qna.isSecret) return false;
+        if (excludeSecret && qna.secret) return false;
         return true;
     });
 
@@ -104,7 +109,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
         }
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            await axios.post(`${apiUrl}/inquiries`, {
+            await axios.post(`${apiUrl}/api/inquiry`, {
                 ...newQnA,
                 festivalId,
                 authorId: "user123",
@@ -158,17 +163,25 @@ const FestivalDetailQnA = ({ festivalId }) => {
                 <tbody className="qna-table-body">
                     {filteredQnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
                         <React.Fragment key={qna.id}>
-                            <tr onClick={() => !qna.isSecret && toggleQnA(qna.id)}>
+                            <tr onClick={() => !qna.secret && toggleQnA(qna.id)}>
                                 <td className="qna-table-cell">{qna.status}</td>
-                                <td className={`qna-table-cell ${qna.isSecret ? 'secret-title' : 'clickable-title'}`} id='qna-title'>{qna.isSecret ? "비밀글 입니다." : qna.title}</td>
+                                <td className={`qna-table-cell ${qna.secret ? 'secret-title' : 'clickable-title'}`} id='qna-title'>{qna.secret ? "비밀글 입니다." : qna.title}</td>
                                 <td className="qna-table-cell">{formatUsername(qna.username)}</td>
-                                <td className="qna-table-cell">{formatDate(qna.create)}</td>
+                                <td className="qna-table-cell">{formatDate(qna.updatedAt)}</td>
                             </tr>
                             {expandedQnAId === qna.id && (
                                 <tr>
                                     <td colSpan="4" className="qna-content-wrapper">
                                         <div className="qna-content">
                                             <p><span className="ni-eun">-</span> {qna.content}</p>
+                                            {qna.reply && (
+                                                <div className="qna-reply">
+                                                    <p><strong>{qna.reply.title}</strong></p>
+                                                    <p>{qna.reply.content}</p>
+                                                    <p className="qna-reply-username">{formatUsername(qna.reply.username)}</p>
+                                                    <p className="qna-reply-date">{formatDate(qna.reply.updatedAt)}</p>
+                                                </div>
+                                            )}
                                         </div>
                                     </td>
                                 </tr>
