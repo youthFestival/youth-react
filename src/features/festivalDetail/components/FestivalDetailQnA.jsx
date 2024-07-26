@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import QnAModal from './QnAModal';
 import "../styles/festival-detail-qna.css";
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalDetailQnA = ({ festivalId }) => {
     const [qnaList, setQnaList] = useState([]);
@@ -121,7 +122,7 @@ const FestivalDetailQnA = ({ festivalId }) => {
         setExpandedQnAId(prevId => (prevId === id ? null : id));
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../styles/festival-info.css";
 import FestivalLike from './FestivalLike';
+import Spinner from '../../../components/spinner/Spinner';
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
 import { ReactComponent as NextIcon } from '../../../assets/next-icon.svg';
@@ -77,7 +78,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         return date.toLocaleString('ko-KR', options);
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (
@@ -87,7 +88,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
             </div>
             <div className='festival-details'>
                 <div className='festival-header'>
-                    <span className='d-day'>D-{calculateDDay(festival.startDate)}</span>
+                    <span className='d-day'>D{calculateDDay(festival.startDate)}</span>
                     <h1 className='festival-name'>{festival.festivalName}</h1>
                     <p className='festival-description'>{festival.description}</p>
                 </div>

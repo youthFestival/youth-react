@@ -11,8 +11,9 @@ const FestivalDetailMenu = ({ activeTab, onTabChange, festivalId }) => {
         const fetchCommentCount = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/comments/${festivalId}?limit=1&offset=0`);
-                setCommentCount(response.data.total);
+                const response = await axios.get(`${apiUrl}/comment/${festivalId}?limit=0&offset=0`);
+                const commentCount = response.data.comments.length;
+                setCommentCount(commentCount);
             } catch (error) {
                 console.error('기대평 수를 가져오는데 실패했습니다.');
             }

@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../styles/artist-info.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
 import rightArrow from '../icons/artist-right-arrow.svg';
+import Spinner from '../../../components/spinner/Spinner';
 
 const ArtistInfo = ({ festivalId }) => {
     const [lineUp, setLineUp] = useState([]);
@@ -39,7 +40,7 @@ const ArtistInfo = ({ festivalId }) => {
 
     const currentLineUp = lineUp.slice(startIndex, startIndex + itemsPerPage);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (

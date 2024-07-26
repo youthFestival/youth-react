@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/festival-booth.css";
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalBooth = ({ festivalId }) => {
     const [booths, setBooths] = useState([]);
@@ -13,7 +14,7 @@ const FestivalBooth = ({ festivalId }) => {
         const fetchBooths = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}/booths`);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}/booths`);
                 setBooths(response.data.booths);
             } catch (error) {
                 setError('부스 정보를 가져오는데 실패했습니다.');
@@ -29,7 +30,7 @@ const FestivalBooth = ({ festivalId }) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log("Fetching items for boothId: ", boothId);
-            const response = await axios.get(`${apiUrl}/booths/${boothId}/items`);
+            const response = await axios.get(`${apiUrl}/booth/${boothId}/items`);
             setItems(response.data.items);
         } catch (error) {
             setError('아이템 정보를 가져오는데 실패했습니다.');
@@ -42,7 +43,7 @@ const FestivalBooth = ({ festivalId }) => {
         fetchItems(boothId);
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (
@@ -51,18 +52,18 @@ const FestivalBooth = ({ festivalId }) => {
                 <div className='booth-header-text'>
                     <h2>부스 정보</h2>
                 </div>
-                <select onChange={handleBoothChange} value={selectedBooth} className='booth-select'>
+                <select onChange={handleBoothChange} value={selectedBooth || ''} className='booth-select'>
                     <option value="" className='booth-select'>먹거리 부스 정보</option>
                     {booths.map((booth) => (
-                        <option key={booth.boothId} value={booth.boothId}>
-                            {booth.boothName}
+                        <option key={booth.id} value={booth.id}>
+                            {booth.name}
                         </option>
                     ))}
                 </select>
             </div>
             <div className="booth-items">
                 {items.map((item) => (
-                    <div key={item.name} className="booth-item">
+                    <div key={item.id} className="booth-item">
                         <div>
                             <img src={`${process.env.PUBLIC_URL}/icons/festivalDetail/booth-item-sample.png`} alt={item.name} className="booth-item-image" />
                         </div>

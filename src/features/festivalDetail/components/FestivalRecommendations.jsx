@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import "../styles/festival-recommendation.css";
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalRecommendations = ({ festivalId }) => {
     const [recommendations, setRecommendations] = useState([]);
@@ -23,7 +24,7 @@ const FestivalRecommendations = ({ festivalId }) => {
         fetchRecommendations();
     }, [festivalId]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (

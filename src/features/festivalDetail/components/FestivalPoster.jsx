@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/festival-poster-picture.css";
 import axios from 'axios';
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalPoster = ({ festivalId }) => {
     const [posterImage, setPosterImage] = useState('');
@@ -23,7 +24,7 @@ const FestivalPoster = ({ festivalId }) => {
         fetchPoster();
     }, [festivalId]);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (

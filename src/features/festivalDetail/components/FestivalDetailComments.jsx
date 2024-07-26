@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import CommentModal from './CommentModal';
 import "../styles/festival-comment.css";
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalDetailComments = ({ festivalId }) => {
     const [comments, setComments] = useState([]);
@@ -18,7 +19,7 @@ const FestivalDetailComments = ({ festivalId }) => {
     const fetchComments = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/comments/${festivalId}?limit=${commentsPerPage}&offset=${page * commentsPerPage}`);
+            const response = await axios.get(`${apiUrl}/comment/${festivalId}?limit=${commentsPerPage}&offset=${page * commentsPerPage}`);
             setComments(response.data.comments);
             setTotalPages(Math.ceil(response.data.total / commentsPerPage));
         } catch (error) {
@@ -86,7 +87,7 @@ const FestivalDetailComments = ({ festivalId }) => {
         }
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     return (
