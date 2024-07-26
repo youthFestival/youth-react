@@ -55,3 +55,44 @@
 .email-verification:hover {
     background: #0C87C1;
 }
+
+.verification-container {
+    display: flex;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.verification-input {
+    width: 66%;
+    height: 40px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.timer {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 40px;
+    margin-top: 10px;
+    width: 50px;
+    text-align: right;
+}
+
+.resend-button {
+    background: none;
+    border: none;
+    color: #89CFF0;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.resend-button:hover {
+    color: #0C87C1;
+}

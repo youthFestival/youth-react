@@ -9,8 +9,9 @@ import {
     mockUsers,
     mockFestivalList,
     mockArtist,
-    mockFinedUser,
-    mockEvents
+    mockFindUser,
+    mockEvents,
+    mockFavorites
 } from './dummyDatas';
 import { adminHandler } from './handlers';
 
@@ -161,10 +162,35 @@ export const handlers = [
                 });
             }
         } catch (err) {
-
+            console.log(err)
         }
     }),
 
+    /**
+     * 찜 목록 조회
+     */
+    http.get(apiURL + '/favorite', async ({ request }) => {
+        try{
+            const url = new URL(request.url);
+            const favoritePoster = mockFavorites;
+
+            if(favoritePoster){
+                return HttpResponse.json({
+                    ...favoritePoster
+                }, {
+                    status: 200,
+                });
+            } else{
+                return HttpResponse.json({
+                    error:'찜 포스터 정보를 갖고오는데 실패했습니다.'
+                }, {
+                    status: 401,
+                });
+            }
+        } catch(err){
+             console.log(err)
+        }
+    }),
 
     /**
      * 사용자가 선택한 일자에 맞는 축제 조회  
@@ -404,7 +430,7 @@ export const handlers = [
         const data = await request.json();
         const { username, email } = data;
 
-        const user = mockFinedUser.users.find(user => user.username === username && user.email === email);
+        const user = mockFindUser.users.find(user => user.username === username && user.email === email);
 
         if (user) {
             return HttpResponse.json({
@@ -428,11 +454,11 @@ export const handlers = [
         const data = await request.json();
         const { userId, email } = data;
 
-        const user = mockFinedUser.users.find(user => user.userId === userId && user.email === email);
+        const user = mockFindUser.users.find(user => user.userId === userId && user.email === email);
 
         if (user) {
             return HttpResponse.json({
-                message: '인증 코드를 발송했습니다.',
+                message: '인증코드를 발송했습니다.',
             }, {
                 status: 200
             });
@@ -441,6 +467,48 @@ export const handlers = [
                 message: '아이디 혹은 이메일이 일치하지 않습니다.',
             }, {
                 status: 404
+            });
+        }
+    }),
+
+    // 인증 코드 인증
+    http.post(apiURL + '/auth/verify-code', async ({ request }) => {
+        const data = await request.json();
+        const { verificationCode } = data;
+        const validCode = mockFindUser.verificationCodes.find(code => code.verificationCode === verificationCode);
+        if (validCode) {
+            return HttpResponse.json({
+                message: '인증 성공',
+                access_token: 'fake-jwt-token'
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '인증코드가 유효하지 않습니다.'
+            }, {
+                status: 400
+            });
+        }
+    }),
+
+    // 비밀번호 재설정
+    http.post(apiURL + '/auth/change-password', async ({ request }) => {
+        const data = await request.json();
+        const { newPassword, access_token } = data;
+
+        const isValidToken = true;
+        if (isValidToken) {
+            return HttpResponse.json({
+                message: '비밀번호가 성공적으로 변경되었습니다.'
+            }, {
+                status: 200
+            });
+        } else {
+            return HttpResponse.json({
+                message: '토큰이 유효하지 않습니다.'
+            }, {
+                status: 400
             });
         }
     }),

@@ -9,12 +9,17 @@
       "username": "이순신",
       "email": "leesoonshin@naver.com",
       "userId": "admin"
+    },
+    {
+      "username": "테스트",
+      "email": "test@naver.com",
+      "userId": "test"
     }
   ],
 
   "verificationCodes" : [
     {
-      "verificationCode" : "abc123"
+      "verificationCode" : "123456"
     }
   ]
 }

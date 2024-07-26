@@ -1,15 +1,17 @@
-.user-find{
+.user-find {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 
-    .form{
+    .form {
         display: grid;
         margin: 0 auto;
         width: 669px;
-        flex-shrink: 0;
+        flex-grow: 1;
+        margin-bottom: 270px;
     }
 
-    .title{
+    .title {
         display: flex;
         height: 81px;
         color: #000;
@@ -19,4 +21,3 @@
         margin-top: 85px;
     }
 }
-

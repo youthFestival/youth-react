@@ -75,7 +75,6 @@ const PrivacyPolicy = () => {
         <RegisterBtn
           registerBtnText="다음단계"
           registerNavLink="/register/registerform"
-          
         />
       </div>
     </div>

@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { ArtistPick } from '../index.js';
-import '../styles/edit-artist.scss';
 import axios from 'axios';
+import classNames from 'classnames';
+
+import '../styles/edit-artist.scss';
 
 /**
  * 내 아티스트 수정 리스트 컴포넌트 
@@ -30,7 +32,6 @@ const EditArtist = () => {
             console.log(`API URL: ${apiUrl}`);
             const response = await axios.get(`${apiUrl}/artist`);
             console.log(response.data);
-            console.log('안녕하세요');
             const { Artists = [] } = response.data;
             setTotalArtists(Artists.length);
             return Artists;
@@ -53,7 +54,10 @@ const EditArtist = () => {
 
     const handleEditToggle = () => {
         if (isEditMode && selectedArtist) {
-            if (!savedArtists.some(artist => artist.artistName === selectedArtist.artistName)) {
+            const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
+            if (isAlreadySaved) {
+                setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
+            } else {
                 setSavedArtists([...savedArtists, selectedArtist]);
             }
             setSelectedArtist(null);
@@ -90,19 +94,24 @@ const EditArtist = () => {
                 </div>
             </div> 
 
-            <button className='edit-button' onClick={handleEditToggle}>
-                    {isEditMode ? '저장' : '수정'}
-            </button>
-
-             <div className='saved-artists'>
+            <div className='saved-artists'>
                 {savedArtists.map((artist, index) => (
                     <div key={index} className='saved-artist'>
                         <img src={artist.artistSrc} />
                     </div>
                 ))}
             </div>
+            
+            <button 
+                className={classNames('edit-button', {
+                    'edit-mode': isEditMode,
+                    'save-mode': !isEditMode
+                })} 
+                onClick={handleEditToggle}
+            >
+                {isEditMode ? '저장' : '수정'}
+            </button>
 
-         
             <div className='artist-container'>
                 {artistList?.map((artist, index) => (
                     <ArtistPick
@@ -125,16 +134,10 @@ const EditArtist = () => {
                     다음
                 </button>
             </div>
-
-
-            
-           
-           
-            
-            
         </div>
     );
 };
 
 export default EditArtist;
+
 

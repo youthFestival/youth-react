@@ -8,6 +8,8 @@ import {
   AddressSearchBtn,
 } from "../component";
 
+import RegisterFindUserFooter from "../../../components/footer/RegisterFindUserFooter";
+
 /**
  * 회원가입 정보 입력 폼 코드
  * @returns
@@ -142,6 +144,8 @@ const RegisterForm = () => {
 
         <RegisterBtn registerBtnText="가입완료" />
       </div>
+
+      <RegisterFindUserFooter/>
     </div>
   );
 };

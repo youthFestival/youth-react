@@ -7,17 +7,29 @@ import '../styles/poster-component.scss'
  * @returns 
  */
 
-const PosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate, festivalOnclick }) => {
+const PosterComponent = ({ 
+        posterSrc, 
+        posterAlt, 
+        festivalTitle, 
+        festivalLocation, 
+        festivalDate, 
+        festivalOnclick,  
+        showFavoriteIcon = true }) => {
+
     return (
         <div className='postercomponent'>  
                 <div className='form'>
                     <div className='contents'>
 
-                        <img 
-                            className='favorite'
-                            src='/icons/favorite.png'
-                            alt='찜 하트 아이콘'
-                        />
+                        {showFavoriteIcon && (
+                                <img 
+                                    className='favorite'
+                                    src='/icons/favorite.png'
+                                    alt='찜 하트 아이콘'
+                                />
+                            )
+                        }
+                        
                         <img 
                             className='image'
                             src={posterSrc}

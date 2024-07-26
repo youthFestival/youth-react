@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/user-find.scss';
 import FindAccountHeader from '../component/FindAccountHeader.jsx';
+import RegisterFindUserFooter from '../../../components/footer/RegisterFindUserFooter.jsx';
 import {
     FindTabMenu
 } from '../index.js';
@@ -20,6 +21,8 @@ const UserFind = () => {
                 <FindTabMenu />
 
             </div>
+
+            <RegisterFindUserFooter />
         </div>
     );
 };

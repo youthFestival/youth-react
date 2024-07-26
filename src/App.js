@@ -15,11 +15,12 @@ import {
   RegisterForm,
   List,
   MemberManagement,
-  PrivacyPolicy
+  PrivacyPolicy,
 } from "./pages";
 
 import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
+import ChangePassword from '../src/features/userfind/component/ChangePassword.jsx';
 import { Navigate } from 'react-router-dom';
 import {
   EditProfile,
@@ -27,7 +28,9 @@ import {
   Inquiries,
   InquiriesSave,
   DeleteAccount,
-  InquiriesList
+  InquiriesList,
+  Favorites,
+  QnA
 } from './features/usermanagement/index.js';
 
 // test
@@ -62,23 +65,23 @@ function App() {
           <Route index element={<Navigate to="edit-profile" />} />
           <Route path='edit-profile' element={<EditProfile />} />
           <Route path='edit-artist' element={<EditArtist />} />
-          <Route path='favorites' element={<div>test</div>} />
+          <Route path='favorites' element={<Favorites />} />
           <Route path='inquiries' element={<Inquiries />} />
           <Route path='inquiries-save' element={<InquiriesSave />} />
           <Route path='inquiries-list' element={<InquiriesList />} />
-          <Route path='qna' element={<div>test</div>} />
+          <Route path='qna' element={<QnA/>} />
           <Route path='comments' element={<div>test</div>} />
           <Route path='deletion' element={<DeleteAccount />} />
         </Route>
 
         <Route path="/register" element={<Register />} />
-        <Route path="/register/agreement" element={<PrivacyPolicy
-        />} />
+        <Route path="/register/agreement" element={<PrivacyPolicy />} />
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
         <Route path="/list" element={<List />} />
         <Route path="/ranking" element={<Ranking />} />
+        <Route path="/change-password" element={<ChangePassword />} />
 
         <Route path="/test">
           <Route path="" element={<TempMain />} />

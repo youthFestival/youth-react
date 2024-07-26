@@ -1,18 +1,21 @@
 .id-find {
     width: 670px;
     flex-shrink: 0;
-    // border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     margin-bottom: 1rem;
+    position: relative;
 
     .handler-btn {
         background: none;
         border: none;
+        vertical-align: middle;
     }
 
     .find-radio-image {
         width: 20px;
         height: 20px;
         flex-shrink: 0;
+        vertical-align: middle;
+        cursor: pointer;
     }
 
     .find-radio {
@@ -23,6 +26,8 @@
         cursor: pointer;
         font-weight: bold;
         font-size: 16px;
+        vertical-align: middle;
+        display: inline-block;
     }
 
     .toggle-text {
@@ -43,6 +48,6 @@
     }
 
     .toggle-content.open {
-        max-height: 300px;
+        max-height: 330px;
     }
 }

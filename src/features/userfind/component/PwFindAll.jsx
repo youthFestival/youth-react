@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     FindToggle,
     FindBtn
@@ -12,6 +12,7 @@ const MySwal = withReactContent(Swal);
 
 const PwFindAll = () => {
     const [openToggle, setOpenToggle] = useState(null);
+    const [requestSent, setRequestSent] = useState(false);
 
     const handleToggleClick = (index) => {
         setOpenToggle(openToggle === index ? null : index);
@@ -21,13 +22,9 @@ const PwFindAll = () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.post(`${apiUrl}/auth/reset-password-request`, { userId, email });
-            MySwal.fire({
-                icon: 'success',
-                title: '인증 코드를 발송했습니다.',
-                confirmButtonText: '확인',
-                confirmButtonColor: '#89CFF0',
-            });
+            setRequestSent(true);
         } catch (error) {
+            setRequestSent(false);
             MySwal.fire({
                 icon: 'error',
                 title: '아이디 혹은 이메일이 일치하지 않습니다.',
@@ -37,6 +34,17 @@ const PwFindAll = () => {
         }
     };
 
+    useEffect(() => {
+        if (requestSent) {
+            MySwal.fire({
+                icon: 'success',
+                title: '인증코드를 발송했습니다.',
+                confirmButtonText: '확인',
+                confirmButtonColor: '#89CFF0',
+            });
+        }
+    }, [requestSent]);
+
     return (
         <div>
             <FindToggle
@@ -45,7 +53,7 @@ const PwFindAll = () => {
                 isOpen={openToggle === 0}
                 onClick={() => handleToggleClick(0)}
                 toggleContents={
-                    <PwFindEmailInput onSubmit={handleEmailSubmit} />
+                    <PwFindEmailInput onSubmit={handleEmailSubmit} requestSent={requestSent} />
                 }
                 toggleText='이메일로 발송되는 인증코드를 통해 비밀번호를 재설정할 수 있어요.'
             />

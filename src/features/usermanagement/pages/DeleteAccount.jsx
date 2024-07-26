@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import DeleteAccountModal from '../component/DeleteAccountModal';
 import '../styles/delete-account.scss';
 
@@ -23,14 +24,32 @@ const DeleteAccount = () => {
 
             if (response.ok) {
                 const result = await response.json();
-                alert(result.message);
-                // 로그아웃 처리하고 메인이나 로그인 페이지로 리디렉션 시켜야함
+                Swal.fire({
+                    icon: 'success',
+                    title: '회원 탈퇴 성공',
+                    text: result.message,
+                    confirmButtonColor: '#89CFF0',
+                }).then(() => {
+                    // 로그아웃 처리 추가해야 됨
+                    window.location.href = '/';
+                });
             } else {
                 const errorResult = await response.json();
-                alert(errorResult.message);
+                Swal.fire({
+                    icon: 'error',
+                    title: '회원 탈퇴 실패',
+                    text: errorResult.message,
+                    confirmButtonColor: '#89CFF0',
+                });
             }
         } catch (error) {
             console.error('Error deleting user:', error);
+            Swal.fire({
+                icon: 'error',
+                title: '오류',
+                text: '회원 탈퇴 중 오류가 발생했습니다. 다시 시도해주세요.',
+                confirmButtonColor: '#89CFF0',
+            });
         }
     };
 
