@@ -39,7 +39,7 @@ import {
 import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
 import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
-import AuthHandler from './pages/AuthHandler.jsx'
+import CallBackKakao from './pages/CallBackKakao.jsx'
 
 function App() {
 
@@ -59,7 +59,7 @@ function App() {
           <Chatbot />
         </>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/oauth/kakao" element={<AuthHandler />} />
+        <Route path="/oauth/kakao" element={<CallBackKakao />} />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/mypage" element={<Mypage />} />

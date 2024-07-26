@@ -16,10 +16,9 @@ const NAVER_REST_API_KEY = process.env.REACT_APP_NAVER_REST_API_KEY;
 
 const KAKAO_REDIRECT_URI = 'http://localhost:3000/oauth/kakao';
 const NAVER_REDIRECT_URI = 'http://localhost:3000/oauth/naver';
-const NAVER_STATE = 'flase'
 
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
-const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_REST_API_KEY}&state=${NAVER_STATE}&redirect_uri=${NAVER_REDIRECT_URI}`;
+const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_REST_API_KEY}&redirect_uri=${NAVER_REDIRECT_URI}`;
 
 /**
  * 로그인 페이지 
@@ -45,7 +44,7 @@ const Login = () => {
       console.log(`API URL: ${apiUrl}`)
       const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
       console.log(response.data);
-      dispatch({ type: "LOGIN", payload: response?.data.user });
+      dispatch({ type: "LOGIN", payload: response.data });
       alert(response.data.message);
       navigate('/');
     } catch (err) {
@@ -57,28 +56,8 @@ const Login = () => {
     }
   };
 
-  const openPopup = (url, service) => {
-    const width = 500;
-    const height = 600;
-    const left = (window.innerWidth - width) / 2;
-    const top = (window.innerHeight - height) / 2;
-
-    const popup = window.open(
-      url,
-      'loginPopup',
-      `width=${width},height=${height},top=${top},left=${left}`
-    );
-
-    popup.service = service;
-
-    const timer = setInterval(() => {
-      if (popup.closed) {
-        clearInterval(timer);
-        // 팝업 창이 닫힌 후 추가 작업을 수행합니다.
-        console.log("팝업 창이 닫혔습니다.");
-        // 예: 사용자 정보를 업데이트하거나 상태를 변경합니다.
-      }
-    }, 1000);
+  const handleSocailLogin = (url) => {
+    window.location.href = url;
   };
 
   return (
@@ -140,7 +119,7 @@ const Login = () => {
               logoSrc="./icons/company/kakaologo.png"
               logoAlt="카카오 로그인 아이콘"
               logoClassName="kakaologo"
-              onClick={() => openPopup(KAKAO_AUTH_URL, 'kakao')}
+              onClick={() => handleSocailLogin(KAKAO_AUTH_URL)}
             />
 
             <AuthLogo
@@ -149,7 +128,7 @@ const Login = () => {
               logoSrc="./icons/company/naverlogo.png"
               logoAlt="네이버 로그인 아이콘"
               logoClassName="naverlogo"
-              onClick={() => openPopup(NAVER_AUTH_URL, 'naver')}
+              onClick={() => handleSocailLogin(NAVER_AUTH_URL)}
             />
 
             <AuthLogo
