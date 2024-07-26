@@ -44,7 +44,7 @@ const MydetailFrame = () => {
                 />
 
                 <NavLink
-                    to={'./comments'}
+                    to={'./comment'}
                     children={"내 기대평"}
                     className='navlink'
                 />

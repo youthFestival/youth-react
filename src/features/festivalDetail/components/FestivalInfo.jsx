@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../styles/festival-info.css";
+import FestivalLike from './FestivalLike';
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
-import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
 import { ReactComponent as NextIcon } from '../../../assets/next-icon.svg';
 
 const FestivalInfo = ({ festivalId, onScrollToMap }) => {
@@ -16,8 +16,9 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         const fetchFestival = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}`);
-                setFestival(response.data.info);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}`);
+                console.log(response.data);
+                setFestival(response.data);
             } catch (error) {
                 setError('축제 정보를 가져오는데 실패했습니다.');
             } finally {
@@ -66,6 +67,16 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         }
     };
 
+    const formatDateTime = (dateTime) => {
+        const date = new Date(dateTime);
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        return date.toLocaleString('ko-KR', options);
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -82,7 +93,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                 </div>
                 <div className='festival-main-info'>
                     <div className='festival-meta'>
-                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{festival.startDate} ~ {festival.endDate}</p>
+                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{formatDateTime(festival.startDate)} ~ {formatDateTime(festival.endDate)}</p>
                         <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival.showTime}분</p>
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
@@ -102,7 +113,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <ShareIcon className='icon' id='share-icon' />
                     </button>
                     <span className='festival-likes'>
-                        <LikeIcon className='icon' id='like-icon' /> 2
+                        <FestivalLike festivalId={festivalId}/>
                     </span>
                 </div>
             </div>

@@ -15,7 +15,8 @@ const ArtistInfo = ({ festivalId }) => {
         const fetchLineUp = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}/line-ups`);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}/line-up`);
+                console.log(response.data);
                 setLineUp(response.data.lineUp);
             } catch (error) {
                 console.error('Failed to fetch lineup', error);

@@ -3,6 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/qna.scss'
 
+/**
+ * 내 QnA
+ * @param {*} festivalId 
+ * @returns 
+ */
 const QnA = (festivalId) => {
 
     const [qnaList, setQnAList] = useState([]);
@@ -30,11 +35,11 @@ const QnA = (festivalId) => {
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/inquiries2/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/qna/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
             console.log(response.data);
             setQnAList(response.data.qnaList || []);
         } catch (error) {
-            setError('QnA 정보를 가져오는데 실패했습니다.');
+            setError('내 QnA 정보를 가져오는데 실패했습니다.');
         } finally {
             setLoading(false);
         }
@@ -45,7 +50,7 @@ const QnA = (festivalId) => {
     }, [festivalId, currentPage, fetchQna]);
 
     const goWriteHandler = () => {
-        navigate('/mydetail/qna');
+        navigate('/mydetail/edit-qna');
     }
 
     const handlePageChange = (page) => {
@@ -58,51 +63,62 @@ const QnA = (festivalId) => {
             <div className='qna-container'>
                 <table className="qna-table">
                     <thead className="qna-table-head">
+                        
                         <tr>
                             <th className="qna-table-header">축제 이름</th>
                             <th className='qna-table-header'>제목</th>
                             <th className="qna-table-header">내용</th>
-                            <th className="qna-table-header">문의 날짜</th>
+                            <th className="qna-table-header">작성 날짜</th>
                             <th className="qna-table-header">상태</th>
+                            <th className="qna-table-header">수정</th>
+                            <th className="qna-table-header">삭제</th>
                         </tr>
                     </thead>
                     <tbody className="qna-table-body">
                         {qnaList.slice(currentPage * qnaPerPage, (currentPage + 1) * qnaPerPage).map((qna) => (
-                            <React.Fragment key={qna.id}>
-                                <tr>
-                                    <td className="qna-table-cell">{qna.festivalName}</td>
-                                    <td className="qna-table-cell">{qna.title}</td>
-                                    <td className="qna-table-cell">{qna.content}</td>
-                                    <td className="qna-table-cell">{formatDate(qna.create)}</td>
-                                    <td className="qna-table-cell">{qna.status}</td>
-                                </tr>
-                            </React.Fragment>
+                                    <tr key={qna.id}>
+                                        <td className="qna-table-cell">{qna.festivalName}</td>
+                                        <td className="qna-table-cell">{qna.title}</td>
+                                        <td className="qna-table-cell">{qna.content}</td>
+                                        <td className="qna-table-cell">{formatDate(qna.create)}</td>
+                                        <td className="qna-table-cell">{qna.status}</td> 
+                                    
+                                        <td className="qna-table-cell">
+                                            <button className='edit-button' onClick={goWriteHandler}>수정</button>
+                                        </td>
+
+                                        <td className="qna-table-cell">
+                                            <button className='delete-button' onClick={goWriteHandler}>삭제</button>
+                                        </td>
+                                    </tr>
                         ))}
                     </tbody>
                 </table>
-                <div className="pagination">
-                    {currentPage > 0 && (
-                        <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage - 1)}>
-                            keyboard_arrow_left
-                        </span>
-                    )}
-                    {getVisiblePageNumbers().map(pageNumber => (
-                        <button
-                            key={pageNumber}
-                            className="pagination-button"
-                            onClick={() => handlePageChange(pageNumber)}
-                            disabled={pageNumber === currentPage}
-                        >
-                            {pageNumber + 1}
-                        </button>
-                    ))}
-                    {currentPage < totalPages - 1 && (
-                        <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage + 1)}>
-                            keyboard_arrow_right
-                        </span>
-                    )}
-                </div>
+               
 
+            </div> 
+            
+            <div className="pagination">
+                {currentPage > 0 && (
+                    <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage - 1)}>
+                        keyboard_arrow_left
+                    </span>
+                )}
+                {getVisiblePageNumbers().map(pageNumber => (
+                    <button
+                        key={pageNumber}
+                        className="pagination-button"
+                        onClick={() => handlePageChange(pageNumber)}
+                        disabled={pageNumber === currentPage}
+                    >
+                        {pageNumber + 1}
+                    </button>
+                ))}
+                {currentPage < totalPages - 1 && (
+                    <span className='pagination-button-move material-symbols-outlined' onClick={() => handlePageChange(currentPage + 1)}>
+                        keyboard_arrow_right
+                    </span>
+                )}
             </div>
 
         </div>

@@ -26,13 +26,20 @@
             cursor: pointer;
             font-size: 14px;
         }
-    }
+        right: 0;
+}
 
     .inq-table {
         width: 100%;
         max-width: 900px;
         border-collapse: collapse;
         color: #1A1A1A;
+.inq-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    color: #1A1A1A;
+}
 
         .inq-table-head {
 

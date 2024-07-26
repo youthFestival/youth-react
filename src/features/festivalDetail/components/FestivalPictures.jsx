@@ -14,8 +14,9 @@ const FestivalPictures = ({ festivalId }) => {
         const fetchPictures = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}/pictures`);
-                setPictures(response.data.pictures);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}/pictures`);
+                setPictures(response.data.posterImage);
+                console.log(response.data.posterImage);
             } catch (error) {
                 setError('사진 정보를 가져오는데 실패했습니다.');
             } finally {
@@ -58,7 +59,7 @@ const FestivalPictures = ({ festivalId }) => {
                 </button>
                 <div className="pictures-list">
                     {currentPictures.map((picture, index) => (
-                        <img key={index} src={picture.picture} alt={`Festival ${currentIndex + index + 1}`} className="festival-picture" />
+                        <img key={index} src={picture} alt={`Festival ${currentIndex + index + 1}`} className="festival-picture" />
                     ))}
                 </div>
                 <button 

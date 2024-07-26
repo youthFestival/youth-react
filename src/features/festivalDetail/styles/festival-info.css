@@ -124,7 +124,7 @@
     margin-right: 51px;
 }
 
-.festival-likes {
+.festival-likes-container {
     display: flex;
     justify-items: center;
     align-items: center;
