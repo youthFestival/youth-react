@@ -45,7 +45,7 @@ const Login = () => {
       console.log(`API URL: ${apiUrl}`)
       const response = await axios.post(`${apiUrl}/auth/login`, credentials, { withCredentials: true });
       console.log(response.data);
-      dispatch({ type: "LOGIN", payload: response.data });
+      dispatch({ type: "LOGIN", payload: response?.data.user });
       alert(response.data.message);
       navigate('/');
     } catch (err) {
@@ -62,15 +62,15 @@ const Login = () => {
     const height = 600;
     const left = (window.innerWidth - width) / 2;
     const top = (window.innerHeight - height) / 2;
-  
+
     const popup = window.open(
       url,
       'loginPopup',
       `width=${width},height=${height},top=${top},left=${left}`
     );
-    
+
     popup.service = service;
-  
+
     const timer = setInterval(() => {
       if (popup.closed) {
         clearInterval(timer);

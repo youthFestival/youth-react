@@ -14,6 +14,7 @@ const Header = () => {
     const eventRef = useRef(null);
     const navigate = useNavigate();
 
+
     const handleLogoutClick = async (e) => {
         e.preventDefault();
         try {
@@ -56,7 +57,7 @@ const Header = () => {
     };
 
     const handleClickOutSide = (e) => {
-        if (eventRef.current && !eventRef.current.contains(e.target)){
+        if (eventRef.current && !eventRef.current.contains(e.target)) {
             setIsExpanded(false);
         }
     }
@@ -90,7 +91,7 @@ const Header = () => {
                     <GoBell className="event-bell" onClick={() => setIsExpanded(!isExpanded)} />
                     {isExpanded && <TopTalkArea />}
                 </div>}
-                {user && user.isAdmin && <button className="console-button" onClick={handleConsoleClick}>Console</button>}
+                {user?.isAdmin === "admin" && <button className="console-button" onClick={handleConsoleClick}>콘솔</button>}
                 {user ?
                     (<div className="navButton-container">
                         <button className="navButton" onClick={handleLogoutClick}>로그아웃</button>
