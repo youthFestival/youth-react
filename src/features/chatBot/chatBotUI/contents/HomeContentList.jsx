@@ -12,8 +12,9 @@ const HomeContentList = ({searchQuery}) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(apiURL + '/faqs');
-                const data = response.data.data;
+                const response = await axios.get(apiURL + '/faq');
+                const data = response.data;
+                console.log(data);
                 setItems(data);
             } catch (error) {
                 console.error('Error fetching data:', error);

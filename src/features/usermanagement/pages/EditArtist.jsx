@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { IoIosSearch } from "react-icons/io";
 import { ArtistPick } from '../index.js';
 import axios from 'axios';
@@ -13,7 +12,6 @@ import '../styles/edit-artist.scss';
  */
 const EditArtist = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const navigate = useNavigate();
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedArtist, setSelectedArtist] = useState(null);
     const [artistList, setArtistList] = useState([]);
@@ -21,12 +19,9 @@ const EditArtist = () => {
     const [totalArtists, setTotalArtists] = useState(0);
     const [savedArtists, setSavedArtists] = useState([]);
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        navigate(`/artist?${searchTerm}`);
-    };
+   
 
-    const artistGetHandler = async () => {
+    const artistGetHandler = async (searchTerm = '') => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(`API URL: ${apiUrl}`);
@@ -39,6 +34,12 @@ const EditArtist = () => {
             console.log(err);
             return [];
         }
+    }; 
+    
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        const data = await artistGetHandler(searchTerm);
+        setArtistList(data);
     };
 
     useEffect(() => {

@@ -6,7 +6,7 @@ import axios from 'axios';
 export const fetchFestivalCalendar = async (year, month) => {
     try {
         const apiUrl = process.env.REACT_APP_API_URL;
-        const response = await axios.get(apiUrl + "/calendar-festivals", {
+        const response = await axios.get(apiUrl + "/festival/calender", {
             params: { year, month }
         });
         const data = response.data;

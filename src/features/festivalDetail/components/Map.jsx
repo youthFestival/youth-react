@@ -12,8 +12,8 @@ const Map = ({ festivalId }) => {
     const fetchLocation = async () => {
       try {
         const apiUrl = process.env.REACT_APP_API_URL;
-        const response = await axios.get(`${apiUrl}/festivals/${festivalId}/location`);
-        const { latitude, longitude } = response.data;
+        const response = await axios.get(`${apiUrl}/festival/${festivalId}`);
+        const { latitude, longitude } = response.data?.geoLocation;
         console.log('Fetched location:', latitude, longitude);
         setLocation({ latitude, longitude });
       } catch (error) {

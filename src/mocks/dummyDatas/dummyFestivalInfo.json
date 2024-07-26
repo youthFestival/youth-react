@@ -75,11 +75,14 @@
             "name": "2024 연세대학교 축제"
         }
     ],
-    "festivals": [
+    "geolocation": [
         {
             "id" : 1,
             "latitude": 37.6684,
             "longitude": 126.7459
         }
-    ]
+    ],
+    "userId" : 1,
+    "likeCount" : 5,
+    "liked" : false
 }
