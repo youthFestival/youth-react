@@ -5,19 +5,22 @@ import "../styles/inquiries-detail.scss";
 import useFetch from "../../../hooks/useFetch";
 import { formatDate } from "../../../utils/util";
 import PostEditor from "../components/PostEditor";
+import axios from "axios";
 
 function InquiriesDetail() {
   const { id } = useParams();
   const { data, loading, error } = useFetch(
-    process.env.REACT_APP_API_URL + `/inquiries/${id}`
+    process.env.REACT_APP_API_URL + `/inquiry/detail/${id}`
   );
 
 
   const [isFestivalInquiry, setIsFestivalInquiry] = useState(false);
 
+
   useEffect(() => {
     if (data) {
-      setIsFestivalInquiry(data.userInquiries.category === "페스티벌");
+      setIsFestivalInquiry(data.inquiry.category === "페스티벌");
+      console.log(data);
     }
   }, [data]);
 
@@ -30,33 +33,33 @@ function InquiriesDetail() {
           <ol className="info-card">
             <li>
               <label>문의 접수 번호</label>
-              <span>{data.userInquiries.id}</span>
+              <span>{data?.inquiry.id}</span>
             </li>
             <li>
               <label>문의 유형</label>
-              <span>{data.userInquiries.category}</span>
+              <span>{data?.inquiry.category}</span>
             </li>
             {isFestivalInquiry && (
               <li>
                 <label>페스티벌 이름</label>
-                <span>{data.festivalName}</span>
+                <span>{data?.festivalName}</span>
               </li>
             )}
             <li>
               <label>유저 아이디</label>
-              <span>{data.userInquiries.userAlias}</span>
+              <span>{data?.inquiry.author?.userId}</span>
             </li>
             <li>
               <label>유저 UID</label>
-              <span>{"추가해야함."}</span>
+              <span>{data?.inquiry.author?.id}</span>
             </li>
             <li>
               <label>접수 날짜</label>
-              <span>{formatDate(data.userInquiries.updatedAt)}</span>
+              <span>{formatDate(data?.inquiry.updatedAt)}</span>
             </li>
             <li>
               <label>상태</label>
-              <span>{data.userInquiries.status}</span>
+              <span>{data?.inquiry.status}</span>
             </li>
           </ol>
 
@@ -70,21 +73,24 @@ function InquiriesDetail() {
             <div>{/* <Profile user = {user}/>  */}</div>
 
             <InquiryPost
-              nickname={data.userInquiries.userAlias}
-              date={formatDate(data.userInquiries.updatedAt)}
-              title={data.userInquiries.title}
-              content={data.userInquiries.content}
+              nickname={data?.inquiry.author?.userId}
+              date={formatDate(data?.inquiry.updatedAt)}
+              title={data?.inquiry.title}
+              content={data?.inquiry.content}
             />
 
             <hr></hr>
-            {/* 
-            <InquiryPost
-              nickname={data.replyInquiries.userAlias}
-              date={formatDate(data.replyInquiries.updatedAt)}
-              title={data.replyInquiries.title}
-              content={data.replyInquiries.content}
-            /> */}
-            <PostEditor />
+            {data.inquiry?.reply ? (
+              < InquiryPost
+                nickname={data?.inquiry?.reply.author?.userId}
+                date={formatDate(data?.inquiry?.reply.updatedAt)}
+                title={data?.inquiry?.reply.title}
+                content={data?.inquiry?.reply.content}
+              />)
+              :
+              <PostEditor replyTo={id} festivalId={data.inquiry?.festivalId} />
+
+            }
           </section>
         </main>
       )}

@@ -28,3 +28,14 @@ export function formatDate(dateStr) {
 
     return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
 }
+
+/**
+ * 문자열에서 html 코드를 삭제해주는 함수
+ * ReactQuill 에서 내용에서 <> 태그들을 삭제하기 위함. 
+ * @param {} str 
+ * @returns 삭제가 된 순수한 문자열
+ */
+
+export function removeHtmlTags(str) {
+    return str.replace(/<\/?[^>]+(>|$)/g, "");
+}
