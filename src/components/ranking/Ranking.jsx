@@ -3,199 +3,38 @@ import './ranking.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; 
 import 'swiper/css/navigation'; 
+import axios from 'axios';
 import MainPosterComponent from '../../features/list/component/MainPosterComponent';
 
 const Ranking = () => {
 
+    const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [category, setCategory] = useState('University');
     const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
+    
+    const fetchData = async (category) => {
+        try {
+          const apiUrl = process.env.REACT_APP_API_URL;
+          const response = await axios.get(`${apiUrl}/festival`, { params: { category } });
+          let data = Array.isArray(response.data) ? response.data : [];
+          // viewCount 기준으로 내림차순 정렬 후 상위 10개만 선택
+          data = data.sort((a, b) => b.viewCount - a.viewCount).slice(0, 10);
+          setFestivals(data);
+        } catch (error) {
+          setError('Error fetching data');
+        }
+      };
+    
 
-    // useEffect(() => {
-    //     const data = fetchFestivalData();
-    //     setFestivals(data);
-    //   }, []);
-    
     useEffect(() => {
-      
-        const fetchData = async () => {
-  
-            const data = [
-                      {
-                          posterSrc: 'https://mblogthumb-phinf.pstatic.net/MjAyMzA1MjNfMTQz/MDAxNjg0ODE4NTQ3MTAy.Y2rBx7PVAVF7Wjc68EntiE8ABPdgUCqKTUGTRR0_EWMg.mbPE2BjIJCJ-gV46yeCBP2hqpnb7GoRmBXDZGpkw5kkg.PNG.snumall/image.png?type=w800',
-                          posterAlt: '서울대',
-                          festivalTitle: '서울대학교',
-                          festivalLocation: '서울대학교 관악캠퍼스',
-                          festivalDate: 'Date',
-                          categories: 'University'
-                      },
-                      {
-                          posterSrc: '',
-                          posterAlt: '',
-                          festivalTitle: 'UAll Festival Poster 2',
-                          festivalLocation: 'Location 2',
-                          festivalDate: 'Date 2',
-                          categories: 'University'
-                      },
-                      {
-                          posterSrc: '',
-                          posterAlt: '',
-                          festivalTitle: 'UAll Festival Poster 3',
-                          festivalLocation: 'Location 3',
-                          festivalDate: 'Date 3',
-                          categories: 'University'
-                      },
-                      {
-                          posterSrc: '',
-                          posterAlt: '',
-                          festivalTitle: 'UAll Festival Poster 4',
-                          festivalLocation: 'Location 4',
-                          festivalDate: 'Date 4',
-                          categories: 'University'
-                      },
-                      {
-                          posterSrc: '',
-                          posterAlt: '',
-                          festivalTitle: 'UAll Festival Poster 5',
-                          festivalLocation: 'Location 5',
-                          festivalDate: 'Date 5',
-                          categories: 'University'
-                      },
-                      {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'UAll Festival Poster 6',
-                        festivalLocation: 'Location 6',
-                        festivalDate: 'Date 6',
-                        categories: 'University'
-                    },
-                    {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'UAll Festival Poster 7',
-                        festivalLocation: 'Location 7',
-                        festivalDate: 'Date 7',
-                        categories: 'University'
-                    },
-                    {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'UAll Festival Poster 8',
-                        festivalLocation: 'Location 8',
-                        festivalDate: 'Date 8',
-                        categories: 'University'
-                    },
-                    {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'UAll Festival Poster 9',
-                        festivalLocation: 'Location 9',
-                        festivalDate: 'Date 9',
-                        categories: 'University'
-                    },
-                    {
-                        posterSrc: '',
-                        posterAlt: '',
-                        festivalTitle: 'All Festival Poster 10',
-                        festivalLocation: 'Location 10',
-                        festivalDate: 'Date 10',
-                        categories: 'University'
-                    },
-                    {
-                        posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24009022_p.gif',
-                        posterAlt: '서울숲재즈페스티벌',
-                        festivalTitle: '서울숲재즈페스티벌',
-                        festivalLocation: '서울숲',
-                        festivalDate: '2024.10.12 ~2024.10.13',
-                        categories: 'Festival'
-                    },
-                    {
-                        posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24005722_p.gif',
-                        posterAlt: '2024 인천펜타포트 락 페스티벌',
-                        festivalTitle: '2024 인천펜타포트 락 페스티벌',
-                        festivalLocation: '송도달빛축제공원',
-                        festivalDate: '2024.08.02 ~2024.08.04',
-                        categories: 'Festival'
-                    },
-                    {
-                        posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24010346_p.gif',
-                        posterAlt: '대구 - 2024 THE HYPER DAY (더하이퍼데이)',
-                        festivalTitle: '대구 - 2024 THE HYPER DAY (더하이퍼데이)',
-                        festivalLocation: '대구스타디움 동편광장 일대',
-                        festivalDate: '2024.10.12',
-                        categories: 'Festival'
-                    },
-                    {
-                        posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24009897_p.gif',
-                        posterAlt: '2024 세종 센트럴파크 뮤직페스티벌',
-                        festivalTitle: '2024 세종 센트럴파크 뮤직페스티벌',
-                        festivalLocation: '세종 센트럴파크',
-                        festivalDate: '2024.09.06 ~2024.09.08',
-                        categories: 'Festival'
-                    },
-                    {
-                        posterSrc: 'https://ticketimage.interpark.com/Play/image/large/24/24009195_p.gif',
-                        posterAlt: '2024 전주얼티밋뮤직페스티벌',
-                        festivalTitle: '2024 전주얼티밋뮤직페스티벌',
-                        festivalLocation: '전주종합경기장',
-                        festivalDate: '2024.08.09 ~2024.08.11',
-                        categories: 'Festival'
-                    },
-                    {
-                      posterSrc: '',
-                      posterAlt: '',
-                      festivalTitle: 'All Festival Poster 6',
-                      festivalLocation: 'Location 6',
-                      festivalDate: 'Date 6',
-                      categories: 'Festival'
-                  },
-                  {
-                      posterSrc: '',
-                      posterAlt: '',
-                      festivalTitle: 'All Festival Poster 7',
-                      festivalLocation: 'Location 7',
-                      festivalDate: 'Date 7',
-                      categories: 'Festival'
-                  },
-                  {
-                      posterSrc: '',
-                      posterAlt: '',
-                      festivalTitle: 'All Festival Poster 8',
-                      festivalLocation: 'Location 8',
-                      festivalDate: 'Date 8',
-                      categories: 'Festival'
-                  },
-                  {
-                      posterSrc: '',
-                      posterAlt: '',
-                      festivalTitle: 'All Festival Poster 9',
-                      festivalLocation: 'Location 9',
-                      festivalDate: 'Date 9',
-                      categories: 'Festival'
-                  },
-                  {
-                      posterSrc: '',
-                      posterAlt: '',
-                      festivalTitle: 'All Festival Poster 10',
-                      festivalLocation: 'Location 10',
-                      festivalDate: 'Date 10',
-                      categories: 'Festival'
-                  },
-                  ];
-                  setFestivals(data);
-              };
-  
-              fetchData();
-          }, []);
-    
-      const filteredFestivals = festivals.filter(festival => festival.categories === category);
-    
-    //   const handleNext = () => {
-    //     setCurrentIndex((prevIndex) => (prevIndex + 5) % filteredFestivals.length);
-    //   };
-    
+        fetchData(category);
+    }, [category]);
+
+    const filteredFestivals = festivals.filter(festival => festival.type === category);
+
       const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 5 + filteredFestivals.length) % filteredFestivals.length);
       };

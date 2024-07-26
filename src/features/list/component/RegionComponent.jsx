@@ -6,7 +6,7 @@ import '../styles/region-component.scss'
  * @returns 
  */
 
-const RegionComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate, index }) => {
+const RegionComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate }) => {
     return (
         <div className='postercomponent'>  
                 <div className='form'>
