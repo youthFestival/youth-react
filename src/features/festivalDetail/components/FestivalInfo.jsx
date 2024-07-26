@@ -16,8 +16,9 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         const fetchFestival = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festivals/${festivalId}`);
-                setFestival(response.data.info);
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}`);
+                console.log(response.data);
+                setFestival(response.data);
             } catch (error) {
                 setError('축제 정보를 가져오는데 실패했습니다.');
             } finally {
@@ -66,6 +67,16 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         }
     };
 
+    const formatDateTime = (dateTime) => {
+        const date = new Date(dateTime);
+        const options = {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        };
+        return date.toLocaleString('ko-KR', options);
+    };
+
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
 
@@ -82,7 +93,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                 </div>
                 <div className='festival-main-info'>
                     <div className='festival-meta'>
-                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{festival.startDate} ~ {festival.endDate}</p>
+                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{formatDateTime(festival.startDate)} ~ {formatDateTime(festival.endDate)}</p>
                         <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival.showTime}분</p>
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
