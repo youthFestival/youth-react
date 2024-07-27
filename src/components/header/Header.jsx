@@ -56,7 +56,7 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/results?query=${searchTerm}`);
+    navigate(`/list?query=${searchTerm}`);
   };
 
   const handleClickOutSide = (e) => {
