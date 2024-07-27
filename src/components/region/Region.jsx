@@ -25,22 +25,27 @@ const Region = () => {
     //     fetchData();
     // }, []);
 
-    const fetchData = async (category) => {
-        try {
-          const apiUrl = process.env.REACT_APP_API_URL;
-          const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&&category=${category}`);
-          const festivals = response.data.slice(0,5);
-          setFestivals(festivals);
-        } catch (error) {
-          setError('Error fetching data');
-        }
-    };
     
-    useEffect(() => {
-        fetchData(category);
-    }, [category]);
+    
+    
+        const fetchData = async (category) => {
+            try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&category=${category}`);
+            console.log(user)
+            console.log(response);
+            const festivals = response.data;
+            setFestivals(festivals);
+            console.log(festivals);
+            } catch (error) {
+            setError('Error fetching data');
+            }
+        };
 
-    const filteredFestivals = festivals;
+        useEffect(() => {
+            fetchData(category);
+        }, [category]);
+
 
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
@@ -69,7 +74,7 @@ const Region = () => {
                     </button>
                 </div>
                 <div className="region-content-container">
-                    {filteredFestivals.map((festival) => (
+                    {festivals.map((festival) => (
                         <RegionComponent 
                         key={festival.id}
                         festival={festival}
