@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/side-menu.scss";
 
 const icoPath = "/icons/adminDashboard";
@@ -32,11 +32,14 @@ const menuItems = [
  * @returns
  */
 function SideMenu() {
+
+  const navigate = useNavigate();
+
   return (
     // 사이드바 활성화 및 비활성화 처리
-    <div className={"sidebar"}>
+    <div className={"sidebar"} >
       {/* 로고 영역 */}
-      <div className="nav-header">
+      <div className="nav-header" onClick={(e) => { navigate("/") }} >
         <div className="title">
           <span>Youth</span>
           <span>Admin DashBoard</span>
@@ -49,20 +52,22 @@ function SideMenu() {
       </div>
 
       {/* 메뉴 영역 */}
-      {menuItems.map((item) => (
-        <NavLink
-          replace={true}
-          key={item.path}
-          to={item.path}
-          activeClassName="active"
-          className={"menu-item"}
-        >
-          {/* 메뉴 최소화 시, 아이콘 */}
-          <img src={item.icon} alt={item.label} />
-          <span>{item.label}</span>
-        </NavLink>
-      ))}
-    </div>
+      {
+        menuItems.map((item) => (
+          <NavLink
+            replace={true}
+            key={item.path}
+            to={item.path}
+            activeClassName="active"
+            className={"menu-item"}
+          >
+            {/* 메뉴 최소화 시, 아이콘 */}
+            <img src={item.icon} alt={item.label} />
+            <span>{item.label}</span>
+          </NavLink>
+        ))
+      }
+    </div >
   );
 }
 

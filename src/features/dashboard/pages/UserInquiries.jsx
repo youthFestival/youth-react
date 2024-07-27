@@ -1,7 +1,6 @@
 import useFetch from "../../../hooks/useFetch";
 import { Header } from "../components";
 import "../styles/common.scss";
-import { withParams } from "../../../utils/util";
 import { useNavigate, useParams } from "react-router-dom";
 import PaginationBar from "../components/PaginationBar";
 import TableComponent from "../components/TableComponent";
@@ -12,12 +11,7 @@ function UserInquiries() {
   const DEFAULT_LIMIT = 15;
   const { data, loading, error } = useFetch(
     process.env.REACT_APP_API_URL +
-    "/inquiries" +
-    withParams({
-      limit: DEFAULT_LIMIT,
-      offset: (page - 1) * DEFAULT_LIMIT + 1,
-    })
-  );
+    "/inquiry", { param: { page } });
 
   const headers = [
     { content: "번호", className: "header-number" },
@@ -27,27 +21,32 @@ function UserInquiries() {
     { content: "문의 날짜", className: "header-date" },
     { content: "상태", className: "header-status" }
   ];
-  const rows = data?.inquiries.map((inquiry) => ({
-    onClick: () => navigate("detail/" + inquiry.id),
-    cells: [
-      { content: inquiry.id, className: "" },
-      {
-        content: (
-          <span
-            className={`category ${inquiry.category === "페스티벌" ? "col-festival" : "col-account"
-              }`}
-          >
-            {inquiry.category}
-          </span>
-        ),
-        className: "category",
-      },
-      { content: inquiry.title, className: "title" },
-      { content: inquiry.userAlias, className: "" },
-      { content: inquiry.updatedAt, className: "" },
-      { content: inquiry.status, className: "status" },
-    ],
-  }));
+  const rows = data?.inquiries.map((inquiry) => {
+    const date = new Date(inquiry.updatedAt);
+    const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${date.getHours()}:${date.getMinutes()}`;
+
+    return ({
+      onClick: () => navigate("detail/" + inquiry.id),
+      cells: [
+        { content: inquiry.id, className: "" },
+        {
+          content: (
+            <span
+              className={`category ${inquiry.festivalId != null ? "col-festival" : "col-account"
+                }`}
+            >
+              {inquiry.festivalId === null ? "계정" : "페스티벌"}
+            </span>
+          ),
+          className: "category",
+        },
+        { content: inquiry.title, className: "title" },
+        { content: inquiry.userAlias, className: "" },
+        { content: formattedDate, className: "" },
+        { content: inquiry.reply === null ? "접수중" : "답변완료", className: "status" },
+      ],
+    })
+  });
 
   return (
     <>

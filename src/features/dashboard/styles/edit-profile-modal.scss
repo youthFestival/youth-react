@@ -1,5 +1,8 @@
 .edit-profile-modal {
-    border: 1px solid black;
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    background-color: white;
     max-width: 550px;
     border-radius: 25px;
     gap: 28px;
@@ -8,7 +11,8 @@
     display: flex;
     flex-direction: column;
 
-    .header {
+    .modal-header {
+        padding-top: 10px;
         position: relative;
         display: flex;
         border-bottom: 1px solid #E9E9E9;
@@ -53,4 +57,11 @@
         background-color: black;
     }
 
+    exit {
+        cursor: pointer;
+    }
+}
+
+.user-modal.blur {
+    filter: blur(5px);
 }

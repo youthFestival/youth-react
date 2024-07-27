@@ -31,14 +31,15 @@ import {
   InquiriesList,
   Favorites,
   QnA,
-  Comment
+  Comment,
+  QnAEdit
 } from './features/usermanagement/index.js';
 
 // test
 import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
 import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
-import AuthHandler from './pages/AuthHandler.jsx'
+import CallBackKakao from './pages/CallBackKakao.jsx'
 
 function App() {
 
@@ -58,7 +59,7 @@ function App() {
           <Chatbot />
         </>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/oauth/kakao" element={<AuthHandler />} />
+        <Route path="/oauth/kakao" element={<CallBackKakao />} />
         <Route path="/calendar" element={<Calendar />} />
 
         <Route path="/mypage" element={<Mypage />} />
@@ -71,6 +72,7 @@ function App() {
           <Route path='inquiries-save' element={<InquiriesSave />} />
           <Route path='inquiries-list' element={<InquiriesList />} />
           <Route path='qna' element={<QnA/>} />
+          <Route path='edit-qna' element={<QnAEdit/>} />
           <Route path='comment' element={<Comment/>} />
           <Route path='deletion' element={<DeleteAccount />} />
         </Route>

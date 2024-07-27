@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../styles/festival-poster-picture.css";
 import leftArrow from '../icons/artist-left-arrow.svg';
 import rightArrow from '../icons/artist-right-arrow.svg';
+import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalPictures = ({ festivalId }) => {
     const [pictures, setPictures] = useState([]);
@@ -39,7 +40,7 @@ const FestivalPictures = ({ festivalId }) => {
         }
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner/>;
     if (error) return <p>{error}</p>;
 
     const currentPictures = pictures.slice(currentIndex, currentIndex + 3);

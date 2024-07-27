@@ -19,9 +19,8 @@ function PaginationBar({ numOfCurrentData, limit = 15 }) {
   return (
     <ol className="pagination">
       <span
-        class={`ico material-symbols-outlined ${
-          hasPreviousPage ? "" : "disable"
-        }`}
+        class={`ico material-symbols-outlined ${hasPreviousPage ? "" : "disable"
+          }`}
         onClick={(e) => {
           setPage(page - 1);
         }}

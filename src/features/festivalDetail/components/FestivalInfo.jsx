@@ -3,6 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import "../styles/festival-info.css";
 import FestivalLike from './FestivalLike';
+import Spinner from '../../../components/spinner/Spinner';
 import { ReactComponent as HomepageIcon } from '../../../assets/festival-homepage.svg';
 import { ReactComponent as ShareIcon } from '../../../assets/festival-share.svg';
 import { ReactComponent as NextIcon } from '../../../assets/next-icon.svg';
@@ -29,12 +30,25 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         fetchFestival();
     }, [festivalId]);
 
-    const calculateDDay = (startDate) => {
+    const calculateDDay = (startDate, endDate) => {
         const today = new Date();
         const start = new Date(startDate);
-        const timeDiff = start - today;
-        const dayDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        return dayDiff;
+        const end = new Date(endDate);
+        today.setHours(0, 0, 0, 0);
+        start.setHours(0, 0, 0, 0);
+        end.setHours(0, 0, 0, 0);
+
+        if (today > end) {
+            return "종료";
+        } else if (today >= start && today <= end) {
+            return "진행 중";
+        } else if (today.toDateString() === start.toDateString()) {
+            return "D-Day";
+        } else {
+            const timeDiff = start - today;
+            const dayDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            return `D-${dayDiff}`;
+        }
     };
 
     const formatMinAge = (minAge) => {
@@ -77,7 +91,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
         return date.toLocaleString('ko-KR', options);
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Spinner />;
     if (error) return <p>{error}</p>;
 
     return (
@@ -87,7 +101,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
             </div>
             <div className='festival-details'>
                 <div className='festival-header'>
-                    <span className='d-day'>D-{calculateDDay(festival.startDate)}</span>
+                    <span className='d-day'>{calculateDDay(festival.startDate, festival.endDate)}</span>
                     <h1 className='festival-name'>{festival.festivalName}</h1>
                     <p className='festival-description'>{festival.description}</p>
                 </div>
@@ -98,7 +112,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
                     <div className='festival-additional-info'>
-                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival.organizer}</span><NextIcon onClick={onScrollToMap} className="scroll-to-map-icon" /></p>
+                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival?.geoLocation.name}</span><NextIcon onClick={onScrollToMap} className="scroll-to-map-icon" /></p>
                         <p className='festival-min-age'><span className='festival-info-text'>관람등급</span>{formatMinAge(festival.minAge)}</p>
                         <p className='festival-tel'><span className='festival-info-text'>전화번호</span>{festival.tel}</p>
                     </div>
@@ -113,7 +127,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                         <ShareIcon className='icon' id='share-icon' />
                     </button>
                     <span className='festival-likes'>
-                        <FestivalLike festivalId={festivalId}/>
+                        <FestivalLike festivalId={festivalId} />
                     </span>
                 </div>
             </div>

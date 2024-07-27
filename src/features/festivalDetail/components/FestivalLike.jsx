@@ -1,39 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
+import Swal from 'sweetalert2';
 
 const FestivalLike = ({ festivalId }) => {
-    const [likeCount, setLikeCount] = useState(0);
     const [liked, setLiked] = useState(false);
-    const [error, setError] = useState(null);
+    const [likeCount, setLikeCount] = useState(0);
 
     useEffect(() => {
-        const fetchLike = async () => {
+        const fetchLikeStatus = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/festival/${festivalId}/like`);
-                setLikeCount(response.data.likeCount);
+                const response = await axios.get(`${apiUrl}/user/festival/like/status`, {
+                    params: { festivalId },
+                    withCredentials: true,
+                });
                 setLiked(response.data.liked);
+                setLikeCount(response.data.likeCount);
             } catch (error) {
-                setError('축제 찜 갯수를 가져오는데 실패했습니다.');
-            } 
+                console.error('찜 상태를 가져오는데 실패했습니다.', error);
+            }
         };
 
-        fetchLike();
+        fetchLikeStatus();
     }, [festivalId]);
 
     const onClickLikeBtn = async () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const method = liked ? 'DELETE' : 'PUT';
-            const response = await axios({
-                method,
-                url: `${apiUrl}/festival/${festivalId}/like`
-            });
-            setLikeCount(response.data.likeCount);
+            const response = await axios.post(`${apiUrl}/user/festival/like`, { festivalId }, { withCredentials: true });
             setLiked(response.data.liked);
+            setLikeCount(response.data.likeCount);
+
+            Swal.fire({
+                title: response.data.liked ? '찜했습니다!' : '찜 해제했습니다!',
+                icon: 'success',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button',
+                },
+            });
         } catch (error) {
-            setError(liked ? '찜을 취소하는데 실패했습니다.' : '축제를 찜하는데 실패했습니다.');
+            console.error('찜 요청에 실패했습니다.', error);
+            Swal.fire({
+                title: '오류!',
+                text: '찜 요청을 처리하는데 실패했습니다.',
+                icon: 'error',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button',
+                },
+            });
         }
     };
 
@@ -43,10 +60,10 @@ const FestivalLike = ({ festivalId }) => {
                 className='icon' 
                 id='like-icon' 
                 onClick={onClickLikeBtn} 
-                style={{ fill: liked ? 'red' : 'white' }} 
+                fill={liked ? 'red' : 'white'}
+                stroke={liked ? 'red' : 'black'}
             /> 
             {likeCount}
-            {error && <p>{error}</p>}
         </div>
     );
 };
