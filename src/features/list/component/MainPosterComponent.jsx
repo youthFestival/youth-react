@@ -24,7 +24,7 @@ const MainPosterComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLoca
                         <div className='span-container'>
                             <span className='span1'>{festivalTitle}</span>
                             <span className='span2'>{festivalLocation}</span>
-                            <span className='span2'>{festivalStartDate}~{festivalEndDate}</span>
+                            <span className='span2'>{festivalStartDate} ~ {festivalEndDate}</span>
                         </div>
                     </div>
                 </div>

@@ -26,17 +26,26 @@ const TicketOpen = () => {
 
         const fetchData = async (category) => {
         try {
-          const apiUrl = process.env.REACT_APP_API_URL;
-          const response = await axios.get(`${apiUrl}/festival?category=${category}`);
-          console.log(response);
-          // ticketOpen 날짜가 현재와 가장 가까운 순으로 정렬 후 상위 6개만 선택
-          const data = response.data.sort((a, b) => Math.abs(new Date(a.ticketOpen) - new Date()) - Math.abs(new Date(b.ticketOpen) - new Date())).slice(0, 6);
-          setFestivals(data);
+            const apiUrl = process.env.REACT_APP_API_URL;
+            const response = await axios.get(`${apiUrl}/festival?category=${category}`);
+            console.log(response);
+            const data = await response.json();
+    
+            const now = new Date();
+            
+            // 오늘 날짜보다 이후의 데이터 필터링 및 정렬
+            const filteredFestivals = data
+              .filter(festival => new Date(festival.date) > now)
+              .sort((a, b) => new Date(a.date) - new Date(b.date))
+              .slice(0, 6); // 최대 6개의 데이터 선택
+    
+            setFestivals(filteredFestivals);          
+            console.log(data);
         } catch (error) {
-          setError('Error fetching data');
+          setError('티켓 오픈 데이터를 불러올 수 없습니다.');
         }
       };
-
+          
       useEffect(() => {
         fetchData(category);
     }, [category]);
