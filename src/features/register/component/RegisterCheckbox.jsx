@@ -5,20 +5,14 @@ import '../styles/registercheckbox.css'
  * @returns 
  */
 
-function RegisterAgreement ({ agreementText, agreementType }) {
-  
-    const [agreementCheckedBox, setAgreementCheckedBox] = useState(true)
-    
-    const agreementCheckedHandler = () => {
-        setAgreementCheckedBox(!agreementCheckedBox);
-    };
-    
+function RegisterAgreement ({ agreementText, agreementType, checked, onChange }) {
+
     return (    
         <div className='agreement-container'> 
          
             {agreementType === 'checkbox' && (
-                <button onClick={agreementCheckedHandler} className='agreement-checkbox'>
-                  {agreementCheckedBox ? (
+                <button onClick={onChange} className='agreement-checkbox'>
+                  {!checked ? (
                     <img src="/icons/checkbox/register_checkbox_off.png" alt="회원가입 동의 off" className='agreement-checkbox-image' />
 
                   ) : (

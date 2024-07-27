@@ -1,8 +1,35 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "../styles/infoagreement.css";
 import { RegisterBtn, RegisterCheckbox } from "../component";
 
 const PrivacyPolicy = () => {
+  const [allChecked, setAllChecked] = useState(false);
+  const [agreementStates, setAgreementStates] = useState({
+    personalInfoConsent: false,
+    marketing: false,
+  });
+
+  useEffect(() => {
+    const allAgreementChecked = Object.values(agreementStates).every((isChecked) => isChecked);
+    setAllChecked(allAgreementChecked);
+  }, [agreementStates]);
+
+  const handleAllCheckedChange = () => {
+    const newChecked = !allChecked;
+    setAllChecked(newChecked);
+    setAgreementStates({
+      personalInfoConsent: newChecked,
+      marketing: newChecked,
+    });
+  }
+
+  const handleCheckboxChange = (agreementKey) => {
+    setAgreementStates((prevStates) => ({
+      ...prevStates,
+      [agreementKey]: !prevStates[agreementKey],
+    }))
+  }
+
   return (
     <div className="info-agreement-container">
       <div className="agreement-header">
@@ -12,10 +39,14 @@ const PrivacyPolicy = () => {
         <RegisterCheckbox
           agreementType="checkbox"
           agreementText="전체 약관 동의"
+          checked={allChecked}
+          onChange={handleAllCheckedChange}
         />
         <RegisterCheckbox
           agreementType="checkbox"
           agreementText="[필수]개인 정보 수집 동의"
+          checked={agreementStates.personalInfoConsent}
+          onChange={() => handleCheckboxChange("personalInfoConsent")}
         />
         <p className="register-agreement-notice">
           Youth!는 서비스 제공을 위하여 아래와 같이 회원의 개인정보를 수집,
@@ -40,6 +71,8 @@ const PrivacyPolicy = () => {
         <RegisterCheckbox
           agreementType="checkbox"
           agreementText="[선택]마케팅 수신 동의"
+          checked={agreementStates.marketing}
+          onChange={() => handleCheckboxChange("marketing")}
         />
         <p className="register-agreement-notice">
           ㈜Youth! 마케팅 수신 동의 약관
