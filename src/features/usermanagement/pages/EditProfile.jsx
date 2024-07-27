@@ -2,15 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import { AuthInput, AuthBtn } from '../../authentication/index.js';
 import axios from 'axios';
 import '../styles/edit-profile.scss';
-// import { AuthContext } from '../../../contexts/AuthContext.jsx';
+import { AuthContext } from '../../../contexts/AuthContext.jsx';
 
 /**
  * 회원정보 수정 컴포넌트
  * @returns 
  */
 
-const EditProfile = ( {userId}) => {
-    // const { user } = useContext(AuthContext);
+const EditProfile = ({userId}) => {
+    const { user } = useContext(AuthContext); // 로그인한 사용자 정보 가져오기
     const [profile, setProfile] = useState({
         name: '',
         id: '',
@@ -32,7 +32,6 @@ const EditProfile = ( {userId}) => {
     const getProfileHandler = async () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            console.log(`API URL: ${apiUrl}`);
             const response = await axios.get(`${apiUrl}/user`,{
                 userId
             });
@@ -42,10 +41,10 @@ const EditProfile = ( {userId}) => {
             console.log(err);
             return {};
         }
-    }
+    };
 
     useEffect(() => {
-        // if (user) { // Ensure user is available and has an id
+        // if (user && userId) { // 로그인한 사용자 정보가 있는 경우
             const fetchData = async () => {
                 const data = await getProfileHandler();
                 setProfile(data);
@@ -65,7 +64,7 @@ const EditProfile = ( {userId}) => {
     const handleUpdate = async () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            await axios.put(`${apiUrl}/user/${userId}`, profile);
+            await axios.put(`${apiUrl}/user/${user.id}`, profile); // user.id를 URL에 포함
             alert('프로필 정보 수정이 완료되었습니다.');
         } catch (err) {
             console.log(err);
