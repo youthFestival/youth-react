@@ -5,6 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'; 
 import axios from 'axios';
 import MainPosterComponent from '../../features/list/component/MainPosterComponent';
+import { formatDate } from '../../utils/util';
 
 const Ranking = () => {
 
@@ -14,6 +15,7 @@ const Ranking = () => {
     const [category, setCategory] = useState("대학축제");
     const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
+    
     
     const fetchData = async (category) => {
         try {
@@ -76,8 +78,9 @@ const Ranking = () => {
                     className="swiper-container"
                 > 
                     
-                {filteredFestivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
+                {festivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
                     // <PosterComponent key={festival.id} festival={festival} />
+
                     <MainPosterComponent 
                     className="component"
                     key={festival.id}
@@ -86,8 +89,8 @@ const Ranking = () => {
                     posterAlt={festival.posterAlt}
                     festivalTitle={festival.festivalName}
                     festivalLocation={festival.geoLocationName}
-                    festivalStartDate={festival.startDate}
-                    festivalEndDate={festival.endDate}
+                    festivalStartDate={formatDay(festival.startDate)}
+                    festivalEndDate={formatDay(festival.endDate)}
                     index={numbers[(currentNumberIndex + index) % numbers.length]}
                     />
                     ))}
