@@ -29,6 +29,23 @@ export function formatDate(dateStr) {
     return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}`;
 }
 
+
+
+/**
+ * Date를 지정된 형식으로 포맷팅하는 함수
+ * @param {String} dateStr - 포맷팅할 String 객체
+ * @returns {String} date - 포맷팅된 날짜 문자열
+ */
+export function formatDay(dateStr) {
+    const date = new Date(dateStr);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}
+
+
 /**
  * 문자열에서 html 코드를 삭제해주는 함수
  * ReactQuill 에서 내용에서 <> 태그들을 삭제하기 위함. 

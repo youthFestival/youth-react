@@ -82,7 +82,7 @@ function App() {
         <Route path="/register/registerform" element={<RegisterForm />} />
         <Route path="/userfind" element={<UserFind />} />
         <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
-        <Route path="/list" element={<List />} />
+        <Route path="/list/*" element={<List />} />
         <Route path="/ranking" element={<Ranking />} />
         <Route path="/change-password" element={<ChangePassword />} />
 
