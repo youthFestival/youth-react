@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'; 
 import axios from 'axios';
 import MainPosterComponent from '../../features/list/component/MainPosterComponent';
-import { formatDate } from '../../utils/util';
+import { formatDate, formatDay, formatDay1, formatDay2 } from '../../utils/util';
 
 const Ranking = () => {
 
@@ -89,8 +89,8 @@ const Ranking = () => {
                     posterAlt={festival.posterAlt}
                     festivalTitle={festival.festivalName}
                     festivalLocation={festival.geoLocationName}
-                    festivalStartDate={formatDay(festival.startDate)}
-                    festivalEndDate={formatDay(festival.endDate)}
+                    festivalStartDate={formatDay1(festival.startDate)}
+                    festivalEndDate={formatDay2(festival.endDate)}
                     index={numbers[(currentNumberIndex + index) % numbers.length]}
                     />
                     ))}
