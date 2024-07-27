@@ -5,10 +5,10 @@ import '../styles/qna.scss';
 
 /**
  * 내 기대평
- * @param {number} festivalId 
+ * @param {}  
  * @returns {JSX.Element}
  */
-const Comment = ({ festivalId }) => {
+const Comment = ({ }) => {
     const [commentList, setCommentList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -18,11 +18,6 @@ const Comment = ({ festivalId }) => {
     const commentPerPage = 10;
     const maxVisibleButtons = 10;
     const totalPages = Math.ceil(commentList.length / commentPerPage);
-
-    const formatUsername = (username) => {
-        if (!username) return '****';
-        return username.slice(0, -4) + '****';
-    };
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -37,7 +32,7 @@ const Comment = ({ festivalId }) => {
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/comment/${festivalId}?limit=${commentPerPage}&offset=${page * commentPerPage}`);
+            const response = await axios.get(`${apiUrl}/my-comment?limit=${commentPerPage}&offset=${page * commentPerPage}`);
             console.log(response.data);
             setCommentList(response.data.commentList || []);
         } catch (error) {
@@ -45,11 +40,11 @@ const Comment = ({ festivalId }) => {
         } finally {
             setLoading(false);
         }
-    }, [festivalId]);
+    }, [ ]);
 
     useEffect(() => {
         fetchQna(currentPage);
-    }, [festivalId, currentPage, fetchQna]);
+    }, [currentPage, fetchQna]);
 
     const goWriteHandler = () => {
         navigate('/mydetail/edit-comment');
@@ -76,7 +71,6 @@ const Comment = ({ festivalId }) => {
                             <th className="qna-table-header">번호</th>
                             <th className="qna-table-header">축제 이름</th>
                             <th className="qna-table-header">내용</th>
-                            <th className="qna-table-header">작성자</th>
                             <th className="qna-table-header">작성 날짜</th>
                             <th className="qna-table-header">수정</th>
                             <th className="qna-table-header">삭제</th>
@@ -88,7 +82,6 @@ const Comment = ({ festivalId }) => {
                                 <td className="qna-table-cell">{currentPage * commentPerPage + index + 1}</td>
                                 <td className="qna-table-cell">{comment.festivalName}</td>
                                 <td className="qna-table-cell">{comment.content}</td>
-                                <td className="qna-table-cell">{formatUsername(comment.username)}</td>
                                 <td className="qna-table-cell">{formatDate(comment.updatedAt)}</td>
                                 <td className="qna-table-cell">
                                     <button className="edit-button" onClick={goWriteHandler}>수정</button>

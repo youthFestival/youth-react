@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AuthInput, AuthBtn } from '../../authentication/index.js';
+import axios from 'axios';
 import '../styles/edit-profile.scss';
 
 /**
@@ -7,27 +8,82 @@ import '../styles/edit-profile.scss';
  * @returns 
  */
 
-const EditProfile = () => {
+const EditProfile = ({ userId }) => {
+    
+    const[user] = 
+    const [profile, setProfile] = useState({
+        name: '',
+        id: '',
+        email: '',
+        tel: '',
+        gender: '',
+        address: ''
+    });
+
     const fields = [
-        { label: '이름', inputType: 'text', inputClassName: 'name' },
-        { label: '아이디', inputType: 'text', inputClassName: 'id' },
-        { label: '이메일', inputType: 'email', inputClassName: 'email' },
-        { label: '전화번호', inputType: 'tel', inputClassName: 'tel' },
-        { label: '성별', inputType: 'text', inputClassName: 'gender' },
-        { label: '주소', inputType: 'text', inputClassName: 'address' }
+        { label: '이름', inputType: 'text', inputClassName: 'name', key: 'name' },
+        { label: '아이디', inputType: 'text', inputClassName: 'id', key: 'id' },
+        { label: '이메일', inputType: 'email', inputClassName: 'email', key: 'email' },
+        { label: '전화번호', inputType: 'tel', inputClassName: 'tel', key: 'tel' },
+        { label: '성별', inputType: 'text', inputClassName: 'gender', key: 'gender' },
+        { label: '주소', inputType: 'text', inputClassName: 'address', key: 'address' }
     ];
+
+    const editProfileHandler = async () => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            console.log(`API URL: ${apiUrl}`);
+            const response = await axios.get(`${apiUrl}/user`, {
+                params: userId
+            });
+            console.log(response.data);
+            return response.data;
+        } catch (err) {
+            console.log(err);
+            return {};
+        }
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await editProfileHandler();
+            setProfile(data);
+        };
+
+        fetchData();
+    }, [userId]);
+
+    const handleChange = (key, value) => {
+        setProfile({
+            ...profile,
+            [key]: value
+        });
+    };
+
+    const handleUpdate = async () => {
+        try {
+            const apiUrl = process.env.REACT_APP_API_URL;
+            await axios.put(`${apiUrl}/user/${userId}`, profile);
+            alert('프로필 정보 수정이 완료되었습니다.');
+        } catch (err) {
+            console.log(err);
+            alert('프로필 수정에 실패했습니다.');
+        }
+    };
 
     return (
         <div className='edit-profile'>
-            {fields.map((profile, index) => (
-                <div key={index} className='edit'>
-                    <div className={profile.inputClassName}>
-                        <h3>{profile.label}</h3>
+            {fields.map((field) => (
+                <div key={field.key} className='edit'>
+                    <div className={field.inputClassName}>
+                        <h3>{field.label}</h3>
                         <AuthInput 
-                            inputType={profile.inputType}
-                            inputClassName={`${profile.inputClassName}-input`}
-                            placeholder={`Enter your ${profile.label}`}
+                            inputType={field.inputType} 
+                            inputClassName={`${field.inputClassName}-input`}
+                            placeholder={`Enter your ${field.label}`}
                             showAuthIcon={false}
+                            inputValue={profile[field.key]}
+                            onChange={(e) => handleChange(field.key, e.target.value)}
                         />
                     </div>
                 </div>
@@ -36,14 +92,14 @@ const EditProfile = () => {
                 <AuthBtn
                     btnClassName='update'
                     btnText='수정'
+                    btnOnClick={handleUpdate}
                 />
-                
                 <AuthBtn
                     btnClassName='cancel'
                     btnText='취소'
+                    btnOnClick={() => console.log('취소 클릭됨')}
                 />
             </div>
-
         </div>
     );
 };

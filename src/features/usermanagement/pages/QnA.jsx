@@ -8,7 +8,7 @@ import '../styles/qna.scss'
  * @param {*} festivalId 
  * @returns 
  */
-const QnA = (festivalId) => {
+const QnA = (userId) => {
 
     const [qnaList, setQnAList] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ const QnA = (festivalId) => {
     const fetchQna = useCallback(async (page) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/qna/${festivalId}?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
+            const response = await axios.get(`${apiUrl}/inquiry?limit=${qnaPerPage}&offset=${page * qnaPerPage}`);
             console.log(response.data);
             setQnAList(response.data.qnaList || []);
         } catch (error) {
@@ -43,11 +43,11 @@ const QnA = (festivalId) => {
         } finally {
             setLoading(false);
         }
-    }, [festivalId]);
+    }, [userId]);
 
     useEffect(() => {
         fetchQna(currentPage);
-    }, [festivalId, currentPage, fetchQna]);
+    }, [userId, currentPage, fetchQna]);
 
     const goWriteHandler = () => {
         navigate('/mydetail/edit-qna');

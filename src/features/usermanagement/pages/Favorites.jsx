@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import PosterComponent from '../../list/component/PosterComponent';
+import { Link } from 'react-router-dom';
 import '../styles/favorites.scss'
 
 const Favorites = () => {
@@ -49,17 +50,16 @@ const Favorites = () => {
                     <div className='favorites'>
                         {favoriteList.map((favorite, index) => (
                             <div key={index} className='component'>
-                                <PosterComponent
-                                    showFavoriteIcon={false}
-                                    posterSrc={favorite.posterSrc}
-                                    posterAlt={favorite.posterAlt}
-                                    festivalTitle={favorite.festivalTitle}
-                                    festivalLocation={favorite.festivalLocation}
-                                    festivalDate={`${favorite.startDate} - ${favorite.endDate}`}
-                                />
-                                {/* {(today === new Date(festival.startDate).getDate() || (today === new Date(festival.endDate).getDate() && isFirstColumn)) && (
-                                    <Link to={`/festivaldetail/${favorite.id}`} className="favorite-link">{festival.name}</Link>
-                                )} */}
+                                <Link to={`/festival/${favorite.festivalId}`} key={index}>
+                                    <PosterComponent
+                                        showFavoriteIcon={false}
+                                        posterSrc={favorite.posterSrc}
+                                        posterAlt={favorite.posterAlt}
+                                        festivalTitle={favorite.festivalTitle}
+                                        festivalLocation={favorite.festivalLocation}
+                                        festivalDate={`${favorite.startDate} - ${favorite.endDate}`}
+                                    />
+                                </Link>
                             </div>
                         ))}
                     </div>

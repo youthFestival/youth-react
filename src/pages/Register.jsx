@@ -62,7 +62,8 @@ const Register = () => {
                         
                         <a href='!#2' className={'company-navlink'}>
                             <span className='naver-span'>
-                                        네이버로 가입</span>
+                                        네이버로 가입
+                            </span>
                         </a>
                         
                 </div>
