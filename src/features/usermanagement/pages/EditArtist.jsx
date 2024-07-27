@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch } from 'react-icons/io';
 import { ArtistPick } from '../index.js';
 import axios from 'axios';
 import classNames from 'classnames';
-
 import '../styles/edit-artist.scss';
 
 /**
@@ -14,44 +13,57 @@ const EditArtist = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedArtist, setSelectedArtist] = useState(null);
-    const [artistList, setArtistList] = useState([]);
+    const [artistList, setArtistList] = useState([]); 
     const [page, setPage] = useState(1);
     const [totalArtists, setTotalArtists] = useState(0);
     const [savedArtists, setSavedArtists] = useState([]);
-
-   
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const artistGetHandler = async (searchTerm = '') => {
         try {
+            setLoading(true);
+            setError(null);
             const apiUrl = process.env.REACT_APP_API_URL;
-            console.log(`API URL: ${apiUrl}`);
-            const response = await axios.get(`${apiUrl}/artist`);
-            console.log(response.data);
-            const { Artists = [] } = response.data;
-            setTotalArtists(Artists.length);
-            return Artists;
+            const response = await axios.get(`${apiUrl}/artist`, {
+                params: { search: searchTerm }
+            });
+            const { artists = [] } = response.data;
+            setTotalArtists(artists.length);
+            return artists;
         } catch (err) {
             console.log(err);
+            setError('Failed to fetch artists');
             return [];
+        } finally {
+            setLoading(false);
         }
-    }; 
-    
+    };
+
     const handleSearch = async (e) => {
         e.preventDefault();
+        setPage(1);
         const data = await artistGetHandler(searchTerm);
-        setArtistList(data);
+        setArtistList(data.slice(0, 6));
     };
 
     useEffect(() => {
         const fetchData = async () => {
-            const data = await artistGetHandler();
-            const pageSize = 6;
-            const offset = (page - 1) * pageSize;
-            const paginatedData = data.slice(offset, offset + pageSize);
-            setArtistList(paginatedData);
+            setLoading(true);
+            try {
+                const allArtists = await artistGetHandler(searchTerm);
+                const pageSize = 6;
+                const offset = (page - 1) * pageSize;
+                const paginatedData = allArtists.slice(offset, offset + pageSize);
+                setArtistList(paginatedData);
+            } catch (err) {
+                setError('Failed to fetch artists');
+            } finally {
+                setLoading(false);
+            }
         };
         fetchData();
-    }, [page]);
+    }, [page, searchTerm]);
 
     const handleEditToggle = () => {
         if (isEditMode && selectedArtist) {
@@ -73,11 +85,11 @@ const EditArtist = () => {
     };
 
     const handleNextPage = () => {
-        setPage((prevPage) => prevPage + 1);
+        setPage(prevPage => prevPage + 1);
     };
 
     const handlePreviousPage = () => {
-        setPage((prevPage) => Math.max(prevPage - 1, 1));
+        setPage(prevPage => Math.max(prevPage - 1, 1));
     };
 
     return (
@@ -93,39 +105,43 @@ const EditArtist = () => {
                     />
                     <IoIosSearch className="search-button" onClick={handleSearch} />
                 </div>
-            </div> 
+            </div>
 
             <div className='saved-artists'>
                 {savedArtists.map((artist, index) => (
                     <div key={index} className='saved-artist'>
-                        <img src={artist.artistSrc} />
+                        <img src={artist.image.imgUrl} alt={artist.name} />
                     </div>
                 ))}
             </div>
-            
-            <button 
+
+            <button
                 className={classNames('edit-button', {
                     'edit-mode': isEditMode,
                     'save-mode': !isEditMode
-                })} 
+                })}
                 onClick={handleEditToggle}
+                onChange={handleArtistClick}
             >
                 {isEditMode ? '저장' : '수정'}
             </button>
 
+            {loading && <div>Loading...</div>}
+            {error && <div className="error">{error}</div>}
+
             <div className='artist-container'>
-                {artistList?.map((artist, index) => (
+                {Array.isArray(artistList) && artistList.map((artist, index) => (
                     <ArtistPick
                         key={index}
-                        artistSrc={artist.artistSrc}
+                        artistSrc={artist.image.imgUrl}
                         artistAlt={artist.artistAlt}
-                        artistName={artist.artistName}
+                        artistName={artist.name}
                         isSelected={selectedArtist === artist}
                         onClick={() => handleArtistClick(artist)}
                     />
                 ))}
-            </div>   
-            
+            </div>
+
             <div className='pagination'>
                 <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
                     이전
@@ -140,5 +156,3 @@ const EditArtist = () => {
 };
 
 export default EditArtist;
-
-
