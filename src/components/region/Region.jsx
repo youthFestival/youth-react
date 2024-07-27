@@ -34,8 +34,8 @@ const Region = () => {
             const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&category=${category}`);
             console.log(user)
             console.log(response);
-            const festivals = response.data;
-            setFestivals(festivals);
+
+            setFestivals(response.data);
             console.log(festivals);
             } catch (error) {
             setError('Error fetching data');
@@ -45,6 +45,7 @@ const Region = () => {
         useEffect(() => {
             fetchData(category);
         }, [category]);
+
 
 
     const handleCategoryChange = (newCategory) => {
@@ -74,7 +75,7 @@ const Region = () => {
                     </button>
                 </div>
                 <div className="region-content-container">
-                    {festivals.map((festival) => (
+                    {((festival) => (
                         <RegionComponent 
                         key={festival.id}
                         festival={festival}
