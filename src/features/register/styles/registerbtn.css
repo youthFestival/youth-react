@@ -11,7 +11,7 @@
     align-items: center;
     flex-shrink: 0;
     border-radius: 10px;
-    background: #CCCCCC;
+    background: #89CFF0;
     border: none;
     margin-top: 10px;
     color: #FFFFFF;
@@ -23,7 +23,14 @@
     cursor: pointer;
 }
 
-.register-complete-btn:hover{
-    border-radius: 10px;
+.register-complete-btn:not(:disabled):hover{
+    background: #4BAFD9;
+}
+.register-complete-btn:not(:disabled):active {
     background: #0C87C1;
+}
+
+.register-complete-btn:disabled {
+    cursor: default;
+    background: #CCCCCC;
 }

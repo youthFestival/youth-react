@@ -8,10 +8,16 @@ const PrivacyPolicy = () => {
     personalInfoConsent: false,
     marketing: false,
   });
+  const [nextButtonActive, setNextButtonActive] = useState(false);
 
   useEffect(() => {
     const allAgreementChecked = Object.values(agreementStates).every((isChecked) => isChecked);
     setAllChecked(allAgreementChecked);
+  }, [agreementStates]);
+
+  useEffect(() => {
+    const requiredItemsChecked = agreementStates.personalInfoConsent;
+    setNextButtonActive(requiredItemsChecked);
   }, [agreementStates]);
 
   const handleAllCheckedChange = () => {
@@ -108,6 +114,7 @@ const PrivacyPolicy = () => {
         <RegisterBtn
           registerBtnText="다음단계"
           registerNavLink="/register/registerform"
+          disabled={!nextButtonActive}
         />
       </div>
     </div>

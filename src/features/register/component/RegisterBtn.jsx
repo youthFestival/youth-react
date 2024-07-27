@@ -6,13 +6,14 @@ import { NavLink } from 'react-router-dom';
  * @returns 
  */
 
-function RegisterBtn ({registerBtnText, registerOnClick, registerNavLink}) {
+function RegisterBtn ({registerBtnText, registerOnClick, registerNavLink, disabled}) {
     return (
             <div>
                 <NavLink to={registerNavLink} className='register-btn-navlink'>
                     <button 
-                          className='register-complete-btn'
-                          onClick={registerOnClick}                    
+                        disabled={disabled}
+                        className='register-complete-btn'
+                        onClick={registerOnClick}                    
                     >
                         {registerBtnText}
                     </button>
