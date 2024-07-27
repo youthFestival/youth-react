@@ -2,42 +2,34 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import OpenTicket from '../../features/list/component/OpenTicket';
 import './ticketOpen.scss';
+import { formatDay3 } from '../../utils/util';
 
 const TicketOpen = () => {
     
     const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
-
-        // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const apiUrl = process.env.REACT_APP_API_URL;
-    //             const data = await axios.get(`${apiUrl}/festival`);
-    //             setFestivals(data);
-    //             console.log(data);
-    //         } catch (error) {
-    //             setError('Error fetching data:', error);
-    //         } 
-    //     };
-
-    //     fetchData();
-    // }, []);
     
+    // 현재 시간을 반환하는 함수
+    const getCurrentTimestamp = () => new Date().getTime();
+
+    
+
     useEffect(() => {
         const fetchData = async (category) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
 
-            console.log(response);
+            // console.log(response);
 
-            const now = Date.now();
+            console.log(response.data.festivals);
 
-            const filteredFestivals = response.data
-            .filter(festival => festival.ticketOpen > now)
-            .sort((a, b) => a.ticketOpen - b.ticketOpen)
+            const now = new Date(); 
+
+            console.log(now);
+            const filteredFestivals = response.data.festivals.filter(festivals => new Date(festivals.ticketOpen) > now)
+            .sort((a, b) => new Date(a.ticketOpen)  - new Date(b.ticketOpen))
             .slice(0, 6);
-
             console.log(filteredFestivals);
             setFestivals(filteredFestivals);
     
@@ -46,7 +38,7 @@ const TicketOpen = () => {
         }
       };
       fetchData();
-    });
+    },[]);
           
 
     return (
@@ -62,7 +54,7 @@ const TicketOpen = () => {
                     posterSrc={festival.festivalThumnail}
                     posterAlt={festival.posterAlt}
                     festivalTitle={festival.festivalName}
-                    festivalTicketOpen={festival.ticketOpen} />
+                    festivalTicketOpen={formatDay3(festival.ticketOpen)} />
                 ))}
             </div>
         </div>

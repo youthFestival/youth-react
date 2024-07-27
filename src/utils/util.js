@@ -53,6 +53,18 @@ export function formatDay2(dateStr) {
     return `${month}.${day}`;
 }
 
+export function formatDay3(dateStr) {
+    const date = new Date(dateStr);
+    const month = String(date.getMonth() + 1).padStart(2);
+    const day = String(date.getDate()).padStart(2, '0');
+    const week = ['월','화','수','목','금','토','일'];
+    const dayOfWeek = week[date.getDay()];
+    const hours = String(date.getHours() ).padStart(2,'0');
+    const minutes = String(date.getMinutes()).padStart(2,'0');
+
+    return `${month}.${day}(${dayOfWeek}) ${hours}:${minutes}`;
+}
+
 
 /**
  * 문자열에서 html 코드를 삭제해주는 함수

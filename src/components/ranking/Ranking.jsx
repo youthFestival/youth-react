@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation'; 
 import axios from 'axios';
 import MainPosterComponent from '../../features/list/component/MainPosterComponent';
-import { formatDate, formatDay, formatDay1, formatDay2 } from '../../utils/util';
+import { formatDay1, formatDay2 } from '../../utils/util';
 
 const Ranking = () => {
 
