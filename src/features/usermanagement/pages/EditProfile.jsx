@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { AuthInput, AuthBtn } from '../../authentication/index.js';
 import axios from 'axios';
 import '../styles/edit-profile.scss';
+// import { AuthContext } from '../../../contexts/AuthContext.jsx';
 
 /**
  * 회원정보 수정 컴포넌트
  * @returns 
  */
 
-const EditProfile = ({ userId }) => {
-    
-    const[user] = 
+const EditProfile = ( {userId}) => {
+    // const { user } = useContext(AuthContext);
     const [profile, setProfile] = useState({
         name: '',
         id: '',
@@ -29,12 +29,12 @@ const EditProfile = ({ userId }) => {
         { label: '주소', inputType: 'text', inputClassName: 'address', key: 'address' }
     ];
 
-    const editProfileHandler = async () => {
+    const getProfileHandler = async () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
             console.log(`API URL: ${apiUrl}`);
-            const response = await axios.get(`${apiUrl}/user`, {
-                params: userId
+            const response = await axios.get(`${apiUrl}/user`,{
+                userId
             });
             console.log(response.data);
             return response.data;
@@ -45,12 +45,14 @@ const EditProfile = ({ userId }) => {
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await editProfileHandler();
-            setProfile(data);
-        };
+        // if (user) { // Ensure user is available and has an id
+            const fetchData = async () => {
+                const data = await getProfileHandler();
+                setProfile(data);
+            };
 
-        fetchData();
+            fetchData();
+        // }
     }, [userId]);
 
     const handleChange = (key, value) => {
@@ -82,7 +84,7 @@ const EditProfile = ({ userId }) => {
                             inputClassName={`${field.inputClassName}-input`}
                             placeholder={`Enter your ${field.label}`}
                             showAuthIcon={false}
-                            inputValue={profile[field.key]}
+                            value={profile[field.key]}
                             onChange={(e) => handleChange(field.key, e.target.value)}
                         />
                     </div>
