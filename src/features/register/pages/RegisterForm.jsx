@@ -9,16 +9,83 @@ import {
 } from "../component";
 
 import RegisterFindUserFooter from "../../../components/footer/RegisterFindUserFooter";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 /**
  * 회원가입 정보 입력 폼 코드
  * @returns
  */
+//id ,password, name, address, addressDitail, email, tel
+
+const apiURL = process.env.REACT_APP_API_URL;
+
 const RegisterForm = () => {
-  const [address, setAddress] = useState("");
+  const [formData, setFormData] = useState({
+    userId: "",
+    password: "",
+    passwordCheck: "",
+    username: "",
+    address: "",
+    addressDetail: "",
+    email: "",
+    tel: "",
+    gender: "",
+    isAllowEmail: false,
+  });
+  const [availableId, setAvailableId] = useState('');
+  const [duplicateChecked, setDuplicateChecked] = useState(false);
+  const navigate = useNavigate(); 
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormData({...formData, [name]: value,})
+  }
 
   const handleAddressSelect = (selectedAddress) => {
-    setAddress(selectedAddress);
+    setFormData({...formData, address: selectedAddress});
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("회원가입 시작")
+    // TODO: 회원가입 API 호출
+    if(!duplicateChecked || availableId !== formData.userId) {
+      console.log(availableId);
+      console.log(duplicateChecked);
+      alert("아이디 중복 확인을 해주세요.")
+      return;
+    }
+    console.log("통과");
+    console.log(formData);
+    try {
+      await axios.post(`${apiURL}/auth/register`, formData);
+      alert("회원가입 성공");
+      navigate("/")
+    } catch (error) {
+      console.error(error.response.data.message);
+      alert("회원가입 실패");
+    }
+  };
+
+  const handleDupicateCheck = async () => {
+    try {
+      const response = await axios.post(`${apiURL}/auth/duplication-username`, { userId: formData.userId });
+      //console.log(response.status);
+      if(response.status) {
+        setDuplicateChecked(true);
+        setAvailableId(formData.userId);
+        alert("사용 가능한 아이디입니다.")
+      }
+    } catch (error) {
+      if(error.response.status === 409) {
+        console.error(error.response.data.message);
+        alert("이미 사용중인 아이디입니다.");
+        setDuplicateChecked(true);
+      } else {
+        console.error("Error checking username duplication:", error);
+      }
+    }
   };
 
   return (
@@ -34,9 +101,11 @@ const RegisterForm = () => {
             registerInputType="text"
             registerInputPlaceHolder="6~20자 영문, 숫자"
             registerInputClassName="register-id-input"
-            // registerInputOnChange={""}
+            registerInputValue={formData.userId}
+            registerInputOnChange={handleChange}
+            name="userId"
           />
-          <button className="register-check-btn">중복확인</button>
+          <button className="register-check-btn" onClick={handleDupicateCheck}>중복확인</button>
         </div>
 
         <RegisterInput
@@ -44,7 +113,9 @@ const RegisterForm = () => {
           registerInputType="password"
           registerInputPlaceHolder="8~12자 영문, 숫자, 특수문자"
           registerInputClassName="register-pw-input"
-          // registerInputOnChange={""}
+          registerInputValue={formData.password}
+          registerInputOnChange={handleChange}
+          name="password"
         />
 
         <RegisterInput
@@ -52,7 +123,9 @@ const RegisterForm = () => {
           registerInputType="password"
           registerInputPlaceHolder="8~12자 영문, 숫자, 특수문자"
           registerInputClassName="register-pwcheck-input"
-          // registerInputOnChange={""}
+          registerInputValue={formData.passwordCheck}
+          registerInputOnChange={handleChange}
+          name="passwordCheck"
         />
 
         <RegisterGenderBtn />
@@ -62,7 +135,9 @@ const RegisterForm = () => {
           registerInputType="text"
           registerInputPlaceHolder="이름을 입력하세요."
           registerInputClassName="register-name-input"
-          // registerInputOnChange={""}
+          registerInputValue={formData.username}
+          registerInputOnChange={handleChange}
+          name="username"
         />
 
          <div className="input-with-btn">
@@ -71,8 +146,7 @@ const RegisterForm = () => {
               registerInputType="text"
               registerInputPlaceHolder="주소를 입력하세요."
               registerInputClassName="register-address-input"
-              registerInputValue={address}
-              registerInputOnChange={(e) => setAddress(e.target.value)}
+              registerInputValue={formData.address}
             />
             <AddressSearchBtn onAddressSelect={handleAddressSelect} />
           </div>
@@ -82,7 +156,6 @@ const RegisterForm = () => {
             registerInputType="text"
             registerInputPlaceHolder="상세주소를 입력하세요."
             registerInputClassName="register-detail-address"
-            // registerInputOnChange={""}
           />
           
         
@@ -93,23 +166,27 @@ const RegisterForm = () => {
             registerInputType="email"
             registerInputPlaceHolder="이메일을 입력하세요."
             registerInputClassName="register-email-input"
-            // registerInputOnChange={""}
+            registerInputValue={formData.email}
+            registerInputOnChange={handleChange}
+            name="email"
           />
-          <select name="" id="email-dropdown">
+          <select name="" id="email-dropdown" 
+              onChange={(e) =>
+              setFormData({ ...formData, email: `${formData.email.split('@')[0]}@${e.target.value}` })}>
             <option value="직접입력" className="email-option">
               직접입력
             </option>
-            <option value="@naver.com" className="email-option">
-              @naver.com
+            <option value="naver.com" className="email-option">
+              naver.com
             </option>
-            <option value="@hanmail.net" className="email-option">
-              @hanmail.net
+            <option value="hanmail.net" className="email-option">
+              hanmail.net
             </option>
-            <option value="@gmail.com" className="email-option">
-              @gmail.com
+            <option value="gmail.com" className="email-option">
+              gmail.com
             </option>
-            <option value="@nate.com" className="email-option">
-              @nate.com
+            <option value="nate.com" className="email-option">
+              nate.com
             </option>
           </select>
         </div>
@@ -120,7 +197,9 @@ const RegisterForm = () => {
             registerInputType="tel"
             registerInputPlaceHolder="휴대폰 번호를 입력하세요."
             registerInputClassName="register-phone-input"
-            // registerInputOnChange={""}
+            registerInputValue={formData.tel}
+            registerInputOnChange={handleChange}
+            name="tel"
           />
           <button className="register-check-btn">인증번호받기</button>
         </div>
@@ -142,7 +221,7 @@ const RegisterForm = () => {
           가능합니다.
         </span>
 
-        <RegisterBtn registerBtnText="가입완료" />
+        <RegisterBtn registerBtnText="회원가입" registerOnClick={handleSubmit}/>
       </div>
 
       <RegisterFindUserFooter/>

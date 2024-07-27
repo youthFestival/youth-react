@@ -12,6 +12,7 @@ function RegisterInput({
   registerInputClassName,
   registerInputValue,
   registerInputOnChange,
+  name,
 }) {
   const [showRegisterPassword, setShowRegisterPassword] = useState(true);
   const inputLoginRef = useRef(null);
@@ -40,6 +41,7 @@ function RegisterInput({
               placeholder={registerInputPlaceHolder}
               value={registerInputValue}
               onChange={registerInputOnChange}
+              name={name}
             />
             {registerInputType === "password" && (
               <button onClick={showPasswordHandler} className="register-eyebtn">

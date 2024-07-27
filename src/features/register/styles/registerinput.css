@@ -73,3 +73,8 @@
 .register-pw-on-span {
     color: #000000;
 }
+
+.register-pw-off-span,
+.register-pw-on-span:hover {
+    cursor: pointer;
+}
