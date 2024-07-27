@@ -7,6 +7,7 @@ const TicketOpen = () => {
     
     const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
+    const [category, setCategory] = useState("페스티벌");
 
         // useEffect(() => {
     //     const fetchData = async () => {
@@ -23,18 +24,22 @@ const TicketOpen = () => {
     //     fetchData();
     // }, []);
 
-    const fetchData = async (category) => {
+        const fetchData = async (category) => {
         try {
           const apiUrl = process.env.REACT_APP_API_URL;
-          const response = await axios.get(`${apiUrl}/festival`);
-          let data = Array.isArray(response.data) ? response.data : [];
+          const response = await axios.get(`${apiUrl}/festival?category=${category}`);
+          console.log(response);
           // ticketOpen 날짜가 현재와 가장 가까운 순으로 정렬 후 상위 6개만 선택
-          data = data.sort((a, b) => Math.abs(new Date(a.ticketOpen) - new Date()) - Math.abs(new Date(b.ticketOpen) - new Date())).slice(0, 6);
+          const data = response.data.sort((a, b) => Math.abs(new Date(a.ticketOpen) - new Date()) - Math.abs(new Date(b.ticketOpen) - new Date())).slice(0, 6);
           setFestivals(data);
         } catch (error) {
           setError('Error fetching data');
         }
       };
+
+      useEffect(() => {
+        fetchData(category);
+    }, [category]);
 
     return (
         <div className="ticket-open-container">
@@ -46,10 +51,10 @@ const TicketOpen = () => {
                     <OpenTicket 
                     key={festival.id} 
                     festival={festival}
-                    posterSrc={festival.posterSrc}
+                    posterSrc={festival.festivalThumnail}
                     posterAlt={festival.posterAlt}
-                    festivalTitle={festival.festivalTitle}
-                    festivalTicketOpen={festival.festivalTicketOpen} />
+                    festivalTitle={festival.festivalName}
+                    festivalTicketOpen={festival.ticketOpen} />
                 ))}
             </div>
         </div>
