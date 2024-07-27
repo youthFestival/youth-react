@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 import './region.scss';
 import axios from 'axios';
 import RegionComponent from '../../features/list/component/RegionComponent';
 
 const Region = () => {
+    const { user, dispatch } = useContext(AuthContext);
     const [festivals, setFestivals] = useState([]);
     const [error, setError] = useState(null);
-    const [category, setCategory] = useState('University');
+    const [category, setCategory] = useState("대학축제");
     
     // useEffect(() => {
     //     const fetchData = async () => {
@@ -26,8 +28,9 @@ const Region = () => {
     const fetchData = async (category) => {
         try {
           const apiUrl = process.env.REACT_APP_API_URL;
-          const response = await axios.get(`${apiUrl}/festival?locality=user.locality`, { params: { category } });
-          setFestivals(Array.isArray(response.data) ? response.data : []);
+          const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&&category=${category}`);
+          const festivals = response.data.slice(0,5);
+          setFestivals(festivals);
         } catch (error) {
           setError('Error fetching data');
         }
@@ -37,7 +40,7 @@ const Region = () => {
         fetchData(category);
     }, [category]);
 
-    const filteredFestivals = festivals.filter(festival => festival.type === category);
+    const filteredFestivals = festivals;
 
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
@@ -53,14 +56,14 @@ const Region = () => {
                 </div>
                 <div className="region-button-container">
                     <button
-                        onClick={() => handleCategoryChange('University')}
-                        className={`category-button ${category === 'University' ? 'active' : ''}`}
+                        onClick={() => handleCategoryChange('대학축제')}
+                        className={`category-button ${category === '대학축제' ? 'active' : ''}`}
                     >
                         대학축제
                     </button>
                     <button
-                        onClick={() => handleCategoryChange('Festival')}
-                        className={`category-button ${category === 'Festival' ? 'active' : ''}`}
+                        onClick={() => handleCategoryChange('페스티벌')}
+                        className={`category-button ${category === '페스티벌' ? 'active' : ''}`}
                     >
                         페스티벌
                     </button>
@@ -68,14 +71,14 @@ const Region = () => {
                 <div className="region-content-container">
                     {filteredFestivals.map((festival) => (
                         <RegionComponent 
-                        
                         key={festival.id}
                         festival={festival}
-                        posterSrc={festival.posterSrc}
+                        posterSrc={festival.festivalThumnail}
                         posterAlt={festival.posterAlt}
-                        festivalTitle={festival.festivalTitle}
-                        festivalLocation={festival.festivalLocation}
-                        festivalDate={festival.festivalDate}
+                        festivalTitle={festival.festivalName}
+                        festivalLocation={festival.geoLocationName}
+                        festivalStartDate={festival.startDate}
+                        festivalEndDate={festival.endDate}
                         />
                         ))}
                 </div>

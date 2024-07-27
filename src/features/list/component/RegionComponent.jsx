@@ -6,7 +6,7 @@ import '../styles/region-component.scss'
  * @returns 
  */
 
-const RegionComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation, festivalDate }) => {
+const RegionComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation,festivalStartDate, festivalEndDate}) => {
     return (
         <div className='postercomponent'>  
                 <div className='form'>
@@ -20,7 +20,7 @@ const RegionComponent = ({ posterSrc, posterAlt, festivalTitle, festivalLocation
                         <div className='span-container'>
                             <span className='span1'>{festivalTitle}</span>
                             <span className='span2'>{festivalLocation}</span>
-                            <span className='span2'>{festivalDate}</span>
+                            <span className='span2'>{festivalStartDate}~{festivalEndDate}</span>
                         </div>
                     </div>
                 </div>

@@ -11,18 +11,19 @@ const Ranking = () => {
     const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [category, setCategory] = useState('University');
+    const [category, setCategory] = useState("대학축제");
     const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
     
     const fetchData = async (category) => {
         try {
           const apiUrl = process.env.REACT_APP_API_URL;
-          const response = await axios.get(`${apiUrl}/festival`, { params: { category } });
-          let data = Array.isArray(response.data) ? response.data : [];
+          const response = await axios.get(`${apiUrl}/festival?category=${category}`);
+          console.log(response);
+        //   let data = Array.isArray(response.data) ? response.data : [];
           // viewCount 기준으로 내림차순 정렬 후 상위 10개만 선택
-          data = data.sort((a, b) => b.viewCount - a.viewCount).slice(0, 10);
-          setFestivals(data);
+          const festivals = response.data?.festivals.sort((a, b) => b.viewCount - a.viewCount).slice(0, 10);
+          setFestivals(festivals);
         } catch (error) {
           setError('Error fetching data');
         }
@@ -33,7 +34,7 @@ const Ranking = () => {
         fetchData(category);
     }, [category]);
 
-    const filteredFestivals = festivals.filter(festival => festival.type === category);
+    const filteredFestivals = festivals;
 
       const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 5 + filteredFestivals.length) % filteredFestivals.length);
@@ -52,14 +53,14 @@ const Ranking = () => {
             </div>
             <div className="rank-button-container">
                 <button
-                    onClick={() => handleCategoryChange('University')}
-                    className={`category-button ${category === 'University' ? 'active' : ''}`}
+                    onClick={() => handleCategoryChange('대학축제')}
+                    className={`category-button ${category === '대학축제' ? 'active' : ''}`}
                 >
                     대학축제
                 </button>
                 <button
-                    onClick={() => handleCategoryChange('Festival')}
-                    className={`category-button ${category === 'Festival' ? 'active' : ''}`}
+                    onClick={() => handleCategoryChange('페스티벌')}
+                    className={`category-button ${category === '페스티벌' ? 'active' : ''}`}
                 >
                     페스티벌
                 </button>
@@ -78,13 +79,15 @@ const Ranking = () => {
                 {filteredFestivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
                     // <PosterComponent key={festival.id} festival={festival} />
                     <MainPosterComponent 
+                    className="component"
                     key={festival.id}
                     festival={festival}
-                    posterSrc={festival.posterSrc}
+                    posterSrc={festival.festivalThumbnail}
                     posterAlt={festival.posterAlt}
-                    festivalTitle={festival.festivalTitle}
-                    festivalLocation={festival.festivalLocation}
-                    festivalDate={festival.festivalDate}
+                    festivalTitle={festival.festivalName}
+                    festivalLocation={festival.geoLocationName}
+                    festivalStartDate={festival.startDate}
+                    festivalEndDate={festival.endDate}
                     index={numbers[(currentNumberIndex + index) % numbers.length]}
                     />
                     ))}
