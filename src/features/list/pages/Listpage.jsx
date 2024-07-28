@@ -17,6 +17,7 @@ const Listpage = (festivalId) => {
 
   const {user} = useContext(AuthContext);
 
+  console.log(user);
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
@@ -92,7 +93,6 @@ const Listpage = (festivalId) => {
     };
     
     useEffect(() => {
-
         const univEffect = async () => {
                   const festivaldata = await festivalGetHandler();
                   setFestivalList(festivaldata);
@@ -114,14 +114,16 @@ const Listpage = (festivalId) => {
 
     useEffect(() => {
       const fetchLikedThumbnails = async () => {
-          const likedThumnailData = await  userLikedFestivals();
-          setLikedThumbnails(likedThumnailData)
-      }
-
-      if(user) {
-        fetchLikedThumbnails();
-      }
-    }, [user])
+        if (user) {
+          const likedThumnailData = await userLikedFestivals();
+          setLikedThumbnails(likedThumnailData);
+        } else {
+          setLikedThumbnails([]);
+        }
+      };
+  
+      fetchLikedThumbnails();
+    }, [user]);
 
   const isFavorite = (festivalId) => {
     return likedThumbnails.some(festival => festival.id === festivalId);
@@ -232,7 +234,7 @@ const Listpage = (festivalId) => {
                     festivalLocation={list.geoLocationName}
                     startDate={formatDay1(list.startDate)}
                     endDate={formatDay2(list.endDate)}
-                    showFavoriteIcon={list.favorite}
+                    showFavoriteIcon={user ? list.favorite : false}
                   />
                 </Link>
               ))}
