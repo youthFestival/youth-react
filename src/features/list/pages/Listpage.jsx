@@ -16,7 +16,7 @@ import "../styles/listpage.scss";
 const Listpage = (festivalId) => {
 
   const {user} = useContext(AuthContext);
-  
+
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
@@ -123,11 +123,6 @@ const Listpage = (festivalId) => {
   
       fetchLikedThumbnails();
     }, [user]);
-
-  const isFavorite = (festivalId) => {
-    return likedThumbnails.some(festival => festival.id === festivalId);
-  };
-
 
   const handleSelectChange = (event) => {
     const { id, value } = event.target;
