@@ -13,12 +13,12 @@ const menuItems = [
     label: "회원관리 및 조회",
     icon: icoPath + "/ic_members.svg",
   },
-  { path: "./logs", label: "활동 로그", icon: icoPath + "/ic_logs.svg" },
-  {
-    path: "./register-festival",
-    label: "축제 추가",
-    icon: icoPath + "/ic_register_festival.svg",
-  },
+  // {
+  // { path: "./logs", label: "활동 로그", icon: icoPath + "/ic_logs.svg" },
+  //   path: "./register-festival",
+  //   label: "축제 추가",
+  //   icon: icoPath + "/ic_register_festival.svg",
+  // },
   {
     path: "./inquiries",
     label: "고객 문의",
