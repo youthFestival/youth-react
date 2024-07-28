@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TopButton from "../component/TopButton";
 import Dropdown from "../component/Dropdown";
 import axios from 'axios';
@@ -6,16 +6,23 @@ import { Link } from 'react-router-dom';
 import PosterComponent from '../component/PosterComponent';
 import Footer from "../../../components/footer/Footer.jsx";
 import { formatDay1, formatDay2 } from '../../../utils/util';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 import "../styles/listpage.scss";
 
 
-const Listpage = () => {
+
+const Listpage = (festivalId) => {
+
+  const {user} = useContext(AuthContext);
   
+  console.log(user)
+
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
-  const [selectedLocality, setSelectedLocality] = useState("지역전체");
+  const [ selectedLocality, setSelectedLocality ] = useState("지역전체");
+  const [ likedThumbnails, setLikedThumbnails] = useState([]);
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -29,52 +36,39 @@ const Listpage = () => {
 
   const allGetHandler = async () => {
     try {   
-        console.log(`API URL: ${apiUrl}`);
-        const response = await axios.get(`${apiUrl}/festival`);
-        console.log(response.data);
-        const allFestivals = response.data.festivals;
-        return allFestivals
+      console.log(`API URL: ${apiUrl}`);
+      const response = await axios.get(`${apiUrl}/festival`, { withCredentials: true });
+      console.log(response.data);
+      const allFestivals = response.data.festivals;
+      return allFestivals;
     } catch (err) {
+      console.log(err);
+      return [];
+    }
+  };
+  
+    
+    useEffect(() => {
+        const allEffect = async () => {
+          const alldata = await allGetHandler();
+          setAllList(alldata);
+        };
+
+        allEffect();
+    }, []);
+  
+    const univGetHandler = async() => {
+      try {
+        const response = await axios.get(`${apiUrl}/festival?category=대학축제`, { withCredentials: true });
+        const univFestivals = response.data.festivals;
+        return univFestivals;
+      } catch (err) {
         console.log(err);
         return [];
-    }
-  }
-  
-  const univGetHandler = async() => {
-    try{
-          const response = await axios.get(`${apiUrl}/festival?category=대학축제`);
-          const univFestivals = response.data.festivals;
-          return univFestivals;
-      } catch (err){
-          console.log(err);
-          return[];
       }
-  }
-
-  const festivalGetHandler = async() => {
-    try{
-          const response = await axios.get(`${apiUrl}/festival?category=페스티벌`);
-          const festivalFestivals = response.data.festivals;
-          return festivalFestivals;
-      } catch (err){
-          console.log(err);
-          return[];
-      }
-  }
+    };
 
     useEffect(() => {
-      const allEffect = async () => {
-        const alldata = await allGetHandler();
-        setAllList(alldata);
-      };
-
-      allEffect();
-    }, []);
-
-  
-      
-    useEffect(() => {
-
       const univEffect = async () => {
                 const univdata = await univGetHandler();
                 setUnivList(univdata);
@@ -82,15 +76,53 @@ const Listpage = () => {
             univEffect();
     }, []);
 
+    const festivalGetHandler = async() => {
+      try {
+        const response = await axios.get(`${apiUrl}/festival?category=페스티벌`, { withCredentials: true });
+        const festivalFestivals = response.data.festivals;
+        return festivalFestivals;
+      } catch (err) {
+        console.log(err);
+        return [];
+      }
+    };
+    
     useEffect(() => {
 
-      const univEffect = async () => {
-                const festivaldata = await festivalGetHandler();
-                setFestivalList(festivaldata);
-            };
-            univEffect();
+        const univEffect = async () => {
+                  const festivaldata = await festivalGetHandler();
+                  setFestivalList(festivaldata);
+              };
+              univEffect();
     }, []);
-  
+
+    const userLikedFestivals = async () => {
+      try {
+        if (user && user.id) {
+          const response = await axios.get(`${apiUrl}/festival/${festivalId}/like`, { withCredentials: true });
+          return response.data.festivals;
+        }
+      } catch (error) {
+        console.error("좋아요한 페스티벌을 불러오는데 실패했습니다.", error);
+        return [];
+      }
+    };
+
+    useEffect(() => {
+      const fetchLikedThumbnails = async () => {
+          const likedThumnailData = await  userLikedFestivals();
+          setLikedThumbnails(likedThumnailData)
+      }
+
+      if(user) {
+        fetchLikedThumbnails();
+      }
+    }, [user])
+
+  const isFavorite = (festivalId) => {
+    return likedThumbnails.some(festival => festival.id === festivalId);
+  };
+
 
   const handleSelectChange = (event) => {
     const { id, value } = event.target;
@@ -196,6 +228,7 @@ const Listpage = () => {
                     festivalLocation={list.geoLocationName}
                     startDate={formatDay1(list.startDate)}
                     endDate={formatDay2(list.endDate)}
+                    showFavoriteIcon={list.favorite}
                   />
                 </Link>
               ))}
@@ -211,4 +244,3 @@ const Listpage = () => {
 };
 
 export default Listpage;
-

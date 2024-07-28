@@ -68,16 +68,16 @@ const EditArtist = () => {
 
 
     const saveArtistHandle = () => {
-        if (isEditMode && selectedArtist) {
-            const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
-            if (isAlreadySaved) {
-                setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
-            } else {
-                setSavedArtists([...savedArtists,selectedArtist]);
-            }
-            setSelectedArtist(null);
-        }
-        setIsEditMode(!isEditMode);
+        // if (isEditMode && selectedArtist) {
+        //     const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
+        //     if (isAlreadySaved) {
+        //         setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
+        //     } else {
+        //         setSavedArtists([...savedArtists,selectedArtist]);
+        //     }
+        //     setSelectedArtist(null);
+        // }
+        // setIsEditMode(!isEditMode);
     };
 
     const handleArtistClick = (artist) => {
