@@ -9,7 +9,7 @@ import { formatDay1, formatDay2 } from '../../../utils/util';
 
 import "../styles/listpage.scss";
 
-const Listpage = () => {
+const Listpage = (event) => {
   
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
@@ -182,7 +182,7 @@ const Listpage = () => {
 
             <div className="festival-list">
               {menuData[listTab].content?.map((list, index) => (
-                <Link to={`/festivaldetail/${univList.festivalId}`} key={index} className='link'>
+                <Link to={`/festivaldetail/${list.id}`} key={index} className='link'>
                   <PosterComponent
                     posterSrc={list.festivalThumbnail}
                     posterAlt={list.posterAlt}
@@ -206,3 +206,4 @@ const Listpage = () => {
 };
 
 export default Listpage;
+
