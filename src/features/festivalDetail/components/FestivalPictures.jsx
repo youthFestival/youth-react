@@ -16,10 +16,13 @@ const FestivalPictures = ({ festivalId }) => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
                 const response = await axios.get(`${apiUrl}/festival/${festivalId}/pictures`);
-                setPictures(response.data.posterImage);
-                console.log(response.data.posterImage);
+                if (response.data.message === "행사에 이미지가 존재하지 않습니다.") {
+                    setPictures([]);
+                } else {
+                    setPictures(response.data.posterImage);
+                }
             } catch (error) {
-                setError('사진 정보를 가져오는데 실패했습니다.');
+                setError(error.response?.data?.message || '사진 정보를 가져오는데 실패했습니다.');
             } finally {
                 setLoading(false);
             }
@@ -40,8 +43,9 @@ const FestivalPictures = ({ festivalId }) => {
         }
     };
 
-    if (loading) return <Spinner/>;
-    if (error) return <p>{error}</p>;
+    if (loading) return <Spinner />;
+    if (error) return <p className="festival-message">{error}</p>;
+    if (pictures.length === 0) return <p className="festival-message">사진이 없습니다.</p>;
 
     const currentPictures = pictures.slice(currentIndex, currentIndex + 3);
 

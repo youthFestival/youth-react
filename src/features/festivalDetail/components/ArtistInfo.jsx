@@ -17,11 +17,14 @@ const ArtistInfo = ({ festivalId }) => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
                 const response = await axios.get(`${apiUrl}/festival/${festivalId}/line-up`);
-                console.log(response.data);
-                setLineUp(response.data.lineUp);
+
+                if (response.data.message === "해당 축제에 참가하는 아티스트가 존재하지 않습니다.") {
+                    setLineUp([]);
+                } else {
+                    setLineUp(response.data.lineUp);
+                }
             } catch (error) {
-                console.error('Failed to fetch lineup', error);
-                setError('아티스트 정보를 가져오는데 실패했습니다.');
+                setError(error.response?.data?.message || '아티스트 정보를 가져오는데 실패했습니다.');
             } finally {
                 setLoading(false);
             }
@@ -38,10 +41,11 @@ const ArtistInfo = ({ festivalId }) => {
         }
     };
 
-    const currentLineUp = lineUp.slice(startIndex, startIndex + itemsPerPage);
+    const currentLineUp = lineUp ? lineUp.slice(startIndex, startIndex + itemsPerPage) : [];
 
-    if (loading) return <Spinner/>;
-    if (error) return <p>{error}</p>;
+    if (loading) return <Spinner />;
+    if (error) return <p className="festival-message">{error}</p>;
+    if (lineUp.length === 0) return <p className="festival-message">출연진 정보가 없습니다.</p>;
 
     return (
         <div className="artist-info-container">
@@ -50,7 +54,7 @@ const ArtistInfo = ({ festivalId }) => {
             </div>
             <div className="artist-list-wrapper">
                 <button className="carousel-control-prev" onClick={() => scroll('left')}>
-                    <img src={leftArrow} alt="Previous" className='artistInfo-btn-image'/>
+                    <img src={leftArrow} alt="Previous" className='artistInfo-btn-image' />
                 </button>
                 <div className="artist-list">
                     {currentLineUp.map((artist, index) => (
@@ -61,7 +65,7 @@ const ArtistInfo = ({ festivalId }) => {
                     ))}
                 </div>
                 <button className="carousel-control-next" onClick={() => scroll('right')}>
-                    <img src={rightArrow} alt="Next" className='artistInfo-btn-image'/>
+                    <img src={rightArrow} alt="Next" className='artistInfo-btn-image' />
                 </button>
             </div>
         </div>
