@@ -16,7 +16,7 @@ const PosterComponent = ({
   startDate,
   endDate,
   festivalOnclick,
-  showFavoriteIcon = true,
+  showFavoriteIcon = false,
 }) => {
   return (
     <div className="postercomponent">
