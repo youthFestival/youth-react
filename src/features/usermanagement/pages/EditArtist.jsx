@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import { ArtistPick } from '../index.js';
 import axios from 'axios';
 import classNames from 'classnames';
+import { AuthContext } from '../../../contexts/AuthContext.jsx';
 import '../styles/edit-artist.scss';
 
 /**
@@ -10,6 +11,7 @@ import '../styles/edit-artist.scss';
  * @returns 
  */
 const EditArtist = () => {
+
     const [searchTerm, setSearchTerm] = useState('');
     const [isEditMode, setIsEditMode] = useState(false);
     const [selectedArtist, setSelectedArtist] = useState(null);
@@ -20,23 +22,23 @@ const EditArtist = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
+    let {user} = useContext(AuthContext);
+
     const artistGetHandler = async (searchTerm = '') => {
+       
         try {
-            setLoading(true);
             setError(null);
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.get(`${apiUrl}/artist`, {
                 params: { search: searchTerm }
             });
+            console.log(response.data)
             const { artists = [] } = response.data;
             setTotalArtists(artists.length);
             return artists;
         } catch (err) {
             console.log(err);
-            setError('Failed to fetch artists');
             return [];
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -49,29 +51,29 @@ const EditArtist = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            setLoading(true);
             try {
-                const allArtists = await artistGetHandler(searchTerm);
-                const pageSize = 6;
-                const offset = (page - 1) * pageSize;
-                const paginatedData = allArtists.slice(offset, offset + pageSize);
-                setArtistList(paginatedData);
+            setLoading(true);
+            const allArtists = await artistGetHandler(searchTerm);
+            const pageSize = 6;
+            const offset = (page - 1) * pageSize;
+            const paginatedData = allArtists.slice(offset, offset + pageSize);
+            setArtistList(paginatedData);
             } catch (err) {
-                setError('Failed to fetch artists');
-            } finally {
-                setLoading(false);
-            }
-        };
-        fetchData();
-    }, [page, searchTerm]);
+               console.log(err)
+            } 
+        }
+      fetchData();
+    }, [page]);
 
-    const handleEditToggle = () => {
+
+
+    const saveArtistHandle = () => {
         if (isEditMode && selectedArtist) {
             const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
             if (isAlreadySaved) {
                 setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
             } else {
-                setSavedArtists([...savedArtists, selectedArtist]);
+                setSavedArtists([...savedArtists,selectedArtist]);
             }
             setSelectedArtist(null);
         }
@@ -84,11 +86,11 @@ const EditArtist = () => {
         }
     };
 
-    const handleNextPage = () => {
+    const nextPage = () => {
         setPage(prevPage => prevPage + 1);
     };
 
-    const handlePreviousPage = () => {
+    const previousPage = () => {
         setPage(prevPage => Math.max(prevPage - 1, 1));
     };
 
@@ -120,14 +122,11 @@ const EditArtist = () => {
                     'edit-mode': isEditMode,
                     'save-mode': !isEditMode
                 })}
-                onClick={handleEditToggle}
+                onClick={saveArtistHandle}
                 onChange={handleArtistClick}
             >
                 {isEditMode ? '저장' : '수정'}
             </button>
-
-            {loading && <div>Loading...</div>}
-            {error && <div className="error">{error}</div>}
 
             <div className='artist-container'>
                 {Array.isArray(artistList) && artistList.map((artist, index) => (
@@ -143,11 +142,11 @@ const EditArtist = () => {
             </div>
 
             <div className='pagination'>
-                <button className='prev-button' onClick={handlePreviousPage} disabled={page === 1}>
+                <button className='prev-button' onClick={previousPage} disabled={page === 1}>
                     이전
                 </button>
                 <span>{page}</span>
-                <button className='next-button' onClick={handleNextPage} disabled={page * 6 >= totalArtists}>
+                <button className='next-button' onClick={nextPage} disabled={page * 6 >= totalArtists}>
                     다음
                 </button>
             </div>

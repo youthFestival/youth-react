@@ -9,7 +9,7 @@ import { AuthContext } from '../../../contexts/AuthContext.jsx';
  * @returns 
  */
 
-const EditProfile = ({userId}) => {
+const EditProfile = () => {
     const { user } = useContext(AuthContext); // 로그인한 사용자 정보 가져오기
     const [profile, setProfile] = useState({
         name: '',
@@ -32,9 +32,7 @@ const EditProfile = ({userId}) => {
     const getProfileHandler = async () => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/user`,{
-                userId
-            });
+            const response = await axios.get(`${apiUrl}/user/${user.id}`)
             console.log(response.data);
             return response.data;
         } catch (err) {
@@ -52,7 +50,7 @@ const EditProfile = ({userId}) => {
 
             fetchData();
         // }
-    }, [userId]);
+    }, [user]);
 
     const handleChange = (key, value) => {
         setProfile({
