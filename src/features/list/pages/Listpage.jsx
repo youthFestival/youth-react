@@ -9,11 +9,13 @@ import { formatDay1, formatDay2 } from '../../../utils/util';
 
 import "../styles/listpage.scss";
 
-const Listpage = (event) => {
+
+const Listpage = () => {
   
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
+  const [selectedLocality, setSelectedLocality] = useState("지역전체");
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -96,6 +98,9 @@ const Listpage = (event) => {
       ...prevColors,
       [id]: value === "default" ? "#ccc" : "#89CFF0",
     }));
+    if(id === "locality") {
+      setSelectedLocality(value);
+    }
   };
 
 
@@ -115,9 +120,10 @@ const Listpage = (event) => {
   ];
 
   const listTabMenuHandler = (index) => {
-    setListTab(index);
+      setListTab(index);
   };
 
+  const filteredLocality = menuData[listTab].content.filter(geo => selectedLocality === "지역전체" || geo.locationName === selectedLocality);
 
   return (
     <div className="list-page">
@@ -169,7 +175,7 @@ const Listpage = (event) => {
                   <Dropdown
                     id="locality"
                     className="dropdown"
-                    value="지역전체"
+                    value={selectedLocality}
                     menu="menu"
                     item="item"
                     options={["지역전체","서울","경기도","강원도","충청도","경상도","전라도","제주도",]}
@@ -181,7 +187,7 @@ const Listpage = (event) => {
 
 
             <div className="festival-list">
-              {menuData[listTab].content?.map((list, index) => (
+              {(selectedLocality === "지역전체" ? menuData[listTab].content : filteredLocality).map((list, index)  => (
                 <Link to={`/festivaldetail/${list.id}`} key={index} className='link'>
                   <PosterComponent
                     posterSrc={list.festivalThumbnail}
@@ -194,7 +200,6 @@ const Listpage = (event) => {
                 </Link>
               ))}
             </div>
-
 
             <Footer/>
 
