@@ -1,23 +1,23 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/qna.scss';
+import useFetch from '../../../hooks/useFetch';
 
 /**
- * 내 기대평
- * @param {}  
+ * 내 기대평 컴포넌트
  * @returns {JSX.Element}
  */
-const Comment = ({ }) => {
-    const [commentList, setCommentList] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+const Comment = () => {
+    const [inquiries, setInquiries] = useState();
     const [currentPage, setCurrentPage] = useState(0);
+    const [page, setPage] = useState(0);
 
     const navigate = useNavigate();
     const commentPerPage = 10;
     const maxVisibleButtons = 10;
-    const totalPages = Math.ceil(commentList.length / commentPerPage);
+    const totalPages = Math.ceil(inquiries?.length / commentPerPage);
+
+    const { data, loading, error } = useFetch(`${process.env.REACT_APP_API_URL}/my-comment?limit=${commentPerPage}&offset=${page * commentPerPage}`);
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -29,22 +29,15 @@ const Comment = ({ }) => {
         return Array.from({ length: Math.min(maxVisibleButtons, totalPages - startPage) }, (_, index) => startPage + index);
     };
 
-    const fetchQna = useCallback(async (page) => {
-        try {
-            const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/my-comment?limit=${commentPerPage}&offset=${page * commentPerPage}`);
-            console.log(response.data);
-            setCommentList(response.data.commentList || []);
-        } catch (error) {
-            setError('내 기대평 정보를 가져오는데 실패했습니다.');
-        } finally {
-            setLoading(false);
-        }
-    }, [ ]);
+    const fetchComments = useCallback(async (page) => {
+        setInquiries(data?.inquiries);
+        console.log(data?.inquiries);
+    }, [data]);
 
     useEffect(() => {
-        fetchQna(currentPage);
-    }, [currentPage, fetchQna]);
+        fetchComments(currentPage);
+        console.log(currentPage);
+    }, [currentPage, fetchComments]);
 
     const goWriteHandler = () => {
         navigate('/mydetail/edit-comment');
@@ -77,12 +70,12 @@ const Comment = ({ }) => {
                         </tr>
                     </thead>
                     <tbody className="qna-table-body">
-                        {commentList.slice(currentPage * commentPerPage, (currentPage + 1) * commentPerPage).map((comment, index) => (
-                            <tr key={comment.id}>
+                        {inquiries?.slice(currentPage * commentPerPage, (currentPage + 1) * commentPerPage).map((inquiry, index) => (
+                            <tr key={inquiry.id}>
                                 <td className="qna-table-cell">{currentPage * commentPerPage + index + 1}</td>
-                                <td className="qna-table-cell">{comment.festivalName}</td>
-                                <td className="qna-table-cell">{comment.content}</td>
-                                <td className="qna-table-cell">{formatDate(comment.updatedAt)}</td>
+                                <td className="qna-table-cell">{inquiry.festivalName}</td>
+                                <td className="qna-table-cell">{inquiry.content}</td>
+                                <td className="qna-table-cell">{formatDate(inquiry.updatedAt)}</td>
                                 <td className="qna-table-cell">
                                     <button className="edit-button" onClick={goWriteHandler}>수정</button>
                                 </td>
