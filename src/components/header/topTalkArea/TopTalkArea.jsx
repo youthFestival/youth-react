@@ -8,8 +8,9 @@ const apiURL = process.env.REACT_APP_API_URL;
 
 const TopTalkArea = () => {
     const { user } = React.useContext(AuthContext);
-    const userId = user.user.userId;
+    const userId = user?.user?.userId;
     const [events, setEvents] = useState([]);
+    
 
     useEffect(() => {
         const eventData = async () => {
