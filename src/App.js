@@ -22,6 +22,7 @@ import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
 import ChangePassword from '../src/features/userfind/component/ChangePassword.jsx';
 import { Navigate } from 'react-router-dom';
+import ScrollToTop from '../src/services/ScrollToTop.js';
 import {
   EditProfile,
   EditArtist,
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
         <Route path="/admin" element={<AdminDashBoard />}>
           <Route path="dashboard" element={<Dashboard />} />

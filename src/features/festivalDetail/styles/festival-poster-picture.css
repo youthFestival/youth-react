@@ -12,6 +12,10 @@
     object-fit: fill;
 }
 
+.festival-message {
+    text-align: center;
+}
+
 /* FestivalPictures */
 .festival-pictures-container {
     display: flex;

@@ -13,9 +13,13 @@ const FestivalPoster = ({ festivalId }) => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
                 const response = await axios.get(`${apiUrl}/festival/${festivalId}/poster`);
-                setPosterImage(response.data.posterImage);
+                if (response.data.posterImage === "이미지가 없습니다.") {
+                    setPosterImage([]);
+                } else {
+                    setPosterImage(response.data.posterImage);
+                }
             } catch (error) {
-                setError('포스터 정보를 가져오는데 실패했습니다.');
+                setError(error.response?.data?.message || '포스터 정보를 가져오는데 실패했습니다.');
             } finally {
                 setLoading(false);
             }
@@ -24,8 +28,9 @@ const FestivalPoster = ({ festivalId }) => {
         fetchPoster();
     }, [festivalId]);
 
-    if (loading) return <Spinner/>;
-    if (error) return <p>{error}</p>;
+    if (loading) return <Spinner />;
+    if (error) return <p className="festival-message">{error}</p>;
+    if (posterImage.length === 0) return <p className="festival-message">포스터가 없습니다.</p>;
 
     return (
         <div className="festival-poster-container">

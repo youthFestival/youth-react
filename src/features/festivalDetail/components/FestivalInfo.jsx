@@ -18,7 +18,6 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
                 const response = await axios.get(`${apiUrl}/festival/${festivalId}`);
-                console.log(response.data);
                 setFestival(response.data);
             } catch (error) {
                 setError('축제 정보를 가져오는데 실패했습니다.');
@@ -92,7 +91,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
     };
 
     if (loading) return <Spinner />;
-    if (error) return <p>{error}</p>;
+    if (error) return <p className='festival-message'>{error}</p>;
 
     return (
         <div id='festival-info'>
