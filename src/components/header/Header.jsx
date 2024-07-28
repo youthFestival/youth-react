@@ -20,7 +20,6 @@ const Header = () => {
       const apiUrl = process.env.REACT_APP_API_URL;
       const res = await axios.get(
         `${apiUrl}/auth/logout`,
-        {},
         { withCredentials: true }
       );
       alert(res.data.message);

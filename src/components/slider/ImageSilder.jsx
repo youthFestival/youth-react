@@ -10,7 +10,7 @@ import 'swiper/css/thumbs';
 
 import './image-slider.scss';
 
-// import required modules
+// import required modules        'https
 import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 import ColorThief from 'colorthief';
@@ -39,12 +39,11 @@ const ImageSlider = () => {
     // },[])
 
     const images = [
-        'https://swiperjs.com/demos/images/nature-1.jpg',
-        'https://swiperjs.com/demos/images/nature-2.jpg',
-        'https://swiperjs.com/demos/images/nature-3.jpg',
-        'https://swiperjs.com/demos/images/nature-4.jpg',
-        'https://swiperjs.com/demos/images/nature-5.jpg',
-        'https://swiperjs.com/demos/images/nature-6.jpg',
+        //swiperjs.com/demos/images/nature-1.jpg',
+        'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1505842465776-3b4953ca4f44?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+        'https://images.unsplash.com/photo-1501828983797-9d7f14e0263c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         'https://swiperjs.com/demos/images/nature-7.jpg',
         'https://swiperjs.com/demos/images/nature-8.jpg',
         'https://swiperjs.com/demos/images/nature-9.jpg',
@@ -95,20 +94,20 @@ const ImageSlider = () => {
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index}>
-                            <img 
+                            <img
                                 ref={(el) => imageRefs.current[index] = el}
-                                src={image} 
+                                src={image}
                                 alt={`Slide ${index + 1}`}
-                                crossOrigin="anonymous" 
+                                crossOrigin="anonymous"
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 <div className='sub-image'>
                     {images.map((image, index) => (
-                        <img 
-                            key={index} 
-                            src={image} 
+                        <img
+                            key={index}
+                            src={image}
                             alt={`Sub-Slide ${index + 1}`}
                             className={index === activeIndex ? 'active' : 'inactive'}
                             onClick={() => handleThumbClick(index)}

@@ -40,6 +40,7 @@ import EditProfileModal from "./features/dashboard/components/EditProfileModal.j
 import OpenTicket from "./features/list/component/OpenTicket.jsx";
 
 import CallBackKakao from './pages/CallBackKakao.jsx'
+import Dashboard from "./features/dashboard/pages/Dashboard.jsx";
 
 function App() {
 
@@ -47,7 +48,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/admin" element={<AdminDashBoard />}>
-          <Route path="dashboard" element={<div>대시보드</div>} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="members/*" element={<MemberManagement />} />
           <Route path="logs" element={<div>활동 로그</div>} />
           <Route path="register-festival" element={<div>축제 추가</div>} />
@@ -71,9 +72,9 @@ function App() {
           <Route path='inquiries' element={<Inquiries />} />
           <Route path='inquiries-save' element={<InquiriesSave />} />
           <Route path='inquiries-list' element={<InquiriesList />} />
-          <Route path='qna' element={<QnA/>} />
-          <Route path='edit-qna' element={<QnAEdit/>} />
-          <Route path='comment' element={<Comment/>} />
+          <Route path='qna' element={<QnA />} />
+          <Route path='edit-qna' element={<QnAEdit />} />
+          <Route path='comment' element={<Comment />} />
           <Route path='deletion' element={<DeleteAccount />} />
         </Route>
 
@@ -89,8 +90,8 @@ function App() {
         <Route path="/test">
           <Route path="" element={<TempMain />} />
           <Route path="editor" element={<EditProfileModal />} />
-          <Route path="openticket" element={<OpenTicket/>}/>
-  
+          <Route path="openticket" element={<OpenTicket />} />
+
         </Route>
 
       </Routes>
