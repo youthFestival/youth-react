@@ -1,25 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import PosterComponent from '../../list/component/PosterComponent';
 import { Link } from 'react-router-dom';
-import '../styles/favorites.scss'
+import { formatDay1, formatDay2 } from '../../../utils/util';
+import { AuthContext } from '../../../contexts/AuthContext';
 
-const Favorites = () => {
+import '../styles/favorites.scss'
+const Favorites = (festivalId) => {
     const [page, setPage] = useState(1);
     const [totalFavorites, setTotalFavorites] = useState(0);
     const [favoriteList, setFavoriteList] = useState([]);
+    const apiUrl = process.env.REACT_APP_API_URL;
 
+    const { user } = useContext(AuthContext);
+
+    console.log(user)
+    
     const favoriteGetHandler = async() => {
-        try{
-            
-            const apiUrl = process.env.REACT_APP_API_URL;
-            console.log(`API URL: ${apiUrl}`)
-            const response = await axios.get(`${apiUrl}/favorite`);
-            console.log(response.data)
-            return response.data.favorites;
-        } catch(err){
-            console.log(err);
-            return[];
+        try {
+            if (user && user.id) {
+                const response = await axios.get(`${apiUrl}/festival?isFavorite=true`);
+                return response.data.favorites || [];
+            }
+        } catch (err) {
+            console.error(err);
+            return [];
         }
     }
 
@@ -50,14 +55,14 @@ const Favorites = () => {
                     <div className='favorites'>
                         {favoriteList.map((favorite, index) => (
                             <div key={index} className='component'>
-                                <Link to={`/festival/${favorite.festivalId}`} key={index}>
+                                <Link to={`/festivaldetail/${favorite.id}`} key={index}>
                                     <PosterComponent
                                         showFavoriteIcon={false}
-                                        posterSrc={favorite.posterSrc}
-                                        posterAlt={favorite.posterAlt}
-                                        festivalTitle={favorite.festivalTitle}
-                                        festivalLocation={favorite.festivalLocation}
-                                        festivalDate={`${favorite.startDate} - ${favorite.endDate}`}
+                                        posterSrc={favorite.festivalThumbnail}
+                                        posterAlt={favorite.festivalName}
+                                        festivalTitle={favorite.geoLocationName}
+                                        startDate={formatDay1(favorite.startDate)}
+                                        endDate={formatDay2(favorite.endDate)}
                                     />
                                 </Link>
                             </div>

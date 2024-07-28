@@ -16,6 +16,7 @@ const PosterComponent = ({
   startDate,
   endDate,
   festivalOnclick,
+  festivalOnchange,
   showFavoriteIcon = false,
 }) => {
   return (
@@ -32,7 +33,7 @@ const PosterComponent = ({
 
           <img className="image" src={posterSrc} alt={posterAlt} />
 
-          <div className="span-container" onClick={festivalOnclick}>
+          <div className="span-container" onClick={festivalOnclick} onChange={festivalOnchange}>
             <span className="span1">{festivalTitle}</span>
             <span className="span2">{festivalLocation}</span>
             <span className="span2">{`${formatDay1(startDate)} ~ ${formatDay2(

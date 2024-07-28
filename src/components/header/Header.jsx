@@ -13,11 +13,13 @@ const Header = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const eventRef = useRef(null);
   const navigate = useNavigate();
+  
+  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleLogoutClick = async (e) => {
     e.preventDefault();
     try {
-      const apiUrl = process.env.REACT_APP_API_URL;
+      
       const res = await axios.get(
         `${apiUrl}/auth/logout`,
         { withCredentials: true }
@@ -53,9 +55,15 @@ const Header = () => {
     window.location.href = "/admin";
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
-    navigate(`/list?query=${searchTerm}`);
+    try {
+      const response = await axios.get(`${apiUrl}/festival?search=${searchTerm}`);
+      console.log(response.data);
+      navigate(`/list?search=${searchTerm}`);
+    } catch (error) {
+      console.error("Error searching festivals:", error);
+    }
   };
 
   const handleClickOutSide = (e) => {

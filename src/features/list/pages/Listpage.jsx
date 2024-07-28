@@ -7,6 +7,7 @@ import PosterComponent from '../component/PosterComponent';
 import Footer from "../../../components/footer/Footer.jsx";
 import { formatDay1, formatDay2 } from '../../../utils/util';
 import { AuthContext } from '../../../contexts/AuthContext';
+import { useLocation } from 'react-router-dom';
 
 import "../styles/listpage.scss";
 
@@ -15,14 +16,16 @@ import "../styles/listpage.scss";
 const Listpage = (festivalId) => {
 
   const {user} = useContext(AuthContext);
-  
-  console.log(user)
 
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
   const [ selectedLocality, setSelectedLocality ] = useState("지역전체");
   const [ likedThumbnails, setLikedThumbnails] = useState([]);
+
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const searchTerm = query.get("search") || "";
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -34,10 +37,11 @@ const Listpage = (festivalId) => {
     locality: "#ccc",
   });
 
+
   const allGetHandler = async () => {
     try {   
       console.log(`API URL: ${apiUrl}`);
-      const response = await axios.get(`${apiUrl}/festival`, { withCredentials: true });
+      const response = await axios.get(`${apiUrl}/festival?search=${searchTerm}`, { withCredentials: true });
       console.log(response.data);
       const allFestivals = response.data.festivals;
       return allFestivals;
@@ -55,7 +59,7 @@ const Listpage = (festivalId) => {
         };
 
         allEffect();
-    }, []);
+    }, [searchTerm]);
   
     const univGetHandler = async() => {
       try {
@@ -74,7 +78,7 @@ const Listpage = (festivalId) => {
                 setUnivList(univdata);
             };
             univEffect();
-    }, []);
+    }, [searchTerm]);
 
     const festivalGetHandler = async() => {
       try {
@@ -94,7 +98,7 @@ const Listpage = (festivalId) => {
                   setFestivalList(festivaldata);
               };
               univEffect();
-    }, []);
+    }, [searchTerm]);
 
     const userLikedFestivals = async () => {
       try {

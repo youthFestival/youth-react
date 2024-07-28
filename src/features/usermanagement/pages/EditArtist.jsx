@@ -22,7 +22,9 @@ const EditArtist = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    let {user} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
+    
+    console.log(user)
 
     const artistGetHandler = async (searchTerm = '') => {
        
@@ -31,7 +33,7 @@ const EditArtist = () => {
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await axios.get(`${apiUrl}/artist`, {
                 params: { search: searchTerm }
-            });
+            }, {withCredentials: true});
             console.log(response.data)
             const { artists = [] } = response.data;
             setTotalArtists(artists.length);
@@ -50,7 +52,7 @@ const EditArtist = () => {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchArtistData = async () => {
             try {
             setLoading(true);
             const allArtists = await artistGetHandler(searchTerm);
@@ -62,22 +64,22 @@ const EditArtist = () => {
                console.log(err)
             } 
         }
-      fetchData();
+        fetchArtistData();
     }, [page]);
 
 
 
     const saveArtistHandle = () => {
-        // if (isEditMode && selectedArtist) {
-        //     const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
-        //     if (isAlreadySaved) {
-        //         setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
-        //     } else {
-        //         setSavedArtists([...savedArtists,selectedArtist]);
-        //     }
-        //     setSelectedArtist(null);
-        // }
-        // setIsEditMode(!isEditMode);
+        if (isEditMode && selectedArtist) {
+            const isAlreadySaved = savedArtists.some(artist => artist.artistName === selectedArtist.artistName);
+            if (isAlreadySaved) {
+                setSavedArtists(savedArtists.filter(artist => artist.artistName !== selectedArtist.artistName));
+            } else {
+                setSavedArtists([...savedArtists,selectedArtist]);
+            }
+            setSelectedArtist(null);
+        }
+        setIsEditMode(!isEditMode);
     };
 
     const handleArtistClick = (artist) => {
