@@ -16,8 +16,7 @@ import "../styles/listpage.scss";
 const Listpage = (festivalId) => {
 
   const {user} = useContext(AuthContext);
-
-  console.log(user);
+  
   const [ allList, setAllList ] = useState([]);
   const [ univList, setUnivList ] = useState([]);
   const [ festivalList, setFestivalList ] = useState([]);
