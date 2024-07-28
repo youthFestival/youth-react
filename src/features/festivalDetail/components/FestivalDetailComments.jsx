@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2'; // SweetAlert2 임포트
 import CommentModal from './CommentModal';
 import "../styles/festival-comment.css";
 import Spinner from '../../../components/spinner/Spinner';
@@ -73,21 +74,38 @@ const FestivalDetailComments = ({ festivalId }) => {
         e.preventDefault();
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            await axios.post(`${apiUrl}/comments`, {
-                ...newComment,
+            await axios.post(`${apiUrl}/comment`, {
                 festivalId,
-                userId: "user123",
-                isChild: false
+                content: newComment.content
+            }, { withCredentials: true });
+            Swal.fire({
+                title: '성공!',
+                text: '댓글이 등록되었습니다.',
+                icon: 'success',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then(async () => {
+                closeModal();
+                await fetchComments(currentPage);
+                window.location.reload();
             });
-            alert('댓글이 등록되었습니다.');
-            closeModal();
-            fetchComments(currentPage);
         } catch (error) {
+            Swal.fire({
+                title: '실패!',
+                text: '댓글 등록에 실패했습니다.',
+                icon: 'error',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
             console.error('댓글 등록에 실패했습니다.', error);
         }
     };
 
-    if (loading) return <Spinner/>;
+    if (loading) return <Spinner />;
     if (error) return <p>{error}</p>;
 
     return (
