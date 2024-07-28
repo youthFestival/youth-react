@@ -35,7 +35,7 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
         try {
             const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
             const apiUrl = process.env.REACT_APP_API_URL;
-            await axios.post(`${apiUrl}/auth/reset-password-request`, { userId, email: fullEmail });
+            await axios.post(`${apiUrl}/auth/reset-password-email-send`, { userId, email: fullEmail });
             setTimeLeft(180);
             setIsTimerActive(true);
             Swal.fire({
@@ -56,16 +56,17 @@ const PwFindEmailInput = ({ onSubmit, requestSent }) => {
 
     const handleVerifyCode = async () => {
         try {
+            const fullEmail = domain === '직접입력' ? email : `${email}@${domain}`;
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.post(`${apiUrl}/auth/verify-code`, { verificationCode });
-            const { access_token } = response.data;
+            const response = await axios.get(`${apiUrl}/auth/email-verification-request?email=${fullEmail}&code=${verificationCode}`);
+            const redirectUrl = response.data.redirectUrl;
             Swal.fire({
                 icon: 'success',
                 title: '인증 성공',
                 text: '비밀번호를 재설정할 수 있습니다.',
                 confirmButtonColor: '#89CFF0',
             }).then(() => {
-                navigate(`/change-password?token=${access_token}`);
+                navigate(`${redirectUrl}`);
             });
         } catch (error) {
             Swal.fire({

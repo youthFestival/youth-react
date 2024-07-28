@@ -7,12 +7,15 @@ import axios from 'axios';
 import PwFindEmailInput from './PwFindEmailInput';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { useNavigate } from 'react-router-dom';
 
 const MySwal = withReactContent(Swal);
 
 const PwFindAll = () => {
     const [openToggle, setOpenToggle] = useState(null);
     const [requestSent, setRequestSent] = useState(false);
+
+    const navigate = useNavigate();
 
     const handleToggleClick = (index) => {
         setOpenToggle(openToggle === index ? null : index);
@@ -21,8 +24,14 @@ const PwFindAll = () => {
     const handleEmailSubmit = async (userId, email) => {
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.post(`${apiUrl}/auth/reset-password-request`, { userId, email });
+            await axios.post(`${apiUrl}/auth/reset-password-email-send`, { userId, email });
             setRequestSent(true);
+            MySwal.fire({
+                icon: 'success',
+                title: '인증코드를 발송했습니다. 이메일을 확인해주세요.',
+                confirmButtonText: '확인',
+                confirmButtonColor: '#89CFF0',
+            });
         } catch (error) {
             setRequestSent(false);
             MySwal.fire({
@@ -33,17 +42,6 @@ const PwFindAll = () => {
             });
         }
     };
-
-    useEffect(() => {
-        if (requestSent) {
-            MySwal.fire({
-                icon: 'success',
-                title: '인증코드를 발송했습니다.',
-                confirmButtonText: '확인',
-                confirmButtonColor: '#89CFF0',
-            });
-        }
-    }, [requestSent]);
 
     return (
         <div>
