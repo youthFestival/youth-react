@@ -1,8 +1,8 @@
 import React from "react";
 
-const TableComponent = ({ headers, rows, loading, error, emptyMessage }) => {
+const TableComponent = ({ headers, rows, loading, error, emptyMessage, blurController = false }) => {
   return (
-    <table className="inquiries-table">
+    <table className={`inquiries-table ${blurController ? "blur" : ""}  `}>
       <tr className="row-flex">
         {headers.map((header, index) => (
           <th key={index} className={`col ${header.className}`}>

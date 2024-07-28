@@ -64,10 +64,10 @@ function MemberManagement() {
       {modalVisible && <div className="user-modal-area">
         <EditProfileModal user={currentUser} setVisible={setModalVisible} />
       </div >}
-
       <Header title="회원 조회" subTitle="회원 관리 및 조회" />
 
       <TableComponent
+        blurController={modalVisible}
         headers={headers}
         rows={rows}
         loading={loading}
