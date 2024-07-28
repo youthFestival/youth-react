@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { ReactComponent as LikeIcon } from '../../../assets/festival-like.svg';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../contexts/AuthContext';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const FestivalLike = ({ festivalId }) => {
+    const { user } = useContext(AuthContext);
     const [liked, setLiked] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
 
@@ -11,12 +14,13 @@ const FestivalLike = ({ festivalId }) => {
         const fetchLikeStatus = async () => {
             try {
                 const apiUrl = process.env.REACT_APP_API_URL;
-                const response = await axios.get(`${apiUrl}/user/festival/like/status`, {
-                    params: { festivalId },
+                const response = await axios.get(`${apiUrl}/festival/${festivalId}/like`, {
                     withCredentials: true,
                 });
                 setLiked(response.data.liked);
+                console.log(response.data.liked);
                 setLikeCount(response.data.likeCount);
+                console.log(response.data.likeCount);
             } catch (error) {
                 console.error('찜 상태를 가져오는데 실패했습니다.', error);
             }
@@ -26,14 +30,26 @@ const FestivalLike = ({ festivalId }) => {
     }, [festivalId]);
 
     const onClickLikeBtn = async () => {
+        if (!user) {
+            Swal.fire({
+                title: '로그인이 필요합니다.',
+                text: '로그인 페이지로 이동합니다.',
+                icon: 'warning',
+                confirmButtonText: '확인'
+            }).then(() => {
+                window.location.href = '/login';
+            });
+            return;
+        }
+
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.post(`${apiUrl}/user/festival/like`, { festivalId }, { withCredentials: true });
+            const response = await axios.put(`${apiUrl}/festival/${festivalId}/like`, {}, { withCredentials: true });
             setLiked(response.data.liked);
             setLikeCount(response.data.likeCount);
 
             Swal.fire({
-                title: response.data.liked ? '찜했습니다!' : '찜 해제했습니다!',
+                title: response.data.message,
                 icon: 'success',
                 confirmButtonText: '확인',
                 customClass: {
@@ -56,14 +72,12 @@ const FestivalLike = ({ festivalId }) => {
 
     return (
         <div className='festival-likes-container'>
-            <LikeIcon 
-                className='icon' 
-                id='like-icon' 
-                onClick={onClickLikeBtn} 
-                fill={liked ? 'red' : 'white'}
-                stroke={liked ? 'red' : 'black'}
-            /> 
-            {likeCount}
+            {liked ? (
+                <FavoriteIcon style={{ color: 'red', cursor: 'pointer' }} onClick={onClickLikeBtn} />
+            ) : (
+                <FavoriteBorderIcon style={{ color: 'black', cursor: 'pointer' }} onClick={onClickLikeBtn} />
+            )}
+            <span>{likeCount}</span>
         </div>
     );
 };

@@ -108,7 +108,7 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
                 <div className='festival-main-info'>
                     <div className='festival-meta'>
                         <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{formatDateTime(festival.startDate)} ~ {formatDateTime(festival.endDate)}</p>
-                        <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival.showTime}분</p>
+                        <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival.showTime}</p>
                         <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
                     </div>
                     <div className='festival-additional-info'>

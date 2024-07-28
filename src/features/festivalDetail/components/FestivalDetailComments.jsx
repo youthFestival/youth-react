@@ -1,11 +1,15 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'; // SweetAlert2 임포트
+import Swal from 'sweetalert2'; 
+import { useNavigate } from 'react-router-dom'; 
+import { AuthContext } from '../../../contexts/AuthContext';
 import CommentModal from './CommentModal';
 import "../styles/festival-comment.css";
 import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalDetailComments = ({ festivalId }) => {
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [comments, setComments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -54,6 +58,20 @@ const FestivalDetailComments = ({ festivalId }) => {
     };
 
     const openModal = () => {
+        if (!user) {
+            Swal.fire({
+                title: '로그인이 필요합니다.',
+                text: '로그인 페이지로 이동합니다.',
+                icon: 'warning',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then(() => {
+                navigate('/login');
+            });
+            return;
+        }
         setIsModalOpen(true);
     };
 

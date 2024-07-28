@@ -33,7 +33,6 @@ const FestivalDetailMenu = ({ activeTab, onTabChange, festivalId }) => {
                 });
                 const qnaCount = response.data.inquiries ? response.data.inquiries.length : 0;
                 setQnaCount(qnaCount);
-                console.log(qnaCount);
             } catch (error) {
                 console.error('QnA 수를 가져오는데 실패했습니다.');
             }

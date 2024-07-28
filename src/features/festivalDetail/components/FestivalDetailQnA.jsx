@@ -1,10 +1,15 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 import QnAModal from './QnAModal';
 import "../styles/festival-detail-qna.css";
 import Spinner from '../../../components/spinner/Spinner';
 
 const FestivalDetailQnA = ({ festivalId }) => {
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
     const [qnaList, setQnaList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -81,6 +86,20 @@ const FestivalDetailQnA = ({ festivalId }) => {
     const totalPages = Math.ceil(filteredQnaList.length / qnaPerPage);
 
     const openModal = () => {
+        if (!user) {
+            Swal.fire({
+                title: '로그인이 필요합니다.',
+                text: '로그인 페이지로 이동합니다.',
+                icon: 'warning',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then(() => {
+                navigate('/login');
+            });
+            return;
+        }
         setIsModalOpen(true);
     };
 
@@ -109,16 +128,39 @@ const FestivalDetailQnA = ({ festivalId }) => {
         }
         try {
             const apiUrl = process.env.REACT_APP_API_URL;
-            await axios.post(`${apiUrl}/api/inquiry`, {
-                ...newQnA,
-                festivalId,
-                authorId: "user123",
+            const data = {
+                title: newQnA.title,
+                content: newQnA.content,
+                category: newQnA.category,
+                isSecret: newQnA.isSecret,
+                festivalId: parseInt(festivalId, 10),
                 updatedAt: new Date().toISOString()
+            };
+            console.log('Data being sent:', data);
+            await axios.post(`${apiUrl}/inquiry`, data, { withCredentials: true });
+            Swal.fire({
+                title: '성공!',
+                text: 'QnA가 등록되었습니다.',
+                icon: 'success',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            }).then(async () => {
+                closeModal();
+                await fetchQnA(currentPage);
+                window.location.reload();
             });
-            alert('QnA가 등록되었습니다.');
-            closeModal();
-            fetchQnA(currentPage);
         } catch (error) {
+            Swal.fire({
+                title: '실패!',
+                text: 'QnA 등록에 실패했습니다.',
+                icon: 'error',
+                confirmButtonText: '확인',
+                customClass: {
+                    confirmButton: 'custom-confirm-button'
+                }
+            });
             console.error('QnA 등록에 실패했습니다.', error);
         }
     };
