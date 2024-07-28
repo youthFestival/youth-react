@@ -97,29 +97,29 @@ const FestivalInfo = ({ festivalId, onScrollToMap }) => {
     return (
         <div id='festival-info'>
             <div className='festival-image-area'>
-                <img className='festival-thumbnail' src={festival.festivalThumbnail} alt={festival.festivalName} />
+                <img className='festival-thumbnail' src={festival?.festivalThumbnail || ''} alt={festival?.festivalName || '축제 이미지'} />
             </div>
             <div className='festival-details'>
                 <div className='festival-header'>
-                    <span className='d-day'>{calculateDDay(festival.startDate, festival.endDate)}</span>
-                    <h1 className='festival-name'>{festival.festivalName}</h1>
-                    <p className='festival-description'>{festival.description}</p>
+                    <span className='d-day'>{calculateDDay(festival?.startDate, festival?.endDate)}</span>
+                    <h1 className='festival-name'>{festival?.festivalName || ''}</h1>
+                    <p className='festival-description'>{festival?.description || ''}</p>
                 </div>
                 <div className='festival-main-info'>
                     <div className='festival-meta'>
-                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{formatDateTime(festival.startDate)} ~ {formatDateTime(festival.endDate)}</p>
-                        <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival.showTime}</p>
-                        <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival.category}</p>
+                        <p className='festival-dates'><span className='festival-info-text'>공연기간</span>{festival?.startDate ? `${formatDateTime(festival.startDate)} ~ ${formatDateTime(festival.endDate)}` : ''}</p>
+                        <p className='festival-showtime'><span className='festival-info-text'>관람시간</span>{festival?.showTime || ''}</p>
+                        <p className='festival-category'><span className='festival-info-text-category'>장르</span>{festival?.category || ''}</p>
                     </div>
                     <div className='festival-additional-info'>
-                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival?.geoLocation.name}</span><NextIcon onClick={onScrollToMap} className="scroll-to-map-icon" /></p>
-                        <p className='festival-min-age'><span className='festival-info-text'>관람등급</span>{formatMinAge(festival.minAge)}</p>
-                        <p className='festival-tel'><span className='festival-info-text'>전화번호</span>{festival.tel}</p>
+                        <p className='festival-organizer'><span className='festival-info-text-organizer'>공연장</span><span className='festival-info-value'>{festival?.geoLocation?.name || ''}</span><NextIcon onClick={onScrollToMap} className="scroll-to-map-icon" /></p>
+                        <p className='festival-min-age'><span className='festival-info-text'>관람등급</span>{formatMinAge(festival?.minAge)}</p>
+                        <p className='festival-tel'><span className='festival-info-text'>전화번호</span>{festival?.tel || ''}</p>
                     </div>
                 </div>
                 <div className='festival-actions'>
                     <button className='festival-button' id='festival-homepage-btn'>
-                        <a className='festival-link' href={festival.organizerUrl}>공식 홈페이지</a>
+                        <a className='festival-link' href={festival?.organizerUrl || '#'}>공식 홈페이지</a>
                         <HomepageIcon className='icon' />
                     </button>
                     <button className='festival-button' id='festival-share-btn' onClick={copyUrl}>

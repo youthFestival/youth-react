@@ -11,7 +11,6 @@ export const fetchFestivalCalendar = async (year, month) => {
         });
         const data = response.data;
 
-        // 실제 API 호출 대신 가짜 데이터 반환
         const festivalsForMonth = data?.festivals.filter(festival => {
             const startDate = new Date(festival.startDate);
             const endDate = new Date(festival.endDate);
