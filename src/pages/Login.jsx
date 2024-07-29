@@ -7,9 +7,10 @@ import {
   AuthCheckbox
 } from '../features/authentication/index.js';
 import axios from 'axios';
-import '../styles/login.css';
+
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext.jsx';
+import '../styles/login.css';
 
 const KAKAO_REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 const NAVER_REST_API_KEY = process.env.REACT_APP_NAVER_REST_API_KEY;
@@ -19,6 +20,10 @@ const NAVER_REDIRECT_URI = 'http://localhost:3000/oauth/naver';
 
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_REST_API_KEY}&redirect_uri=${NAVER_REDIRECT_URI}`;
+
+
+
+
 
 /**
  * 로그인 페이지 
@@ -47,6 +52,7 @@ const Login = () => {
       dispatch({ type: "LOGIN", payload: response.data.user });
       alert(response.data.message);
       navigate('/');
+
     } catch (err) {
       if (err.response && err.response.data && err.response.data.message) {
         alert(err.response.data.message);
@@ -66,7 +72,9 @@ const Login = () => {
         {/* 로그인 메인 폼 */}
         <div className="login-contents">
           <div className="login-logo-box">
-            <span className="login-youth">Youth!</span>
+            <NavLink to={'/'} className='login-home-logo'>
+                 <span className="login-youth">Youth!</span>
+            </NavLink>
           </div>
 
           <div className="login-input-form">
@@ -91,6 +99,7 @@ const Login = () => {
               inputPlaceHolder="비밀번호"
               inputOnChange={handleChange}
               id={"password"}
+              authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginBtnClickHandler() : ""}
             />
           </div>
 

@@ -34,7 +34,7 @@ const HomeContentListItem = ({ question, answer, isOpen, onToggle }) => {
                 <div className='title-text'>{question}</div>
                 <img src={isOpen ? ToggleTop : ToggleBottom} alt='토글방향' className='toggle-icon'/>
             </div>
-            {isOpen && <div className='item-list-content'>{answer}</div>}
+            {isOpen && <div className='item-list-content' dangerouslySetInnerHTML={{ __html: answer }}></div>}
         </div>
     );
 };

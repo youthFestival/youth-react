@@ -38,6 +38,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 /* 로그인 체크박스 CSS */
@@ -197,4 +199,9 @@
 .googlelogo {
     width: 25px;
     height: 25px;
+}
+
+.login-home-logo{
+    text-decoration: none;
+    color:inherit;
 }

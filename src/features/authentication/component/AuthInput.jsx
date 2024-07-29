@@ -15,7 +15,8 @@ function AuthInput({
               imgAlt, 
               inputOnChange,
               id,
-              showAuthIcon = true
+              showAuthIcon = true,
+              authOnKeyDown
     }) 
     {
     
@@ -46,6 +47,7 @@ function AuthInput({
                 value={inputValue}
                 onChange={inputOnChange}
                 ref={inputLoginRef}
+                onKeyDown={authOnKeyDown}
                 id={id}
             />
             
