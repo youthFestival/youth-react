@@ -99,6 +99,7 @@ const Login = () => {
               inputPlaceHolder="비밀번호"
               inputOnChange={handleChange}
               id={"password"}
+              authOnKeyDown={(e)=>(e.key === "Enter" ) ? loginBtnClickHandler() : ""}
             />
           </div>
 
