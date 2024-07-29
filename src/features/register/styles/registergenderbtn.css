@@ -49,9 +49,9 @@
     border: 1px solid #FFFFFF;
 }
 
-.gender-man:checked,
-.gender-woman:checked{
-    background-color: #000000;
-    color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+.gender-man.checked,
+.gender-woman.checked{
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #000000;
 }
