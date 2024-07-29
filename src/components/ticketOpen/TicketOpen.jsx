@@ -3,6 +3,7 @@ import axios from 'axios';
 import OpenTicket from '../../features/list/component/OpenTicket';
 import './ticketOpen.scss';
 import { formatDay3 } from '../../utils/util';
+import { Link } from 'react-router-dom';
 
 const TicketOpen = () => {
     
@@ -46,13 +47,15 @@ const TicketOpen = () => {
             </div>
             <div className="ticket-grid">
                 {festivals.map((festival) => (
-                    <OpenTicket 
-                    key={festival.id} 
-                    festival={festival}
-                    posterSrc={festival.festivalThumbnail}
-                    posterAlt={festival.posterAlt}
-                    festivalTitle={festival.festivalName}
-                    festivalTicketOpen={formatDay3(festival.ticketOpen)} />
+                    <Link to={`/festivaldetail/${festival.id}`} key={festival.id} className='link'>
+                        <OpenTicket 
+                            key={festival.id} 
+                            festival={festival}
+                            posterSrc={festival.festivalThumbnail}
+                            posterAlt={festival.posterAlt}
+                            festivalTitle={festival.festivalName}
+                            festivalTicketOpen={formatDay3(festival.ticketOpen)} />
+                    </Link>
                 ))}
             </div>
         </div>

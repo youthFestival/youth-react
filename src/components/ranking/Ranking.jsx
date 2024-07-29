@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './ranking.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; 
@@ -78,17 +79,19 @@ const Ranking = () => {
         >
           {festivals.map((festival, index) => (
             <SwiperSlide key={festival.id}>
-              <MainPosterComponent
-                className="component"
-                festival={festival}
-                posterSrc={festival.festivalThumbnail}
-                posterAlt={festival.posterAlt}
-                festivalTitle={festival.festivalName}
-                festivalLocation={festival.geoLocationName}
-                festivalStartDate={formatDay1(festival.startDate)}
-                festivalEndDate={formatDay2(festival.endDate)}
-                index={numbers[(currentNumberIndex + index) % numbers.length]}
-              />
+              <Link to={`/festivaldetail/${festival.id}`} key={festival.id} className='link'>
+                <MainPosterComponent
+                  className="component"
+                  festival={festival}
+                  posterSrc={festival.festivalThumbnail}
+                  posterAlt={festival.posterAlt}
+                  festivalTitle={festival.festivalName}
+                  festivalLocation={festival.geoLocationName}
+                  festivalStartDate={formatDay1(festival.startDate)}
+                  festivalEndDate={formatDay2(festival.endDate)}
+                  index={numbers[(currentNumberIndex + index) % numbers.length]}
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

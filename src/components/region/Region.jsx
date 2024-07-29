@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import './region.scss';
 import axios from 'axios';
@@ -70,18 +70,20 @@ const Region = () => {
                 </div>
                 <div className="region-content-container">
                     {festivals.map((festival) => (
-                        <RegionComponent 
-                        onClick={() => handleDetailPage({ festival })}
-                        key={festival.id}
-                        festival={festival}
-                        posterSrc={festival.festivalThumbnail}
-                        posterAlt={festival.posterAlt}
-                        festivalTitle={festival.festivalName}
-                        festivalLocation={festival.geoLocationName}
-                        festivalStartDate={formatDay1(festival.startDate)}
-                        festivalEndDate={formatDay2(festival.endDate)}
-                        />
-                        ))}
+                        <Link to={`/festivaldetail/${festival.id}`} key={festival.id} className='link'>
+                            <RegionComponent 
+                                onClick={() => handleDetailPage({ festival })}
+                                key={festival.id}
+                                festival={festival}
+                                posterSrc={festival.festivalThumbnail}
+                                posterAlt={festival.posterAlt}
+                                festivalTitle={festival.festivalName}
+                                festivalLocation={festival.geoLocationName}
+                                festivalStartDate={formatDay1(festival.startDate)}
+                                festivalEndDate={formatDay2(festival.endDate)}
+                            />
+                        </Link>
+                    ))}
                 </div>
             </div>
         
