@@ -90,6 +90,7 @@
     align-self: flex-start;
     font-size: 12px;
     font-weight: normal;
+    margin: 0;
 }
 
 .inquiry-container .answer .text {
