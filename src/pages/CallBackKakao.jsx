@@ -68,7 +68,7 @@ const CallBackKakao = () => {
       const response = await axios.post(process.env.REACT_APP_API_URL + "/auth/kakao-login", {
         id: user.id,
         profileName: user?.properties.nickname,
-      })
+      },{withCredentials : true});
 
       return response.data;
     }
