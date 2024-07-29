@@ -102,7 +102,7 @@ const Listpage = (festivalId) => {
     const userLikedFestivals = async () => {
       try {
         if (user && user.id) {
-          const response = await axios.get(`${apiUrl}/festival/${festivalId}/like`, { withCredentials: true });
+          const response = await axios.get(`${apiUrl}/festival/${festivalId}/like`);
           return response.data.festivals;
         }
       } catch (error) {
