@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import Item from './HomeContentListItem'
-import axios from 'axios'
-import '../../styles/content-list.css'
-import unknown from '../../icons/unknown-document.svg'
+import React, { useEffect, useState } from 'react';
+import Item from './HomeContentListItem';
+import axios from 'axios';
+import '../../styles/content-list.css';
+import unknown from '../../icons/unknown-document.svg';
 
 const apiURL = process.env.REACT_APP_API_URL;
 
-const HomeContentList = ({searchQuery}) => {
+const HomeContentList = ({ searchQuery }) => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(apiURL + '/faq');
+                const response = await axios.get(`${apiURL}/faq`);
                 const data = response.data;
                 console.log(data);
                 setItems(data);
@@ -34,7 +34,10 @@ const HomeContentList = ({searchQuery}) => {
             return items;
         }
         const lowerCaseQuery = query.toLowerCase();
-        return items.filter(item => item.answer.toLowerCase().indexOf(lowerCaseQuery) !== -1);
+        return items.filter(item => 
+            (item.content && item.content.toLowerCase().includes(lowerCaseQuery)) ||
+            (item.title && item.title.toLowerCase().includes(lowerCaseQuery))
+        );
     };
 
     const itemFiltered = itemFilter(searchQuery);
@@ -45,8 +48,8 @@ const HomeContentList = ({searchQuery}) => {
                 itemFiltered.map((item, index) => (
                     <Item
                         key={index}
-                        question={item.title}
-                        answer={item.content}
+                        question={item.title || 'Untitled'}
+                        answer={item.content || ''}
                         isOpen={openIndex === index}
                         onToggle={() => handleToggle(index)}
                     />
@@ -64,7 +67,7 @@ const HomeContentList = ({searchQuery}) => {
                 </div>  
             )}
         </div>
-    )
-}
+    );
+};
 
-export default HomeContentList
+export default HomeContentList;

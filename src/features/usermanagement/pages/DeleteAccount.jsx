@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Swal from 'sweetalert2';
 import DeleteAccountModal from '../component/DeleteAccountModal';
+import { AuthContext } from '../../../contexts/AuthContext';
 import '../styles/delete-account.scss';
 
 const DeleteAccount = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { user, dispatch } = useContext(AuthContext);
+    const userId = user ? user.userId : null;
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -16,7 +19,7 @@ const DeleteAccount = () => {
 
     const handleDelete = async () => {
         try {
-            const userId = 1; // 나중엔 실제 유저 아이디로 변경해야 함
+            console.log(userId);
             const apiUrl = process.env.REACT_APP_API_URL;
             const response = await fetch(`${apiUrl}/user/${userId}`, {
                 method: 'DELETE',
@@ -30,7 +33,7 @@ const DeleteAccount = () => {
                     text: result.message,
                     confirmButtonColor: '#89CFF0',
                 }).then(() => {
-                    // 로그아웃 처리 추가해야 됨
+                    dispatch({ type: "LOGOUT" });
                     window.location.href = '/';
                 });
             } else {
