@@ -41,10 +41,10 @@ const Listpage = (festivalId) => {
   const allGetHandler = async () => {
     try {   
       console.log(`API URL: ${apiUrl}`);
-      const response = await axios.get(`${apiUrl}/festival?search=${searchTerm}`, { withCredentials: true });
-      console.log(response.data);
-      const allFestivals = response.data.festivals;
-      return allFestivals;
+        const response = await axios.get(`${apiUrl}/festival?search=${searchTerm}`, { withCredentials: true });
+        console.log(response.data);
+        const allFestivals = response.data.festivals;
+        return allFestivals;
     } catch (err) {
       console.log(err);
       return [];
