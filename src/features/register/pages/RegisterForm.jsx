@@ -40,6 +40,7 @@ const RegisterForm = () => {
   const handleChange = (e) => {
     const {name, value} = e.target;
     setFormData({...formData, [name]: value,})
+    console.log(formData);
   }
 
   const handleAddressSelect = (selectedAddress) => {
@@ -128,7 +129,10 @@ const RegisterForm = () => {
           name="passwordCheck"
         />
 
-        <RegisterGenderBtn />
+        <RegisterGenderBtn 
+        registerInputValue={formData.gender}
+        registerInputOnChange={handleChange}
+        name="gender"/>
 
         <RegisterInput
           registerText="이름"
