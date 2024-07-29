@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import './region.scss';
 import axios from 'axios';
@@ -11,23 +12,33 @@ const Region = () => {
     const [error, setError] = useState(null);
     const [category, setCategory] = useState("대학축제");
 
+    const navigate = useNavigate();
     
-        const fetchData = async (category) => {
-            try {
-            const apiUrl = process.env.REACT_APP_API_URL;
-            const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&category=${category}`);
-            console.log(response.data);
+    
+    const fetchData = async (category) => {
+        try {
+        const apiUrl = process.env.REACT_APP_API_URL;
+        const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&category=${category}`);
+        console.log(response.data);
 
-            setFestivals(response.data.festivals);
+        setFestivals(response.data.festivals);
 
-            } catch (error) {
+        } catch (error) {
             setError('Error fetching data');
-            }
-        };
+        }
+    };
 
-        useEffect(() => {
-            fetchData(category);
-        }, [category]);
+    const handleDetailPage = ({ festival }) => {
+        navigate('/festivalDetail', {
+            state: {
+
+            }
+        })
+    }
+
+    useEffect(() => {
+        fetchData(category);
+    }, [category]);
 
     const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
@@ -58,9 +69,10 @@ const Region = () => {
                 <div className="region-content-container">
                     {festivals.map((festival) => (
                         <RegionComponent 
+                        onClick={() => handleDetailPage({ festival })}
                         key={festival.id}
                         festival={festival}
-                        posterSrc={festival.festivalThumnail}
+                        posterSrc={festival.festivalThumbnail}
                         posterAlt={festival.posterAlt}
                         festivalTitle={festival.festivalName}
                         festivalLocation={festival.geoLocationName}

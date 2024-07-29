@@ -9,8 +9,6 @@ const TicketOpen = () => {
     const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
     
-    // 현재 시간을 반환하는 함수
-    const getCurrentTimestamp = () => new Date().getTime();
 
     
 
@@ -51,7 +49,7 @@ const TicketOpen = () => {
                     <OpenTicket 
                     key={festival.id} 
                     festival={festival}
-                    posterSrc={festival.festivalThumnail}
+                    posterSrc={festival.festivalThumbnail}
                     posterAlt={festival.posterAlt}
                     festivalTitle={festival.festivalName}
                     festivalTicketOpen={formatDay3(festival.ticketOpen)} />

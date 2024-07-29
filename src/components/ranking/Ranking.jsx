@@ -3,12 +3,16 @@ import './ranking.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; 
 import 'swiper/css/navigation'; 
+import 'swiper/css/free-mode';
+import 'swiper/css/thumbs';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 import axios from 'axios';
 import MainPosterComponent from '../../features/list/component/MainPosterComponent';
 import { formatDay1, formatDay2 } from '../../utils/util';
 
 const Ranking = () => {
-
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [mainSwiper, setMainSwiper] = useState(null);
     const [error, setError] = useState(null);
     const [festivals, setFestivals] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,7 +28,8 @@ const Ranking = () => {
           console.log(response);
         //   let data = Array.isArray(response.data) ? response.data : [];
           // viewCount 기준으로 내림차순 정렬 후 상위 10개만 선택
-          const festivals = response.data?.festivals.sort((a, b) => b.viewCount - a.viewCount).slice(0, 10);
+          const festivals = response.data.festivals.sort((a, b) => b.viewCount - a.viewCount).slice(0, 10);
+          console.log(festivals);
           setFestivals(festivals);
         } catch (error) {
           setError('Error fetching data');
@@ -35,12 +40,6 @@ const Ranking = () => {
     useEffect(() => {
         fetchData(category);
     }, [category]);
-
-    const filteredFestivals = festivals;
-
-      const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex - 5 + filteredFestivals.length) % filteredFestivals.length);
-      };
 
       const handleCategoryChange = (newCategory) => {
         setCategory(newCategory);
@@ -68,10 +67,37 @@ const Ranking = () => {
                 </button>
             </div>
             <div className="rank-slider-container">
+        <Swiper
+          slidesPerView={5}
+          slidesPerGroup={1} // 한 번에 1개 슬라이드씩 이동
+          navigation={true}
+          loop={true}
+          modules={[FreeMode, Navigation, Thumbs]}
+          onSlideChange={(swiper) => setCurrentIndex(swiper.currentIndex)}
+          className="swiper-container"
+        >
+          {festivals.map((festival, index) => (
+            <SwiperSlide key={festival.id}>
+              <MainPosterComponent
+                className="component"
+                festival={festival}
+                posterSrc={festival.festivalThumbnail}
+                posterAlt={festival.posterAlt}
+                festivalTitle={festival.festivalName}
+                festivalLocation={festival.geoLocationName}
+                festivalStartDate={formatDay1(festival.startDate)}
+                festivalEndDate={formatDay2(festival.endDate)}
+                index={numbers[(currentNumberIndex + index) % numbers.length]}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+            {/* <div className="rank-slider-container">
                 <Swiper
                     spaceBetween={20}
                     slidesPerView={5}
-                    slidesPerGroup={5} // 한 번에 5개 슬라이드씩 이동
+                    slidesPerGroup={1} // 한 번에 5개 슬라이드씩 이동
                     pagination={{ clickable: true }}
                     navigation={true}
                     loop={true}
@@ -79,7 +105,6 @@ const Ranking = () => {
                 > 
                     
                 {festivals.slice(currentIndex, currentIndex + 5).map((festival, index) => (
-                    // <PosterComponent key={festival.id} festival={festival} />
 
                     <MainPosterComponent 
                     className="component"
@@ -95,7 +120,7 @@ const Ranking = () => {
                     />
                     ))}
                 </Swiper>
-            </div>
+            </div> */}
         </div>
     )
 }
