@@ -20,8 +20,10 @@ const Region = () => {
         const apiUrl = process.env.REACT_APP_API_URL;
         const response = await axios.get(`${apiUrl}/festival?locality=${user.locality}&category=${category}`);
         console.log(response.data);
+        const festivals = response.data.festivals.slice(0, 5);
 
-        setFestivals(response.data.festivals);
+        setFestivals(festivals);
+        console.log(festivals);
 
         } catch (error) {
             setError('Error fetching data');
