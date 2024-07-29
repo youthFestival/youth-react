@@ -41,12 +41,12 @@ const ImageSlider = () => {
     const images = [
         //swiperjs.com/demos/images/nature-1.jpg',
         '/images/sliderImage.png',
-        'https://images.unsplash.com/photo-1506157786151-b8491531f063?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://images.unsplash.com/photo-1501828983797-9d7f14e0263c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-        'https://swiperjs.com/demos/images/nature-7.jpg',
-        'https://swiperjs.com/demos/images/nature-8.jpg',
-        'https://swiperjs.com/demos/images/nature-9.jpg',
-        'https://swiperjs.com/demos/images/nature-10.jpg'
+        'http://tkfile.yes24.com/Upload2/Display/202405/20240517/wel_mv_49633.png/dims/quality/70/',
+        'http://tkfile.yes24.com/Upload2/Display/202407/20240711/wel_mv_50239_73deff.jpg/dims/quality/70/',
+        'http://tkfile.yes24.com/Upload2/Display/202407/20240726/wel_,mv_49826.jpg/dims/quality/70/',
+        'http://tkfile.yes24.com/Upload2/Display/202407/20240726/wel_mv_50354.jpg/dims/quality/70/',
+        'http://tkfile.yes24.com/Upload2/Display/202407/20240723/wel_mv_50389_f9e455.jpg/dims/quality/70/',
+        'http://tkfile.yes24.com/Upload2/Display/202405/20240513/wel_mv_49543_fbd4d7.png/dims/quality/70/'
     ];
 
     const handleThumbClick = (index) => {
