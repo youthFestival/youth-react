@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import '../styles/authinput.css'
+import React, { useState, useRef } from 'react';
+import '../styles/auth-input.css'
 /**
  * Auth Input
  * @returns 
@@ -10,12 +10,18 @@ function AuthInput({
               inputType, 
               inputClassName, 
               inputPlaceHolder,
+              inputValue,
               imgSrc,
-              imgAlt 
+              imgAlt, 
+              inputOnChange,
+              id,
+              showAuthIcon = true,
+              authOnKeyDown
     }) 
     {
     
       const [showPassword, setShowPassword] = useState(true);
+      const inputLoginRef = useRef();
 
       const showPasswordHandler = () => {
           setShowPassword(!showPassword);
@@ -24,19 +30,25 @@ function AuthInput({
       return (
         <div className={formClassName}>
           <div className='input-write'>
-            <img 
+            {showAuthIcon &&(
+               <img 
                     src={imgSrc}
                     alt={imgAlt}
                     width={"24px"} 
                     height={"24px"}
-            />
-
+              />
+            )}
+           
             <label htmlFor={inputClassName}></label>
             <input 
                 type={ inputType === 'password' && showPassword ? inputType : "text"  }    
                 className={inputClassName}
                 placeholder={inputPlaceHolder}
-                onChange={ () => showPassword }
+                value={inputValue}
+                onChange={inputOnChange}
+                ref={inputLoginRef}
+                onKeyDown={authOnKeyDown}
+                id={id}
             />
             
             {inputType === 'password' && (

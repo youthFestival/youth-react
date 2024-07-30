@@ -1,0 +1,33 @@
+.openticket {
+
+    display: flex;
+    width: 413px;
+    height: 186px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+
+    .img-container {
+        width: 140px;
+        .image {
+            width: 140px;
+            border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        }
+    }
+    
+    .content-container {
+        padding: 65px 20px 0px 20px;
+        font-size: 17px;
+        .open-date-container {
+            margin-bottom: 9px;
+            color :#89cff0;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .open-title {
+            font-weight: 700;
+            line-height: 16px;
+        }
+    }
+}

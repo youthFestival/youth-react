@@ -1,0 +1,15 @@
+.input-write {
+    position: relative;
+    margin-top: 15.8px;
+    margin-bottom: 15px;
+    display: flex;
+    gap:12px;
+}
+
+.eyebtn { 
+    position: absolute;
+    background: none; 
+    border: none;
+    right: 0;
+    margin: 3px;
+}

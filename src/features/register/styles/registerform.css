@@ -1,0 +1,154 @@
+.register-write-container{
+  display: grid;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.register-header{
+  display: flex;
+  justify-content: center;
+  border-bottom: 0.8px solid #89CFF0;
+}
+
+.register-header-youth{
+  display: flex;
+  width: 151px;
+  height: 87.8px;
+  flex-direction: column;
+  justify-content: center;
+  color: #89CFF0;
+  text-align: center;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.register-write-form{
+  width: 500px;
+  height: 1000px;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.input-with-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.register-check-btn {
+  position: absolute;
+  display: flex;
+  height: 30px;
+  min-width: 70px;
+  padding: 5.7px 10.8px 6.7px 10.8px;
+  align-items: center;
+  border-radius: 6px;
+  border: 1px solid #CCCCCC;
+  background: #FFFFFF;
+  color: #000000;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  right: 0;
+  margin-top: 4%;
+  cursor: pointer;
+}
+
+.register-check-btn:hover{
+  background:#89CFF0;
+  color: #FFFFFF;
+  border: none;
+}
+
+.register-id-input,
+.register-pw-input,
+.register-pwcheck-input,
+.register-name-input,
+.register-address-input,
+.register-detail-address,
+.register-email-input,
+.register-phone-input {
+  padding: 10px 0px 10.8px 5px;
+  border: none;
+  width: 340px;
+}
+
+.register-address-input {
+  flex-grow: 1;
+  padding: 10px 5px;
+  border: none;
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.register-id-input:focus,
+.register-pw-input:focus,
+.register-pwcheck-input:focus,
+.register-name-input:focus,
+.register-address-input:focus,
+.register-detail-address:focus,
+.register-email-input:focus,
+.register-phone-input:focus{
+  outline: none;
+}
+
+
+.email-with-dropdown{
+  position:relative;
+  display: flex;
+  align-items: center;
+}
+
+#email-dropdown{
+  position: absolute;
+  right: 0;
+  margin-top: 3%;
+  background: #FAFAFA;
+  color: #666;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  border-radius: 6px;
+}
+
+#email-dropdown:focus {
+  outline: none;
+}
+
+.email-option:hover {
+  background: #FAFAFA;
+  color: #666;
+}
+
+.email-option:hover {
+  background: #89CFF0;
+}
+
+.register-age-limit-span{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+
+  .register-header-youth {
+      font-size: 35px;
+  }
+
+}

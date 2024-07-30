@@ -1,0 +1,17 @@
+.list-dropdown {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+
+    .dropdown-icon {
+        position: absolute;
+        right: 10px; 
+        pointer-events: none;
+        width: 20px;
+        height: 20px;
+    }
+
+}

@@ -1,0 +1,74 @@
+[
+    {
+        "boothId": 1,
+        "limit": 6,
+        "items": [
+            { "name": "소고기부채살스테이크", "price": 10000, "keyword": "소고기부채살", "boothId": 1 },
+            { "name": "오븐에구운닭꼬치", "price": 4000, "keyword": "소떡소떡", "boothId": 1 },
+            { "name": "아기소반", "price": 8000, "keyword": "아기소반", "boothId": 1 },
+            { "name": "소고기불초밥", "price": 10000, "keyword": "불초밥", "boothId": 1 },
+            { "name": "통삼겹마스터", "price": 10000, "keyword": "통삼겹스테이크", "boothId": 1 },
+            { "name": "치즈/페퍼로니피자", "price": 10000, "keyword": "페퍼로니피자", "boothId": 1 }
+        ]
+    },
+    {
+        "boothId": 2,
+        "limit": 6,
+        "items": [
+            { "name": "오븐에구운닭꼬치", "price": 4000, "keyword": "닭꼬치", "boothId": 2 },
+            { "name": "소떡소떡", "price": 5000, "keyword": "소떡소떡", "boothId": 2 },
+            { "name": "닭강정", "price": 7000, "keyword": "닭강정", "boothId": 2 },
+            { "name": "양념치킨", "price": 8000, "keyword": "양념치킨", "boothId": 2 },
+            { "name": "후라이드치킨", "price": 8000, "keyword": "후라이드치킨", "boothId": 2 },
+            { "name": "치킨버거", "price": 6000, "keyword": "치킨버거", "boothId": 2 }
+        ]
+    },
+    {
+        "boothId": 3,
+        "limit": 6,
+        "items": [
+            { "name": "아기소반", "price": 8000, "keyword": "아기소반", "boothId": 3 },
+            { "name": "미니김밥", "price": 3000, "keyword": "미니김밥", "boothId": 3 },
+            { "name": "유부초밥", "price": 4000, "keyword": "유부초밥", "boothId": 3 },
+            { "name": "떡볶이", "price": 5000, "keyword": "떡볶이", "boothId": 3 },
+            { "name": "순대", "price": 4000, "keyword": "순대", "boothId": 3 },
+            { "name": "튀김", "price": 3000, "keyword": "튀김", "boothId": 3 }
+        ]
+    },
+    {
+        "boothId": 4,
+        "limit": 6,
+        "items": [
+            { "name": "소고기불초밥", "price": 10000, "keyword": "불초밥", "boothId": 4 },
+            { "name": "참치초밥", "price": 12000, "keyword": "참치초밥", "boothId": 4 },
+            { "name": "연어초밥", "price": 12000, "keyword": "연어초밥", "boothId": 4 },
+            { "name": "장어초밥", "price": 15000, "keyword": "장어초밥", "boothId": 4 },
+            { "name": "새우초밥", "price": 10000, "keyword": "새우초밥", "boothId": 4 },
+            { "name": "유부초밥", "price": 5000, "keyword": "유부초밥", "boothId": 4 }
+        ]
+    },
+    {
+        "boothId": 5,
+        "limit": 6,
+        "items": [
+            { "name": "통삼겹마스터", "price": 10000, "keyword": "통삼겹", "boothId": 5 },
+            { "name": "삼겹살", "price": 12000, "keyword": "삼겹살", "boothId": 5 },
+            { "name": "항정살", "price": 13000, "keyword": "항정살", "boothId": 5 },
+            { "name": "목살", "price": 11000, "keyword": "목살", "boothId": 5 },
+            { "name": "갈비살", "price": 15000, "keyword": "갈비살", "boothId": 5 },
+            { "name": "돼지껍데기", "price": 5000, "keyword": "돼지껍데기", "boothId": 5 }
+        ]
+    },
+    {
+        "boothId": 6,
+        "limit": 6,
+        "items": [
+            { "name": "치즈피자", "price": 10000, "keyword": "치즈피자", "boothId": 6 },
+            { "name": "페퍼로니피자", "price": 10000, "keyword": "페퍼로니피자", "boothId": 6 },
+            { "name": "고구마피자", "price": 11000, "keyword": "고구마피자", "boothId": 6 },
+            { "name": "불고기피자", "price": 12000, "keyword": "불고기피자", "boothId": 6 },
+            { "name": "포테이토피자", "price": 11000, "keyword": "포테이토피자", "boothId": 6 },
+            { "name": "씨푸드피자", "price": 13000, "keyword": "씨푸드피자", "boothId": 6 }
+        ]
+    }
+]

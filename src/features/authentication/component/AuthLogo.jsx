@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 /**
  * 연동 로그인 아이콘
@@ -6,10 +6,11 @@ import React, { Component } from 'react';
  */
 
 function AuthLogo (props){
-     const {logoDivName, logoHref, logoSrc, logoAlt, logoClassName} =  props
+     const {logoDivName, logoHref, logoSrc, logoAlt, logoClassName, onClick} =  props
      return( 
      <a
         href={logoHref}
+        onClick={onClick}
      >
           <div
              className={logoDivName}
@@ -20,7 +21,6 @@ function AuthLogo (props){
                          alt = {logoAlt}
                          className={logoClassName}
                     />
-               
           </div>
      </a>
      );

@@ -1,9 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../styles/festival-calendar.css";
 
-/**
- * 각 일자별 축제
- */
 const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, isLastColumn, isToday }) => {
     const displayEvents = events.slice(0, 10);
     const dateClass = isPrevMonth ? 'prev-month' : isNextMonth ? 'next-month' : '';
@@ -15,15 +13,33 @@ const CalendarDay = ({ date, events, isPrevMonth, isNextMonth, isFirstColumn, is
             "대학축제": "university-festival",
             "페스티벌": "general-festival"
         };
+        console.log("카테고리 ::"+ category)
         return categoryMap[category] || "unknown-category";
+    };
+
+    const getEventClass = (event) => {
+        const startDate = new Date(event.startDate).getDate();
+        const endDate = new Date(event.endDate).getDate();
+        if (endDate > startDate) { // 축제 기간이 하루를 넘는 경우
+            if (date === startDate) {
+                return `festival ${categoryToClassName(event.category)} festival-continued`;
+            } else if (date === endDate && isFirstColumn) {
+                return `festival ${categoryToClassName(event.category)}`;
+            } else if (date > startDate && date < endDate) {
+                return `festival ${categoryToClassName(event.category)} festival-continued`;
+            }
+        }
+        return `festival ${categoryToClassName(event.category)}`;
     };
 
     return (
         <td className={`calendar-item ${dateClass} ${columnClass}`}>
             <div className={`calendar-date ${dateClass} ${todayClass}`}>{date}</div>
             {displayEvents.map((event, index) => (
-                <div key={index} className={`festival ${categoryToClassName(event.categories)}`}>
-                    {new Date(event.startDate).getDate() === date && event.name}
+                <div key={index} className={getEventClass(event)}>
+                    {(date === new Date(event.startDate).getDate() || (date === new Date(event.endDate).getDate() && isFirstColumn)) ? (
+                        <Link to={`/festivaldetail/${event.id}`} className="event-link">{event.name}</Link>
+                    ) : ""}
                 </div>
             ))}
         </td>

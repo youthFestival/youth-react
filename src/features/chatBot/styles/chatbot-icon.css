@@ -1,30 +1,32 @@
-#chatbot-icon {
+.chatbot-icon {
     position: fixed;
     right: 30px;
     bottom: 25px;
-    width: 80px;
-    height: 80px;
-    min-height: 80px;
-    max-height: 80px;
+    width: 56px;
+    height: 56px;
+    min-height: 56px;
+    max-height: 56px;
     overflow: hidden;
     background-color: #89CFF0;
     border: hidden;
     border-radius: 50%;
     background: var(--corwdFlower, #5BA5F5);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
 }
 
-#chatbot-icon img {
-    width: 50px;
-    height: 50px;
+.chatbot-icon img {
+    width: 36px;
+    height: 36px;
     object-fit: contain;
+    
     transition: filter 0.3s;
 }
 
-#chatbot-icon:hover {
+.chatbot-icon:hover {
     filter: brightness(97%);
 }
 
-#chatbot-icon:active {
+.chatbot-icon:active {
     filter: brightness(85%);
 }

@@ -1,0 +1,53 @@
+.id-find {
+    width: 670px;
+    flex-shrink: 0;
+    margin-bottom: 1rem;
+    position: relative;
+
+    .handler-btn {
+        background: none;
+        border: none;
+        vertical-align: middle;
+    }
+
+    .find-radio-image {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .find-radio {
+        display: none;
+    }
+
+    .find-text {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    .toggle-text {
+        color: rgba(0, 0, 0, 0.60);
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        text-align: left;
+        margin-left: 80px;
+    }
+
+    .toggle-content {
+        margin-top: 1rem;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .toggle-content.open {
+        max-height: 330px;
+    }
+}

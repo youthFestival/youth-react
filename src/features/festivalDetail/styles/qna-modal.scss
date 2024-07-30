@@ -1,0 +1,175 @@
+.QnA-modal {
+    background: white;
+    padding: 20px;
+    width: 60%;
+    height: 70%;
+    margin: 0 auto;
+    position: relative;
+    transform: translateY(0%);
+    overflow: auto;
+}
+
+.QnA-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.QnA-modal-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.QnA-modal-title {
+    text-align: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.QnA-modal-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.QnA-modal-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.QnA-modal-label {
+    background-color: #F9F9F9;
+    border-top: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+    font-size: 16px;
+    padding-left: 23px;
+    font-weight: 500;
+}
+
+.QnA-modal-label-secret {
+    font-size: 15px;
+    color: #B5B5B5;
+}
+
+.QnA-modal-input-cell {
+    padding: 10px;
+    border-top: 1px solid #E8E8E8;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+.QnA-modal-input,
+.QnA-modal-textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+}
+
+.QnA-modal-select {
+    width: 94px;
+    height: 47px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.QnA-modal-textarea {
+    height: 100px;
+}
+
+.QnA-modal-checkbox-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-top: 1px solid #E8E8E8;
+}
+
+.QnA-modal-checkbox {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.QnA-modal-buttons {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.QnA-modal-submit {
+    background-color: #89CFF0;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 250px;
+    height: 60px;
+    margin-right: 24px;
+    transition: background-color 0.3s;
+}
+
+.QnA-modal-submit:hover {
+    background-color: #5bb8e3;
+}
+
+.QnA-modal-cancel {
+    background-color: #ccc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 250px;
+    height: 60px;
+    transition: background-color 0.3s;
+}
+
+.QnA-modal-cancel:hover {
+    background-color: #c82333;
+}
+
+.QnA-modal-notice {
+    margin-top: 20px;
+    font-size: 15px;
+    color: #555;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.error-text {
+    color: red;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+    .QnA-modal {
+        width: 90%;
+        height: auto;
+    }
+
+    .QnA-modal-input,
+    .QnA-modal-textarea,
+    .QnA-modal-select {
+        width: 100%;
+    }
+
+    .QnA-modal-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .QnA-modal-submit,
+    .QnA-modal-cancel {
+        width: 90%;
+        margin: 10px 0;
+    }
+}

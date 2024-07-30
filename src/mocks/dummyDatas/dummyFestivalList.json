@@ -1,0 +1,285 @@
+{
+    "message": "페스티벌 리스트 데이터 조회 성공",
+    "festivals": [
+        {
+            "id": 1,
+            "festivalTitle": "2024 고려대학교 축제 2024 고려대학교 축제  2024 고려대학교 축제",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "대학축제",
+            "festivalLocation" : "고려대학교 서울캠퍼스고려대학교 서울캠퍼스고려대학교 서울캠퍼스고려대학교 서울캠퍼스고려대학교 서울캠퍼스고려대학교",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+            
+        },
+        {
+            "id": 2,
+            "festivalTitle": "쏜애플 쏜애플 쏜애플 쏜애플 쏜애플 쏜애플 쏜애플 ",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 3,
+            "festivalTitle": "2024 서울대학교 축제",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "대학축제",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 4,
+            "festivalTitle": "장기하",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 5,
+            "festivalTitle": "정아로",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 6,
+            "festivalTitle": "신인류",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 7,
+            "festivalTitle": "이바다",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 8,
+            "festivalTitle": "전자양",
+            "startDate": "2024-06-30",
+            "endDate": "2024-06-30",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 9,
+            "festivalTitle": "시인을 위하여",
+            "startDate": "2024-07-01",
+            "endDate": "2024-07-01",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "https://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 10,
+            "festivalTitle": "잭킹콩",
+            "startDate": "2024-07-01",
+            "endDate": "2024-07-01",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 11,
+            "festivalTitle": "장기하",
+            "startDate": "2024-07-02",
+            "endDate": "2024-07-02",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 12,
+            "festivalTitle": "2024 인하대학교 축제",
+            "startDate": "2024-07-03",
+            "endDate": "2024-07-03",
+            "categories": "대학축제",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 13,
+            "festivalTitle": "장기하",
+            "startDate": "2024-07-04",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 14,
+            "festivalTitle": "[여우락 페스티벌]박우재",
+            "startDate": "2024-07-04",
+            "endDate": "2024-07-04",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 15,
+            "festivalTitle": "공중그늘",
+            "startDate": "2024-07-04",
+            "endDate": "2024-07-04",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 16,
+            "festivalTitle": "쏜애플",
+            "startDate": "2024-07-05",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 17,
+            "festivalTitle": "[여우락 페스티벌]허윤정",
+            "startDate": "2024-07-05",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 18,
+            "festivalTitle": "라쿠나, Television off",
+            "startDate": "2024-07-05",
+            "endDate": "2024-07-05",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 19,
+            "festivalTitle": "Tuesday Beach CLub",
+            "startDate": "2024-07-05",
+            "endDate": "2024-07-05",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 20,
+            "festivalTitle": "나상현씨밴드",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 21,
+            "festivalTitle": "다브다, 불고기디스코",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 22,
+            "festivalTitle": "박소은",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 23,
+            "festivalTitle": "소란",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 24,
+            "festivalTitle": "크랙샷",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 25,
+            "festivalTitle": "페퍼톤스",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 26,
+            "festivalTitle": "피에타",
+            "startDate": "2024-07-06",
+            "endDate": "2024-07-06",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 27,
+            "festivalTitle": "김창완밴드",
+            "startDate": "2024-07-07",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 28,
+            "festivalTitle": "나상현씨밴드",
+            "startDate": "2024-07-07",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 29,
+            "festivalTitle": "달담, 현서",
+            "startDate": "2024-07-07",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 30,
+            "festivalTitle": "유발이",
+            "startDate": "2024-07-07",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        },
+        {
+            "id": 31,
+            "festivalTitle": "이한철",
+            "startDate": "2024-07-07",
+            "endDate": "2024-07-07",
+            "categories": "페스티벌",
+            "festivalLocation" : "고려대학교 서울캠퍼스",
+            "posterSrc": "phttps://mblogthumb-phinf.pstatic.net/MjAyNDA1MjFfMzEg/MDAxNzE2Mjc0NjE5MDAw.xqYwkcFs5a2nOoTlJp8ZpzURbjxqcyI7dVmMQVUxy3sg.IlxyGjArO1FnB7Wn0SkHxP1IWKdGhTQssT90JaVj2PQg.JPEG/KakaoTalk_20240521_155626760.jpg?type=w800"
+        }
+    ]
+}

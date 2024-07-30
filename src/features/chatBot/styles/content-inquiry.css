@@ -1,0 +1,138 @@
+.inquiry-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 570px;
+    padding: 0 10px;
+}
+
+.inquiry-container > .inquiry-title {
+    width: 410px;
+    height: 20px;
+    font-size: 20px;
+    font-family: "Pretendard Variable";
+    font-weight: bolder;
+    color: #000000;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.inquiry-container .chat-area {
+    height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.inquiry-container .send-message {
+    width: 410px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    background-color: #F2F2F3;
+    border-radius: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.inquiry-container .send-message input {
+    width: 337px;
+    height: 34px;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px;
+    border: none;
+    background-color: #F2F2F3;
+    border-radius: 14px;
+    outline: none;
+}
+
+.inquiry-container .send-message img {
+    margin: auto;
+}
+
+.inquiry-container .question, .answer {
+    max-width: 80%;
+    font-family: "Pretendard Variable";
+    font-size: 16px;
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+.inquiry-container .answer {
+    align-self: flex-start;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.inquiry-container .answer img {
+    align-self: flex-start;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 10px;
+}
+
+.inquiry-container .answer .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+}
+
+.inquiry-container .answer .title {
+    width: 32px;
+    height: 12px;
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.inquiry-container .answer .text {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    align-self: flex-start;
+    color: #000000;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #e8e8e8;
+    border-radius: 12px;
+    word-wrap: break-word; /* Ensures long words break and wrap */
+    word-break: break-word; /* Adds support for better word breaking */
+}
+
+.inquiry-container .question {
+    align-self: flex-end;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse; /* 반대 방향으로 정렬 */
+    align-items: center;
+}
+
+.inquiry-container .question .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 4px; /* 반대쪽으로 여백 조정 */
+}
+
+
+.inquiry-container .question .text {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    align-self: flex-end; /* 반대쪽 정렬 */
+    color: #000000;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 12px;
+    word-wrap: break-word; /* 긴 단어가 줄 바꿈 되도록 */
+    word-break: break-word; /* 더 나은 단어 줄 바꿈 지원 */
+}

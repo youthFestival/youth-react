@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "username": "홍길동",
+      "email": "hongildong@naver.com",
+      "userId": "kangminjun"
+    },
+    {
+      "username": "이순신",
+      "email": "leesoonshin@naver.com",
+      "userId": "admin"
+    },
+    {
+      "username": "테스트",
+      "email": "test@naver.com",
+      "userId": "test"
+    }
+  ],
+
+  "verificationCodes" : [
+    {
+      "verificationCode" : "123456"
+    }
+  ]
+}

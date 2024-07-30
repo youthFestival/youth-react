@@ -5,19 +5,12 @@ import leftArrow from '../../../assets/left-arrow.svg';
 import rightArrow from '../../../assets/right-arrow.svg';
 import "../styles/festival-calendar.css";
 
-/**
- * 달력 페이지 UI
- * @returns 축제 일정(달력)
- */
 const FestivalCalendar = () => {
     const today = new Date();
     const [year, setYear] = useState(today.getFullYear());
     const [month, setMonth] = useState(today.getMonth() + 1);
-    const { festivals, prevMonthFestivals, nextMonthFestivals } = useFestivals(year, month);
+    const { festivals = [], prevMonthFestivals = [], nextMonthFestivals = [] } = useFestivals(year, month);
 
-    /**
-     * 이전 달 이동 핸들러
-     */
     const handlePreviousMonth = () => {
         if (month === 1) {
             setYear(year - 1);
@@ -27,9 +20,6 @@ const FestivalCalendar = () => {
         }
     };
 
-    /**
-     * 다음 달 이동 핸들러
-     */
     const handleNextMonth = () => {
         if (month === 12) {
             setYear(year + 1);
@@ -46,7 +36,6 @@ const FestivalCalendar = () => {
         const rows = [];
         let cells = [];
 
-        // 오늘 날짜 확인
         const isToday = (day) => {
             return day === today.getDate() && month === today.getMonth() + 1 && year === today.getFullYear();
         };
@@ -69,7 +58,8 @@ const FestivalCalendar = () => {
                 const endDate = new Date(festival.endDate);
                 return day >= startDate.getDate() && day <= endDate.getDate();
             });
-            cells.push(<CalendarDay key={day} date={day} events={events} isToday={isToday(day)} isFirstColumn={cells.length === 0} isLastColumn={(day + firstDay - 1) % 7 === 6} />);
+            const isLastDayInRow = (day + firstDay - 1) % 7 === 6;
+            cells.push(<CalendarDay key={day} date={day} events={events} isToday={isToday(day)} isFirstColumn={cells.length === 0} isLastColumn={isLastDayInRow} />);
             if ((day + firstDay) % 7 === 0) {
                 rows.push(<tr key={`row-${day}`}>{cells}</tr>);
                 cells = [];

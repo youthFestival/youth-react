@@ -1,0 +1,18 @@
+{
+    "message": "프로필 정보가 조회되었습니다",
+    "profiles":
+      {
+        "id": 1,
+        "userId": "kangminjun",
+        "password": "kangminjun1234",
+        "email": "hongildong@example.com",
+        "createdAt": "2023-07-18T10:00:00Z",
+        "gender": "남성",
+        "username": "홍길동",
+        "address": "서울특별시 중구 세종대로 110",
+        "isAdmin": "user",
+        "isAllowEmail": false,
+        "tel": "010-1234-5678"
+      }
+  }
+  

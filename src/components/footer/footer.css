@@ -1,0 +1,52 @@
+#wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.footer-footer {
+    height: 220px;
+    align-items: center;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #00000014;
+}
+
+.ftop-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.fleft-container {
+    /* padding-left: 100px; */
+    padding-right: 150px;
+}
+
+.fbottom-container {
+    height: 72px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+.fright-container {
+
+} */
+
+.fyouth {
+    font-size: 14px;
+}
+
+.ftop {
+    color: #666666;
+    font-size: 12px;
+}
+
+.fbottom {
+    color: #1212127d;
+    font-size: 12px;
+}

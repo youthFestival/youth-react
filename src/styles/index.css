@@ -1,7 +1,13 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
+:root {
+  /* 색 */
+  --app-primary-color: #89CFF0;
+  --inquiries-category-account-color: #342727;
+}
 
+/* 전체적인 폰트를 프리텐다드로 설정. 영어는 따로 설정해야함 */
 * {
   font-family: "Pretendard Variable", sans-serif;
 }
@@ -11,20 +17,28 @@
   ex) 폰트나 기본값 설정 (input의 글씨체, body의 폰트 등)
 
   * 폰트 적용은 여기서 가져가시면 됩니다.
-  한글 폰트 프리텐다드
-  font-family: "Pretendard Variable", sans-serif; //해당 부분에 추가
 
   영어 폰트 Noto Sans
   font-family: "Noto Sans", sans-serif;
-
-
   */
 html body {
   margin: 0;
   padding: 0;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
+html body #root{
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
 }
+
+ul, li, ol {
+  padding: 0; /* 기본 패딩 제거 */
+  margin: 0;  /* 기본 마진 제거 */
+  list-style: none; /* 리스트 스타일 제거 */
+}
+
+input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 1000px white inset !important;
+            box-shadow: 0 0 0 1000px white inset !important;
+        }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import'../styles/authcheckbox.css'
+import'../styles/auth-checkbox.css'
 
 /**
  * Checkbox 
@@ -20,10 +20,10 @@ function AuthCheckbox ({ inputType, inputCheckClassName, checkBoxText})
             {inputType === 'checkbox' && (
                 <button onClick={showCheckedBoxHandler} className='custom-checkbox'>
                   {checkedBox ? (
-                    <img src="./icons/checkbox_off.png" alt="패스워드 보기 off" className='checkbox-image' />
+                    <img src="./icons/checkbox/checkbox_off.png" alt="패스워드 보기 off" className='checkbox-image' />
 
                   ) : (
-                    <img src="./icons/checkbox_on.png" alt="패스워드 보기 on" className='checkbox-image' />   
+                    <img src="./icons/checkbox/checkbox_on.png" alt="패스워드 보기 on" className='checkbox-image' />   
                   )}
                 </button>
             )}

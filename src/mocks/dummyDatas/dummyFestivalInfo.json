@@ -1,0 +1,88 @@
+{
+    "info": {
+        "festivalThumbnail": "https://cdnticket.melon.co.kr/resource/image/upload/product/2024/02/202402211356400c7f8b20-2a5f-4aa8-9c06-fe72004a0c91.jpg/melon/resize/180x254/strip/true/quality/90/optimize",
+        "festivalName": "워터밤 서울 2024 (WATERBOMB SEOUL 2024)",
+        "description": "익사이팅한 음악과 퍼포먼스 그리고 워터파이팅이 더해진 새로운 차원의 경험！",
+        "startDate": "2024-08-01",
+        "endDate": "2024-08-03",
+        "showTime": 540,
+        "category": "페스티벌",
+        "organizer": "경주엑스포대공원 백결공연장",
+        "minAge": 19,
+        "tel": "010-0000-0000",
+        "organizerUrl": "https://example.com"
+    },
+    "lineUp": [
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/021/11/694/2111694_20230913105320.jpg/melon/thumbnail/320x300",
+            "lineUpName": "쿠기"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/006/88/432/688432_20201014150323.jpg/melon/thumbnail/320x300",
+            "lineUpName": "로꼬"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/16/984/716984_20240422104110.jpg/melon/thumbnail/320x300",
+            "lineUpName": "한요한"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/008/73/162/873162_20230530151627.jpg/melon/thumbnail/320x300",
+            "lineUpName": "키드밀리 (Kid Milli)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/018/66/689/1866689_20221124114330.jpg/melon/thumbnail/320x300",
+            "lineUpName": "우원재"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/007/86/499/786499_20220722171049.jpg/melon/thumbnail/320x300",
+            "lineUpName": "저스디스 (JUSTHIS)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/62/839/2862839_20230724173256.jpg/melon/thumbnail/320x300",
+            "lineUpName": "JAEHA (재하)"
+        },
+        {
+            "lineUpUrls": "https://cdnimg.melon.co.kr/cm2/artistcrop/images/027/54/623/2754623_20201214142344.jpg/melon/thumbnail/320x300",
+            "lineUpName": "호미들"
+        }
+    ],
+    "posterImage": "https://ticketimage.interpark.com/Play/image/etc/24/24008427-02.jpg",
+    "pictures": [
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792282.1.jpg"
+        },
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792283.1.jpg"
+        },
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792281.1.jpg"
+        },
+        {
+            "picture": "https://img.hankyung.com/photo/202306/01.33792282.1.jpg"
+        }
+    ],
+    "recommendations": [
+        {
+            "imgUrl": "https://i.namu.wiki/i/eNy0g_Pfe_kRaEHhrs_6gGPnwfPwuQ4-irNNkTrHHDup2sfymkyPeAgZeNuh4Kia7F-vkJLKNRopiuuSz_EqVGPlhmnuHrH1F7DZi8SANmhEMTY0VfsSMJTQMex1ARtUOYbXItRNQ3JDSy8LQpu1PQ.webp",
+            "name": "2024 서울대학교 축제"
+        },
+        {
+            "imgUrl": "https://i.namu.wiki/i/3xuMun8RsOCC1hYxk1x8YWS4-gGUdp_M4zqvK0Ci4Ucp6qJJteFZLFgS7NeMGOTCW0vXAfbvIb99QXPY13fdWQ.svg",
+            "name": "2024 고려대학교 축제"
+        },
+        {
+            "imgUrl": "https://i.namu.wiki/i/Z1XdhqOnsbBpe8b_q1gb_8U23EqVDJkzQOMLVZjqGz4KNRfqEyHnYUBI7WW49LRT63XqDSfjl9uqkyrdHzDZljETF-GwGdGkfydr-NkBk6Sts8_zGLkpUjQljaGKhUVEFvgt4YHwFN9fS73fu9KknA.svg",
+            "name": "2024 연세대학교 축제"
+        }
+    ],
+    "geolocation": [
+        {
+            "id" : 1,
+            "latitude": 37.6684,
+            "longitude": 126.7459
+        }
+    ],
+    "userId" : 1,
+    "likeCount" : 5,
+    "liked" : false
+}

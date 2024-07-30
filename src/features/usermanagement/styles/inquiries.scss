@@ -1,0 +1,93 @@
+.mydetail-inquiries{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-top: 110px;
+
+    span {
+        line-height: 21px;
+    }
+
+    .editor{
+        display: flex;
+        position: relative;
+        width: 80%;
+    }
+
+    .profile {
+        min-width: 200px;
+        min-height: 50px;
+        padding-block: 10px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+
+
+        .nickname {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .date {
+            font-size: 12px;
+        }
+    }
+
+    .title-text {
+        width: 80%;
+    }
+    // 게시글 제목
+    .title {
+        display: flex;
+        padding: 10px 15px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6px;
+        align-self: stretch;
+        width: 500px;
+        border-bottom: 2px solid black; /* 원하는 색상과 두께로 변경 가능 */ 
+        
+        .title-text {
+            border: none;
+            outline: none; /* 포커스 시 테두리가 나타나지 않게 */
+            padding: 0px;
+        }
+    }
+
+   
+
+    .festival {
+        padding: 16px 14px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 6px;
+        align-self: stretch;
+    }
+
+    // 게시글 내용
+    .content {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+
+    .write {
+        margin-bottom: 100px;
+        margin-left: 20px;
+        width: 95%;
+        height: fit-content;
+    }
+
+    .container{
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+}

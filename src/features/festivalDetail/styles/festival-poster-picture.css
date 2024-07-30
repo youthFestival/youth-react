@@ -1,0 +1,83 @@
+/*FestivalPoster*/
+.festival-poster-container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 100px;
+}
+
+.festival-poster-image {
+    width: 90%;
+    max-width: 1000px;
+    object-fit: fill;
+}
+
+.festival-message {
+    text-align: center;
+}
+
+/* FestivalPictures */
+.festival-pictures-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.pictures-header {
+    display: flex;
+    justify-content: flex-start;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.pictures-header-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.pictures-slider {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    position: relative;
+}
+
+.pictures-carousel-control-prev,
+.pictures-carousel-control-next {
+    background: none;
+    border: 1px solid #666666;
+    border-radius: 100%;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+}
+
+.pictures-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    min-width: 60%;
+}
+
+.festival-picture {
+    width: 310px;
+    height: 310px;
+    object-fit: cover;
+    margin: 0 20px;
+    border-radius: 8px;
+}
+
+@media (max-width: 1108px) {
+    .festival-picture {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+.pictures-control-btn {
+    width: 100%;
+    height: auto;
+}

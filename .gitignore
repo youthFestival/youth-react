@@ -11,6 +11,9 @@
 # production
 /build
 
+# ENV
+.env
+
 # misc
 .DS_Store
 .env.local
@@ -21,3 +24,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#index.js
+.index.js

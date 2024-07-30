@@ -2,7 +2,7 @@
  * @desc 이 파일은 React 앱에서 사용되는 AuthContext와 관련된 컴포넌트와 리듀서를 정의합니다.
  */
 
-import React, { createContext, useEffect, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 
 /**
  * Context로 공유할 데이터의 초기값을 담는 객체

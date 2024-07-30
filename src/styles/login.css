@@ -1,31 +1,9 @@
-/* @media (max-width: 430px) {
-    .login-container {
-        height: 304px;
-    }
-
-    .login-contents {
-        width: 100%;
-    }
-    .input-id-bar,
-    .input-pw-bar,
-    .login-btn {
-        width: 100%;
-    }
-    .login-container {
-        width: 100%;
-    }
-    .login-id-input,
-    .login-pw-input {
-        width: 100%;
-    }
-} */
-
 /* 로그인 페이지 CSS */
 .login-form {
     background-color: white;
     display: flex;
     justify-content: center;
-    margin-top: 68px;
+    padding-top: 68px;
 }
 
 .login-container {
@@ -60,6 +38,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
 /* 로그인 체크박스 CSS */
@@ -118,7 +98,9 @@
 }
 
 /* 정보찾기, 회원가입 영역 CSS */
-.login-userfind-register a {
+.find-id,
+.find-pw,
+.go-register {
     text-decoration: none;
     color: #666;
     font-size: 13px;
@@ -126,8 +108,10 @@
     margin-top: 31px;
 }
 
-.login-userfind-register a:nth-child(2)::before,
-.login-userfind-register a:nth-child(2)::after {
+.find-id:nth-child(2)::before,
+.find-id:nth-child(2)::after,
+.find-pw:nth-child(2)::before,
+.find-pw:nth-child(2)::after {
     content: '|';
     padding-inline: 12px;
     color: #dddddd;
@@ -152,6 +136,7 @@
     flex-direction: column;
     align-items: center;
     flex-shrink: 0;
+    cursor: pointer;
 }
 
 .login-btn:hover {
@@ -214,4 +199,9 @@
 .googlelogo {
     width: 25px;
     height: 25px;
+}
+
+.login-home-logo{
+    text-decoration: none;
+    color:inherit;
 }

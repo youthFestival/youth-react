@@ -1,0 +1,68 @@
+.edit-profile-modal {
+    z-index: 10;
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    background-color: white;
+    max-width: 550px;
+    border-radius: 25px;
+    gap: 28px;
+    padding-bottom: 32px;
+
+    display: flex;
+    flex-direction: column;
+
+    .modal-header {
+        padding-top: 10px;
+        position: relative;
+        display: flex;
+        border-bottom: 1px solid #E9E9E9;
+        height: 59px;
+        justify-content: center;
+
+        .title {
+            align-content: center;
+            align-items: center;
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .exit {
+            top: 0;
+            right: 0;
+            position: absolute;
+            align-items: center;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            transform: translate(-32px, 17px);
+            cursor: pointer;
+        }
+    }
+
+
+    .body {
+        box-sizing: border-box;
+        padding-inline: 18px;
+    }
+
+    button {
+        margin-left: 42px;
+        width: 94px;
+        height: 29px;
+        border-radius: 8px;
+        border: none;
+        color: white;
+        background-color: black;
+    }
+
+    exit {
+        cursor: pointer;
+    }
+}
+
+.user-modal.blur {
+    filter: blur(5px);
+}

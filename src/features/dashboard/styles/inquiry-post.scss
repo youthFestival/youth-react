@@ -1,0 +1,42 @@
+.inquiry {
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+    span {
+        line-height: 21px;
+    }
+
+    .profile {
+        min-width: 200px;
+        min-height: 50px;
+        padding-block: 10px 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+
+        .nickname {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .date {
+            font-size: 12px;
+        }
+    }
+
+    // 게시글 제목
+    .title {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    // 게시글 내용
+    .content {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+
+}

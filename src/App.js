@@ -1,33 +1,104 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AdminDashBoard from "./pages/AdminDashBoard";
-import Login from './pages/Login';
-import Calendar from './pages/Calendar';
+import {
+  AdminDashBoard,
+  Calendar,
+  FestivalDetail,
+  InquiriesDetail,
+  Login,
+  MydetailFrame,
+  Mypage,
+  Register,
+  TempMain,
+  UserFind,
+  UserInquiries,
+  Chatbot,
+  RegisterForm,
+  List,
+  MemberManagement,
+  PrivacyPolicy,
+} from "./pages";
+
+import Ranking from "./components/ranking/Ranking";
 import Home from './pages/Home';
-import MyHome from './pages/mypage/MyHome';
-import Register from './pages/Register';
+import ChangePassword from '../src/features/userfind/component/ChangePassword.jsx';
+import { Navigate } from 'react-router-dom';
+import ScrollToTop from '../src/services/ScrollToTop.js';
+import {
+  EditProfile,
+  EditArtist,
+  Inquiries,
+  InquiriesSave,
+  DeleteAccount,
+  InquiriesList,
+  Favorites,
+  QnA,
+  Comment,
+  QnAEdit
+} from './features/usermanagement/index.js';
+
+// test
+import EditProfileModal from "./features/dashboard/components/EditProfileModal.jsx";
+import OpenTicket from "./features/list/component/OpenTicket.jsx";
+
+import CallBackKakao from './pages/CallBackKakao.jsx'
+import Dashboard from "./features/dashboard/pages/Dashboard.jsx";
 
 function App() {
-  // useEffect(() => {
-  //   fetch('http:localhost:5000/api/auth').then(res => res.json()).then(data => console.log(data))
-  // }, [])
 
   return (
     <BrowserRouter>
+    <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/admin" element={<AdminDashBoard />}>
-          <Route path="dashboard" element={<div>대시보드</div>} />  
-          <Route path="members" element={<div>회원관리 및 조회</div>} />  
-          <Route path="logs" element={<div>활동 로그</div>} />  
-          <Route path="register-festival" element={<div>축제 추가</div>} />  
-          <Route path="inquiries" element={<div>고객 문의</div>} />  
-        
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="members/*" element={<MemberManagement />} />
+          <Route path="logs" element={<div>활동 로그</div>} />
+          <Route path="register-festival" element={<div>축제 추가</div>} />
+          <Route path="inquiries/*" element={<UserInquiries />} />
+          <Route path="inquiries/detail/:id" element={<InquiriesDetail />} />
         </Route>
+        <Route path="/" element={<>
+          <Home />
+          <Chatbot />
+        </>} />
         <Route path="/login" element={<Login />} />
+        <Route path="/oauth/kakao" element={<CallBackKakao />} />
         <Route path="/calendar" element={<Calendar />} />
-        <Route path="/mypage" element={<MyHome />} />
+
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/mydetail" element={<MydetailFrame />}>
+          <Route index element={<Navigate to="edit-profile" />} />
+          <Route path='edit-profile' element={<EditProfile />} />
+          <Route path='edit-artist' element={<EditArtist />} />
+          <Route path='favorites' element={<Favorites />} />
+          <Route path='inquiries' element={<Inquiries />} />
+          <Route path='inquiries-save' element={<InquiriesSave />} />
+          <Route path='inquiries-list' element={<InquiriesList />} />
+          <Route path='qna' element={<QnA />} />
+          <Route path='edit-qna' element={<QnAEdit />} />
+          <Route path='comment' element={<Comment />} />
+          <Route path='deletion' element={<DeleteAccount />} />
+        </Route>
+
         <Route path="/register" element={<Register />} />
+        <Route path="/register/agreement" element={<PrivacyPolicy />} />
+        <Route path="/register/registerform" element={<RegisterForm />} />
+        <Route path="/userfind" element={<UserFind />} />
+        <Route path="/festivaldetail/:festivalId" element={<FestivalDetail />} />
+        <Route path="/list/*" element={<List />} />
+        <Route path="/ranking" element={<Ranking />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+
+        <Route path="/test">
+          <Route path="" element={<TempMain />} />
+          <Route path="editor" element={<EditProfileModal />} />
+          <Route path="openticket" element={<OpenTicket />} />
+
+        </Route>
+
       </Routes>
+
+
     </BrowserRouter>
   );
 }

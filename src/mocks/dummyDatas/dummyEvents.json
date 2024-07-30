@@ -1,0 +1,140 @@
+{
+    "event": [
+      {
+        "id": 1,
+        "category": "디데이",
+        "content": "The festival 2024 인천펜타포트 락 페스티벌 starts in less than 7 days!",
+        "redirectUrl": "festivaldetail/1",
+        "isChecked": false,
+        "createdAt": "2024-07-25T12:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 2,
+        "category": "문의답변",
+        "content": "Your inquiry has been answered!",
+        "redirectUrl": "/inquiries/1",
+        "isChecked": false,
+        "createdAt": "2024-07-24T15:30:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 3,
+        "category": "구독한 행사 이벤트",
+        "content": "New event: 2024 서울재즈페스티벌 has been added to your subscriptions.",
+        "redirectUrl": "festivaldetail/1",
+        "isChecked": true,
+        "createdAt": "2024-07-23T08:45:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 4,
+        "category": "좋아하는 아티스트 행사 알림",
+        "content": "Your favorite artist John Doe is performing at 2024 서울재즈페스티벌.",
+        "redirectUrl": "/artists/1",
+        "isChecked": false,
+        "createdAt": "2024-07-22T10:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 5,
+        "category": "대댓글",
+        "content": "Someone replied to your comment on 2024 서울재즈페스티벌.",
+        "redirectUrl": "/comments/1",
+        "isChecked": true,
+        "createdAt": "2024-07-21T14:15:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 6,
+        "category": "디데이",
+        "content": "The festival 2024 인천펜타포트 락 페스티벌 starts in less than 7 days!",
+        "redirectUrl": "/festivals/1",
+        "isChecked": false,
+        "createdAt": "2024-07-25T12:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 7,
+        "category": "문의답변",
+        "content": "Your inquiry has been answered!",
+        "redirectUrl": "/inquiries/1",
+        "isChecked": false,
+        "createdAt": "2024-07-24T15:30:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 8,
+        "category": "구독한 행사 이벤트",
+        "content": "New event: 2024 서울재즈페스티벌 has been added to your subscriptions.",
+        "redirectUrl": "/events/2",
+        "isChecked": true,
+        "createdAt": "2024-07-23T08:45:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 9,
+        "category": "좋아하는 아티스트 행사 알림",
+        "content": "Your favorite artist John Doe is performing at 2024 서울재즈페스티벌.",
+        "redirectUrl": "/artists/1",
+        "isChecked": false,
+        "createdAt": "2024-07-22T10:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 10,
+        "category": "대댓글",
+        "content": "Someone replied to your comment on 2024 서울재즈페스티벌.",
+        "redirectUrl": "/comments/1",
+        "isChecked": true,
+        "createdAt": "2024-07-21T14:15:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 11,
+        "category": "디데이",
+        "content": "The festival 2024 인천펜타포트 락 페스티벌 starts in less than 7 days!",
+        "redirectUrl": "festivaldetail/1",
+        "isChecked": false,
+        "createdAt": "2024-07-25T12:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 12,
+        "category": "문의답변",
+        "content": "Your inquiry has been answered!",
+        "redirectUrl": "/inquiries/1",
+        "isChecked": false,
+        "createdAt": "2024-07-24T15:30:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 13,
+        "category": "구독한 행사 이벤트",
+        "content": "New event: 2024 서울재즈페스티벌 has been added to your subscriptions.",
+        "redirectUrl": "festivaldetail/1",
+        "isChecked": true,
+        "createdAt": "2024-07-23T08:45:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 14,
+        "category": "좋아하는 아티스트 행사 알림",
+        "content": "Your favorite artist John Doe is performing at 2024 서울재즈페스티벌.",
+        "redirectUrl": "/artists/1",
+        "isChecked": false,
+        "createdAt": "2024-07-22T10:00:00Z",
+        "userId": "admin"
+      },
+      {
+        "id": 15,
+        "category": "대댓글",
+        "content": "Someone replied to your comment on 2024 서울재즈페스티벌.",
+        "redirectUrl": "/comments/1",
+        "isChecked": true,
+        "createdAt": "2024-07-21T14:15:00Z",
+        "userId": "admin"
+      }
+    ]
+  }
+  

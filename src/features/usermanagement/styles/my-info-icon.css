@@ -1,0 +1,53 @@
+.myinfo-icon-form{
+    display: flex;
+}
+
+.info-edit,
+.info-edit,
+.pick-festival,
+.pick-artist,
+.delete-info {
+    display: flex;
+    width: 70px;
+    flex-direction: column;
+    align-items: center;
+    margin: 13px;
+    font-size: 10px;
+}
+
+.info-edit-icon{
+    width: 25px;
+    height: 25px;
+    margin-bottom: 4px;
+}
+
+.pick-fesitval-icon,
+.pick-artist-icon,
+.delete-info-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 2px;
+}
+
+.pick-artist-icon,
+.delete-info-icon{
+    margin-bottom: 4px;
+}
+
+.edit-text-p,
+.pick-festival-text-p,
+.pick-artist-text-p,
+.delete-info-text-p {
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 5px;
+    letter-spacing: -0.5px;
+}
+
+.detail-navlink{
+    text-decoration: none;
+}
