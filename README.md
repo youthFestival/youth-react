@@ -205,7 +205,7 @@ YouthFestival의 프론트엔드 서버입니다.
         </td>
         <td width="60" align="center">
           <a href="https://github.com/kang-minjune">
-            <img src="http://img.shields.io/badge/kangminjun-655ced?style=social&logo=github"/>
+            <img src="http://img.shields.io/badge/minjun-655ced?style=social&logo=github"/>
           </a>
         </td>
         <td width="155" align="center">
