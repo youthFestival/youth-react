@@ -1,9 +1,7 @@
 <!-- Youth! README -->
 
 <div align="center">
-<img src="https://capsule-render.vercel.app/api?type=egg&color=89CFF0&height=150&section=header" />  
-  
-  <img src="https://github.com/user-attachments/assets/e766046d-5b2f-4a71-bc5e-b7c9a4d87239" width="500px" height="400px" />
+  <img width="300" src="https://github.com/user-attachments/assets/658e8600-887b-4ed7-b800-66ac8582f8de" />
 </div>
 
 <div align="center">
@@ -21,7 +19,7 @@
 <br><br>
 
 ## Project Description
-매해마다 찾아오는 대학축제 그리고 페스티벌 시즌! 즐기는 사람들을 위한 축제 정보 제공 웹 사이트 Youth!입니다. <br>다양한 니즈(needs)와 음악 취향 그리고 현장 분위기만큼 정보를 확실하게 얻는 것이 더욱 중요해진 요즘. Youth!로 쉽게 정보를 접해보세요.
+YouthFestival의 프론트엔드 서버입니다. 
 
 
 <br>
